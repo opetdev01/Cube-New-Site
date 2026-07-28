@@ -1,0 +1,653 @@
+.portalContainer {
+  position: relative;
+  min-height: 100vh;
+  /* Transparent so the global body background shines through */
+  background: transparent;
+  color: #111111;
+  padding: 120px 24px 60px;
+  overflow: hidden;
+  font-family: 'Outfit', 'Inter', sans-serif;
+}
+
+/* Holographic Matrix Grid (Darker red lines for light background) */
+.hologramGrid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(rgba(227, 6, 19, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(227, 6, 19, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  opacity: 0.6;
+  z-index: 1;
+}
+
+/* Glowing Accent Orbs (Adapted for light Mode) */
+.glowOrbRed {
+  position: absolute;
+  top: 15%;
+  right: 10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(227, 6, 19, 0.12) 0%, transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.glowOrbWhite {
+  position: absolute;
+  bottom: 10%;
+  left: 5%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(227, 6, 19, 0.06) 0%, transparent 70%);
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.mainWrapper {
+  position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
+  z-index: 2;
+}
+
+/* Header Section */
+.header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.logoBadge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(227, 6, 19, 0.3);
+  padding: 12px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 30px rgba(227, 6, 19, 0.1);
+  animation: logoPulse 4s infinite ease-in-out;
+}
+
+.logoImage {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.header h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  background: linear-gradient(135deg, #111111 30%, #e30613 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #4a4d55;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Grid Layout */
+.portalGrid {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+@media (max-width: 1024px) {
+  .portalGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Stats Card (Left Panel) - Light Glassmorphism */
+.statsCard {
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(227, 6, 19, 0.08);
+  backdrop-filter: blur(16px);
+  border-radius: 20px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid rgba(227, 6, 19, 0.08);
+  padding-bottom: 15px;
+  margin-bottom: 25px;
+}
+
+.neonPulse {
+  width: 8px;
+  height: 8px;
+  background-color: #e30613;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #e30613;
+  animation: neonBlink 1.5s infinite alternate;
+}
+
+.cardHeader h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #4a4d55;
+}
+
+.statsMetrics {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.metricItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.metricVal {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #111111;
+  line-height: 1;
+}
+
+.metricLabel {
+  font-size: 0.85rem;
+  color: #626672;
+  margin-top: 6px;
+}
+
+.systemStatus {
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  border-radius: 12px;
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.statusRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: #4a4d55;
+}
+
+.statusOnline {
+  color: #00aa44;
+  font-weight: 700;
+  text-shadow: 0 0 8px rgba(0, 170, 68, 0.1);
+}
+
+.systemStatus code {
+  background: rgba(0, 0, 0, 0.05);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-family: monospace;
+  color: #e30613;
+}
+
+.cubeLogoMark {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.brochureImage {
+  border-radius: 12px;
+  border: 1px solid rgba(227, 6, 19, 0.15);
+  box-shadow: 0 10px 25px rgba(227, 6, 19, 0.1);
+  transition: all 0.3s ease;
+}
+
+.brochureImage:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(227, 6, 19, 0.2);
+}
+
+/* Chat Card (Right Panel) - Light Glassmorphism */
+.chatCard {
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(227, 6, 19, 0.08);
+  backdrop-filter: blur(16px);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 650px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.chatHeader {
+  padding: 20px 30px;
+  border-bottom: 1px solid rgba(227, 6, 19, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.liveIndicator {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #111111;
+}
+
+.liveDot {
+  width: 6px;
+  height: 6px;
+  background-color: #00ff66;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #00ff66;
+  animation: pulseDot 1s infinite alternate;
+}
+
+.chatMessages {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Scrollbar styling */
+.chatMessages::-webkit-scrollbar {
+  width: 6px;
+}
+.chatMessages::-webkit-scrollbar-track {
+  background: transparent;
+}
+.chatMessages::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 3px;
+}
+
+.messageWrapper {
+  display: flex;
+  max-width: 85%;
+}
+
+.msgBot {
+  align-self: flex-start;
+}
+
+.msgUser {
+  align-self: flex-end;
+}
+
+.messageContent {
+  padding: 16px 20px;
+  border-radius: 16px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.msgBot .messageContent {
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  color: #2d3748;
+  border-bottom-left-radius: 4px;
+}
+
+.msgUser .messageContent {
+  background: #e30613;
+  color: #ffffff;
+  border-bottom-right-radius: 4px;
+  box-shadow: 0 4px 15px rgba(227, 6, 19, 0.2);
+}
+
+/* Markdown parsing inside chatbot */
+.botMarkdown h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #111111;
+  margin: 15px 0 8px;
+}
+
+.botMarkdown p {
+  margin-bottom: 10px;
+}
+
+.botMarkdown code {
+  background: rgba(227, 6, 19, 0.08);
+  border: 1px solid rgba(227, 6, 19, 0.2);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.85rem;
+  color: #e30613;
+}
+
+.botMarkdown pre {
+  background: #1e1e24;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  padding: 15px;
+  overflow-x: auto;
+  margin: 15px 0;
+}
+
+.botMarkdown pre code {
+  background: transparent;
+  border: none;
+  color: #e2e8f0;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 0.9rem;
+}
+
+/* Loading Pulse Indicator */
+.loadingPulse {
+  display: flex;
+  gap: 6px;
+  padding: 8px 12px;
+}
+
+.loadingPulse span {
+  width: 8px;
+  height: 8px;
+  background-color: #626672;
+  border-radius: 50%;
+  animation: chatBounce 1.4s infinite ease-in-out both;
+}
+
+.loadingPulse span:nth-child(1) { animation-delay: -0.32s; }
+.loadingPulse span:nth-child(2) { animation-delay: -0.16s; }
+
+/* Suggestions Row */
+.suggestionsContainer {
+  display: flex;
+  gap: 10px;
+  padding: 10px 30px;
+  overflow-x: auto;
+  border-top: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.suggestionsContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.suggestionBtn {
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  color: #4a4d55;
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.suggestionBtn:hover {
+  background: rgba(227, 6, 19, 0.08);
+  border-color: rgba(227, 6, 19, 0.2);
+  color: #e30613;
+}
+
+/* Input Section */
+.chatInputWrapper {
+  padding: 20px 30px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  gap: 15px;
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.inputContainer {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.chatInput {
+  flex: 1;
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  padding: 16px 50px 16px 20px;
+  color: #111111;
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+:global([dir="rtl"]) .chatInput {
+  padding: 16px 20px 16px 50px;
+}
+
+.micButton {
+  position: absolute;
+  right: 15px;
+  background: transparent;
+  border: none;
+  color: #626672;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  z-index: 5;
+}
+
+:global([dir="rtl"]) .micButton {
+  right: auto;
+  left: 15px;
+}
+
+.micButton:hover {
+  color: #e30613;
+  background: rgba(227, 6, 19, 0.08);
+}
+
+.micIcon {
+  width: 18px;
+  height: 18px;
+}
+
+.listening {
+  color: #ffffff !important;
+  background: #e30613 !important;
+  box-shadow: 0 0 12px #e30613;
+  animation: micPulse 1.2s infinite ease-in-out;
+}
+
+.chatInput:focus {
+  border-color: rgba(227, 6, 19, 0.3);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0 15px rgba(227, 6, 19, 0.05);
+}
+
+@keyframes micPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.sendButton {
+  background: #111111;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  padding: 0 28px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sendButton:hover {
+  background: #e30613;
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(227, 6, 19, 0.25);
+}
+
+/* Animations */
+@keyframes logoPulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 10px 30px rgba(227, 6, 19, 0.1); }
+  50% { transform: scale(1.05); box-shadow: 0 15px 40px rgba(227, 6, 19, 0.2); }
+}
+
+@keyframes neonBlink {
+  from { opacity: 0.4; }
+  to { opacity: 1; }
+}
+
+@keyframes pulseDot {
+  0% { transform: scale(0.9); opacity: 0.6; }
+  100% { transform: scale(1.1); opacity: 1; }
+}
+
+@keyframes rotateOuter {
+  0% { transform: rotate(45deg); }
+  100% { transform: rotate(405deg); }
+}
+
+@keyframes rotateInner {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes chatBounce {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1); }
+}
+
+/* Chat Visual Project Cards */
+.chatProjectsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 450px;
+  margin-top: 5px;
+}
+
+.portalProjectCard {
+  display: flex;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(227, 6, 19, 0.1);
+  border-radius: 12px;
+  padding: 10px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.portalProjectCard:hover {
+  transform: translateY(-3px);
+  border-color: rgba(227, 6, 19, 0.3);
+  background: #ffffff;
+  box-shadow: 0 10px 25px rgba(227, 6, 19, 0.08);
+}
+
+.portalCardImageWrapper {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.portalCardImage {
+  object-fit: cover;
+}
+
+.portalCardDetails {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 14px;
+  overflow: hidden;
+}
+
+.portalCardSector {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #e30613;
+  margin-bottom: 2px;
+  letter-spacing: 0.5px;
+}
+
+.portalCardTitle {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #111111;
+  margin: 0 0 2px 0;
+  text-transform: none;
+  letter-spacing: 0;
+  line-height: 1.2;
+}
+
+.portalCardLocation {
+  font-size: 0.8rem;
+  color: #626672;
+  margin: 0;
+}
+
+/* RTL Support */
+:global([dir="rtl"]) .portalCardDetails {
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  .chatInputWrapper {
+    padding: 12px 15px;
+    gap: 8px;
+  }
+  
+  .chatInput {
+    padding: 12px 40px 12px 12px;
+    font-size: 0.85rem;
+  }
+  
+  :global([dir="rtl"]) .chatInput {
+    padding: 12px 12px 12px 40px;
+  }
+  
+  .micButton {
+    right: 10px;
+  }
+  
+  :global([dir="rtl"]) .micButton {
+    left: 10px;
+  }
+  
+  .sendButton {
+    padding: 0 16px;
+    font-size: 0.8rem;
+  }
+}
+

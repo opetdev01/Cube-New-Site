@@ -1,0 +1,1701 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Space+Grotesk:wght@400;500;700&family=Inter:wght@300;400;600;800&display=swap');
+
+.sandboxPage {
+  --font-orbitron: 'Orbitron', sans-serif;
+  --font-space-grotesk: 'Space Grotesk', sans-serif;
+  --font-inter: 'Inter', sans-serif;
+
+  --red-accent: #C00000;
+  --red-glow: #FF3030;
+  --deep-black: #050505;
+  --sec-black: #111111;
+  --border-color: rgba(192, 0, 0, 0.15);
+  --glass-bg: rgba(17, 17, 17, 0.7);
+
+  background-color: var(--deep-black);
+  color: #ffffff;
+  font-family: var(--font-inter);
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Background Canvas Layer */
+.canvasBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Cinematic Video Intro overlay */
+.introVideoContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000000;
+  z-index: 99999;
+  overflow: hidden;
+  transition: opacity 0.85s ease-out, filter 0.85s ease-out;
+  cursor: pointer;
+}
+
+.introVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.enter {
+  opacity: 0 !important;
+  filter: blur(20px) !important;
+  pointer-events: none !important;
+}
+
+.introControls {
+  position: absolute;
+  bottom: 40px;
+  right: 50px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  z-index: 100000;
+}
+
+.skipBtn {
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  padding: 12px 28px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.skipBtn:hover {
+  background: var(--red-accent);
+  border-color: var(--red-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(227, 6, 19, 0.4);
+}
+
+.soundToggleBtn {
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-in-out;
+}
+
+.soundToggleBtn:hover {
+  background: var(--red-accent);
+  border-color: var(--red-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(227, 6, 19, 0.4);
+}
+
+.invisibleHotspot {
+  position: absolute;
+  bottom: 14%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(420px, 85vw);
+  height: clamp(50px, 8vh, 80px);
+  cursor: pointer;
+  z-index: 100000;
+  background: transparent;
+}
+
+/* PHASE 1: THE AI WELCOMES YOU */
+.welcomeContainer {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000000;
+  z-index: 900;
+  padding: 4%;
+}
+
+.welcomeBox {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.typewrittenLine {
+  font-family: var(--font-space-grotesk);
+  font-size: clamp(1.2rem, 3vw, 2.2rem);
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.05em;
+  min-height: 2.8rem;
+  line-height: 1.3;
+}
+
+.blinkingCursor {
+  animation: cursorBlink 0.8s infinite steps(2);
+  color: var(--red-glow);
+  font-weight: 900;
+}
+
+.welcomeEnterBtn {
+  margin-top: 40px;
+  font-family: var(--font-orbitron);
+  font-size: 0.88rem;
+  font-weight: 900;
+  color: #ffffff;
+  background: rgba(192, 0, 0, 0.1);
+  border: 1.5px solid var(--red-accent);
+  padding: 16px 36px;
+  border-radius: 4px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: fadeUp 0.6s ease-out;
+}
+
+.welcomeEnterBtn:hover {
+  background: var(--red-accent);
+  box-shadow: 0 0 25px rgba(255, 48, 48, 0.5);
+  transform: translateY(-2px);
+}
+
+/* PHASE 2: CHOOSE YOUR MISSION */
+.missionContainer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6% 4%;
+  z-index: 800;
+  position: relative;
+  background: var(--deep-black);
+}
+
+
+
+.missionHeader h1 {
+  font-family: var(--font-orbitron);
+  font-weight: 900;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+.missionHeader p {
+  font-family: var(--font-space-grotesk);
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.missionSplitLayout {
+  display: grid;
+  grid-template-columns: 460px 1fr;
+  gap: 380px;
+  width: 100%;
+  max-width: 1350px;
+  align-items: stretch;
+  position: relative;
+  z-index: 10;
+}
+
+.missionLeftVisual {
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 10px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(192, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+}
+
+.neuralCoreGif {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
+}
+
+.missionRightContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.missionHeader {
+  text-align: center;
+  margin-bottom: 50px;
+  width: 100%;
+}
+
+.missionGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  width: 100%;
+}
+
+.missionCard {
+  background: var(--glass-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  backdrop-filter: blur(12px);
+  position: relative;
+  overflow: visible;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  z-index: 2;
+}
+
+.missionIcon {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.missionCard h3 {
+  font-family: var(--font-orbitron);
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 16px;
+}
+
+.cardHoverDetails {
+  font-family: monospace;
+  font-size: 0.7rem;
+  color: var(--red-glow);
+  letter-spacing: 0.15em;
+  opacity: 0.6;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.missionCard:hover {
+  transform: translateY(-8px) scale(1.025);
+  border-color: var(--red-glow);
+  box-shadow: 0 15px 35px rgba(255, 48, 48, 0.25);
+  background: rgba(192, 0, 0, 0.04);
+}
+
+.missionCard:hover .missionIcon {
+  transform: scale(1.15) translateY(-5px);
+}
+
+.missionCard:hover .cardHoverDetails {
+  opacity: 1;
+  transform: translateY(2px);
+}
+
+/* PHASE 3: AI THINKING */
+.thinkingContainer {
+  position: fixed;
+  inset: 0;
+  background: #000000;
+  z-index: 850;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.neuralThinkingCore {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.centralThinkingPulse {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.thinkingPulsar {
+  position: absolute;
+  inset: 10px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--red-glow), var(--red-accent), transparent 70%);
+  box-shadow: 0 0 50px var(--red-glow);
+  animation: pulseNode 1.5s infinite ease-in-out;
+}
+
+.thinkingScannerRing {
+  position: absolute;
+  inset: -10px;
+  border-radius: 50%;
+  border: 1.5px solid var(--red-glow);
+  opacity: 0.4;
+  animation: pulseRing 2s infinite linear;
+}
+
+.thinkingProgressLog {
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.glowingLogText {
+  font-family: monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  color: var(--red-glow);
+  text-shadow: 0 0 10px var(--red-glow);
+  text-transform: uppercase;
+}
+
+.sysProgressBar {
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.sysProgressBar i {
+  display: block;
+  height: 100%;
+  background: var(--red-accent);
+  transition: width 0.4s ease-out;
+}
+
+/* PHASE 4: COMMAND CENTER WORKSPACE */
+.osWorkspaceWrapper {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.osHeader {
+  position: sticky;
+  top: 80px;
+  width: 100%;
+  height: 80px;
+  background: rgba(5, 5, 5, 0.85);
+  border-bottom: 1px solid var(--border-color);
+  backdrop-filter: blur(12px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4%;
+}
+
+.headerBrand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.brandSvg {
+  width: 45px;
+  height: 45px;
+}
+
+.brandLabels {
+  display: flex;
+  flex-direction: column;
+}
+
+.brandTitle {
+  font-family: var(--font-orbitron);
+  font-weight: 900;
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+}
+
+.systemTag {
+  font-size: 0.65rem;
+  font-family: monospace;
+  color: #777;
+  letter-spacing: 0.1em;
+}
+
+.statusDisplay {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  background: rgba(192, 0, 0, 0.1);
+  padding: 6px 14px;
+  border-radius: 4px;
+  border: 1px solid rgba(192, 0, 0, 0.2);
+}
+
+.pulseDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--red-glow);
+  animation: pulseNode 1.5s infinite;
+}
+
+.statusText {
+  color: var(--red-glow);
+  font-weight: 700;
+}
+
+.osBackLink {
+  font-family: var(--font-orbitron);
+  font-weight: 700;
+  font-size: 0.75rem;
+  color: #ffffff;
+  border: 1.5px solid var(--red-accent);
+  background: transparent;
+  padding: 10px 22px;
+  border-radius: 4px;
+  letter-spacing: 0.15em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.osBackLink:hover {
+  background: var(--red-accent);
+  box-shadow: 0 0 15px rgba(192, 0, 0, 0.6);
+  color: #ffffff;
+}
+
+/* SECTION 4: ARCHITECTURE MORPH */
+.aboutStorySection {
+  padding: 8% 4%;
+  background-color: var(--sec-black);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.hudPretitle {
+  display: block;
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: var(--red-accent);
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.aboutContentGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.aboutStoryLeft h2 {
+  font-family: var(--font-orbitron);
+  font-weight: 900;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.storyQuote {
+  font-family: var(--font-space-grotesk);
+  font-size: 1.25rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.75);
+  border-left: 2px solid var(--red-accent);
+  padding-left: 24px;
+}
+
+.aboutStoryRight {
+  display: flex;
+  justify-content: center;
+}
+
+.morphViewport {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 1;
+  background: rgba(5, 5, 5, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: inset 0 0 30px rgba(0,0,0,0.8);
+}
+
+.morphLayer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.5s ease-out;
+}
+
+.svgGridLine {
+  width: 90%;
+  height: 90%;
+}
+
+.hologramTwinCore {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.twinPulsar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(227, 6, 19, 0.3) 0%, transparent 70%);
+  border: 1px solid var(--red-glow);
+  box-shadow: 0 0 40px rgba(192, 0, 0, 0.4);
+  animation: pulseNode 2s infinite ease-in-out;
+}
+
+.hudSmallLabel {
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: var(--red-glow);
+  letter-spacing: 0.15em;
+}
+
+/* SECTION 5: THE AI LAB */
+.servicesGridSection {
+  padding: 8% 4%;
+  background-color: var(--deep-black);
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sectionHeader h2 {
+  font-family: var(--font-orbitron);
+  font-weight: 900;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.sectionHeader p {
+  font-family: var(--font-space-grotesk);
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.6);
+}
+
+.servicesCardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.serviceCard {
+  background: var(--glass-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+}
+
+.cardActiveRoom {
+  border-color: var(--red-glow) !important;
+  box-shadow: 0 0 25px rgba(255, 48, 48, 0.2) !important;
+  background: rgba(192, 0, 0, 0.05);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.cardIndex {
+  font-family: var(--font-orbitron);
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: var(--red-accent);
+}
+
+.cardTechNode {
+  font-family: monospace;
+  font-size: 0.62rem;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.1em;
+}
+
+.serviceCard h3 {
+  font-family: var(--font-orbitron);
+  font-weight: 900;
+  font-size: 1.15rem;
+  margin-bottom: 12px;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+}
+
+.serviceCard p {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.roomActivePanel {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  animation: fadeUp 0.3s ease-out;
+}
+
+.serviceCard:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: var(--red-glow);
+  box-shadow: 0 15px 35px rgba(192, 0, 0, 0.2);
+}
+
+.cardGlowOverlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(192, 0, 0, 0.12), transparent 60%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.serviceCard:hover .cardGlowOverlay {
+  opacity: 1;
+}
+
+/* SECTION 6: COMMAND CENTER */
+.dashboardSection {
+  padding: 8% 4%;
+}
+
+.dashboardMetricsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.metricCard {
+  background: var(--glass-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 24px;
+  backdrop-filter: blur(8px);
+}
+
+.counterValue {
+  font-family: var(--font-orbitron);
+  font-weight: 900;
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin: 12px 0;
+  letter-spacing: -0.02em;
+}
+
+/* SECTION 7: BUILD THE FUTURE */
+.digitalTwinSection {
+  padding: 8% 4%;
+  background-color: var(--sec-black);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.twinGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.twinPanelLeft h2 {
+  font-family: var(--font-orbitron);
+  font-weight: 900;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.twinPanelLeft p {
+  font-family: var(--font-space-grotesk);
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 36px;
+}
+
+.twinControls {
+  display: flex;
+  gap: 16px;
+}
+
+.tabBtn {
+  font-family: var(--font-space-grotesk);
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.6);
+  background: var(--deep-black);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 14px 28px;
+  border-radius: 4px;
+  cursor: pointer;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.tabBtn:hover {
+  border-color: var(--red-accent);
+  color: #ffffff;
+}
+
+.activeTab {
+  background: var(--red-accent);
+  border-color: var(--red-glow);
+  color: #ffffff;
+  box-shadow: 0 0 15px rgba(192, 0, 0, 0.4);
+}
+
+.twinPanelRight {
+  display: flex;
+  justify-content: center;
+}
+
+.holographicViewport {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  height: 400px;
+  background: rgba(5, 5, 5, 0.9);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.laserScanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--red-glow);
+  box-shadow: 0 0 15px var(--red-glow);
+  z-index: 5;
+  animation: laserSweep 4s ease-in-out infinite;
+}
+
+.futureCityViewport {
+  width: 100%;
+  height: 100%;
+  perspective: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.1s linear;
+}
+
+.cityGridMesh {
+  width: 80%;
+  height: 80%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 16px;
+}
+
+.skysLine1,
+.skysLine2,
+.skysLine3,
+.skysLine4 {
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(192, 0, 0, 0.05);
+  width: 50px;
+  transition: border-color 0.8s ease, background 0.8s ease;
+}
+
+.skysLine1 { height: 120px; }
+.skysLine2 { height: 180px; }
+.skysLine3 { height: 150px; }
+.skysLine4 { height: 220px; }
+
+.nightSkyline {
+  border-color: rgba(192, 0, 0, 0.6) !important;
+  background: rgba(192, 0, 0, 0.2) !important;
+  box-shadow: 0 0 20px rgba(192, 0, 0, 0.4);
+}
+
+/* SECTION 8: THE FUTURE */
+.futureVisionSection {
+  padding: 10% 4%;
+  background: var(--deep-black);
+  text-align: center;
+}
+
+.visionQuoteBox {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.visionTextLine {
+  font-family: var(--font-orbitron);
+  font-weight: 900;
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+/* FINAL SECTION */
+.finalCtaSection {
+  padding: 10% 4%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.ctaWrapper {
+  position: relative;
+  z-index: 5;
+  max-width: 650px;
+}
+
+.ctaWrapper h2 {
+  font-family: var(--font-orbitron);
+  font-weight: 900;
+  font-size: clamp(2rem, 5vw, 4rem);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.ctaWrapper p {
+  font-family: var(--font-space-grotesk);
+  font-size: 1.2rem;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 40px;
+}
+
+.ctaPrimaryButton {
+  font-family: var(--font-orbitron);
+  font-weight: 900;
+  font-size: 0.9rem;
+  color: #ffffff;
+  background: var(--red-accent);
+  border: 1.5px solid var(--red-glow);
+  padding: 16px 44px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 25px rgba(192, 0, 0, 0.4);
+}
+
+.ctaPrimaryButton:hover {
+  background: var(--red-glow);
+  box-shadow: 0 0 45px var(--red-glow);
+  transform: translateY(-2px);
+}
+
+/* SYSTEM FOOTER */
+.systemFooter {
+  border-top: 1px solid rgba(255,255,255,0.05);
+  padding: 30px 4%;
+  display: flex;
+  justify-content: space-between;
+  font-family: monospace;
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.1em;
+}
+
+/* KEYFRAMES */
+@keyframes cursorBlink {
+  from, to { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+@keyframes rotateClockwise {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes rotateCounterClockwise {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes pulseNode {
+  0% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.7; }
+}
+
+@keyframes pulseRing {
+  0% { transform: scale(0.6); opacity: 0.6; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+@keyframes laserSweep {
+  0% { top: 0%; }
+  50% { top: 100%; }
+  100% { top: 0%; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Dossier Briefing Overlay Styles */
+.dossierOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(5, 5, 5, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  backdrop-filter: blur(15px);
+  animation: fadeIn 0.4s ease;
+}
+
+.dossierPanel {
+  background: #111111;
+  border: 1px solid var(--red-accent);
+  border-radius: 8px;
+  width: 100%;
+  max-width: 950px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 0 50px rgba(192, 0, 0, 0.2);
+  padding: 40px;
+}
+
+.dossierCloseBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.5);
+  font-size: 2rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  line-height: 1;
+}
+
+.dossierCloseBtn:hover {
+  color: var(--red-accent);
+}
+
+.dossierGrid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 40px;
+}
+
+.dossierLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  padding-right: 40px;
+}
+
+.visualAnimationContainer {
+  width: 250px;
+  height: 250px;
+  background: rgba(0,0,0,0.5);
+  border: 1px solid rgba(192, 0, 0, 0.3);
+  border-radius: 6px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.visualSvg {
+  width: 100%;
+  height: 100%;
+}
+
+.visualScanner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--red-accent);
+  box-shadow: 0 0 8px #FF3B3B;
+  animation: laserSweep 3s infinite linear;
+}
+
+.dossierMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
+  width: 100%;
+}
+
+.hudTag {
+  font-family: var(--font-orbitron);
+  font-size: 0.8rem;
+  color: var(--red-accent);
+  letter-spacing: 0.1em;
+  background: rgba(192, 0, 0, 0.1);
+  padding: 4px 10px;
+  border-radius: 4px;
+  border: 1px solid rgba(192, 0, 0, 0.2);
+}
+
+.hudStatus {
+  font-family: var(--font-space-grotesk);
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.05em;
+}
+
+.dossierRight {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.dossierSectorLabel {
+  font-family: var(--font-orbitron);
+  font-size: 0.8rem;
+  color: var(--red-accent);
+  letter-spacing: 0.2em;
+}
+
+.dossierTitle {
+  font-family: var(--font-orbitron);
+  font-size: 2.2rem;
+  color: #ffffff;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+}
+
+.dossierIcon {
+  font-size: 2.5rem;
+}
+
+.dossierSection {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dossierSection h4 {
+  font-family: var(--font-space-grotesk);
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 0;
+  border-left: 2px solid var(--red-accent);
+  padding-left: 8px;
+}
+
+.workflowSteps {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.workflowStepItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-space-grotesk);
+  font-size: 0.9rem;
+  color: #ffffff;
+}
+
+.stepNum {
+  font-size: 0.75rem;
+  color: var(--red-accent);
+  font-family: var(--font-orbitron);
+}
+
+.stepArrow {
+  color: var(--red-accent);
+  margin: 0 4px;
+}
+
+.toolsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.toolBadge {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.85);
+  font-family: var(--font-space-grotesk);
+  font-size: 0.85rem;
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.toolBadge:hover {
+  background: rgba(192, 0, 0, 0.15);
+  border-color: var(--red-accent);
+  color: #ffffff;
+}
+
+.adviceText {
+  font-family: var(--font-inter);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+.dossierLaunchBtn {
+  margin-top: 15px;
+  background: var(--red-accent);
+  border: 1px solid #FF3B3B;
+  color: #ffffff;
+  font-family: var(--font-orbitron);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 16px 36px;
+  border-radius: 4px;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(192, 0, 0, 0.4);
+}
+
+.dossierLaunchBtn:hover {
+  background: #E60000;
+  box-shadow: 0 0 35px rgba(255, 59, 59, 0.7);
+  transform: translateY(-2px);
+}
+
+/* Specific SVG animations */
+.rotateTower {
+  transform-origin: 0 0;
+  animation: rotateTower3D 8s infinite linear;
+}
+
+.ekgPath {
+  stroke-dasharray: 800;
+  stroke-dashoffset: 800;
+  animation: ekgDraw 3s infinite ease-in-out;
+}
+
+.pulseRadar {
+  animation: pulseRadarAnim 2.5s infinite ease-out;
+}
+
+.rotateGear {
+  transform-origin: 100px 80px;
+  animation: rotateClockwise 6s infinite linear;
+}
+
+.conveyorFlow {
+  stroke: rgba(255, 255, 255, 0.6);
+  animation: conveyorAnim 1.5s infinite linear;
+}
+
+.rotateTurbine {
+  transform-origin: 0 0;
+  animation: rotateClockwise 3s infinite linear;
+}
+
+@keyframes rotateTower3D {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(360deg); }
+}
+
+@keyframes ekgDraw {
+  0% { stroke-dashoffset: 800; }
+  50% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -800; }
+}
+
+@keyframes pulseRadarAnim {
+  0% { transform: scale(0.5); opacity: 0.8; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+@keyframes conveyorAnim {
+  0% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -14; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Workspace Dossier Section Styles */
+.workspaceDossierSection {
+  padding: 190px 4% 80px 4%;
+  background: var(--secondary-bg);
+  border-bottom: 1px solid var(--border-color);
+  position: relative;
+  z-index: 5;
+}
+
+.workspaceDossierHeader {
+  margin-bottom: 50px;
+  text-align: left;
+}
+
+.workspaceDossierHeader h2 {
+  font-family: var(--font-orbitron);
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  margin-top: 10px;
+}
+
+.workspaceDossierGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  width: 100%;
+}
+
+.workspaceDossierCol {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.colTitle {
+  font-family: var(--font-orbitron);
+  font-size: 1.15rem;
+  color: #ffffff;
+  letter-spacing: 0.1em;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 12px;
+  margin: 0;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.colTitle::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background: var(--red-accent);
+}
+
+.detailedWorkflowList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.detailedWorkflowCard {
+  background: rgba(5,5,5,0.4);
+  border: 1px solid rgba(255,255,255,0.03);
+  padding: 22px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.detailedWorkflowCard:hover {
+  border-color: rgba(192, 0, 0, 0.2);
+  background: rgba(192, 0, 0, 0.02);
+  transform: translateX(4px);
+}
+
+.stepHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.detailedStepNum {
+  font-family: var(--font-orbitron);
+  font-size: 0.85rem;
+  color: var(--red-accent);
+  background: rgba(192, 0, 0, 0.1);
+  padding: 2px 8px;
+  border-radius: 2px;
+  border: 1px solid rgba(192, 0, 0, 0.2);
+}
+
+.stepHeader h4 {
+  font-family: var(--font-space-grotesk);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.detailedWorkflowCard p {
+  font-family: var(--font-inter);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.6);
+  margin: 0;
+}
+
+.detailedToolsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.detailedToolCard {
+  background: rgba(5,5,5,0.4);
+  border: 1px solid rgba(255,255,255,0.03);
+  padding: 18px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.detailedToolCard:hover {
+  border-color: rgba(192, 0, 0, 0.25);
+  background: rgba(192, 0, 0, 0.03);
+}
+
+.toolCardBadge {
+  display: inline-block;
+  font-family: var(--font-space-grotesk);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--red-accent);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.toolCardDesc {
+  font-family: var(--font-inter);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.55);
+  margin: 0;
+}
+
+.detailedRoadmapCard {
+  background: rgba(192,0,0,0.02);
+  border: 1px solid rgba(192, 0, 0, 0.15);
+  border-radius: 4px;
+  padding: 24px;
+}
+
+.roadmapHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.roadmapWarningIcon {
+  font-size: 1.2rem;
+}
+
+.roadmapHeader h4 {
+  font-family: var(--font-orbitron);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: 0.05em;
+}
+
+.roadmapWarningText {
+  font-family: var(--font-inter);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 24px;
+}
+
+.roadmapSteps {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.roadmapStep {
+  border-left: 2px solid var(--red-accent);
+  padding-left: 15px;
+}
+
+.roadmapStep h5 {
+  font-family: var(--font-space-grotesk);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 6px 0;
+  letter-spacing: 0.05em;
+}
+
+.roadmapStep p {
+  font-family: var(--font-inter);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.5);
+  margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .workspaceDossierGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .missionSplitLayout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .missionLeftVisual {
+    max-width: 460px;
+    margin: 0 auto;
+  }
+  .detailedToolsGrid {
+    grid-template-columns: 1fr;
+  }
+  .missionGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .aboutContentGrid, .twinGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .dossierGrid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .dossierLeft {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-right: 0;
+    padding-bottom: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .osHeader {
+    height: auto;
+    padding: 20px 4%;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    text-align: center;
+  }
+  .headerBrand {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+  .workspaceDossierSection {
+    padding-top: 240px;
+  }
+  .missionContainer {
+    padding-top: 175px !important;
+  }
+  .missionGrid {
+    grid-template-columns: 1fr;
+  }
+  .dossierPanel {
+    padding: 25px;
+  }
+  .dossierTitle {
+    font-size: 1.8rem;
+  }
+  .introControls {
+    bottom: 25px !important;
+    right: 25px !important;
+    gap: 10px !important;
+  }
+  .soundToggleBtn {
+    width: 36px !important;
+    height: 36px !important;
+  }
+  .soundToggleBtn svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+  .skipBtn {
+    padding: 10px 22px !important;
+    font-size: 0.68rem !important;
+    letter-spacing: 0.15em !important;
+  }
+}
+
+.introVideoContainerTransparent {
+  background-color: transparent !important;
+}
+
+.introLogoBadge {
+  background: #ffffff;
+  border: 1px solid rgba(227, 6, 19, 0.25);
+  padding: 24px;
+  border-radius: 50%;
+  box-shadow: 0 10px 30px rgba(227, 6, 19, 0.08);
+  cursor: pointer;
+  outline: none;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: introLogoPulse 2s infinite ease-in-out;
+  z-index: 100000;
+}
+
+.introLogoBadge:hover {
+  transform: scale(1.08);
+  border-color: rgba(227, 6, 19, 0.6);
+}
+
+.introLogoImage {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.05));
+  transition: transform 0.4s ease;
+}
+
+.introLogoBadge:hover .introLogoImage {
+  transform: rotate(5deg);
+}
+
+@keyframes introLogoPulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(227, 6, 19, 0.35);
+  }
+  70% {
+    transform: scale(1.03);
+    box-shadow: 0 0 0 30px rgba(227, 6, 19, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(227, 6, 19, 0);
+  }
+}
+
+@media (min-width: 1025px) {
+  .missionCard:nth-child(odd) {
+    z-index: 3;
+  }
+  .missionCard:nth-child(odd)::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    width: 380px;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(255, 59, 59, 0), #ff3b3b 20%, #ff3b3b 80%, rgba(255, 59, 59, 0.2));
+    box-shadow: 0 0 12px #ff3b3b, 0 0 3px #ffffff;
+    transform: translateY(-50%);
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.85;
+    animation: laserPulse 2s infinite ease-in-out;
+  }
+  .missionCard:nth-child(even)::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    width: calc(100% + 24px);
+    height: 2px;
+    background: linear-gradient(90deg, rgba(255, 59, 59, 0.1), #ff3b3b 20%, #ff3b3b 80%, rgba(255, 59, 59, 0.2));
+    box-shadow: 0 0 12px #ff3b3b, 0 0 3px #ffffff;
+    transform: translateY(-50%);
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.85;
+    animation: laserPulse 2s infinite ease-in-out;
+  }
+}
+
+@keyframes laserPulse {
+  0%, 100% {
+    opacity: 0.65;
+    box-shadow: 0 0 8px #ff3b3b, 0 0 2px #ffffff;
+  }
+  50% {
+    opacity: 0.95;
+    box-shadow: 0 0 18px #ff3b3b, 0 0 4px #ffffff;
+  }
+}

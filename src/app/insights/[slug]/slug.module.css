@@ -1,0 +1,332 @@
+.container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 120px 0 0 0;
+  background: transparent;
+  color: #000000;
+  min-height: 100vh;
+}
+
+.headerWrapper {
+  padding: 0 6vw;
+}
+
+.backContainer {
+  margin-bottom: 40px;
+}
+
+.backLink {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #000000;
+  text-decoration: none;
+  letter-spacing: 0.15em;
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.3s ease;
+}
+
+.backLink:hover {
+  color: #e30613;
+}
+
+.backArrow {
+  margin-right: 8px;
+  transition: transform 0.3s ease;
+}
+
+.backLink:hover .backArrow {
+  transform: translateX(-4px);
+}
+
+/* Article Header */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 40px;
+}
+
+.badge {
+  padding: 6px 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  margin-bottom: 20px;
+}
+
+.badgeNews {
+  color: #000000;
+  border-color: #dddddd;
+}
+
+.badgeAward {
+  color: #e30613;
+  border-color: #e30613;
+}
+
+.badgeArticle {
+  color: #ffffff;
+  background-color: #e30613;
+  border-color: #e30613;
+}
+
+.date {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #888888;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: #000000;
+}
+
+/* Image Showcase - Edge-to-Edge Hero Banner */
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 55vh;
+  min-height: 350px;
+  overflow: hidden;
+  margin: 40px 0 60px 0;
+  background-color: #f7f7f7;
+}
+
+.image {
+  object-fit: cover;
+}
+
+/* Content Area - Wide Two-Column Split Grid */
+.gridContainer {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 60px;
+  padding: 0 6vw 100px 6vw;
+  width: 100%;
+}
+
+.leftCol {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #222222;
+}
+
+.rightCol {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* Award Showcase Specific Styles */
+.awardShowcase {
+  background: #fdfdfd;
+  border-left: 3px solid #e30613;
+  padding: 30px 40px;
+  margin-bottom: 40px;
+}
+
+.awardDescription {
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: #333333;
+  margin-bottom: 30px;
+}
+
+.ctaWrapper {
+  margin-top: 20px;
+}
+
+.projectLinkBtn {
+  display: inline-flex;
+  align-items: center;
+  background-color: #e30613;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  padding: 16px 28px;
+  transition: background-color 0.3s ease;
+}
+
+.projectLinkBtn:hover {
+  background-color: #000000;
+}
+
+.ctaArrow {
+  margin-left: 10px;
+  transition: transform 0.3s ease;
+}
+
+.projectLinkBtn:hover .ctaArrow {
+  transform: translateX(4px);
+}
+
+/* Info Box / Metadata Panel Styles */
+.infoBox {
+  background-color: #f9f9f9;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 30px;
+  border-radius: 4px;
+}
+
+.infoBoxTitle {
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #000000;
+  border-bottom: 2px solid #e30613;
+  padding-bottom: 10px;
+}
+
+.infoRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  font-size: 0.9rem;
+}
+
+.infoRow:last-of-type {
+  border-bottom: none;
+}
+
+.infoLabel {
+  font-weight: 700;
+  color: #888888;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.infoValue {
+  font-weight: 700;
+  color: #000000;
+}
+
+/* WordPress Rendered Content Styling */
+.articleBody {
+  line-height: 1.95;
+}
+
+.articleBody p,
+.articleBody h4,
+.articleBody h5,
+.articleBody h6 {
+  margin-bottom: 36px;
+}
+
+.articleBody h2 {
+  font-size: 1.85rem;
+  font-weight: 800;
+  margin: 55px 0 28px;
+  letter-spacing: -0.01em;
+  color: #000000;
+}
+
+.articleBody h3 {
+  font-size: 1.45rem;
+  font-weight: 800;
+  margin: 45px 0 24px;
+  color: #000000;
+}
+
+.articleBody ul, .articleBody ol {
+  margin-bottom: 36px;
+  padding-left: 24px;
+}
+
+.articleBody li {
+  margin-bottom: 14px;
+}
+
+.articleBody img {
+  max-width: 100%;
+  height: auto;
+  margin: 45px auto;
+  display: block;
+}
+
+@media (max-width: 992px) {
+  .gridContainer {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 100px 0 60px;
+  }
+  .headerWrapper {
+    padding: 0 24px;
+  }
+  .gridContainer {
+    padding: 0 24px 60px;
+  }
+  .title {
+    font-size: 1.85rem;
+  }
+  .awardShowcase {
+    padding: 20px 24px;
+  }
+  .awardDescription {
+    font-size: 1.1rem;
+  }
+}
+
+/* Media Gallery Styles */
+.gallerySection {
+  margin-top: 60px;
+  border-top: 1px solid #eeeeee;
+  padding-top: 40px;
+}
+
+.galleryTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+  letter-spacing: -0.01em;
+  color: #000000;
+}
+
+.galleryGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 600px) {
+  .galleryGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.galleryImageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background-color: #f7f7f7;
+  border: 1px solid #eeeeee;
+}
+
+.galleryImage {
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.galleryImageWrapper:hover .galleryImage {
+  transform: scale(1.05);
+}

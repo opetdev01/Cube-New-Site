@@ -1,0 +1,677 @@
+/* === ABOUT PAGE GRID DESIGN === */
+.cubeArchitecturalGrid {
+    background-color: transparent !important;
+    color: #000000 !important;
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif !important;
+    line-height: 1.6 !important;
+    padding: 140px 0 40px 0 !important;
+    box-sizing: border-box !important;
+    text-align: start !important;
+    width: 100% !important;
+    position: relative;
+    z-index: 1;
+}
+
+.cubeArchitecturalGrid *, 
+.cubeArchitecturalGrid *::before, 
+.cubeArchitecturalGrid *::after {
+    box-sizing: border-box !important;
+}
+
+.cubeArchitecturalGrid h1, 
+.cubeArchitecturalGrid h2, 
+.cubeArchitecturalGrid h3, 
+.cubeArchitecturalGrid h4 {
+    color: #000000 !important;
+    margin-top: 0 !important;
+    text-transform: uppercase !important;
+    font-weight: 950 !important;
+    line-height: 1.1 !important;
+}
+
+.cubeArchitecturalGrid p {
+    color: #555555 !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    margin-top: 0 !important;
+    line-height: 1.6 !important;
+    text-align: start !important;
+}
+
+.cgContainer { 
+    width: 100% !important; 
+    max-width: 100% !important; 
+    margin: 0 auto !important; 
+    padding: 0 4% !important; 
+}
+
+.cgSection { 
+    margin-bottom: 30px !important; 
+}
+
+.cgLabel { 
+    color: #e30613 !important; 
+    font-weight: 900 !important; 
+    font-size: 11px !important; 
+    letter-spacing: 0.4em !important; 
+    text-transform: uppercase !important; 
+    margin-bottom: 25px !important; 
+    display: block !important; 
+}
+
+.cgTitle { 
+    font-size: clamp(35px, 5vw, 65px) !important; 
+    margin-bottom: 50px !important; 
+    letter-spacing: -0.02em !important; 
+    border-inline-start: 6px solid #e30613 !important; 
+    padding-inline-start: 20px !important; 
+    text-align: start !important; 
+}
+
+/* === 1.5 FOUNDER & CEO === */
+.ceoLayout {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 60px !important;
+    margin-bottom: 30px !important;
+    align-items: start !important;
+    border-top: 1px solid #eaeaea !important;
+    padding-top: 40px !important;
+}
+
+@media (min-width: 900px) {
+    .ceoLayout {
+        grid-template-columns: 1fr 2fr !important;
+    }
+}
+
+.ceoImageContainer {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 320px !important;
+    aspect-ratio: 1 / 1.15 !important;
+    margin: 0 auto !important;
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.ceoImage {
+    object-fit: cover !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.ceoTextContainer {
+    text-align: start !important;
+}
+
+.ceoName {
+    font-size: clamp(28px, 4vw, 42px) !important;
+    margin-bottom: 5px !important;
+    letter-spacing: -0.02em !important;
+}
+
+.ceoSubtitle {
+    color: #e30613 !important;
+    font-weight: 950 !important;
+    font-size: 13px !important;
+    letter-spacing: 0.2em !important;
+    text-transform: uppercase !important;
+    margin-bottom: 25px !important;
+    display: block !important;
+}
+
+.ceoBio {
+    font-size: 17px !important;
+    line-height: 1.7 !important;
+    color: #444444 !important;
+}
+
+/* === 1. KEY FIGURES === */
+.metricsBgSection {
+    position: relative !important;
+    padding: 80px 60px !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    margin-bottom: 70px !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15) !important;
+}
+
+.bgOverlay {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 1 !important;
+}
+
+.bgImage {
+    object-fit: cover !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.bgColorOverlay {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.65) 100%) !important;
+    z-index: 2 !important;
+}
+
+.metricsContent {
+    position: relative !important;
+    z-index: 3 !important;
+}
+
+.metricsBgSection .cgTitle {
+    color: #ffffff !important;
+    border-inline-start: 6px solid #e30613 !important;
+}
+
+.metricsBgSection .cgMetricVal {
+    color: #ffffff !important;
+}
+
+.metricsBgSection .cgMetricLbl {
+    color: #eaeaea !important;
+}
+
+.cgMetricsGrid { 
+    display: grid !important; 
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important; 
+    gap: 50px !important; 
+}
+
+.cgMetricVal { 
+    font-size: 55px !important; 
+    color: #000 !important; 
+    font-weight: 900 !important; 
+    line-height: 1 !important; 
+    margin-bottom: 10px !important; 
+    letter-spacing: -0.05em !important; 
+    display: block !important; 
+    text-align: start !important;
+}
+
+.cgMetricLbl { 
+    font-size: 13px !important; 
+    font-weight: 800 !important; 
+    color: #e30613 !important; 
+    text-transform: uppercase !important; 
+    display: block !important; 
+    letter-spacing: 0.05em !important; 
+    text-align: start !important;
+}
+
+/* === 2. MAP WITH HOVER LINKS AND PULSING PINS === */
+.cgMapBox { 
+    margin-bottom: 30px !important; 
+    background: transparent !important; 
+    padding: 10px 0 !important; 
+    border-top: 1px solid #eaeaea !important; 
+    border-bottom: 1px solid #eaeaea !important;
+}
+
+.cgMapLink { 
+    cursor: pointer !important; 
+    text-decoration: none !important; 
+}
+
+.cgMapLink circle, 
+.cgMapLink text { 
+    transition: all 0.3s ease !important; 
+}
+
+.cgMapLink:hover circle { 
+    fill: #000000 !important; 
+    stroke: #e30613 !important; 
+    stroke-width: 2px !important; 
+}
+
+.cgMapLink:hover text { 
+    fill: #e30613 !important; 
+}
+
+@keyframes ringPulseCss {
+    0% { transform: scale(0.2); opacity: 0; }
+    50% { opacity: 0.6; }
+    100% { transform: scale(1.5); opacity: 0; }
+}
+
+.ringAnim {
+    transform-origin: 583px 175px !important;
+    animation: ringPulseCss 3.5s cubic-bezier(0.25, 1, 0.5, 1) infinite !important;
+}
+
+.ringAnim:nth-of-type(1) { animation-delay: 0s !important; }
+.ringAnim:nth-of-type(2) { animation-delay: 0.5s !important; }
+.ringAnim:nth-of-type(3) { animation-delay: 1.0s !important; }
+
+@keyframes pinBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+.cgMapLink circle[fill="#e30613"] {
+    animation: pinBlink 2s infinite ease-in-out !important;
+}
+
+/* === 3. THE CUBE EQUATION === */
+.cgEqLayout { 
+    display: grid !important; 
+    grid-template-columns: 1fr !important; 
+    gap: 40px !important; 
+    align-items: stretch !important; 
+}
+
+@media (min-width: 900px) { 
+    .cgEqLayout { 
+        grid-template-columns: 1fr 1fr 1fr !important; 
+    } 
+}
+
+.cgEqItem { 
+    background: rgba(255, 255, 255, 0.8) !important;
+    border: 1px solid #eaeaea !important;
+    border-radius: 4px !important;
+    padding: 35px 30px !important;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    height: 100% !important;
+}
+
+.cgEqItem:hover {
+    transform: translateY(-5px) !important;
+    border-color: #e30613 !important;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05) !important;
+}
+
+.cgEqNum {
+    font-size: 45px !important;
+    font-weight: 300 !important;
+    color: #e30613 !important;
+    line-height: 1 !important;
+    margin-bottom: 20px !important;
+    display: block !important;
+}
+
+.cgEqItem h3 { 
+    text-align: start !important; 
+    font-size: 20px !important; 
+    font-weight: 950 !important; 
+    margin-bottom: 15px !important; 
+    letter-spacing: -0.01em !important; 
+    text-transform: uppercase !important; 
+    color: #000 !important; 
+}
+
+.cgEqDesc {
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+    color: #555555 !important;
+    margin-bottom: 25px !important;
+    flex-grow: 1 !important;
+}
+
+.cgEqOutcome { 
+    text-align: start !important; 
+    font-size: 13px !important; 
+    font-weight: 700 !important; 
+    color: #e30613 !important; 
+    background: #fafafa !important; 
+    padding: 12px 18px !important; 
+    border-inline-start: 4px solid #e30613 !important; 
+    line-height: 1.4 !important; 
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+}
+
+.cgEqOutcome span { 
+    color: #000 !important; 
+    font-weight: 900 !important; 
+    margin-inline-end: 5px !important; 
+}
+
+.formulaSection {
+    margin-top: 50px !important;
+    text-align: center !important;
+}
+
+/* Formula Image Animation */
+@keyframes floatFormula {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-12px) scale(1.01); }
+}
+
+.formulaAnim {
+    animation: floatFormula 6s ease-in-out infinite !important;
+    will-change: transform;
+}
+
+/* === 4. SERVICES === */
+.cgServicesGrid { 
+    display: grid !important; 
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)) !important; 
+    gap: 25px !important; 
+}
+
+@media (min-width: 1200px) {
+    .cgServicesGrid {
+        grid-template-columns: repeat(7, 1fr) !important;
+        gap: 15px !important;
+    }
+    .cgService {
+        padding: 20px 15px !important;
+        aspect-ratio: 1.45 / 1 !important;
+    }
+    .cgSTitle {
+        font-size: 13px !important;
+    }
+    .cgSNum {
+        font-size: 24px !important;
+        margin-bottom: 10px !important;
+    }
+}
+
+.cgService { 
+    background: rgba(255, 255, 255, 0.8) !important;
+    border: 1px solid #eaeaea !important; 
+    border-radius: 4px !important;
+    padding: 30px 25px !important; 
+    display: flex !important; 
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    aspect-ratio: 1.6 / 1 !important;
+    text-align: start !important; 
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
+    cursor: pointer !important;
+}
+
+.cgService:hover {
+    transform: translateY(-5px) !important;
+    border-color: #e30613 !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+}
+
+.cgSTitle { 
+    font-size: 18px !important; 
+    font-weight: 950 !important;
+    margin-bottom: 0 !important; 
+    color: #000000 !important;
+    line-height: 1.2 !important;
+}
+
+.cgSNum { 
+    color: #e30613 !important; 
+    font-size: 30px !important; 
+    font-weight: 300 !important;
+    line-height: 1 !important;
+    margin-bottom: 15px !important;
+    display: block !important;
+}
+
+/* === 5. PHILOSOPHY 2026 === */
+.cgPhilLayout { 
+    display: grid !important; 
+    grid-template-columns: 1fr !important; 
+    gap: 50px !important; 
+    border-top: 1px solid #eaeaea !important; 
+    padding-top: 60px !important; 
+    text-align: start !important; 
+}
+
+@media (min-width: 900px) { 
+    .cgPhilLayout { 
+        grid-template-columns: 1.8fr 1.2fr !important; 
+        align-items: center !important; 
+    } 
+}
+
+.cgSpiritElements { 
+    display: flex !important; 
+    flex-direction: column !important;
+    gap: 0 !important;
+    border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+    margin-top: 20px !important;
+}
+
+.cgSpiritItem { 
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+    border-radius: 0 !important;
+    padding: 24px 0 !important;
+    display: grid !important;
+    grid-template-columns: 80px 180px 1fr !important;
+    align-items: center !important;
+    transition: all 0.4s ease !important;
+}
+
+.cgSpiritItem:hover {
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.cgSpiritItem:hover .cgSpiritH4 {
+    color: #e30613 !important;
+}
+
+.cgSpiritItem:hover .cgSpiritNum {
+    transform: scale(1.08) !important;
+}
+
+.cgSpiritNum {
+    font-size: 18px !important;
+    font-weight: 900 !important;
+    color: #e30613 !important;
+    transition: transform 0.3s ease !important;
+    display: inline-block !important;
+}
+
+.cgSpiritH4 { 
+    font-size: 16px !important; 
+    font-weight: 850 !important;
+    margin: 0 !important; 
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    color: #000000 !important;
+    transition: color 0.3s ease !important;
+}
+
+.cgSpiritItem p { 
+    font-size: 14px !important; 
+    line-height: 1.6 !important; 
+    margin: 0 !important; 
+    color: #555555 !important; 
+}
+
+@media (max-width: 768px) {
+    .cgSpiritElements {
+        width: 100% !important;
+    }
+    .cgSpiritItem {
+        grid-template-columns: 40px 1fr !important;
+        gap: 8px !important;
+        align-items: start !important;
+        padding: 20px 0 !important;
+        width: 100% !important;
+    }
+    .cgSpiritH4 {
+        grid-column: 2 !important;
+        margin-bottom: 6px !important;
+    }
+    .cgSpiritItem p {
+        grid-column: 2 !important;
+        font-size: 13px !important;
+        word-break: break-word !important;
+    }
+}
+
+.cgStarBox { 
+    text-align: center !important; 
+    width: 100% !important;
+    overflow: hidden !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.cgStarImg {
+    width: 100% !important;
+    max-width: 400px !important;
+    height: auto !important;
+    display: block !important;
+}
+
+/* === PARTNERS CATALOG === */
+.partnersCatalogCentered {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 30px !important;
+    width: 100% !important;
+    margin-top: 30px !important;
+}
+
+.partnersTabsCentered {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 15px !important;
+    margin-bottom: 15px !important;
+}
+
+.partnerVisualGridFull {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)) !important;
+    gap: 15px !important;
+    width: 100% !important;
+}
+
+.partnersDetailColumn {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 30px !important;
+}
+
+.partnersTabs {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+    border-bottom: 1px solid #eaeaea !important;
+    padding-bottom: 20px !important;
+}
+
+.tabBtn {
+    background: #fafafa !important;
+    border: 1px solid #eaeaea !important;
+    padding: 12px 24px !important;
+    font-size: 13px !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    border-radius: 4px !important;
+    color: #444 !important;
+}
+
+.tabBtn:hover {
+    background: #f0f0f0 !important;
+    border-color: #999 !important;
+    color: #000 !important;
+}
+
+.activeTabBtn {
+    background: #e30613 !important;
+    border-color: #e30613 !important;
+    color: #ffffff !important;
+}
+
+.activeTabBtn:hover {
+    background: #c30510 !important;
+    border-color: #c30510 !important;
+    color: #ffffff !important;
+}
+
+.tabContentPanel {
+    background: #ffffff !important;
+    border: 1px solid #eaeaea !important;
+    border-radius: 6px !important;
+    padding: 35px 30px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02) !important;
+}
+
+.tabContentPanel h3 {
+    font-size: 22px !important;
+    margin-bottom: 15px !important;
+    color: #000 !important;
+    letter-spacing: -0.01em !important;
+}
+
+.tabContentPanel p {
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+    color: #666666 !important;
+    margin-bottom: 30px !important;
+}
+
+.partnerDetailList {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+}
+
+.partnerDetailList li {
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    color: #444444 !important;
+    border-inline-start: 3px solid #e30613 !important;
+    padding-inline-start: 15px !important;
+}
+
+.partnerDetailList li strong {
+    color: #000 !important;
+    font-weight: 800 !important;
+}
+
+.partnersVisualColumn {
+    width: 100% !important;
+}
+
+.partnerVisualGrid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)) !important;
+    gap: 15px !important;
+    width: 100% !important;
+}
+
+.aboutPartnerLogoCard {
+    background: transparent !important;
+    border: none !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 75px !important;
+    padding: 10px !important;
+    transition: transform 0.3s ease !important;
+}
+
+.aboutPartnerLogoCard:hover {
+    transform: translateY(-2px) !important;
+}
+
+.aboutPartnerLogoImg {
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: contain !important;
+}

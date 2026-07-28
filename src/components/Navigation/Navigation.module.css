@@ -1,0 +1,229 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--nav-height);
+  background-color: transparent; /* Clean floating look over banner */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 var(--gutter);
+  z-index: 2010;
+  pointer-events: none; /* Allows scrolling background under header */
+}
+
+.logoContainer,
+.navRightActions {
+  pointer-events: auto; /* Re-enable clicks for logo and actions */
+}
+
+.navRightActions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding-right: 1rem;
+}
+
+.switchGroupContainer {
+  display: flex;
+  align-items: center;
+  background-color: var(--c-white);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  padding: 2px;
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.switchGroupContainer:hover {
+  transform: scale(1.03);
+}
+
+.langSwitchBtn {
+  background-color: transparent;
+  border: none;
+  color: var(--c-black);
+  padding: 10px 16px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  border-radius: 28px;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.langSwitchBtn:hover {
+  background-color: #f0f0f0;
+}
+
+.micBtn {
+  background-color: transparent;
+  border: none;
+  color: var(--c-black);
+  padding: 8px 12px;
+  border-radius: 28px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.micBtn:hover {
+  background-color: var(--c-red);
+  color: var(--c-white);
+}
+
+.micActive {
+  background-color: var(--c-red);
+  color: var(--c-white);
+  animation: pulseMic 1.2s infinite alternate;
+}
+
+@keyframes pulseMic {
+  0% { transform: scale(1); box-shadow: 0 0 0 rgba(227, 6, 19, 0.4); }
+  100% { transform: scale(1.08); box-shadow: 0 0 10px rgba(227, 6, 19, 0.8); }
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+}
+
+.logoImage {
+  object-fit: contain;
+  display: block;
+  margin-left: -15px; /* Pull flush to the margin */
+}
+
+/* Circular Hamburger Button matching user reference image */
+.menuToggle {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: var(--c-white);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+              background-color 0.3s ease,
+              box-shadow 0.3s ease;
+  z-index: 2020;
+}
+
+.menuToggle:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.hamburgerLine {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background-color: var(--c-black);
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+              opacity 0.3s ease,
+              background-color 0.3s ease;
+}
+
+/* Toggle morphing to X active state */
+.toggleActive .hamburgerLine:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+  background-color: var(--c-red);
+}
+
+.toggleActive .hamburgerLine:nth-child(2) {
+  opacity: 0;
+}
+
+.toggleActive .hamburgerLine:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+  background-color: var(--c-red);
+}
+
+/* Floating Vertical Dropdown Menu under the toggle */
+.menuDropdown {
+  position: absolute;
+  top: calc(var(--nav-height) - 10px); /* Position slightly below navbar */
+  right: var(--gutter);
+  width: 220px;
+  background-color: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-top: 3px solid var(--c-red);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  padding: 10px 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+              visibility 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+              transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: 2000;
+  pointer-events: auto; /* Re-enable clicks */
+}
+
+.dropdownActive {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdownLinks {
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdownItem {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--c-black);
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  padding: 12px 20px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dropdownItem:hover,
+.activeItem {
+  background-color: var(--c-red);
+  color: var(--c-white) !important;
+}
+
+@media (max-width: 768px) {
+  .menuToggle {
+    width: 48px;
+    height: 48px;
+  }
+  .hamburgerLine {
+    width: 18px;
+  }
+  .toggleActive .hamburgerLine:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+  .toggleActive .hamburgerLine:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+  .menuDropdown {
+    top: calc(var(--nav-height) - 15px);
+    right: var(--gutter);
+    width: calc(100% - (var(--gutter) * 2));
+  }
+}
