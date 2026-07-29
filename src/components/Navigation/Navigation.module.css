@@ -59,6 +59,24 @@
   background-color: #f0f0f0;
 }
 
+.searchEngineBtn {
+  background-color: transparent;
+  border: none;
+  color: var(--c-black);
+  padding: 8px 12px;
+  border-radius: 28px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.searchEngineBtn:hover {
+  background-color: var(--c-red);
+  color: var(--c-white);
+}
+
 .micBtn {
   background-color: transparent;
   border: none;

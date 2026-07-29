@@ -5,12 +5,14 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { useLanguage } from "@/components/LanguageContext";
+import SearchEngineModal from "../SearchEngine/SearchEngineModal";
 import styles from "./Navigation.module.css";
 
 const Navigation = () => {
   const pathname = usePathname();
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const { language, setLanguage, t } = useLanguage();
   const [isListening, setIsListening] = useState(false);
   const [showNav, setShowNav] = useState(false);
@@ -114,9 +116,12 @@ const Navigation = () => {
       } else if (
         transcript.includes("portal") || 
         transcript.includes("بوابة") || 
-        transcript.includes("البوابة")
+        transcript.includes("البوابة") ||
+        transcript.includes("search") ||
+        transcript.includes("بحث") ||
+        transcript.includes("البحث")
       ) {
-        router.push("/portal");
+        setIsSearchOpen(true);
       } else if (
         transcript.includes("art gallery") || 
         transcript.includes("gallery") || 
@@ -139,7 +144,6 @@ const Navigation = () => {
     { name: t("PROJECTS"), path: "/projects" },
     { name: t("SERVICES"), path: "/services" },
     { name: t("INSIGHTS"), path: "/insights" },
-    { name: t("CUBE Portal"), path: "/portal" },
     { name: t("Ai Lab"), path: "/ai-lab" },
     { name: t("Art Gallery"), path: "/art-gallery" },
     { name: t("CONTACT US"), path: "/contact" },
@@ -169,6 +173,18 @@ const Navigation = () => {
         <div className={styles.navRightActions}>
           {/* Unified Lang Switcher + Mic Control Box */}
           <div className={styles.switchGroupContainer}>
+            <button
+              onClick={() => setIsSearchOpen(true)}
+              className={styles.searchEngineBtn}
+              aria-label="Search Engine"
+              title={language === "en" ? "Search Engine" : "محرك البحث"}
+            >
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ display: "block" }}>
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
+            </button>
+
             <button
               onClick={() => setLanguage(language === "en" ? "ar" : "en")}
               className={styles.langSwitchBtn}
@@ -219,6 +235,8 @@ const Navigation = () => {
             })}
           </div>
         </div>
+
+        <SearchEngineModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
       </nav>
     </div>
   );
