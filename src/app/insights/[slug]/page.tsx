@@ -41,7 +41,9 @@ const InsightDetailPage = ({ params }: PageProps) => {
      (isArticle ? item.excerpt : "توقيع اتفاقية استشارية وتصميمية جديدة لتعزيز الهوية المعمارية والارتقاء بالتخطيط العمراني المتقدم.")) 
     : item.excerpt;
 
-  const galleryImages = (item.gallery || []).filter(img => img !== item.image);
+  const galleryImages = (item.gallery && item.gallery.length > 0)
+    ? item.gallery
+    : (item.image ? [item.image] : []);
 
   return (
     <div className={styles.container}>

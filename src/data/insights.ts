@@ -651,7 +651,11 @@ export const awards: InsightItem[] = [
     "image": "/assets/projects/tutera-city/TUTERA_CUBE_CONSULTANTS_20208.jpg",
     "content": "<p>Tutera City won the First Award in the Mixed-Use Concept category at the Rethinking The Future Awards 2021. The design proposes a space tourism city, establishing a modular terrestrial community that reflects space habitat structures directly on Earth.</p>",
     "gallery": [
-      "/assets/projects/tutera-city/TUTERA_CUBE_CONSULTANTS_20208.jpg"
+      "/assets/projects/tutera-city/TUTERA_CUBE_CONSULTANTS_20208.jpg",
+      "/assets/projects/tutera-city/TUTERA_CUBE_CONSULTANTS_20205.jpg",
+      "/assets/projects/tutera-city/TUTERA_CUBE_CONSULTANTS_20206.jpg",
+      "/assets/projects/tutera-city/TUTERA_CUBE_CONSULTANTS_202011.jpg",
+      "/assets/projects/tutera-city/TUTERA_CUBE_CONSULTANTS_202012.jpg"
     ],
     "type": "award",
     "projectSlug": "tutera-city"
@@ -665,7 +669,10 @@ export const awards: InsightItem[] = [
     "image": "/assets/projects/thecapitalcairo/Capital-Cairo.jpg",
     "content": "<p>The UDC Consortium, which includes CUBE Consultants, received the Second Award in the Urban Design (Built) category for their visionary work on the master planning of Egypt's New Administrative Capital, laying down the infrastructure for future smart developments.</p>",
     "gallery": [
-      "/assets/projects/thecapitalcairo/Capital-Cairo.jpg"
+      "/assets/projects/thecapitalcairo/Capital-Cairo.jpg",
+      "/assets/projects/thecapitalcairo/THE_rING_CUBE_CONSULTANTS_2015-1-scaled.jpg",
+      "/assets/projects/thecapitalcairo/Slide2-8-scaled.jpg",
+      "/assets/projects/thecapitalcairo/000.jpg"
     ],
     "type": "award",
     "projectSlug": "thecapitalcairo"
@@ -679,7 +686,11 @@ export const awards: InsightItem[] = [
     "image": "/assets/projects/sahara-international-school/1-scaled.jpg",
     "content": "<p>CUBE Consultants was awarded the Third Award in the Institutional Concept category for the Sahara International School. The project incorporates dynamic spatial forms and flexible study environments to accommodate new interactive learning patterns.</p>",
     "gallery": [
-      "/assets/projects/sahara-international-school/Slide1-scaled.jpg"
+      "/assets/projects/sahara-international-school/1-scaled.jpg",
+      "/assets/projects/sahara-international-school/a-scaled.jpg",
+      "/assets/projects/sahara-international-school/b-scaled.jpg",
+      "/assets/projects/sahara-international-school/c-scaled.jpg",
+      "/assets/projects/sahara-international-school/Cam_027night-scaled.jpg"
     ],
     "type": "award",
     "projectSlug": "sahara-international-school"
@@ -693,7 +704,7 @@ export const awards: InsightItem[] = [
     "image": "/assets/projects/ufo/2023-CUBE-SOCIAL-MEDIA-2020-22-SQUARE-07-04-231.jpg",
     "content": "<p>The UFO Space Tourism City was awarded the Gold Winner at the Global Future Design Awards 2022. This visionary concept creates a launchpad and desert habitat hub for tourists aspiring to venture beyond the atmosphere.</p>",
     "gallery": [
-      "/assets/projects/ufo/Slide1-scaled.jpg"
+      "/assets/projects/ufo/2023-CUBE-SOCIAL-MEDIA-2020-22-SQUARE-07-04-231.jpg"
     ],
     "type": "award",
     "projectSlug": "ufo"
@@ -707,7 +718,8 @@ export const awards: InsightItem[] = [
     "image": "/assets/projects/aaru-1-0/cover.jpg",
     "content": "<p>A'ARU 1.0 Space Colony won the First Award in the Space Village Design Challenge. The masterplan details modular orbital habitats using simulated gravity rings and solar energy arrays for space communities.</p>",
     "gallery": [
-      "/assets/projects/aaru-1-0/Slide1-scaled.jpg"
+      "/assets/projects/aaru-1-0/cover.jpg",
+      "/assets/projects/aaru-1-0/Exterior_-00.jpg"
     ],
     "type": "award",
     "projectSlug": "aaru-1-0"
@@ -721,7 +733,10 @@ export const awards: InsightItem[] = [
     "image": "/assets/projects/nut-tower/0046-2-scaled.jpg",
     "content": "<p>Nut Tower won the World Design Awards 2023 in the Skyscraper category. It represents a landmark high-rise office complex that integrates active climate-responsive facades and interior smart ventilation systems.</p>",
     "gallery": [
-      "/assets/projects/nut-tower/Slide1-scaled.jpg"
+      "/assets/projects/nut-tower/0046-2-scaled.jpg",
+      "/assets/projects/nut-tower/014-2-scaled.jpg",
+      "/assets/projects/nut-tower/025_1-2-scaled.jpg",
+      "/assets/projects/nut-tower/Slide17-scaled.jpg"
     ],
     "type": "award",
     "projectSlug": "nut-tower"
@@ -735,7 +750,7 @@ export const awards: InsightItem[] = [
     "image": "/assets/projects/times-square-now-in-egypt/TIMES-SQUARE_cube_27-3-2021-scaled.jpg",
     "content": "<p>The Times Square Portsaid development was awarded the Excellence Award by the Egypt Retail Summit 2021. The design organizes a central shopping loop, high-end offices, and pedestrian squares on multiple elevated levels.</p>",
     "gallery": [
-      "/assets/projects/times-square-now-in-egypt/Slide1-scaled.jpg"
+      "/assets/projects/times-square-now-in-egypt/TIMES-SQUARE_cube_27-3-2021-scaled.jpg"
     ],
     "type": "award",
     "projectSlug": "times-square-now-in-egypt"
@@ -746,10 +761,10 @@ export const awards: InsightItem[] = [
     "slug": "top-15-architectural-studios-award",
     "date": "2019",
     "excerpt": "CUBE Consultants was recognized and awarded among the Top 15 Architectural Studios in Egypt, marking its prominence in national design.",
-    "image": "/assets/insights/top-15-architectural-studios-in-egypt/0001.png",
+    "image": "/assets/insights/top-15-architectural-studios-in-egypt/Boss_Tower_Cube_Consultants_2020.jpg",
     "content": "<p>CUBE Consultants was recognized and awarded among the Top 15 Architectural Studios in Egypt, marking its prominence in national design, urban visions, and master planning.</p>",
     "gallery": [
-      "/assets/insights/top-15-architectural-studios-in-egypt/0001.png"
+      "/assets/insights/top-15-architectural-studios-in-egypt/Boss_Tower_Cube_Consultants_2020.jpg"
     ],
     "type": "award",
     "projectSlug": null
