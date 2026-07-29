@@ -661,15 +661,16 @@ const translations: Record<Language, Record<string, string>> = {
 const LanguageContext = createContext<LanguageContextProps | undefined>(undefined);
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [language, setLanguageState] = useState<Language>(() => {
+  const [language, setLanguageState] = useState<Language>("en");
+
+  useEffect(() => {
     if (typeof window !== "undefined") {
       const savedLang = localStorage.getItem("lang") as Language;
       if (savedLang === "en" || savedLang === "ar") {
-        return savedLang;
+        setLanguageState(savedLang);
       }
     }
-    return "en";
-  });
+  }, []);
 
   const setLanguage = (lang: Language) => {
     setLanguageState(lang);

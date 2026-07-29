@@ -13,20 +13,18 @@ const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { language, setLanguage, t } = useLanguage();
   const [isListening, setIsListening] = useState(false);
-  const [showNav, setShowNav] = useState(() => {
-    if (typeof window !== "undefined") {
-      return sessionStorage.getItem("cube_intro_shown") === "true";
-    }
-    return false;
-  });
+  const [showNav, setShowNav] = useState(false);
 
   useEffect(() => {
-    if (typeof window !== "undefined" && !showNav) {
+    if (typeof window !== "undefined") {
+      if (sessionStorage.getItem("cube_intro_shown") === "true") {
+        setShowNav(true);
+      }
       const handleDismiss = () => setShowNav(true);
       window.addEventListener("cube_intro_dismissed", handleDismiss);
       return () => window.removeEventListener("cube_intro_dismissed", handleDismiss);
     }
-  }, [showNav]);
+  }, []);
 
   const startSpeechRecognition = () => {
     const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;

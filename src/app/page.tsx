@@ -221,7 +221,7 @@ export default function Home() {
   return (
     <ReactLenis root options={{ autoRaf: true, lerp: 0.08 }}>
       {/* Intro Splash Overlay */}
-      <div className={`${styles.introOverlay} ${!isIntroActive ? styles.introOverlayFadeOut : ""} ${videoEnded ? styles.introOverlayTransparent : ""}`}>
+      <div suppressHydrationWarning className={`${styles.introOverlay} ${!isIntroActive ? styles.introOverlayFadeOut : ""} ${videoEnded ? styles.introOverlayTransparent : ""}`}>
         {!videoEnded ? (
           <>
             <video
