@@ -22,7 +22,7 @@
   display: flex;
   align-items: center;
   gap: 15px;
-  padding-right: 1rem;
+  padding-inline-end: 1rem;
 }
 
 .switchGroupContainer {
@@ -109,7 +109,7 @@
 .logoContainer {
   display: flex;
   align-items: center;
-  padding-left: 1rem;
+  padding-inline-start: 1rem;
 }
 
 .logoLink {
@@ -120,7 +120,7 @@
 .logoImage {
   object-fit: contain;
   display: block;
-  margin-left: -15px; /* Pull flush to the margin */
+  margin-inline-start: -15px; /* Pull flush to the margin */
 }
 
 /* Circular Hamburger Button matching user reference image */
