@@ -136,7 +136,7 @@ const Navigation = () => {
   const menuItems = [
     { name: t("HOME"), path: "/" },
     { name: t("ABOUT"), path: "/about" },
-    { name: t("PORTFOLIO"), path: "/projects" },
+    { name: t("PROJECTS"), path: "/projects" },
     { name: t("SERVICES"), path: "/services" },
     { name: t("INSIGHTS"), path: "/insights" },
     { name: t("CUBE Portal"), path: "/portal" },

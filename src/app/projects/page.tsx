@@ -585,7 +585,7 @@ function getSearchScore(project: any, query: string, t?: (key: string) => string
         <section className={styles.headerSection}>
           <div className={styles.headerText}>
             <div className={styles.subtitle}>{t("Our Works")}</div>
-            <h1 className={styles.title}>{t("Portfolio")}</h1>
+            <h1 className={styles.title}>{t("Projects")}</h1>
           </div>
           <div className={styles.headerImageWrapper}>
             <Image
