@@ -5,41 +5,45 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { news, awards, InsightItem } from "@/data/insights";
+import { getInsightArabicContent } from "@/data/insightsTranslations";
 import { useLanguage } from "@/components/LanguageContext";
 import styles from "./slug.module.css";
+
+const allInsights: InsightItem[] = [...news, ...awards];
 
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
 const InsightDetailPage = ({ params }: PageProps) => {
-  const { slug } = use(params);
+  const resolvedParams = use(params);
+  const slug = resolvedParams.slug;
   const { language, t } = useLanguage();
 
-  // Find item in news or awards
-  let item: InsightItem | undefined = news.find(n => n.slug === slug);
-  let isAward = false;
+  const item = allInsights.find((i) => i.slug === slug);
 
   if (!item) {
-    item = awards.find(a => a.slug === slug);
-    isAward = true;
+    return (
+      <div className={styles.container} style={{ padding: "160px 6vw", textAlign: "center" }}>
+        <h1>{t("Insight Not Found")}</h1>
+        <p>{t("The requested insight or award does not exist.")}</p>
+        <Link href="/insights" className={styles.backLink} style={{ marginTop: "20px" }}>
+          ← {t("Back to Portfolio")}
+        </Link>
+      </div>
+    );
   }
 
-  if (!item) {
-    notFound();
-  }
-
+  const isAward = item.type === "award";
   const isArticle = item.type === "article";
 
-  // Pre-translated structural fallbacks
-  const translatedTitle = t(item.title);
+  // Pre-translated structural & content fallbacks
+  const arData = getInsightArabicContent(item);
+  const translatedTitle = language === "ar" ? arData.titleAr : t(item.title);
   const translatedBadge = isAward ? t("AWARDS") : (isArticle ? t("ARTICLES") : t("NEWS"));
   const translatedBack = t("Back to Portfolio");
-
-  const translatedExcerpt = language === "ar" ? 
-    (isAward ? "تأسست هذه الجائزة تقديراً للتميز المعماري والابتكار العمراني والمجتمعي الفائز بالمراكز الأولى عالمياً." : 
-     (isArticle ? item.excerpt : "توقيع اتفاقية استشارية وتصميمية جديدة لتعزيز الهوية المعمارية والارتقاء بالتخطيط العمراني المتقدم.")) 
-    : item.excerpt;
+  const translatedExcerpt = language === "ar" ? arData.excerptAr : item.excerpt;
+  const translatedContent = language === "ar" ? arData.contentAr : (item.content || `<p>${item.excerpt}</p>`);
 
   const galleryImages = (item.gallery && item.gallery.length > 0)
     ? item.gallery
@@ -89,7 +93,7 @@ const InsightDetailPage = ({ params }: PageProps) => {
 
           <div 
             className={styles.articleBody}
-            dangerouslySetInnerHTML={{ __html: item.content || `<p>${translatedExcerpt}</p>` }}
+            dangerouslySetInnerHTML={{ __html: translatedContent }}
           />
         </div>
 
