@@ -359,7 +359,7 @@
 /* ABOUT US SECTION */
 .ceoFounderSection {
   padding: 5rem var(--gutter);
-  background-color: var(--c-light-grey);
+  background: transparent;
   border-top: 1px solid rgba(0, 0, 0, 0.04);
   border-bottom: 1px solid rgba(0, 0, 0, 0.04);
   display: flex;
