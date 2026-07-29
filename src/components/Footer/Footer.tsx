@@ -9,6 +9,17 @@ import styles from "./Footer.module.css";
 const Footer = () => {
   const { t } = useLanguage();
 
+  const menuItems = [
+    { name: t("HOME"), path: "/" },
+    { name: t("ABOUT"), path: "/about" },
+    { name: t("PROJECTS"), path: "/projects" },
+    { name: t("SERVICES"), path: "/services" },
+    { name: t("INSIGHTS"), path: "/insights" },
+    { name: t("Ai Lab"), path: "/ai-lab" },
+    { name: t("Art Gallery"), path: "/art-gallery" },
+    { name: t("CONTACT US"), path: "/contact" },
+  ];
+
   return (
     <>
       <div className={styles.footerSeparator} />
@@ -46,11 +57,25 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Text Block Column instead of the two link columns */}
+        {/* Text Block Column */}
         <div className={styles.footerAboutCol}>
           <p className={styles.footerAboutText}>
             {t("CUBE was founded in 1990, by Prof. Ashraf Abdel Mohsen, professor of architecture at the Faculty of Engineering, Ain Shams University ,Cairo, Egypt.")}
           </p>
+        </div>
+
+        {/* Quick Links Column */}
+        <div className={styles.footerLinksCol}>
+          <h4 className={styles.columnTitle}>{t("EXPLORE")}</h4>
+          <ul className={styles.footerLinksList}>
+            {menuItems.map((item) => (
+              <li key={item.path}>
+                <Link href={item.path} className={styles.footerLink}>
+                  {item.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
 
         {/* Contact Details Column */}
