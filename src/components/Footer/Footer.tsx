@@ -64,20 +64,6 @@ const Footer = () => {
           </p>
         </div>
 
-        {/* Quick Links Column */}
-        <div className={styles.footerLinksCol}>
-          <h4 className={styles.columnTitle}>{t("EXPLORE")}</h4>
-          <ul className={styles.footerLinksList}>
-            {menuItems.map((item) => (
-              <li key={item.path}>
-                <Link href={item.path} className={styles.footerLink}>
-                  {item.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
         {/* Contact Details Column */}
         <div className={styles.footerContactCol}>
           <div className={styles.contactDetailItem}>
@@ -95,6 +81,15 @@ const Footer = () => {
         </div>
 
       </div>
+
+      {/* Elegant Horizontal Navigation links bar */}
+      <nav className={styles.footerNavLinksRow} aria-label="Footer Navigation">
+        {menuItems.map((item) => (
+          <Link href={item.path} key={item.path} className={styles.footerNavLink}>
+            {item.name}
+          </Link>
+        ))}
+      </nav>
 
       <div className={styles.footerBottomBar}>
         <p className={styles.copyrightText}>
