@@ -69,6 +69,55 @@
   object-fit: cover;
 }
 
+/* Horizontal Sector Tabs Bar (In between main tabs & filter controls) */
+.sectorTabsBar {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 6px 0 16px 0;
+  margin-bottom: 24px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+  -webkit-overflow-scrolling: touch;
+}
+
+.sectorTabsBar::-webkit-scrollbar {
+  height: 4px;
+}
+
+.sectorTabsBar::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.sectorTabBtn {
+  background: var(--c-white);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  color: #444444;
+  padding: 8px 18px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 30px;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all 0.25s ease;
+}
+
+.sectorTabBtn:hover {
+  border-color: var(--c-red);
+  color: var(--c-red);
+}
+
+.activeSectorTabBtn {
+  background: var(--c-red) !important;
+  color: var(--c-white) !important;
+  border-color: var(--c-red) !important;
+  box-shadow: 0 4px 12px rgba(227, 6, 19, 0.25);
+}
+
 /* Filter controls bar styling - light theme, premium alignment */
 .filterBar {
   display: flex;

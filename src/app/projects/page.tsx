@@ -639,26 +639,23 @@ function getSearchScore(project: any, query: string, t?: (key: string) => string
           </button>
         </div>
 
+        {/* Sector Tabs Bar (In between main tabs and filter bar) */}
+        {activeView !== "movies" && (
+          <div className={styles.sectorTabsBar}>
+            {(activeView === "supervision" ? technicalSectors : sectors).map((s) => (
+              <button
+                key={s}
+                className={`${styles.sectorTabBtn} ${selectedSector === s ? styles.activeSectorTabBtn : ""}`}
+                onClick={() => setSelectedSector(s)}
+              >
+                {s === "All" ? t("All Sectors") : t(s)}
+              </button>
+            ))}
+          </div>
+        )}
+
         {/* Filter & Search Bar - RMJM Style */}
         <section className={styles.filterBar}>
-          {/* Sector Selector (active for All, Designs, and Supervision) */}
-          {activeView !== "movies" && (
-            <div className={styles.filterGroup}>
-              <label className={styles.filterLabel} htmlFor="sectorSelect">{t("Sector")}</label>
-              <select
-                id="sectorSelect"
-                className={styles.selectInput}
-                value={selectedSector}
-                onChange={(e) => setSelectedSector(e.target.value)}
-              >
-                {(activeView === "supervision" ? technicalSectors : sectors).map((s) => (
-                  <option key={s} value={s}>
-                    {s === "All" ? t("All Sectors") : t(s)}
-                  </option>
-                ))}
-              </select>
-            </div>
-          )}
 
           {/* Region Selector (active for All, Designs, and Supervision) */}
           {activeView !== "movies" && (
