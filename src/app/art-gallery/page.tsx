@@ -25,6 +25,7 @@ export default function ArtGalleryPage() {
   const [artworks, setArtworks] = useState<Artwork[]>([]);
   const [pendingArtworks, setPendingArtworks] = useState<Artwork[]>([]);
   const [showAdminPanel, setShowAdminPanel] = useState(false);
+  const [isFolderOpen, setIsFolderOpen] = useState(false);
 
   const [lightboxArt, setLightboxArt] = useState<Artwork | null>(null);
   const [dragActive, setDragActive] = useState(false);
@@ -371,62 +372,108 @@ export default function ArtGalleryPage() {
 
       {/* Gallery Grid Section (Edge-to-Edge) */}
       <section className={styles.galleryGridSection}>
-        
-        {/* Exhibition Grid (Masonry Collage) */}
-        <div className={styles.exhibitionGrid}>
-          {artworks.map((art) => (
-            <div 
-              key={art.id} 
-              className={styles.artFrameCard}
-              onClick={() => setLightboxArt(art)}
-            >
-              <div className={styles.artImageWrapper}>
-                <Image 
-                  src={art.src} 
-                  alt={art.title}
-                  width={600}
-                  height={800}
-                  style={{
-                    width: "100%",
-                    height: "auto",
-                    display: "block"
-                  }}
-                  className={styles.artImage}
+        <div className={styles.folderGrid}>
+          <div className={styles.folderCard} onClick={() => setIsFolderOpen(true)}>
+            <div className={styles.folderTab}>{language === "ar" ? "معرض" : "Exhibition"}</div>
+            <div className={styles.folderCoverWrapper}>
+              {artworks[0] && (
+                <Image
+                  src={artworks[0].src}
+                  alt="Dr. Ashraf Artwork Cover"
+                  fill
+                  sizes="320px"
+                  className={styles.folderCoverImage}
+                  priority
                 />
-                
-                {/* Hover Plaque Info Overlay */}
-                <div className={styles.plaqueOverlay}>
-                  <h3 className={styles.artTitle}>{art.title}</h3>
-                  <div className={styles.plaqueMeta}>
-                    <span className={styles.artArtist}>{art.artist}</span>
-                    <span className={styles.artDate}>{art.date.split("-")[0]}</span>
-                  </div>
-                </div>
-
-                {/* Delete Button for User Uploads */}
-                {art.isUserUploaded && (
-                  <button 
-                    onClick={(e) => deleteArtwork(art.id, e)}
-                    className={styles.deleteBtn}
-                    title={language === "ar" ? "حذف العمل" : "Delete Artwork"}
-                    aria-label="Delete Artwork"
-                  >
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                  </button>
-                )}
-              </div>
+              )}
             </div>
-          ))}
-        </div>
-
-        {artworks.length === 0 && (
-          <div className={styles.emptyGallery}>
-            <p>{language === "ar" ? "لا توجد أعمال فنية معروضة حالياً." : "No artworks found."}</p>
+            <div className={styles.folderDetails}>
+              <h3 className={styles.folderTitle}>{language === "ar" ? "أعمال د. أشرف الفنية" : "Dr. Ashraf Artwork"}</h3>
+              <span className={styles.folderCount}>
+                {language === "ar" ? `${artworks.length} عمل فني` : `${artworks.length} Artworks`}
+              </span>
+            </div>
           </div>
-        )}
+        </div>
       </section>
+
+      {/* Folder Window Overlay */}
+      {isFolderOpen && (
+        <div className={styles.folderOverlayModal} onClick={() => setIsFolderOpen(false)}>
+          <div className={styles.folderWindow} onClick={(e) => e.stopPropagation()}>
+            <div className={styles.folderWindowHeader}>
+              <h2 className={styles.folderWindowTitle}>
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" style={{ color: "var(--c-red)" }}>
+                  <path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-1 11H5V8h14v9z"/>
+                </svg>
+                {language === "ar" ? "أعمال د. أشرف الفنية" : "Dr. Ashraf Artwork"}
+              </h2>
+              <button className={styles.closeFolderBtn} onClick={() => setIsFolderOpen(false)} aria-label="Close Folder">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+              </button>
+            </div>
+
+            <div className={styles.folderWindowContent}>
+              <div className={styles.exhibitionGrid}>
+                {artworks.map((art) => (
+                  <div 
+                    key={art.id} 
+                    className={styles.artFrameCard}
+                    onClick={() => setLightboxArt(art)}
+                  >
+                    <div className={styles.artImageWrapper}>
+                      <Image 
+                        src={art.src} 
+                        alt={art.title}
+                        width={600}
+                        height={800}
+                        style={{
+                          width: "100%",
+                          height: "auto",
+                          display: "block"
+                        }}
+                        className={styles.artImage}
+                      />
+                      
+                      {/* Hover Plaque Info Overlay */}
+                      <div className={styles.plaqueOverlay}>
+                        <h3 className={styles.artTitle}>{art.title}</h3>
+                        <div className={styles.plaqueMeta}>
+                          <span className={styles.artArtist}>{art.artist}</span>
+                          <span className={styles.artDate}>{art.date.split("-")[0]}</span>
+                        </div>
+                      </div>
+
+                      {/* Delete Button for User Uploads */}
+                      {art.isUserUploaded && (
+                        <button 
+                          onClick={(e) => deleteArtwork(art.id, e)}
+                          className={styles.deleteBtn}
+                          title={language === "ar" ? "حذف العمل" : "Delete Artwork"}
+                          aria-label="Delete Artwork"
+                        >
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                          </svg>
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+              
+              {artworks.length === 0 && (
+                <div className={styles.emptyGallery}>
+                  <p>{language === "ar" ? "لا توجد أعمال فنية معروضة حالياً." : "No artworks found."}</p>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Lightbox / Immersive Frame Modal */}
       {lightboxArt && (
