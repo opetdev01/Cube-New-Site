@@ -655,6 +655,9 @@ const translations: Record<Language, Record<string, string>> = {
     "OUR NETWORK": "شبكتنا",
     "CLIENTS & PARTNERS": "العملاء والشركاء",
     "Ai Lab": "مختبر الذكاء الاصطناعي",
+    "DESIGNS": "التصاميم",
+    "SUPERVISION": "الإشراف الفني",
+    "MOVIES": "الأفلام المعمارية"
   }
 };
 

@@ -172,7 +172,7 @@ function getSearchScore(project: any, query: string, t?: (key: string) => string
 
   return score;
 }export default function Projects() {
-  const [activeView, setActiveView] = useState<"projects" | "technical" | "movies">("projects");
+  const [activeView, setActiveView] = useState<"all" | "designs" | "supervision" | "movies">("all");
   const [activeVideoId, setActiveVideoId] = useState<string | null>(null);
   const [selectedSector, setSelectedSector] = useState("All");
   const [selectedRegion, setSelectedRegion] = useState("All");
@@ -494,8 +494,8 @@ function getSearchScore(project: any, query: string, t?: (key: string) => string
     .filter((item) => {
       const p = item.project;
       
-      if (activeView === "technical") {
-        // Only include specified technical portfolio projects
+      if (activeView === "supervision") {
+        // Only include specified technical/supervision portfolio projects
         if (!TECHNICAL_SLUGS.includes(p.slug)) return false;
         
         const techSector = TECHNICAL_SECTOR_MAP[p.slug];
@@ -507,7 +507,20 @@ function getSearchScore(project: any, query: string, t?: (key: string) => string
         const matchesSearch = item.score > 0;
         
         return matchesSector && matchesRegion && matchesYear && matchesSearch;
+      } else if (activeView === "designs") {
+        // Only include design projects
+        if (TECHNICAL_SLUGS.includes(p.slug)) return false;
+
+        const matchesSector = selectedSector === "All" || p.sector === selectedSector;
+        const matchesRegion =
+          selectedRegion === "All" ||
+          p.location.toLowerCase().includes(selectedRegion.toLowerCase());
+        const matchesYear = selectedYear === "All" || p.year === selectedYear;
+        const matchesSearch = item.score > 0;
+        
+        return matchesSector && matchesRegion && matchesYear && matchesSearch;
       } else {
+        // "all" view - include all projects
         const matchesSector = selectedSector === "All" || p.sector === selectedSector;
         const matchesRegion =
           selectedRegion === "All" ||
@@ -586,25 +599,34 @@ function getSearchScore(project: any, query: string, t?: (key: string) => string
           </div>
         </section>
 
-        {/* View Switcher Tabs (Projects / Technical / Movies) */}
+        {/* View Switcher Tabs (ALL / DESIGNS / SUPERVISION / MOVIES) */}
         <div className={styles.portfolioTabs}>
           <button
-            className={`${styles.tabBtn} ${activeView === "projects" ? styles.activeTabBtn : ""}`}
+            className={`${styles.tabBtn} ${activeView === "all" ? styles.activeTabBtn : ""}`}
             onClick={() => {
-              setActiveView("projects");
+              setActiveView("all");
               resetFilters();
             }}
           >
-            {t("Projects")}
+            {t("ALL")}
           </button>
           <button
-            className={`${styles.tabBtn} ${activeView === "technical" ? styles.activeTabBtn : ""}`}
+            className={`${styles.tabBtn} ${activeView === "designs" ? styles.activeTabBtn : ""}`}
             onClick={() => {
-              setActiveView("technical");
+              setActiveView("designs");
               resetFilters();
             }}
           >
-            {t("Technical")}
+            {t("DESIGNS")}
+          </button>
+          <button
+            className={`${styles.tabBtn} ${activeView === "supervision" ? styles.activeTabBtn : ""}`}
+            onClick={() => {
+              setActiveView("supervision");
+              resetFilters();
+            }}
+          >
+            {t("SUPERVISION")}
           </button>
           <button
             className={`${styles.tabBtn} ${activeView === "movies" ? styles.activeTabBtn : ""}`}
@@ -613,14 +635,14 @@ function getSearchScore(project: any, query: string, t?: (key: string) => string
               resetFilters();
             }}
           >
-            {t("Movies")}
+            {t("MOVIES")}
           </button>
         </div>
 
         {/* Filter & Search Bar - RMJM Style */}
         <section className={styles.filterBar}>
-          {/* Sector Selector (active for Projects and Technical) */}
-          {(activeView === "projects" || activeView === "technical") && (
+          {/* Sector Selector (active for All, Designs, and Supervision) */}
+          {activeView !== "movies" && (
             <div className={styles.filterGroup}>
               <label className={styles.filterLabel} htmlFor="sectorSelect">{t("Sector")}</label>
               <select
@@ -629,7 +651,7 @@ function getSearchScore(project: any, query: string, t?: (key: string) => string
                 value={selectedSector}
                 onChange={(e) => setSelectedSector(e.target.value)}
               >
-                {(activeView === "technical" ? technicalSectors : sectors).map((s) => (
+                {(activeView === "supervision" ? technicalSectors : sectors).map((s) => (
                   <option key={s} value={s}>
                     {s === "All" ? t("All Sectors") : t(s)}
                   </option>
@@ -638,8 +660,8 @@ function getSearchScore(project: any, query: string, t?: (key: string) => string
             </div>
           )}
 
-          {/* Region Selector (active for Projects and Technical) */}
-          {(activeView === "projects" || activeView === "technical") && (
+          {/* Region Selector (active for All, Designs, and Supervision) */}
+          {activeView !== "movies" && (
             <div className={styles.filterGroup}>
               <label className={styles.filterLabel} htmlFor="regionSelect">{t("Region")}</label>
               <select
@@ -657,8 +679,8 @@ function getSearchScore(project: any, query: string, t?: (key: string) => string
             </div>
           )}
 
-          {/* Year Selector (active for Projects and Technical) */}
-          {(activeView === "projects" || activeView === "technical") && (
+          {/* Year Selector (active for All, Designs, and Supervision) */}
+          {activeView !== "movies" && (
             <div className={styles.filterGroup}>
               <label className={styles.filterLabel} htmlFor="yearSelect">{t("Year")}</label>
               <select
@@ -734,7 +756,7 @@ function getSearchScore(project: any, query: string, t?: (key: string) => string
 
         {/* Portfolio Items Grid */}
         <section ref={gridRef}>
-          {(activeView === "projects" || activeView === "technical") ? (
+          {activeView !== "movies" ? (
             filteredProjects.length > 0 ? (
               <div className={styles.portfolioGrid}>
                 {filteredProjects.map((project, idx) => (
@@ -755,7 +777,7 @@ function getSearchScore(project: any, query: string, t?: (key: string) => string
                     </div>
                     <div className={styles.cardDetails}>
                       <div className={styles.cardSector}>
-                        {t(activeView === "technical" ? TECHNICAL_SECTOR_MAP[project.slug] || project.sector : project.sector)}
+                        {t(TECHNICAL_SLUGS.includes(project.slug) ? TECHNICAL_SECTOR_MAP[project.slug] || project.sector : project.sector)}
                       </div>
                       <h3 className={styles.cardTitle}>{t(project.title)}</h3>
                       <p className={styles.cardLocation}>{t(project.location)}</p>
