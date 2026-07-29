@@ -21,8 +21,8 @@ const Footer = () => {
             <Image
               src="/logo-v4.png"
               alt="CUBE Consultants"
-              width={90}
-              height={90}
+              width={80}
+              height={80}
               className={styles.footerLogoImage}
               style={{ objectFit: "contain" }}
             />
