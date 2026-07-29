@@ -25,11 +25,7 @@ export default function ArtGalleryPage() {
   const [artworks, setArtworks] = useState<Artwork[]>([]);
   const [pendingArtworks, setPendingArtworks] = useState<Artwork[]>([]);
   const [showAdminPanel, setShowAdminPanel] = useState(false);
-  const [showLoginModal, setShowLoginModal] = useState(false);
-  const [usernameInput, setUsernameInput] = useState("");
-  const [passwordInput, setPasswordInput] = useState("");
-  const [loginError, setLoginError] = useState("");
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
   const [lightboxArt, setLightboxArt] = useState<Artwork | null>(null);
   const [dragActive, setDragActive] = useState(false);
   const [uploadCountThisMonth, setUploadCountThisMonth] = useState(0);
@@ -159,12 +155,6 @@ export default function ArtGalleryPage() {
       const storedArt = localStorage.getItem("cube_art_uploads");
       const storedPending = localStorage.getItem("cube_art_pending");
       const storedLogs = localStorage.getItem("cube_art_upload_logs");
-      
-      const auth = sessionStorage.getItem("cube_admin_auth");
-      if (auth === "true") {
-        setIsAuthenticated(true);
-      }
-
       let parsedArt: Artwork[] = [];
       if (storedArt) {
         try {
@@ -189,27 +179,10 @@ export default function ArtGalleryPage() {
     }
   }, [language]);
 
-  const handleLoginSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (usernameInput === "Ash" && passwordInput === "712") {
-      setIsAuthenticated(true);
-      sessionStorage.setItem("cube_admin_auth", "true");
-      setShowLoginModal(false);
-      setShowAdminPanel(true);
-      setLoginError("");
-      setUsernameInput("");
-      setPasswordInput("");
-    } else {
-      setLoginError(language === "ar" ? "بيانات الاعتماد غير صالحة. تم رفض الوصول." : "Invalid credentials. Access Denied.");
-    }
-  };
+
 
   const handleAdminPanelOpen = () => {
-    if (isAuthenticated) {
-      setShowAdminPanel(true);
-    } else {
-      setShowLoginModal(true);
-    }
+    setShowAdminPanel(true);
   };
 
   const calculateMonthlyUploads = (logs: UploadLog[]) => {
@@ -555,57 +528,7 @@ export default function ArtGalleryPage() {
         </div>
       )}
 
-      {/* Admin Login Secure Modal */}
-      {showLoginModal && (
-        <div className={styles.limitAlertOverlay} onClick={() => { setShowLoginModal(false); setLoginError(""); }}>
-          <div className={styles.loginModal} onClick={(e) => e.stopPropagation()}>
-            <div className={styles.adminHeader}>
-              <h2>{language === "ar" ? "بوابة الإشراف الإداري" : "ADMIN LOGIN SECURE"}</h2>
-              <button className={styles.closeAdminBtn} onClick={() => { setShowLoginModal(false); setLoginError(""); }}>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
-            
-            <form onSubmit={handleLoginSubmit} className={styles.loginForm}>
-              <div className={styles.formInputGroup}>
-                <label>{language === "ar" ? "اسم المستخدم" : "Username"}</label>
-                <input 
-                  type="text" 
-                  value={usernameInput}
-                  onChange={(e) => setUsernameInput(e.target.value)}
-                  placeholder=""
-                  required
-                  className={styles.loginInput}
-                />
-              </div>
-              
-              <div className={styles.formInputGroup}>
-                <label>{language === "ar" ? "كلمة المرور" : "Password"}</label>
-                <input 
-                  type="password" 
-                  value={passwordInput}
-                  onChange={(e) => setPasswordInput(e.target.value)}
-                  placeholder=""
-                  required
-                  className={styles.loginInput}
-                />
-              </div>
 
-              {loginError && (
-                <div className={styles.loginErrorMsg}>
-                  {loginError}
-                </div>
-              )}
-
-              <button type="submit" className={styles.loginSubmitBtn}>
-                {language === "ar" ? "تسجيل الدخول" : "SUBMIT"}
-              </button>
-            </form>
-          </div>
-        </div>
-      )}
 
       {/* Success Modal (Pending Admin Review) */}
       {showUploadSuccess && (
