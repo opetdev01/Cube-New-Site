@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useLanguage } from "@/components/LanguageContext";
 import { projects } from "@/data/projects";
 import styles from "./SearchEngineModal.module.css";
@@ -19,6 +20,7 @@ interface SearchEngineModalProps {
 }
 
 export default function SearchEngineModal({ isOpen, onClose }: SearchEngineModalProps) {
+  const router = useRouter();
   const { language, t } = useLanguage();
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(false);
@@ -27,6 +29,12 @@ export default function SearchEngineModal({ isOpen, onClose }: SearchEngineModal
   const [isListening, setIsListening] = useState(false);
   const recognitionRef = useRef<any>(null);
   const chatEndRef = useRef<HTMLDivElement>(null);
+
+  const handleCardClick = (e: React.MouseEvent, slug: string) => {
+    e.preventDefault();
+    onClose();
+    router.push(`/projects/${slug}`);
+  };
 
   useEffect(() => {
     if (isOpen) {
@@ -287,7 +295,7 @@ export default function SearchEngineModal({ isOpen, onClose }: SearchEngineModal
                       key={project.slug}
                       href={`/projects/${project.slug}`}
                       className={styles.portalProjectCard}
-                      onClick={onClose}
+                      onClick={(e) => handleCardClick(e, project.slug)}
                     >
                       <div className={styles.portalCardImageWrapper}>
                         <Image
