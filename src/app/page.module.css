@@ -362,62 +362,30 @@
   background-color: var(--c-light-grey);
   border-top: 1px solid rgba(0, 0, 0, 0.04);
   border-bottom: 1px solid rgba(0, 0, 0, 0.04);
-}
-
-.ceoFounderGrid {
-  display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
-  gap: 4rem;
-  align-items: center;
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
-.ceoFounderLeft {
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
-.ceoFounderImageWrapper {
-  position: relative;
+.ceoFounderContent {
+  max-width: 900px;
   width: 100%;
-  max-width: 400px;
-  height: 480px;
-  background: radial-gradient(circle at center, rgba(227, 6, 19, 0.08) 0%, rgba(227, 6, 19, 0) 70%);
-  border-radius: 24px;
-  border: 1px solid rgba(227, 6, 19, 0.05);
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.ceoFounderImage {
-  object-fit: contain;
-  transition: transform var(--transition-smooth);
-}
-
-.ceoFounderImageWrapper:hover .ceoFounderImage {
-  transform: scale(1.03);
-}
-
-.ceoFounderRight {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
   gap: 0.8rem;
 }
 
 .ceoFounderTag {
   font-size: 0.85rem;
   font-weight: 800;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.25em;
   color: var(--c-red);
   text-transform: uppercase;
 }
 
 .ceoFounderName {
-  font-size: clamp(2rem, 3vw, 2.8rem);
+  font-size: clamp(2rem, 3.5vw, 3rem);
   font-weight: 900;
   color: var(--c-black);
   margin: 0.2rem 0;
@@ -425,18 +393,20 @@
 }
 
 .ceoFounderTitle {
-  font-size: 1.15rem;
+  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
   font-weight: 700;
   color: #555;
   line-height: 1.4;
   letter-spacing: 0.02em;
+  max-width: 750px;
 }
 
 .ceoFounderBio {
-  font-size: 1.05rem;
-  line-height: 1.75;
+  font-size: clamp(1rem, 1.2vw, 1.15rem);
+  line-height: 1.8;
   color: #333;
   margin: 0.5rem 0 1.5rem;
+  max-width: 800px;
 }
 
 .ceoFounderCta {
@@ -448,7 +418,6 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  width: fit-content;
   transition: color var(--transition-fast);
 }
 
@@ -458,29 +427,6 @@
 
 .ceoFounderCta:hover .arrowIcon {
   transform: translateX(5px);
-}
-
-@media (max-width: 1024px) {
-  .ceoFounderGrid {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-    text-align: center;
-  }
-  .ceoFounderLeft {
-    order: 1;
-  }
-  .ceoFounderRight {
-    order: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .ceoFounderImageWrapper {
-    height: 380px;
-  }
-  .ceoFounderCta {
-    align-self: center;
-  }
 }
 
 .aboutSection {
