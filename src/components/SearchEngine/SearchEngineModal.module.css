@@ -12,6 +12,7 @@
   align-items: center;
   justify-content: center;
   padding: 24px;
+  pointer-events: auto; /* Override nav pointer-events: none */
 }
 
 .modalContainer {
@@ -29,6 +30,7 @@
   z-index: 10000;
   font-family: 'Outfit', 'Inter', -apple-system, sans-serif;
   animation: modalAppear 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  pointer-events: auto;
 }
 
 @keyframes modalAppear {
