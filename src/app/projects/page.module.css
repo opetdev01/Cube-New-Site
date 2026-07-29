@@ -69,25 +69,13 @@
   object-fit: cover;
 }
 
-/* Horizontal Sector Tabs Bar (In between main tabs & filter controls) */
+/* Multi-row Sector Tabs Bar (In between main tabs & filter controls) */
 .sectorTabsBar {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
-  overflow-x: auto;
   padding: 6px 0 16px 0;
   margin-bottom: 24px;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
-  -webkit-overflow-scrolling: touch;
-}
-
-.sectorTabsBar::-webkit-scrollbar {
-  height: 4px;
-}
-
-.sectorTabsBar::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
 }
 
 .sectorTabBtn {
