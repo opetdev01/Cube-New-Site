@@ -93,7 +93,7 @@ const InsightDetailPage = ({ params }: PageProps) => {
           />
         </div>
 
-        {/* Right Column: Meta Information & Media Gallery */}
+        {/* Right Column: Meta Information */}
         <div className={styles.rightCol}>
           <div className={styles.infoBox}>
             <h3 className={styles.infoBoxTitle}>{t("Information")}</h3>
@@ -113,28 +113,28 @@ const InsightDetailPage = ({ params }: PageProps) => {
               </div>
             )}
           </div>
-
-          {/* Inline Media Gallery */}
-          {galleryImages.length > 0 && (
-            <div className={styles.gallerySection}>
-              <h3 className={styles.galleryTitle}>{t("Media Gallery")}</h3>
-              <div className={styles.galleryGrid}>
-                {galleryImages.map((imgUrl, i) => (
-                  <div key={i} className={styles.galleryImageWrapper}>
-                    <Image 
-                      src={imgUrl}
-                      alt={`${translatedTitle} - Image ${i + 1}`}
-                      fill
-                      className={styles.galleryImage}
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
         </div>
       </div>
+
+      {/* Full-width Media Gallery placed under text */}
+      {galleryImages.length > 0 && (
+        <div className={styles.fullWidthGallerySection}>
+          <h3 className={styles.galleryTitle}>{t("Media Gallery")}</h3>
+          <div className={styles.galleryGrid}>
+            {galleryImages.map((imgUrl, i) => (
+              <div key={i} className={styles.galleryImageWrapper}>
+                <Image 
+                  src={imgUrl}
+                  alt={`${translatedTitle} - Image ${i + 1}`}
+                  fill
+                  className={styles.galleryImage}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
