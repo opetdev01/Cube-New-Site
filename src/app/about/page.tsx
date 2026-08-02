@@ -208,17 +208,28 @@ export default function AboutPage() {
           </svg>
         </div>
 
-        {/* 3. THE CUBE EQUATION PHILOSOPHY SECTION */}
+        {/* 3. ANIMATED IMAGE AND PERFECTED EQ TEXT SECTION */}
         <div className={styles.cgSection}>
           <span className={styles.cgLabel}>{t("Our Philosophy")}</span>
-          <h2 className={styles.cgTitle} style={{ marginBottom: "30px" }}>
+          <h2 className={styles.cgTitle} style={{ marginBottom: "50px" }}>
             {t("The Cube Equation")}
           </h2>
-
-          {/* Interactive Spirit Care Section */}
-          <ObsidianSystem />
           
           <div className={styles.cgEqLayout}>
+            {/* Card 1 */}
+            <div className={styles.cgEqItem}>
+              <div>
+                <span className={styles.cgEqNum}>01</span>
+                <h3>{t("1. SPIRIT CARE")}</h3>
+                <p className={styles.cgEqDesc}>
+                  {t("Design that nurtures the human soul by prioritizing emotional experience, peace, balance, and meaning.")}
+                </p>
+              </div>
+              <div className={styles.cgEqOutcome}>
+                <span>{t("Outcome:")}</span> {t("Spaces that heal, inspire, and connect")}
+              </div>
+            </div>
+
             {/* Card 2 */}
             <div className={styles.cgEqItem}>
               <div>
@@ -248,7 +259,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Centered Animated Equation Image below cards */}
+          {/* Centered Animated Equation Image below the 3 clean cards */}
           <div className={styles.formulaSection}>
             <img 
               src="/assets/3_rings.webp" 
@@ -296,52 +307,8 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* 5. PHILOSOPHY 2026 */}
-        <div className={styles.cgPhilLayout}>
-          <div>
-            <span className={styles.cgLabel}>{t("2026 Philosophy")}</span>
-            <h2 className={styles.cgTitle} style={{ border: "none", padding: 0, marginBottom: "40px" }}>
-              {t("Spirit Care")}
-            </h2>
-            
-            <div className={styles.cgSpiritElements}>
-              <div className={styles.cgSpiritItem}>
-                <span className={styles.cgSpiritNum}>01.</span>
-                <h4 className={styles.cgSpiritH4}>{t("SOUL")}</h4>
-                <p>{t("Every space must feel alive through light, shadow, and proportion.")}</p>
-              </div>
-              <div className={styles.cgSpiritItem}>
-                <span className={styles.cgSpiritNum}>02.</span>
-                <h4 className={styles.cgSpiritH4}>{t("SUN")}</h4>
-                <p>{t("Light is the primary generator of life, dictating solar orientation and shading.")}</p>
-              </div>
-              <div className={styles.cgSpiritItem}>
-                <span className={styles.cgSpiritNum}>03.</span>
-                <h4 className={styles.cgSpiritH4}>{t("AIR")}</h4>
-                <p>{t("Creating movement and comfort through natural cross-ventilation.")}</p>
-              </div>
-              <div className={styles.cgSpiritItem}>
-                <span className={styles.cgSpiritNum}>04.</span>
-                <h4 className={styles.cgSpiritH4}>{t("WATER")}</h4>
-                <p>{t("A natural cooling agent that offers visual and spiritual reflection.")}</p>
-              </div>
-              <div className={styles.cgSpiritItem}>
-                <span className={styles.cgSpiritNum}>05.</span>
-                <h4 className={styles.cgSpiritH4}>{t("EARTH")}</h4>
-                <p>{t("Sustainability rooted deeply in context and local, natural materials.")}</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Custom Graphic matching the uploaded image! */}
-          <div className={styles.cgStarBox}>
-            <img 
-              src="/assets/ring.webp" 
-              alt="Spirit Care Elements" 
-              className={styles.cgStarImg} 
-            />
-          </div>
-        </div>
+        {/* 5. PHILOSOPHY 2026 - SPIRIT CARE OBSIDIAN GRAPH SYSTEM */}
+        <ObsidianSystem />
 
         {/* 6. PARTNERS CATALOG (DETAILED SECTION) */}
         <div className={styles.cgSection} style={{ marginTop: "100px", borderTop: "1px solid #eaeaea", paddingTop: "80px" }}>
