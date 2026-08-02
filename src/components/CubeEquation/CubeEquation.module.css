@@ -70,6 +70,7 @@
   color: #ffffff;
   box-shadow: 0 0 15px rgba(227, 6, 19, 0.6);
   animation: badgePulse 1.2s infinite alternate ease-in-out;
+  cursor: pointer;
 }
 
 @keyframes badgePulse {
@@ -356,6 +357,31 @@
   margin: 0;
 }
 
+.playVideoBtn {
+  margin-top: 1.2rem;
+  background: var(--c-red);
+  color: #ffffff;
+  border: none;
+  padding: 12px 26px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(227, 6, 19, 0.3);
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.playVideoBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(227, 6, 19, 0.5);
+  background: #c00410;
+}
+
 .resetBtn {
   background: rgba(0, 0, 0, 0.05);
   border: 1px solid rgba(0, 0, 0, 0.15);
@@ -374,6 +400,154 @@
   color: #ffffff;
 }
 
+/* HOLOGRAPHIC SYNTHESIS VIDEO MODAL */
+.videoModalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(15px);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.videoModalContainer {
+  background: #ffffff;
+  width: 100%;
+  max-width: 950px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(227, 6, 19, 0.3);
+  border: 2px solid var(--c-red);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.modalHeader {
+  padding: 1.2rem 2rem;
+  background: #111111;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modalTitle {
+  font-size: 1.1rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.modalCloseBtn {
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: #ffffff;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+.modalCloseBtn:hover {
+  background: var(--c-red);
+}
+
+.videoWrapper {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  background: #000000;
+}
+
+.modalVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.videoTabsNav {
+  display: flex;
+  background: #f4f5f8;
+  padding: 0.8rem 1.5rem;
+  gap: 0.8rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.videoTabBtn {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #444444;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-transform: uppercase;
+}
+
+.videoTabBtnActive {
+  background: var(--c-red);
+  color: #ffffff;
+  border-color: var(--c-red);
+  box-shadow: 0 4px 12px rgba(227, 6, 19, 0.3);
+}
+
+.videoCaptionsBox {
+  padding: 1.4rem 2rem;
+  background: #ffffff;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.captionPillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+}
+
+.capCard {
+  border-left: 3px solid var(--c-red);
+  padding-left: 0.8rem;
+}
+
+.capTitle {
+  font-size: 0.82rem;
+  font-weight: 900;
+  color: #111111;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+
+.capDesc {
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: #666666;
+  margin: 0;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 @keyframes slideUp {
   from { opacity: 0; transform: translateY(12px); }
   to { opacity: 1; transform: translateY(0); }
@@ -388,5 +562,11 @@
   }
   .reactorContainer {
     padding: 2.5rem 1.5rem;
+  }
+  .videoWrapper {
+    height: 300px;
+  }
+  .captionPillars {
+    grid-template-columns: 1fr;
   }
 }

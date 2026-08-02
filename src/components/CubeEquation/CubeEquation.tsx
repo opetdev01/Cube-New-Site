@@ -6,9 +6,10 @@ import styles from "./CubeEquation.module.css";
 
 export default function CubeEquation() {
   const { language, t } = useLanguage();
-  // Default is empty so user must click all 3 pillars from the beginning
   const [activeStreams, setActiveStreams] = useState<string[]>([]);
   const [isMasterSynthesized, setIsMasterSynthesized] = useState<boolean>(false);
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState<boolean>(false);
+  const [activeVideoSrc, setActiveVideoSrc] = useState<string>("/assets/Intro.mp4");
 
   const toggleStream = (streamId: string) => {
     if (activeStreams.includes(streamId)) {
@@ -33,42 +34,45 @@ export default function CubeEquation() {
       // Charge all 3 pillars automatically if core is clicked before charging
       setActiveStreams(["spirit", "earth", "science"]);
       setIsMasterSynthesized(true);
+      setIsVideoModalOpen(true);
     } else {
-      setIsMasterSynthesized(!isMasterSynthesized);
+      setIsMasterSynthesized(true);
+      setIsVideoModalOpen(true);
     }
   };
 
   const resetStreams = () => {
     setActiveStreams([]);
     setIsMasterSynthesized(false);
+    setIsVideoModalOpen(false);
   };
 
   // Instruction Badge Text
   const getBadgeText = () => {
     if (isFullyCharged && isMasterSynthesized)
       return language === "ar"
-        ? "تم انصهار معادلة كيو ب بالكامل! انقر على مكعب كيو ب المتوهج"
-        : "REACTOR FULLY CHARGED! CLICK THE GLOWING RED CUBE CORE";
+        ? "تم انصهار المعادلة! انقر للترجمة وتوليد الفيديو المعماري التفاعلي 🎬"
+        : "REACTOR FULLY CHARGED! CLICK GLOING RED CUBE TO PLAY NATURAL SYNTHESIS VIDEO 🎬";
     if (isFullyCharged)
       return language === "ar"
-        ? "المفاعل مشحون بالكامل (3/3)! انقر على شعار كيو ب المتوهج"
-        : "CORE READY (3/3 CHARGED)! CLICK THE GLOWING RED CUBE LOGO";
+        ? "المفاعل مشحون بالكامل (3/3)! انقر على شعار كيو ب لتوليد الفيديو التفاعلي"
+        : "CORE READY (3/3 CHARGED)! CLICK THE GLOWING RED CUBE TO WATCH VIDEO";
     if (activeStreams.length === 2)
       return language === "ar"
-        ? "تم شحن ركنين (2/3)! انقر على الركن الأخير لشحن المكعب"
-        : "2 OF 3 PILLARS CHARGED! CLICK THE LAST PILLAR TO UNLOCK CUBE CORE";
+        ? "تم شحن ركنين (2/3)! انقر على الركن الأخير لشحن الفيديو التفاعلي"
+        : "2 OF 3 PILLARS CHARGED! CLICK THE LAST PILLAR TO UNLOCK SYNTHESIS VIDEO";
     if (activeStreams.length === 1)
       return language === "ar"
         ? "تم شحن ركن واحد (1/3)! انقر على باقي الأركان الثلاثة"
         : "1 OF 3 PILLARS CHARGED! CLICK REMAINING PILLARS";
     return language === "ar"
-      ? "انقر على الأركان الثلاثة (الروح، الأرض، العلوم) لشحن مفاعل المكعب!"
-      : "CLICK ALL 3 PILLARS (SPIRIT, EARTH, SCIENCE) TO CHARGE THE CUBE CORE!";
+      ? "انقر على الأركان الثلاثة (الروح، الأرض، العلوم) لتوليد فيديو المعادلة!"
+      : "CLICK ALL 3 PILLARS (SPIRIT, EARTH, SCIENCE) TO GENERATE SYNTHESIS VIDEO!";
   };
 
   // Live Synthesis Output Text
   const getSynthesisTitle = () => {
-    if (isFullyCharged && isMasterSynthesized)
+    if (isFullyCharged)
       return "THE CUBE EQUATION: MASTER ARCHITECTURAL REACTION";
     if (isSpirit && isScience) return "HEALING INTELLIGENCE CORE (SPIRIT + SCIENCE)";
     if (isEarth && isScience) return "PARAMETRIC SUSTAINABILITY REACTION (EARTH + SCIENCE)";
@@ -80,8 +84,8 @@ export default function CubeEquation() {
   };
 
   const getSynthesisDesc = () => {
-    if (isFullyCharged && isMasterSynthesized)
-      return "Complete architectural synergy unlocked: The glowing CUBE Core refracts human emotional dignity, zero-carbon environmental resilience, and AI computational intelligence into a single, future-ready architectural environment.";
+    if (isFullyCharged)
+      return "Complete architectural synergy unlocked: The glowing CUBE Core refracts human emotional dignity, zero-carbon environmental resilience, and AI computational intelligence into a single, future-ready architectural environment. Click the button below or the glowing CUBE core to watch the video synthesis!";
     if (isSpirit && isScience)
       return "Merging human emotional experience with AI generative spatial algorithms to construct light-filled, intuitive environments.";
     if (isEarth && isScience)
@@ -94,7 +98,7 @@ export default function CubeEquation() {
       return "Maximizing natural resource conservation, passive thermal cooling, and local material usage.";
     if (isScience)
       return "Executing advanced AI spatial optimization, automated quantity takeoffs, and structural FEM checks.";
-    return "Click the 3 pillars (Spirit Care, Earth Care, Science & Tech) to ignite the laser streams and transform the core into the glowing red CUBE logo!";
+    return "Click the 3 pillars (Spirit Care, Earth Care, Science & Tech) to ignite the laser streams, transform the core into the glowing red CUBE logo, and generate the natural video breakdown!";
   };
 
   return (
@@ -107,6 +111,7 @@ export default function CubeEquation() {
           className={`${styles.instructionBadge} ${
             isFullyCharged ? styles.instructionBadgeUnlocked : ""
           }`}
+          onClick={handleCoreClick}
         >
           {getBadgeText()}
         </div>
@@ -338,7 +343,7 @@ export default function CubeEquation() {
             <span>
               {isFullyCharged
                 ? language === "ar"
-                  ? "مفاعل كيو ب مشحون بالكامل"
+                  ? "معادلة كيو ب مشحونة بالكامل"
                   : "CUBE CORE FULLY CHARGED"
                 : language === "ar"
                 ? "حالة الانتظار: اشحن الأركان الثلاثة"
@@ -353,7 +358,104 @@ export default function CubeEquation() {
         </div>
         <div className={styles.synthTitle}>{getSynthesisTitle()}</div>
         <p className={styles.synthDesc}>{t(getSynthesisDesc())}</p>
+
+        {/* PLAY NATURAL SYNTHESIS VIDEO BUTTON */}
+        {isFullyCharged && (
+          <button className={styles.playVideoBtn} onClick={() => setIsVideoModalOpen(true)}>
+            <span>▶</span>
+            <span>{language === "ar" ? "تشغيل فيديو اندماج الأركان المعمارية" : "PLAY NATURAL PILLAR SYNTHESIS VIDEO"}</span>
+          </button>
+        )}
       </div>
+
+      {/* HOLOGRAPHIC SYNTHESIS VIDEO MODAL */}
+      {isVideoModalOpen && (
+        <div className={styles.videoModalOverlay} onClick={() => setIsVideoModalOpen(false)}>
+          <div className={styles.videoModalContainer} onClick={(e) => e.stopPropagation()}>
+            <div className={styles.modalHeader}>
+              <h3 className={styles.modalTitle}>
+                <span>🔴</span>
+                <span>{language === "ar" ? "فيديو معادلة كيو ب المعمارية" : "THE CUBE EQUATION: PILLAR SYNTHESIS REEL"}</span>
+              </h3>
+              <button className={styles.modalCloseBtn} onClick={() => setIsVideoModalOpen(false)}>
+                ×
+              </button>
+            </div>
+
+            {/* VIDEO PLAYER */}
+            <div className={styles.videoWrapper}>
+              <video
+                src={activeVideoSrc}
+                autoPlay
+                controls
+                loop
+                playsInline
+                className={styles.modalVideo}
+              />
+            </div>
+
+            {/* VIDEO TAB SWITCHER FOR PILLARS */}
+            <div className={styles.videoTabsNav}>
+              <button
+                className={`${styles.videoTabBtn} ${
+                  activeVideoSrc === "/assets/Intro.mp4" ? styles.videoTabBtnActive : ""
+                }`}
+                onClick={() => setActiveVideoSrc("/assets/Intro.mp4")}
+              >
+                {language === "ar" ? "🎬 فيديو الاندماج الكامل" : "🎬 MASTER CONVERGENCE REEL"}
+              </button>
+              <button
+                className={`${styles.videoTabBtn} ${
+                  activeVideoSrc === "/assets/Hero sec/Green River.mp4" ? styles.videoTabBtnActive : ""
+                }`}
+                onClick={() => setActiveVideoSrc("/assets/Hero sec/Green River.mp4")}
+              >
+                {language === "ar" ? "🌿 ركن البيئة والأرض" : "🌿 EARTH CARE & NATURE REEL"}
+              </button>
+              <button
+                className={`${styles.videoTabBtn} ${
+                  activeVideoSrc === "/assets/Hero sec/Kemet tower.mp4" ? styles.videoTabBtnActive : ""
+                }`}
+                onClick={() => setActiveVideoSrc("/assets/Hero sec/Kemet tower.mp4")}
+              >
+                {language === "ar" ? "🤖 ركن العلوم والتكنولوجيا" : "🤖 SCIENCE & TECH REEL"}
+              </button>
+              <button
+                className={`${styles.videoTabBtn} ${
+                  activeVideoSrc === "/assets/Hero sec/Nebu.mp4" ? styles.videoTabBtnActive : ""
+                }`}
+                onClick={() => setActiveVideoSrc("/assets/Hero sec/Nebu.mp4")}
+              >
+                {language === "ar" ? "🔴 ركن الروح الإنسانية" : "🔴 SPIRIT CARE REEL"}
+              </button>
+            </div>
+
+            {/* PILLAR CAPTIONS BREAKDOWN */}
+            <div className={styles.videoCaptionsBox}>
+              <div className={styles.captionPillars}>
+                <div className={styles.capCard} style={{ borderColor: "#e30613" }}>
+                  <div className={styles.capTitle}>01. SPIRIT CARE</div>
+                  <p className={styles.capDesc}>
+                    {t("Prioritizing human dignity, natural daylight, acoustic harmony, and emotional sanctuary.")}
+                  </p>
+                </div>
+                <div className={styles.capCard} style={{ borderColor: "#2eac66" }}>
+                  <div className={styles.capTitle}>02. EARTH CARE</div>
+                  <p className={styles.capDesc}>
+                    {t("Coexisting with nature through zero-carbon parametric facades and ecological landscaping.")}
+                  </p>
+                </div>
+                <div className={styles.capCard} style={{ borderColor: "#00c2ff" }}>
+                  <div className={styles.capTitle}>03. SCIENCE & TECH</div>
+                  <p className={styles.capDesc}>
+                    {t("Leveraging AI spatial optimization, automated quantity takeoffs, and computational BIM engineering.")}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
