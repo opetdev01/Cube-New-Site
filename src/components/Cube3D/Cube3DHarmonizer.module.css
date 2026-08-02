@@ -1,0 +1,226 @@
+.container {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  color: #111111;
+  padding: 3.5rem 2.5rem;
+  border-radius: 24px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.06);
+  margin: 3.5rem 0;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Inter', var(--font-main), sans-serif;
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(227, 6, 19, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  position: relative;
+  z-index: 5;
+}
+
+.label {
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  color: var(--c-red);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  font-size: 2.2rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  color: #111111;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.subTitle {
+  font-size: 0.95rem;
+  color: #666666;
+  margin-top: 0.5rem;
+}
+
+/* 3D Scene Wrapper */
+.scene {
+  width: 100%;
+  height: 420px;
+  perspective: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 5;
+  cursor: grab;
+}
+
+.scene:active {
+  cursor: grabbing;
+}
+
+/* 3D Cube Object */
+.cube {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.15s ease-out;
+}
+
+.exploded .faceFront { transform: translateZ(160px) !important; }
+.exploded .faceBack { transform: rotateY(180deg) translateZ(160px) !important; }
+.exploded .faceRight { transform: rotateY(90deg) translateZ(160px) !important; }
+.exploded .faceLeft { transform: rotateY(-90deg) translateZ(160px) !important; }
+.exploded .faceTop { transform: rotateX(90deg) translateZ(160px) !important; }
+.exploded .faceBottom { transform: rotateX(-90deg) translateZ(160px) !important; }
+
+/* Cube Faces */
+.face {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid rgba(227, 6, 19, 0.4);
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem;
+  box-shadow: 0 0 25px rgba(227, 6, 19, 0.1);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+  backdrop-filter: blur(10px);
+}
+
+.face:hover {
+  background: #ffffff;
+  border-color: var(--c-red);
+  box-shadow: 0 0 35px rgba(227, 6, 19, 0.3);
+}
+
+.faceFront  { transform: rotateY(  0deg) translateZ(100px); }
+.faceBack   { transform: rotateY(180deg) translateZ(100px); }
+.faceRight  { transform: rotateY( 90deg) translateZ(100px); }
+.faceLeft   { transform: rotateY(-90deg) translateZ(100px); }
+.faceTop    { transform: rotateX( 90deg) translateZ(100px); }
+.faceBottom { transform: rotateX(-90deg) translateZ(100px); }
+
+.faceTag {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--c-red);
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.faceName {
+  font-size: 1.1rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  color: #111111;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.faceVal {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #555555;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+/* Control Controls Bar */
+.controlsBar {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  position: relative;
+  z-index: 5;
+}
+
+.btn {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  color: #111111;
+  padding: 10px 22px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+}
+
+.btn:hover,
+.btnActive {
+  background: var(--c-red);
+  color: #ffffff;
+  border-color: var(--c-red);
+  box-shadow: 0 6px 20px rgba(227, 6, 19, 0.3);
+}
+
+/* Data Telemetry Terminal */
+.telemetryBox {
+  margin-top: 2rem;
+  background: #ffffff;
+  border: 1px solid rgba(227, 6, 19, 0.3);
+  border-radius: 16px;
+  padding: 1.6rem 2.2rem;
+  box-shadow: 0 10px 30px rgba(227, 6, 19, 0.08);
+  position: relative;
+  z-index: 5;
+}
+
+.telemetryGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.telemetryItem {
+  border-left: 3px solid var(--c-red);
+  padding-left: 1rem;
+}
+
+.tVal {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: #111111;
+}
+
+.tLabel {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #666666;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.2rem;
+}
+
+@media (max-width: 768px) {
+  .telemetryGrid {
+    grid-template-columns: 1fr;
+  }
+  .scene {
+    height: 340px;
+  }
+}
