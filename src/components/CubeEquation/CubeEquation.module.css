@@ -53,8 +53,8 @@
   font-weight: 800;
   letter-spacing: 0.08em;
   color: var(--c-red);
-  background: rgba(227, 6, 19, 0.06);
-  border: 1px solid rgba(227, 6, 19, 0.25);
+  background: transparent;
+  border: 1px solid rgba(227, 6, 19, 0.3);
   padding: 8px 20px;
   border-radius: 20px;
   text-transform: uppercase;
@@ -93,7 +93,7 @@
 }
 
 .streamCard {
-  background: #ffffff;
+  background: transparent;
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 16px;
   padding: 1.5rem 1.6rem;
@@ -101,7 +101,7 @@
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  box-shadow: none;
 }
 
 .streamCard::before {
@@ -121,7 +121,7 @@
 .streamCard:hover,
 .cardActive {
   transform: translateX(6px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
 }
 
 .cardActive.streamSpirit {
@@ -296,11 +296,11 @@
 /* Terminal Box */
 .terminalBox {
   width: 100%;
-  background: #ffffff;
+  background: transparent;
   border: 1px solid rgba(227, 6, 19, 0.3);
   border-radius: 16px;
   padding: 1.6rem 2.2rem;
-  box-shadow: 0 10px 30px rgba(227, 6, 19, 0.08);
+  box-shadow: none;
   animation: slideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   position: relative;
   z-index: 5;
