@@ -185,12 +185,9 @@ export default function ArtGalleryPage() {
       setPendingArtworks(parsedPending);
       calculateMonthlyUploads(storedLogs ? JSON.parse(storedLogs) : []);
 
-      // Check session storage for intro splash
-      const hasShown = sessionStorage.getItem("cube_art_intro_shown");
-      if (hasShown === "true") {
-        setIsIntroActive(false);
-        setIntroEnded(true);
-      }
+      // Always play intro video on every visit to Art Gallery page
+      setIsIntroActive(true);
+      setIntroEnded(false);
     }
   }, [language]);
 
@@ -198,9 +195,6 @@ export default function ArtGalleryPage() {
     setIntroEnded(true);
     setTimeout(() => {
       setIsIntroActive(false);
-      if (typeof window !== "undefined") {
-        sessionStorage.setItem("cube_art_intro_shown", "true");
-      }
     }, 600);
   };
 
