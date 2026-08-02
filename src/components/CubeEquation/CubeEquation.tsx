@@ -194,9 +194,9 @@ export default function CubeEquation() {
               </linearGradient>
 
               <radialGradient id="coreGlass" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stopColor="#ffffff" stopOpacity="0.95" />
-                <stop offset="60%" stopColor="#f4f5f8" stopOpacity="0.8" />
-                <stop offset="100%" stopColor="#e30613" stopOpacity="0.4" />
+                <stop offset="0%" stopColor="#e30613" stopOpacity="0.85" />
+                <stop offset="70%" stopColor="#b0040e" stopOpacity="0.9" />
+                <stop offset="100%" stopColor="#750209" stopOpacity="0.95" />
               </radialGradient>
             </defs>
 
@@ -276,8 +276,8 @@ export default function CubeEquation() {
               <polygon
                 points="300,198 338,220 338,260 300,282 262,260 262,220"
                 fill="none"
-                stroke={isFullyCharged ? "#e30613" : "rgba(0,0,0,0.15)"}
-                strokeWidth={isFullyCharged ? "2.5" : "1"}
+                stroke={isFullyCharged ? "#e30613" : "rgba(255,255,255,0.4)"}
+                strokeWidth={isFullyCharged ? "2.5" : "1.5"}
               />
 
               {/* WHEN FULLY CHARGED: RENDER THE OFFICIAL CUBE LOGO */}
@@ -295,8 +295,8 @@ export default function CubeEquation() {
               ) : (
                 /* STANDBY CORE TEXT */
                 <g key="standby-core-text">
-                  <circle cx="300" cy="240" r="8" fill="#e30613" />
-                  <text x="300" y="244" textAnchor="middle" fontWeight="900" fontSize="10" fill="#ffffff">
+                  <circle cx="300" cy="240" r="22" fill="rgba(255,255,255,0.18)" stroke="#ffffff" strokeWidth="1.5" />
+                  <text x="300" y="244" textAnchor="middle" fontWeight="900" fontSize="11" fill="#ffffff" letterSpacing="0.05em">
                     CUBE CORE
                   </text>
                 </g>
