@@ -312,8 +312,10 @@ export default function Home() {
                 <div className={styles.heroTitleAccent} />
                 
                 <div className={styles.heroSubtitleBlock}>
-                  <p>{t("Full Engineering Services")}</p>
-                  <p>{t("Founded in 1990")}</p>
+                  <p style={{ fontWeight: 800, letterSpacing: "0.08em", color: "var(--c-red)", textTransform: "uppercase" }}>
+                    {t("Shaping, Peaceful, Living")}
+                  </p>
+                  <p>{t("Full Engineering Services")} • {t("Founded in 1990")}</p>
                 </div>
               </div>
 

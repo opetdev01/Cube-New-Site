@@ -41,6 +41,9 @@ const Footer = () => {
           <span className={styles.footerBrandingSubText}>
             {t("Designs and Engineers")}
           </span>
+          <span style={{ fontSize: "0.78rem", fontWeight: 800, letterSpacing: "0.12em", color: "var(--c-red)", textTransform: "uppercase", marginTop: "4px", display: "block" }}>
+            {t("Shaping, Peaceful, Living")}
+          </span>
           <div className={styles.footerSocialsRow}>
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               in

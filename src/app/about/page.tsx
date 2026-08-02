@@ -41,6 +41,9 @@ export default function AboutPage() {
                 __html: t("The Power of <br> Engineering <span style=\"color:#e30613\">Visions</span>") 
               }}
             />
+            <div style={{ fontSize: "0.95rem", fontWeight: 800, letterSpacing: "0.15em", color: "#e30613", textTransform: "uppercase", margin: "1rem 0" }}>
+              {t("Shaping, Peaceful, Living")}
+            </div>
             
             <div className={styles.cgMetricsGrid}>
               <div>

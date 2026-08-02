@@ -105,6 +105,9 @@ export default function CubeEquation() {
       <div className={styles.header}>
         <span className={styles.label}>{t("Our Philosophy")}</span>
         <h2 className={styles.title}>{t("THE CUBE EQUATION ENERGY REACTOR")}</h2>
+        <div style={{ fontSize: "0.8rem", fontWeight: 800, letterSpacing: "0.14em", color: "var(--c-red)", textTransform: "uppercase", marginTop: "4px" }}>
+          {t("Shaping, Peaceful, Living")}
+        </div>
         <div
           className={`${styles.instructionBadge} ${
             isFullyCharged ? styles.instructionBadgeUnlocked : ""

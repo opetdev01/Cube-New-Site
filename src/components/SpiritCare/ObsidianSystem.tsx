@@ -143,7 +143,12 @@ export default function ObsidianSystem() {
       <div className={styles.obsidianHeader}>
         <div className={styles.headerLeft}>
           <span className={styles.redBar} />
-          <h2 className={styles.title}>{t("SPIRIT CARE OBSIDIAN GRAPH")}</h2>
+          <div>
+            <h2 className={styles.title}>{t("SPIRIT CARE OBSIDIAN GRAPH")}</h2>
+            <div style={{ fontSize: "0.75rem", fontWeight: 800, letterSpacing: "0.12em", color: "var(--c-red)", textTransform: "uppercase", marginTop: "2px" }}>
+              {t("Shaping, Peaceful, Living")}
+            </div>
+          </div>
         </div>
         <div className={styles.instructionBadge}>
           {language === "ar"

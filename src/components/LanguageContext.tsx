@@ -14,6 +14,9 @@ interface LanguageContextProps {
 const translations: Record<Language, Record<string, string>> = {
   en: {},
   ar: {
+    "Shaping, Peaceful, Living": "تشكيل، سكينة، وحياة",
+    "SHAPING, PEACEFUL, LIVING": "تشكيل، سكينة، وحياة",
+    "shaping, peaceful, living": "تشكيل، سكينة، وحياة",
     "Egyptian Identity": "الهوية المصرية",
     "Educational Campus": "المجمع التعليمي",
     "Learn educational design, campus planning, BIM, sustainability and simulation before AI.": "تعلم التصميم التعليمي، وتخطيط المجمعات الدراسية، ونمذجة معلومات البناء، والاستدامة والمحاكاة قبل البدء بالذكاء الاصطناعي.",
