@@ -6,250 +6,254 @@ import styles from "./CubeEquation.module.css";
 
 export default function CubeEquation() {
   const { language, t } = useLanguage();
-  const [activeCards, setActiveCards] = useState<number[]>([1, 2, 3]);
+  const [activeStreams, setActiveStreams] = useState<string[]>(["spirit", "earth", "science"]);
 
-  const toggleCard = (cardNumber: number) => {
-    if (activeCards.includes(cardNumber)) {
-      if (activeCards.length > 1) {
-        setActiveCards(activeCards.filter((c) => c !== cardNumber));
+  const toggleStream = (streamId: string) => {
+    if (activeStreams.includes(streamId)) {
+      if (activeStreams.length > 1) {
+        setActiveStreams(activeStreams.filter((id) => id !== streamId));
       }
     } else {
-      setActiveCards([...activeCards, cardNumber]);
+      setActiveStreams([...activeStreams, streamId]);
     }
   };
 
-  const is1 = activeCards.includes(1);
-  const is2 = activeCards.includes(2);
-  const is3 = activeCards.includes(3);
+  const isSpirit = activeStreams.includes("spirit");
+  const isEarth = activeStreams.includes("earth");
+  const isScience = activeStreams.includes("science");
 
-  // Dynamic Equation Outcome Synthesis
-  const getOutcomeTitle = () => {
-    if (is1 && is2 && is3) return "THE CUBE EQUATION (COMPLETE SYNERGY)";
-    if (is1 && is3) return "HEALING INTELLIGENCE (SPIRIT + SCIENCE)";
-    if (is2 && is3) return "PARAMETRIC SUSTAINABILITY (EARTH + SCIENCE)";
-    if (is1 && is2) return "ECOLOGICAL SANCTUARY (SPIRIT + EARTH)";
-    if (is1) return "SPIRIT CARE FOCUS";
-    if (is2) return "EARTH CARE FOCUS";
-    if (is3) return "SCIENCE & TECH FOCUS";
-    return "ARCHITECTURAL EQUATION";
+  // Live Energy Synthesis Titles & Descriptions
+  const getSynthesisTitle = () => {
+    if (isSpirit && isEarth && isScience)
+      return "HOLOGRAPHIC ARCHITECTURAL EQUILIBRIUM (COMPLETE REALTOR CORE)";
+    if (isSpirit && isScience) return "HEALING INTELLIGENCE CORE (SPIRIT + SCIENCE)";
+    if (isEarth && isScience) return "PARAMETRIC SUSTAINABILITY REACTION (EARTH + SCIENCE)";
+    if (isSpirit && isEarth) return "ECOLOGICAL SANCTUARY HARMONY (SPIRIT + EARTH)";
+    if (isSpirit) return "SPIRIT CARE ENERGY STREAM";
+    if (isEarth) return "EARTH CARE ECOLOGY STREAM";
+    return "SCIENCE & TECH PARAMETRIC STREAM";
   };
 
-  const getOutcomeDesc = () => {
-    if (is1 && is2 && is3)
-      return "The ultimate architectural paradigm: merging emotional human soul experience with environmental sustainability and AI-driven parametric intelligence to create future-ready built environments.";
-    if (is1 && is3)
-      return "Combining spiritual human wellbeing with AI generative design algorithms to build intuitive, light-filled environments.";
-    if (is2 && is3)
-      return "Leveraging AI energy modeling and digital wind tunnels to achieve carbon-negative, self-sustaining masterplans.";
-    if (is1 && is2)
-      return "Grounding human emotional experience in contextually authentic, natural, and ecologically responsible materials.";
-    if (is1)
-      return "Prioritizing human peace, proportion, and emotional harmony across all spatial layouts.";
-    if (is2)
-      return "Maximizing natural resource preservation, passive cooling, and carbon reductions.";
-    return "Pioneering AI spatial algorithms and automated structural optimization.";
+  const getSynthesisDesc = () => {
+    if (isSpirit && isEarth && isScience)
+      return "All 3 energy streams active: Refracting human emotional wellbeing, zero-carbon environmental resilience, and AI computational intelligence into a unified, future-ready architectural environment.";
+    if (isSpirit && isScience)
+      return "Merging human emotional experience with AI generative spatial algorithms to construct light-filled, intuitive environments.";
+    if (isEarth && isScience)
+      return "Powering AI energy simulations, rainwater filtration loops, and automated building shading for carbon-negative performance.";
+    if (isSpirit && isEarth)
+      return "Connecting human soul experience with authentic local materials and regional microclimate harmony.";
+    if (isSpirit)
+      return "Pioneering emotional dignity, peace, and proportion across all spatial layouts.";
+    if (isEarth)
+      return "Maximizing natural resource conservation, passive thermal cooling, and local material usage.";
+    return "Executing advanced AI spatial optimization, automated quantity takeoffs, and structural FEM checks.";
   };
 
   return (
-    <section className={styles.eqContainer}>
+    <section className={styles.reactorContainer}>
       {/* Header */}
-      <div className={styles.eqHeader}>
-        <span className={styles.cgLabel}>{t("Our Philosophy")}</span>
-        <h2 className={styles.title}>{t("The Cube Equation")}</h2>
+      <div className={styles.header}>
+        <span className={styles.label}>{t("Our Philosophy")}</span>
+        <h2 className={styles.title}>{t("THE CUBE EQUATION ENERGY REACTOR")}</h2>
+        <div className={styles.instructionBadge}>
+          {language === "ar"
+            ? "انقر على أي شعاع طاقة لشحن المفاعل وتوليد التحليل المعماري"
+            : "Click any energy stream card or node to charge reactor & project blueprints"}
+        </div>
       </div>
 
-      {/* 3 Cards */}
-      <div className={styles.cardsGrid}>
-        {/* Card 01: Spirit Care */}
-        <div
-          className={`${styles.card} ${is1 ? styles.cardActive : ""}`}
-          onClick={() => toggleCard(1)}
-        >
-          <div>
-            <span className={styles.cardNum}>01</span>
-            <h3 className={styles.cardTitle}>{t("1. SPIRIT CARE")}</h3>
-            <p className={styles.cardDesc}>
+      <div className={styles.reactorGrid}>
+        {/* Left Side: 3 Energy Stream Cards */}
+        <div className={styles.streamsList}>
+          {/* Stream 1: Spirit Care */}
+          <div
+            className={`${styles.streamCard} ${styles.streamSpirit} ${
+              isSpirit ? styles.cardActive : ""
+            }`}
+            onClick={() => toggleStream("spirit")}
+          >
+            <div className={styles.cardHeader}>
+              <span className={styles.streamNum}>01.</span>
+              <h3 className={styles.streamTitle}>{t("1. SPIRIT CARE")}</h3>
+            </div>
+            <p className={styles.streamDesc}>
               {t("Design that nurtures the human soul by prioritizing emotional experience, peace, balance, and meaning.")}
             </p>
+            <span className={styles.outcomeBadge}>
+              {t("OUTCOME:")} {t("SPACES THAT HEAL, INSPIRE, AND CONNECT")}
+            </span>
           </div>
-          <div className={styles.outcomeBox}>
-            <span className={styles.outcomeLabel}>{t("OUTCOME:")}</span>
-            <span className={styles.outcomeText}>{t("SPACES THAT HEAL, INSPIRE, AND CONNECT")}</span>
-          </div>
-        </div>
 
-        {/* Card 02: Earth Care */}
-        <div
-          className={`${styles.card} ${is2 ? styles.cardActive : ""}`}
-          onClick={() => toggleCard(2)}
-        >
-          <div>
-            <span className={styles.cardNum}>02</span>
-            <h3 className={styles.cardTitle}>{t("2. EARTH CARE")}</h3>
-            <p className={styles.cardDesc}>
+          {/* Stream 2: Earth Care */}
+          <div
+            className={`${styles.streamCard} ${styles.streamEarth} ${
+              isEarth ? styles.cardActive : ""
+            }`}
+            onClick={() => toggleStream("earth")}
+          >
+            <div className={styles.cardHeader}>
+              <span className={styles.streamNum}>02.</span>
+              <h3 className={styles.streamTitle}>{t("2. EARTH CARE")}</h3>
+            </div>
+            <p className={styles.streamDesc}>
               {t("Environmental responsibility as a core principle. True sustainability that coexists with nature rather than consuming it.")}
             </p>
+            <span className={styles.outcomeBadge}>
+              {t("OUTCOME:")} {t("PROJECTS THAT COEXIST WITH NATURE RATHER THAN CONSUME IT")}
+            </span>
           </div>
-          <div className={styles.outcomeBox}>
-            <span className={styles.outcomeLabel}>{t("OUTCOME:")}</span>
-            <span className={styles.outcomeText}>{t("PROJECTS THAT COEXIST WITH NATURE RATHER THAN CONSUME IT")}</span>
+
+          {/* Stream 3: Science & Technology */}
+          <div
+            className={`${styles.streamCard} ${styles.streamScience} ${
+              isScience ? styles.cardActive : ""
+            }`}
+            onClick={() => toggleStream("science")}
+          >
+            <div className={styles.cardHeader}>
+              <span className={styles.streamNum}>03.</span>
+              <h3 className={styles.streamTitle}>{t("3. SCIENCE & TECHNOLOGY")}</h3>
+            </div>
+            <p className={styles.streamDesc}>
+              {t("Integrating AI and smart systems to enhance performance, efficiency, and user experience to drive continuous innovation.")}
+            </p>
+            <span className={styles.outcomeBadge}>
+              {t("OUTCOME:")} {t("INTELLIGENT, FUTURE-READY ENVIRONMENTS")}
+            </span>
           </div>
         </div>
 
-        {/* Card 03: Science & Technology */}
-        <div
-          className={`${styles.card} ${is3 ? styles.cardActive : ""}`}
-          onClick={() => toggleCard(3)}
-        >
-          <div>
-            <span className={styles.cardNum}>03</span>
-            <h3 className={styles.cardTitle}>{t("3. SCIENCE & TECHNOLOGY")}</h3>
-            <p className={styles.cardDesc}>
-              {t("Integrating AI and smart systems to enhance performance, efficiency, and user experience to drive continuous innovation.")}
-            </p>
-          </div>
-          <div className={styles.outcomeBox}>
-            <span className={styles.outcomeLabel}>{t("OUTCOME:")}</span>
-            <span className={styles.outcomeText}>{t("INTELLIGENT, FUTURE-READY ENVIRONMENTS")}</span>
-          </div>
+        {/* Right Side: Interactive SVG Holographic Energy Reactor */}
+        <div className={styles.reactorCanvasArea}>
+          <svg viewBox="100 50 400 380" className={styles.reactorSvg}>
+            <defs>
+              <linearGradient id="spiritGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#ff2a3b" />
+                <stop offset="100%" stopColor="#e30613" />
+              </linearGradient>
+              <linearGradient id="earthGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#2eac66" />
+                <stop offset="100%" stopColor="#1b7a43" />
+              </linearGradient>
+              <linearGradient id="scienceGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#00c2ff" />
+                <stop offset="100%" stopColor="#0088cc" />
+              </linearGradient>
+
+              <radialGradient id="coreGlass" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stopColor="#ffffff" stopOpacity="0.95" />
+                <stop offset="60%" stopColor="#f4f5f8" stopOpacity="0.8" />
+                <stop offset="100%" stopColor="#e30613" stopOpacity="0.3" />
+              </radialGradient>
+            </defs>
+
+            {/* BASE STREAM CONNECTOR LINES */}
+            <line x1="180" y1="120" x2="300" y2="240" stroke="rgba(0,0,0,0.08)" strokeWidth="2" />
+            <line x1="420" y1="120" x2="300" y2="240" stroke="rgba(0,0,0,0.08)" strokeWidth="2" />
+            <line x1="300" y1="360" x2="300" y2="240" stroke="rgba(0,0,0,0.08)" strokeWidth="2" />
+
+            {/* LASER ENERGY BEAM 1: SPIRIT CARE (CRIMSON) */}
+            {isSpirit && (
+              <g key="laser-spirit">
+                <line x1="180" y1="120" x2="300" y2="240" className={styles.beamGlowCrimson} />
+                <line x1="180" y1="120" x2="300" y2="240" className={styles.beamCore} />
+              </g>
+            )}
+
+            {/* LASER ENERGY BEAM 2: EARTH CARE (EMERALD) */}
+            {isEarth && (
+              <g key="laser-earth">
+                <line x1="300" y1="360" x2="300" y2="240" className={styles.beamGlowEmerald} />
+                <line x1="300" y1="360" x2="300" y2="240" className={styles.beamCore} />
+              </g>
+            )}
+
+            {/* LASER ENERGY BEAM 3: SCIENCE & TECH (CYAN) */}
+            {isScience && (
+              <g key="laser-science">
+                <line x1="420" y1="120" x2="300" y2="240" className={styles.beamGlowCyan} />
+                <line x1="420" y1="120" x2="300" y2="240" className={styles.beamCore} />
+              </g>
+            )}
+
+            {/* HOLOGRAPHIC BLUEPRINT OVERLAYS */}
+            {/* Spirit Daylight Arc Rays */}
+            {isSpirit && (
+              <g key="holo-spirit" opacity="0.6">
+                <circle cx="300" cy="240" r="75" fill="none" stroke="#e30613" strokeWidth="1" strokeDasharray="6 4" />
+                <path d="M 230 240 A 70 70 0 0 1 370 240" fill="none" stroke="#ff3b30" strokeWidth="2" />
+              </g>
+            )}
+
+            {/* Earth Thermal Mesh Lines */}
+            {isEarth && (
+              <g key="holo-earth" opacity="0.5">
+                <ellipse cx="300" cy="240" rx="90" ry="45" fill="none" stroke="#2eac66" strokeWidth="1.5" strokeDasharray="8 4" />
+              </g>
+            )}
+
+            {/* Science AI Louver Vectors */}
+            {isScience && (
+              <g key="holo-science" opacity="0.6">
+                <rect x="235" y="175" width="130" height="130" fill="none" stroke="#00c2ff" strokeWidth="1" strokeDasharray="10 5" rx="10" />
+                <line x1="245" y1="190" x2="355" y2="190" stroke="#00c2ff" strokeWidth="1.5" />
+                <line x1="245" y1="210" x2="355" y2="210" stroke="#00c2ff" strokeWidth="1.5" />
+                <line x1="245" y1="270" x2="355" y2="270" stroke="#00c2ff" strokeWidth="1.5" />
+              </g>
+            )}
+
+            {/* CENTRAL HOLOGRAPHIC GLASS PRISM CORE */}
+            <g className={styles.coreGroup} onClick={() => setActiveStreams(["spirit", "earth", "science"])}>
+              <circle cx="300" cy="240" r="52" fill="url(#coreGlass)" stroke="#ffffff" strokeWidth="3" className={styles.corePrism} />
+              <polygon points="300,202 335,222 335,258 300,278 265,258 265,222" fill="none" stroke="#e30613" strokeWidth="2" className={styles.corePulse} />
+              <circle cx="300" cy="240" r="10" fill="#ffffff" filter="drop-shadow(0 0 8px #e30613)" />
+
+              <text x="300" y="244" textAnchor="middle" fontWeight="900" fontSize="10" fill="#111111">
+                CUBE CORE
+              </text>
+            </g>
+
+            {/* ENERGY STREAM NODE 1: SPIRIT CARE (CRIMSON) */}
+            <g className={styles.nodeGroup} onClick={() => toggleStream("spirit")} transform="translate(180, 120)">
+              {isSpirit && <circle cx="0" cy="0" r="24" fill="rgba(227, 6, 19, 0.35)" className={styles.pulseRing} />}
+              <circle cx="0" cy="0" r="16" fill="url(#spiritGrad)" stroke="#ffffff" strokeWidth="2.5" />
+              <text x="0" y="32" textAnchor="middle" fontWeight="900" fontSize="12" fill="#111111">
+                SPIRIT
+              </text>
+            </g>
+
+            {/* ENERGY STREAM NODE 2: SCIENCE & TECH (CYAN) */}
+            <g className={styles.nodeGroup} onClick={() => toggleStream("science")} transform="translate(420, 120)">
+              {isScience && <circle cx="0" cy="0" r="24" fill="rgba(0, 194, 255, 0.35)" className={styles.pulseRing} />}
+              <circle cx="0" cy="0" r="16" fill="url(#scienceGrad)" stroke="#ffffff" strokeWidth="2.5" />
+              <text x="0" y="32" textAnchor="middle" fontWeight="900" fontSize="12" fill="#111111">
+                SCIENCE
+              </text>
+            </g>
+
+            {/* ENERGY STREAM NODE 3: EARTH CARE (EMERALD) */}
+            <g className={styles.nodeGroup} onClick={() => toggleStream("earth")} transform="translate(300, 360)">
+              {isEarth && <circle cx="0" cy="0" r="24" fill="rgba(46, 172, 102, 0.35)" className={styles.pulseRing} />}
+              <circle cx="0" cy="0" r="16" fill="url(#earthGrad)" stroke="#ffffff" strokeWidth="2.5" />
+              <text x="0" y="-24" textAnchor="middle" fontWeight="900" fontSize="12" fill="#111111">
+                EARTH
+              </text>
+            </g>
+          </svg>
         </div>
       </div>
 
-      {/* Interactive 3-Rings SVG Equation Simulator */}
-      <div className={styles.diagramArea}>
-        <svg viewBox="100 80 500 360" className={styles.diagramSvg}>
-          <defs>
-            <filter id="redGlow" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur stdDeviation="8" result="blur" />
-              <feComposite in="SourceGraphic" in2="blur" operator="over" />
-            </filter>
-            <filter id="cyanGlow" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur stdDeviation="8" result="blur" />
-              <feComposite in="SourceGraphic" in2="blur" operator="over" />
-            </filter>
-          </defs>
-
-          {/* OUTER RED RING */}
-          <circle
-            cx="320"
-            cy="240"
-            r="115"
-            fill={is1 ? "#ff3b30" : "#e30613"}
-            opacity={is1 ? "0.9" : "0.5"}
-            className={styles.nodeGroup}
-            onClick={() => toggleCard(1)}
-          />
-
-          {/* Outer Pulsing Aura if Spirit Care active */}
-          {is1 && (
-            <circle
-              cx="320"
-              cy="240"
-              r="120"
-              fill="none"
-              stroke="#ff3b30"
-              strokeWidth="2"
-              className={styles.pulseRing}
-            />
-          )}
-
-          {/* INNER WHITE CIRCLE (Spirit Care) */}
-          <circle
-            cx="275"
-            cy="240"
-            r="62"
-            fill="#ffffff"
-            stroke={is1 ? "#e30613" : "#cccccc"}
-            strokeWidth={is1 ? "3" : "1"}
-            className={styles.nodeGroup}
-            onClick={() => toggleCard(1)}
-            filter={is1 ? "url(#redGlow)" : "none"}
-          />
-          <text x="275" y="235" textAnchor="middle" fontWeight="900" fontSize="16" fill="#111111">
-            Spirit
-          </text>
-          <text x="275" y="255" textAnchor="middle" fontWeight="700" fontSize="15" fill="#666666">
-            Care
-          </text>
-
-          {/* TOP-RIGHT CYAN CIRCLE (Science, Technology) */}
-          <g className={styles.nodeGroup} onClick={() => toggleCard(3)}>
-            <circle
-              cx="415"
-              cy="165"
-              r="46"
-              fill={is3 ? "#00c2ff" : "#0099cc"}
-              stroke="#ffffff"
-              strokeWidth="2"
-              filter={is3 ? "url(#cyanGlow)" : "none"}
-            />
-            <text x="415" y="158" textAnchor="middle" fontWeight="900" fontSize="12" fill="#ffffff">
-              Science,
-            </text>
-            <text x="415" y="172" textAnchor="middle" fontWeight="900" fontSize="12" fill="#ffffff">
-              Technology
-            </text>
-
-            {/* PLUS SIGN */}
-            <text x="415" y="196" textAnchor="middle" fontWeight="900" fontSize="22" fill="#ffffff">
-              +
-            </text>
-          </g>
-
-          {/* BOTTOM DARK CIRCLE (Earth Care) */}
-          <g className={styles.nodeGroup} onClick={() => toggleCard(2)}>
-            <circle
-              cx="375"
-              cy="335"
-              r="42"
-              fill={is2 ? "#1c1c1e" : "#3a3a3c"}
-              stroke={is2 ? "#e30613" : "#555555"}
-              strokeWidth="2"
-            />
-            <text x="375" y="330" textAnchor="middle" fontWeight="900" fontSize="13" fill="#ffffff">
-              Earth
-            </text>
-            <text x="375" y="345" textAnchor="middle" fontWeight="700" fontSize="12" fill="#aaaaaa">
-              Care
-            </text>
-
-            {/* EQUALS SIGN */}
-            <text x="315" y="305" textAnchor="middle" fontWeight="900" fontSize="26" fill="#111111">
-              =
-            </text>
-          </g>
-
-          {/* CONNECTING LINES */}
-          <line x1="330" y1="230" x2="380" y2="185" stroke="#111111" strokeWidth="1.5" />
-          <line x1="330" y1="250" x2="350" y2="305" stroke="#111111" strokeWidth="1.5" />
-
-          {/* Text annotations matching screenshot */}
-          <text x="275" y="325" textAnchor="middle" fontWeight="700" fontSize="11" fill="#333333">
-            Spaces that heal,
-          </text>
-          <text x="275" y="338" textAnchor="middle" fontWeight="700" fontSize="11" fill="#333333">
-            inspire, and connect
-          </text>
-
-          <text x="430" y="240" textAnchor="middle" fontWeight="800" fontSize="11" fill="#880000">
-            Intelligent, future-ready
-          </text>
-          <text x="430" y="253" textAnchor="middle" fontWeight="800" fontSize="11" fill="#880000">
-            environments
-          </text>
-        </svg>
-
-        {/* Outcome Synthesizer Terminal Box */}
-        <div className={styles.synthesizerTerminal}>
-          <div className={styles.terminalHeader}>
-            <div className={styles.synthTag}>
-              <span className={styles.synthDot} />
-              <span>{language === "ar" ? "معادلة كيو ب التفاعلية" : "ACTIVE ARCHITECTURAL EQUATION"}</span>
-            </div>
+      {/* Holographic Synthesizer Terminal Box */}
+      <div className={styles.terminalBox}>
+        <div className={styles.terminalHeader}>
+          <div className={styles.synthTag}>
+            <span className={styles.synthDot} />
+            <span>{language === "ar" ? "شحن مفاعل الطاقة التفاعلي" : "ACTIVE REACTION CORE OUTPUT"}</span>
           </div>
-          <div className={styles.synthTitle}>{getOutcomeTitle()}</div>
-          <p className={styles.synthDesc}>{t(getOutcomeDesc())}</p>
         </div>
+        <div className={styles.synthTitle}>{getSynthesisTitle()}</div>
+        <p className={styles.synthDesc}>{t(getSynthesisDesc())}</p>
       </div>
     </section>
   );

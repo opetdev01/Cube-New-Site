@@ -6,7 +6,6 @@ import Image from "next/image";
 import { useLanguage } from "@/components/LanguageContext";
 import ObsidianSystem from "@/components/SpiritCare/ObsidianSystem";
 import CubeEquation from "@/components/CubeEquation/CubeEquation";
-import Cube3DHarmonizer from "@/components/Cube3D/Cube3DHarmonizer";
 import styles from "./about.module.css";
 
 const PARTNER_LOGOS_GENERAL = Array.from({ length: 66 }, (_, i) => `/assets/partners_v5/general_${i}.png`);
@@ -212,7 +211,6 @@ export default function AboutPage() {
 
         {/* 3. THE CUBE EQUATION INTERACTIVE SIMULATOR */}
         <CubeEquation />
-        <Cube3DHarmonizer />
 
         {/* 4. SERVICES */}
         <div className={styles.cgSection}>
