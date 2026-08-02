@@ -9,7 +9,6 @@ export default function CubeEquation() {
   const [activeStreams, setActiveStreams] = useState<string[]>([]);
   const [isMasterSynthesized, setIsMasterSynthesized] = useState<boolean>(false);
   const [isVideoModalOpen, setIsVideoModalOpen] = useState<boolean>(false);
-  const [activeVideoSrc, setActiveVideoSrc] = useState<string>("/assets/Intro.mp4");
 
   const toggleStream = (streamId: string) => {
     if (activeStreams.includes(streamId)) {
@@ -31,7 +30,6 @@ export default function CubeEquation() {
 
   const handleCoreClick = () => {
     if (!isFullyCharged) {
-      // Charge all 3 pillars automatically if core is clicked before charging
       setActiveStreams(["spirit", "earth", "science"]);
       setIsMasterSynthesized(true);
       setIsVideoModalOpen(true);
@@ -51,29 +49,29 @@ export default function CubeEquation() {
   const getBadgeText = () => {
     if (isFullyCharged && isMasterSynthesized)
       return language === "ar"
-        ? "تم انصهار المعادلة! انقر للترجمة وتوليد الفيديو المعماري التفاعلي 🎬"
-        : "REACTOR FULLY CHARGED! CLICK GLOING RED CUBE TO PLAY NATURAL SYNTHESIS VIDEO 🎬";
+        ? "تم شحن الأركان الـ 3 بالكامل! انقر لتشغيل فيديو الذكاء الاصطناعي الجامع للأركان 🎬"
+        : "REACTOR FULLY CHARGED! CLICK GLOWING CUBE TO PLAY UNIFIED AI PILLAR SYNTHESIS VIDEO 🎬";
     if (isFullyCharged)
       return language === "ar"
-        ? "المفاعل مشحون بالكامل (3/3)! انقر على شعار كيو ب لتوليد الفيديو التفاعلي"
-        : "CORE READY (3/3 CHARGED)! CLICK THE GLOWING RED CUBE TO WATCH VIDEO";
+        ? "المفاعل مشحون بالكامل (3/3)! انقر على شعار كيو ب لتشغيل فيديو الذكاء الاصطناعي"
+        : "CORE READY (3/3 CHARGED)! CLICK THE GLOWING RED CUBE TO PLAY AI SYNTHESIS VIDEO";
     if (activeStreams.length === 2)
       return language === "ar"
-        ? "تم شحن ركنين (2/3)! انقر على الركن الأخير لشحن الفيديو التفاعلي"
-        : "2 OF 3 PILLARS CHARGED! CLICK THE LAST PILLAR TO UNLOCK SYNTHESIS VIDEO";
+        ? "تم شحن ركنين (2/3)! انقر على الركن الأخير لفتح فيديو الذكاء الاصطناعي"
+        : "2 OF 3 PILLARS CHARGED! CLICK THE LAST PILLAR TO UNLOCK AI SYNTHESIS VIDEO";
     if (activeStreams.length === 1)
       return language === "ar"
         ? "تم شحن ركن واحد (1/3)! انقر على باقي الأركان الثلاثة"
         : "1 OF 3 PILLARS CHARGED! CLICK REMAINING PILLARS";
     return language === "ar"
-      ? "انقر على الأركان الثلاثة (الروح، الأرض، العلوم) لتوليد فيديو المعادلة!"
-      : "CLICK ALL 3 PILLARS (SPIRIT, EARTH, SCIENCE) TO GENERATE SYNTHESIS VIDEO!";
+      ? "انقر على الأركان الثلاثة (الروح، الأرض، العلوم) لشحن المفاعل وتوليد فيديو الذكاء الاصطناعي!"
+      : "CLICK ALL 3 PILLARS (SPIRIT, EARTH, SCIENCE) TO GENERATE UNIFIED AI VIDEO!";
   };
 
   // Live Synthesis Output Text
   const getSynthesisTitle = () => {
     if (isFullyCharged)
-      return "THE CUBE EQUATION: MASTER ARCHITECTURAL REACTION";
+      return "THE CUBE EQUATION: UNIFIED AI PILLAR SYNTHESIS REEL";
     if (isSpirit && isScience) return "HEALING INTELLIGENCE CORE (SPIRIT + SCIENCE)";
     if (isEarth && isScience) return "PARAMETRIC SUSTAINABILITY REACTION (EARTH + SCIENCE)";
     if (isSpirit && isEarth) return "ECOLOGICAL SANCTUARY HARMONY (SPIRIT + EARTH)";
@@ -85,7 +83,7 @@ export default function CubeEquation() {
 
   const getSynthesisDesc = () => {
     if (isFullyCharged)
-      return "Complete architectural synergy unlocked: The glowing CUBE Core refracts human emotional dignity, zero-carbon environmental resilience, and AI computational intelligence into a single, future-ready architectural environment. Click the button below or the glowing CUBE core to watch the video synthesis!";
+      return "All 3 pillars connected: We have generated a single unified AI video experience collecting Spirit Care (human soul & light), Earth Care (biophilic zero-carbon nature), and Science & Technology (AI computational parametric engineering). Click the glowing red CUBE core to watch!";
     if (isSpirit && isScience)
       return "Merging human emotional experience with AI generative spatial algorithms to construct light-filled, intuitive environments.";
     if (isEarth && isScience)
@@ -98,7 +96,7 @@ export default function CubeEquation() {
       return "Maximizing natural resource conservation, passive thermal cooling, and local material usage.";
     if (isScience)
       return "Executing advanced AI spatial optimization, automated quantity takeoffs, and structural FEM checks.";
-    return "Click the 3 pillars (Spirit Care, Earth Care, Science & Tech) to ignite the laser streams, transform the core into the glowing red CUBE logo, and generate the natural video breakdown!";
+    return "Click all 3 pillars (Spirit Care, Earth Care, Science & Tech) to ignite the laser streams, transform the core into the glowing red CUBE logo, and play the single unified AI video!";
   };
 
   return (
@@ -359,96 +357,61 @@ export default function CubeEquation() {
         <div className={styles.synthTitle}>{getSynthesisTitle()}</div>
         <p className={styles.synthDesc}>{t(getSynthesisDesc())}</p>
 
-        {/* PLAY NATURAL SYNTHESIS VIDEO BUTTON */}
+        {/* PLAY SINGLE UNIFIED AI GENERATED PILLAR SYNTHESIS VIDEO BUTTON */}
         {isFullyCharged && (
           <button className={styles.playVideoBtn} onClick={() => setIsVideoModalOpen(true)}>
             <span>▶</span>
-            <span>{language === "ar" ? "تشغيل فيديو اندماج الأركان المعمارية" : "PLAY NATURAL PILLAR SYNTHESIS VIDEO"}</span>
+            <span>{language === "ar" ? "تشغيل فيديو الذكاء الاصطناعي الجامع للأركان" : "PLAY UNIFIED AI 3-PILLARS SYNTHESIS VIDEO"}</span>
           </button>
         )}
       </div>
 
-      {/* HOLOGRAPHIC SYNTHESIS VIDEO MODAL */}
+      {/* SINGLE UNIFIED AI GENERATED VIDEO MODAL */}
       {isVideoModalOpen && (
         <div className={styles.videoModalOverlay} onClick={() => setIsVideoModalOpen(false)}>
           <div className={styles.videoModalContainer} onClick={(e) => e.stopPropagation()}>
             <div className={styles.modalHeader}>
               <h3 className={styles.modalTitle}>
-                <span>🔴</span>
-                <span>{language === "ar" ? "فيديو معادلة كيو ب المعمارية" : "THE CUBE EQUATION: PILLAR SYNTHESIS REEL"}</span>
+                <span>🤖</span>
+                <span>{language === "ar" ? "فيديو الذكاء الاصطناعي الجامع لأركان معادلة كيو ب" : "THE CUBE EQUATION: UNIFIED AI PILLAR SYNTHESIS VIDEO"}</span>
               </h3>
               <button className={styles.modalCloseBtn} onClick={() => setIsVideoModalOpen(false)}>
                 ×
               </button>
             </div>
 
-            {/* VIDEO PLAYER */}
+            {/* UNIFIED AI MOTION VIDEO PLAYER */}
             <div className={styles.videoWrapper}>
               <video
-                src={activeVideoSrc}
+                src="/assets/Intro.mp4"
                 autoPlay
                 controls
                 loop
                 playsInline
                 className={styles.modalVideo}
+                poster="/assets/cube_pillars_ai_synthesis.jpg"
               />
             </div>
 
-            {/* VIDEO TAB SWITCHER FOR PILLARS */}
-            <div className={styles.videoTabsNav}>
-              <button
-                className={`${styles.videoTabBtn} ${
-                  activeVideoSrc === "/assets/Intro.mp4" ? styles.videoTabBtnActive : ""
-                }`}
-                onClick={() => setActiveVideoSrc("/assets/Intro.mp4")}
-              >
-                {language === "ar" ? "🎬 فيديو الاندماج الكامل" : "🎬 MASTER CONVERGENCE REEL"}
-              </button>
-              <button
-                className={`${styles.videoTabBtn} ${
-                  activeVideoSrc === "/assets/Hero sec/Green River.mp4" ? styles.videoTabBtnActive : ""
-                }`}
-                onClick={() => setActiveVideoSrc("/assets/Hero sec/Green River.mp4")}
-              >
-                {language === "ar" ? "🌿 ركن البيئة والأرض" : "🌿 EARTH CARE & NATURE REEL"}
-              </button>
-              <button
-                className={`${styles.videoTabBtn} ${
-                  activeVideoSrc === "/assets/Hero sec/Kemet tower.mp4" ? styles.videoTabBtnActive : ""
-                }`}
-                onClick={() => setActiveVideoSrc("/assets/Hero sec/Kemet tower.mp4")}
-              >
-                {language === "ar" ? "🤖 ركن العلوم والتكنولوجيا" : "🤖 SCIENCE & TECH REEL"}
-              </button>
-              <button
-                className={`${styles.videoTabBtn} ${
-                  activeVideoSrc === "/assets/Hero sec/Nebu.mp4" ? styles.videoTabBtnActive : ""
-                }`}
-                onClick={() => setActiveVideoSrc("/assets/Hero sec/Nebu.mp4")}
-              >
-                {language === "ar" ? "🔴 ركن الروح الإنسانية" : "🔴 SPIRIT CARE REEL"}
-              </button>
-            </div>
-
-            {/* PILLAR CAPTIONS BREAKDOWN */}
+            {/* UNIFIED 3 PILLARS SYNTHESIS CAPTIONS */}
             <div className={styles.videoCaptionsBox}>
               <div className={styles.captionPillars}>
                 <div className={styles.capCard} style={{ borderColor: "#e30613" }}>
-                  <div className={styles.capTitle}>01. SPIRIT CARE</div>
+                  <div className={styles.capTitle}>🔴 01. SPIRIT CARE</div>
                   <p className={styles.capDesc}>
-                    {t("Prioritizing human dignity, natural daylight, acoustic harmony, and emotional sanctuary.")}
+                    {t("Human soul dignity, ambient natural daylight, acoustic tranquility, and emotional space harmony.")}
                   </p>
                 </div>
                 <div className={styles.capCard} style={{ borderColor: "#2eac66" }}>
-                  <div className={styles.capTitle}>02. EARTH CARE</div>
+                  <div className={styles.capTitle}>🟢 02. EARTH CARE</div>
                   <p className={styles.capDesc}>
-                    {t("Coexisting with nature through zero-carbon parametric facades and ecological landscaping.")}
+                    {t("Zero-carbon biophilic facades, sustainable natural timber stone, and rainwater filtration loops.")}
                   </p>
                 </div>
                 <div className={styles.capCard} style={{ borderColor: "#00c2ff" }}>
-                  <div className={styles.capTitle}>03. SCIENCE & TECH</div>
+                  <div className={styles.capTitle}>🔵 03. SCIENCE & TECH</div>
                   <p className={styles.capDesc}>
-                    {t("Leveraging AI spatial optimization, automated quantity takeoffs, and computational BIM engineering.")}
+                    {t("AI generative spatial algorithms, computational digital twins, and automated BIM optimization.")}
                   </p>
                 </div>
               </div>
