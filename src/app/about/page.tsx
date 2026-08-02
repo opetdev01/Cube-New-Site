@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useLanguage } from "@/components/LanguageContext";
-import SpiritCare from "@/components/SpiritCare/SpiritCare";
+import ObsidianSystem from "@/components/SpiritCare/ObsidianSystem";
 import styles from "./about.module.css";
 
 const PARTNER_LOGOS_GENERAL = Array.from({ length: 66 }, (_, i) => `/assets/partners_v5/general_${i}.png`);
@@ -270,7 +270,7 @@ export default function AboutPage() {
           </div>
 
           {/* SPIRIT CARE (Obsidian Interactive Section) */}
-          <SpiritCare />
+          <ObsidianSystem />
         </div>
 
         {/* 4. SERVICES */}

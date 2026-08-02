@@ -1,0 +1,276 @@
+.obsidianContainer {
+  background: #121318;
+  color: #ffffff;
+  padding: 3.5rem 2.5rem;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6);
+  margin: 4rem 0;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Inter', var(--font-main), sans-serif;
+}
+
+.obsidianContainer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(227, 6, 19, 0.08) 0%, rgba(0, 0, 0, 0.8) 100%);
+  pointer-events: none;
+}
+
+.obsidianHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 5;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.redBar {
+  width: 5px;
+  height: 38px;
+  background-color: var(--c-red);
+  border-radius: 2px;
+  box-shadow: 0 0 12px rgba(227, 6, 19, 0.6);
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.instructionBadge {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 8px 16px;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
+
+/* Graph Container */
+.graphCanvasArea {
+  width: 100%;
+  height: 520px;
+  position: relative;
+  background: rgba(8, 9, 12, 0.7);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.8);
+}
+
+.graphSvg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  user-select: none;
+}
+
+/* Base Lines */
+.baseLine {
+  stroke: rgba(255, 255, 255, 0.08);
+  stroke-width: 1;
+  transition: all 0.3s ease;
+}
+
+.baseLineActive {
+  stroke: rgba(227, 6, 19, 0.3);
+  stroke-width: 1.5;
+}
+
+/* Laser Beam Line */
+.laserLineGlow {
+  stroke: #ff1a30;
+  stroke-width: 6;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 12px #ff0022) drop-shadow(0 0 25px #e30613);
+  opacity: 0.85;
+}
+
+.laserLineCore {
+  stroke: #ffffff;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-dasharray: 10 5;
+  animation: laserFlow 1s linear infinite;
+  filter: drop-shadow(0 0 8px #ffffff);
+}
+
+@keyframes laserFlow {
+  from {
+    stroke-dashoffset: 30;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Node Elements */
+.nodeGroup {
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nodeCircle {
+  transition: all 0.3s ease;
+}
+
+.nodeSelected {
+  stroke: #ffffff !important;
+  stroke-width: 3.5px !important;
+  filter: drop-shadow(0 0 15px #e30613);
+}
+
+.nodeLabel {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  fill: rgba(255, 255, 255, 0.85);
+  transition: all 0.3s ease;
+  pointer-events: none;
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+}
+
+.nodeLabelSelected {
+  fill: #ffffff;
+  font-weight: 900;
+  filter: drop-shadow(0 0 8px rgba(227, 6, 19, 0.9));
+}
+
+.selectionRing {
+  animation: ringPulse 1.4s infinite alternate ease-in-out;
+}
+
+@keyframes ringPulse {
+  from {
+    r: 22px;
+    opacity: 0.5;
+  }
+  to {
+    r: 32px;
+    opacity: 0.95;
+  }
+}
+
+/* Relationship Terminal Box */
+.terminalBox {
+  margin-top: 1.5rem;
+  background: rgba(18, 19, 24, 0.95);
+  border: 1px solid rgba(227, 6, 19, 0.4);
+  border-radius: 14px;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 10px 30px rgba(227, 6, 19, 0.15);
+  animation: slideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  position: relative;
+  z-index: 5;
+}
+
+.terminalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+
+.laserTag {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--c-red);
+  text-transform: uppercase;
+}
+
+.laserIcon {
+  width: 8px;
+  height: 8px;
+  background: #ff1a30;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #ff0022;
+  animation: pulseDot 1s infinite alternate;
+}
+
+@keyframes pulseDot {
+  from { transform: scale(0.8); opacity: 0.5; }
+  to { transform: scale(1.4); opacity: 1; }
+}
+
+.nodesPairTitle {
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: 0.05em;
+}
+
+.relationshipText {
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+.resetBtn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  padding: 6px 14px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.resetBtn:hover {
+  background: var(--c-red);
+  border-color: var(--c-red);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 900px) {
+  .obsidianHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .graphCanvasArea {
+    height: 420px;
+  }
+  .obsidianContainer {
+    padding: 2rem 1.5rem;
+  }
+}
