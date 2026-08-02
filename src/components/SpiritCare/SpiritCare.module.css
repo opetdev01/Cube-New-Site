@@ -1,0 +1,179 @@
+.spiritSection {
+  background: #0b0c10;
+  color: #ffffff;
+  padding: 4rem 3rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  margin: 4rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.spiritSection::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 80% 50%, rgba(227, 6, 19, 0.12) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.spiritHeader {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 3.5rem;
+}
+
+.redBar {
+  width: 5px;
+  height: 40px;
+  background-color: var(--c-red);
+  border-radius: 2px;
+}
+
+.spiritTitle {
+  font-size: 2.2rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.spiritGrid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.spiritList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.spiritRow {
+  display: grid;
+  grid-template-columns: 50px 110px 1fr;
+  align-items: center;
+  padding: 1.4rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 6px;
+}
+
+.spiritRow:hover,
+.rowActive {
+  background: rgba(255, 255, 255, 0.05);
+  border-bottom-color: rgba(227, 6, 19, 0.4);
+}
+
+.itemNum {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--c-red);
+}
+
+.itemTitle {
+  font-size: 1.05rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.itemDesc {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.rowActive .itemDesc,
+.spiritRow:hover .itemDesc {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.graphWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.graphSvg {
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  overflow: visible;
+}
+
+.starArm {
+  transition: all 0.3s ease;
+}
+
+.nodeGroup {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.nodeText {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  fill: rgba(255, 255, 255, 0.7);
+  transition: all 0.3s ease;
+}
+
+.nodeTextActive,
+.nodeGroup:hover .nodeText {
+  fill: #ffffff;
+  font-weight: 900;
+  filter: drop-shadow(0 0 6px rgba(227, 6, 19, 0.8));
+}
+
+.pulseGlow {
+  animation: pulseNode 1.5s infinite alternate ease-in-out;
+}
+
+@keyframes pulseNode {
+  from {
+    r: 14px;
+    opacity: 0.4;
+  }
+  to {
+    r: 22px;
+    opacity: 0.8;
+  }
+}
+
+@media (max-width: 992px) {
+  .spiritGrid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .spiritRow {
+    grid-template-columns: 40px 90px 1fr;
+    padding: 1rem 0.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .spiritSection {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .spiritRow {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+}
