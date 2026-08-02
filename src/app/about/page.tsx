@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useLanguage } from "@/components/LanguageContext";
 import styles from "./about.module.css";
+import ObsidianGraph from "@/components/ObsidianGraph/ObsidianGraph";
 
 const PARTNER_LOGOS_GENERAL = Array.from({ length: 66 }, (_, i) => `/assets/partners_v5/general_${i}.png`);
 const PARTNER_LOGOS_GOV = Array.from({ length: 18 }, (_, i) => `/assets/partners_v5/gov_${i}.png`);
@@ -258,15 +259,8 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Centered Animated Equation Image below the 3 clean cards */}
-          <div className={styles.formulaSection}>
-            <img 
-              src="/assets/3_rings.webp" 
-              alt="Cube Integration Methodology" 
-              className={styles.formulaAnim} 
-              style={{ width: "100%", maxWidth: "650px", height: "auto", display: "inline-block" }} 
-            />
-          </div>
+          {/* Interactive Obsidian Knowledge Graph Section */}
+          <ObsidianGraph />
         </div>
 
         {/* 4. SERVICES */}
