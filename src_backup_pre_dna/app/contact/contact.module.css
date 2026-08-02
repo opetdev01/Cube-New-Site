@@ -1,0 +1,353 @@
+.pageContainer {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: transparent;
+  overflow: hidden;
+}
+
+/* Background blur aesthetics */
+.backgroundBlur {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/assets/old_home_interior.webp');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.22;
+  /* More prominent background architectural line visibility */
+  filter: blur(12px);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.blurCircleRed {
+  position: absolute;
+  display: none !important;
+}
+
+.blurCircleWhite {
+  display: none !important;
+}
+
+.contentWrapper {
+  position: relative;
+  max-width: 1400px;
+  margin: var(--nav-height) auto 0;
+  padding: 6rem var(--gutter) 8rem;
+  z-index: 2;
+}
+
+.header {
+  margin-bottom: 5rem;
+  text-align: left;
+}
+
+.subtitle {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--c-red);
+  margin-bottom: 0.8rem;
+}
+
+.title {
+  font-size: 3.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.titleDivider {
+  width: 60px;
+  height: 3px;
+  background-color: var(--c-red);
+  margin-top: 1.5rem;
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 5rem;
+}
+
+.infoColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Transparent layout cards directly over gradient background */
+.glassCard {
+  background: transparent;
+  border: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+  box-shadow: none;
+}
+
+.mapCard {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 6px;
+  overflow: hidden;
+  height: 280px;
+  box-shadow: none;
+  margin-top: 1.5rem;
+}
+
+.mapIframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  filter: grayscale(0.1) contrast(1.02);
+}
+
+.formColumn {
+  background: transparent;
+  border: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  padding: 0;
+  box-shadow: none;
+}
+
+.maquetteContainer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 2rem;
+}
+
+.maquetteImage {
+  object-fit: contain;
+  max-width: 100%;
+  height: auto;
+}
+
+.infoBlock h3,
+.formColumn h3 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 2rem;
+  color: var(--c-black);
+}
+
+.profileText {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+.contactItem {
+  margin-bottom: 2rem;
+  border-left: 2px solid var(--c-red);
+  padding-left: 1.25rem;
+}
+
+.itemLabel {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #888;
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+}
+
+.contactItem p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--c-black);
+}
+
+.emailLink {
+  color: var(--c-black);
+  text-decoration: none;
+  font-weight: 700;
+  transition: color var(--transition-fast);
+}
+
+.emailLink:hover {
+  color: var(--c-red);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.inputGroup label {
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--c-black);
+}
+
+.input,
+.textarea {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  padding: 0.8rem 0;
+  font-size: 1rem;
+  color: var(--c-black);
+  border-radius: 0;
+  transition: border-color var(--transition-fast);
+  width: 100%;
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: var(--c-red);
+}
+
+.textarea {
+  resize: vertical;
+}
+
+.buttonRow {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  align-self: flex-start;
+}
+
+.submitButton {
+  background-color: var(--c-red);
+  color: var(--c-white);
+  border: none;
+  padding: 1.2rem 2.5rem;
+  font-size: 0.85rem;
+  font-weight: 850;
+  letter-spacing: 0.15em;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: background-color var(--transition-fast);
+  border-radius: 2px;
+}
+
+.submitButton:hover {
+  background-color: var(--c-black);
+}
+
+.whatsappButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #25D366;
+  color: #fff;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+  transition: transform var(--transition-fast), background-color var(--transition-fast);
+}
+
+.whatsappButton:hover {
+  background-color: #20ba5a;
+  transform: translateY(-2px);
+}
+
+.whatsappButton:active {
+  transform: translateY(0);
+}
+
+.whatsappIcon {
+  width: 26px;
+  height: 26px;
+  fill: #fff;
+}
+
+/* Success Message */
+.successMessage {
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.successMessage h4 {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--c-red);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.successMessage p {
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 2rem;
+}
+
+.resetButton {
+  background: transparent;
+  border: 1px solid var(--c-black);
+  color: var(--c-black);
+  padding: 0.8rem 1.8rem;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+  border-radius: 2px;
+}
+
+.resetButton:hover {
+  background-color: var(--c-black);
+  color: var(--c-white);
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .contentGrid {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .contentWrapper {
+    padding: 4rem var(--gutter) 6rem;
+  }
+
+  .title {
+    font-size: 2.8rem;
+  }
+
+  .glassCard,
+  .formColumn {
+    padding: 2.5rem 2rem;
+  }
+
+  .maquetteContainer {
+    justify-content: center !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .mapCard {
+    height: 250px;
+  }
+}

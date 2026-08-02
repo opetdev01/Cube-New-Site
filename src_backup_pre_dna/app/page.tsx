@@ -296,19 +296,6 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Holographic Circular HUD Overlay (AI DNA) */}
-          <div className={styles.heroHudOverlay}>
-            <svg viewBox="0 0 400 400" className={styles.hudSvg}>
-              <circle cx="200" cy="200" r="180" className={styles.hudRingOuter} />
-              <circle cx="200" cy="200" r="140" className={styles.hudRingMiddle} />
-              <circle cx="200" cy="200" r="100" className={styles.hudRingInner} />
-              <line x1="200" y1="10" x2="200" y2="390" className={styles.hudAxis} />
-              <line x1="10" y1="200" x2="390" y2="200" className={styles.hudAxis} />
-              <text x="215" y="45" className={styles.hudCoordinateText}>SYS.LOC: [30.0444° N, 31.2357° E]</text>
-              <text x="215" y="365" className={styles.hudCoordinateText}>AI.DRAFTING: ACTIVE</text>
-            </svg>
-          </div>
-
           {/* Overlaid Content Grid */}
           <div className={styles.heroContentGrid}>
             {/* Left Column: Branding, scroll info & stats */}
@@ -392,47 +379,6 @@ export default function Home() {
               {t("READ FULL BIOGRAPHY")} <span className={styles.arrowIcon}>→</span>
             </Link>
           </div>
-
-          {/* Cybernetic Blueprint Drafting Art Overlay (AI DNA) */}
-          <div className={styles.blueprintVisualContainer}>
-            <svg viewBox="0 0 300 300" className={styles.blueprintSvg}>
-              {/* Drafting grid backdrop */}
-              <defs>
-                <pattern id="blueprintGrid" width="20" height="20" patternUnits="userSpaceOnUse">
-                  <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(227, 6, 19, 0.04)" strokeWidth="1"/>
-                </pattern>
-              </defs>
-              <rect width="100%" height="100%" fill="url(#blueprintGrid)" rx="16" stroke="rgba(227, 6, 19, 0.08)" strokeWidth="1" />
-              
-              {/* Outer tech dimensions */}
-              <path d="M 15 15 L 285 15 L 285 285 L 15 285 Z" fill="none" stroke="rgba(227, 6, 19, 0.12)" strokeWidth="1" strokeDasharray="4,4" />
-              
-              {/* Structural building outline to draft */}
-              <g className={styles.generativeBuildingConstruct}>
-                <polygon points="60,240 60,140 100,100 140,140 140,240" fill="none" stroke="rgba(0,0,0,0.12)" strokeWidth="1.5" />
-                <polygon points="140,240 140,80 180,40 220,80 220,240" fill="none" stroke="rgba(227, 6, 19, 0.18)" strokeWidth="1.8" />
-                
-                {/* Generative laser scan facade */}
-                <line x1="50" y1="240" x2="250" y2="240" stroke="rgba(0,0,0,0.06)" strokeWidth="1" />
-                <line x1="50" y1="180" x2="250" y2="180" stroke="rgba(0,0,0,0.06)" strokeWidth="1" />
-                <line x1="50" y1="120" x2="250" y2="120" stroke="rgba(0,0,0,0.06)" strokeWidth="1" />
-                
-                {/* Connecting nodes */}
-                <circle cx="100" cy="100" r="4" fill="#e30613" />
-                <circle cx="180" cy="40" r="4.5" fill="#e30613" />
-                <circle cx="140" cy="80" r="3" fill="var(--c-black)" />
-                <circle cx="220" cy="80" r="3" fill="var(--c-black)" />
-                
-                {/* Laser scanning bar */}
-                <line x1="30" y1="20" x2="30" y2="280" className={styles.draftingLaser} />
-              </g>
-              
-              {/* Coordinate markings */}
-              <text x="25" y="35" className={styles.blueprintText}>SCALE: 1:250</text>
-              <text x="25" y="270" className={styles.blueprintText}>SYS: AUTO_GEN.ACTIVE</text>
-              <text x="195" y="270" className={styles.blueprintText}>AXIS: Z-GRID</text>
-            </svg>
-          </div>
         </section>
 
         {/* ABOUT US SECTION */}
@@ -481,16 +427,6 @@ export default function Home() {
           <div className={styles.servicesCardGrid}>
             {servicesList.map((svc) => (
               <div key={svc.num} className={styles.serviceCardItem}>
-                {/* Glowing Circuit Badge Background (AI DNA) */}
-                <div className={styles.cardCircuitOverlay}>
-                  <svg viewBox="0 0 100 100" className={styles.circuitSvg}>
-                    <path d="M 50 5 A 45 45 0 1 1 49.9 5" fill="none" stroke="rgba(227, 6, 19, 0.05)" strokeWidth="1" />
-                    <path d="M 25 35 Q 40 20 60 20 T 75 45" fill="none" stroke="rgba(227, 6, 19, 0.12)" strokeWidth="1.2" className={styles.circuitLine} />
-                    <circle cx="25" cy="35" r="2" fill="#e30613" />
-                    <circle cx="75" cy="45" r="2" fill="#e30613" />
-                  </svg>
-                </div>
-
                 <div className={styles.serviceIconContainer}>
                   {svc.icon}
                 </div>
@@ -519,19 +455,6 @@ export default function Home() {
             {homeProjects.map((project) => (
               <Link key={project.slug} href={`/projects/${project.slug}`} className={styles.projectCardItem}>
                 <div className={styles.projectCardImageWrapper}>
-                  {/* Cyber Focal Crosshair overlay (AI DNA) */}
-                  <div className={styles.projectFocalOverlay}>
-                    <svg viewBox="0 0 100 100" className={styles.focalSvg}>
-                      <path d="M 8 18 L 8 8 L 18 8" fill="none" stroke="rgba(255,255,255,0.45)" strokeWidth="1" />
-                      <path d="M 92 18 L 92 8 L 82 8" fill="none" stroke="rgba(255,255,255,0.45)" strokeWidth="1" />
-                      <path d="M 8 82 L 8 92 L 18 92" fill="none" stroke="rgba(255,255,255,0.45)" strokeWidth="1" />
-                      <path d="M 92 82 L 92 92 L 82 92" fill="none" stroke="rgba(255,255,255,0.45)" strokeWidth="1" />
-                      <circle cx="50" cy="50" r="8" fill="none" stroke="rgba(227,6,19,0.5)" strokeWidth="1" strokeDasharray="2,2" />
-                      <line x1="50" y1="40" x2="50" y2="60" stroke="#e30613" strokeWidth="0.8" />
-                      <line x1="40" y1="50" x2="60" y2="50" stroke="#e30613" strokeWidth="0.8" />
-                    </svg>
-                  </div>
-                  
                   <Image
                     src={project.featuredImage}
                     alt={t(project.title)}

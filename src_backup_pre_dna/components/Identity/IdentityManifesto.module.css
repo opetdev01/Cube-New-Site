@@ -1,0 +1,197 @@
+.wrapper {
+  background-color: #ffffff;
+  color: #000000;
+  width: 100%;
+  padding-bottom: 200px;
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
+}
+
+.section {
+  padding: 120px 8%;
+  max-width: 1800px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.label {
+  color: #e30613;
+  font-weight: 900;
+  font-size: 0.75rem;
+  letter-spacing: 0.6em;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+  display: block;
+}
+
+.title {
+  font-size: clamp(3rem, 7vw, 6rem);
+  font-weight: 900;
+  line-height: 0.8;
+  margin: 0 0 100px 0;
+  text-transform: uppercase;
+  letter-spacing: -0.05em;
+}
+
+/* 1. METRICS */
+.metricGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 100px;
+  margin-top: 80px;
+}
+
+.metricItem {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.metricNum {
+  font-size: 6rem;
+  font-weight: 900;
+  line-height: 1;
+  color: #000;
+  letter-spacing: -0.05em;
+}
+
+.metricLabel {
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #555;
+  letter-spacing: 0.05em;
+  max-width: 300px;
+}
+
+.yearsBadge {
+  position: absolute;
+  bottom: 0;
+  right: 8%;
+  text-align: right;
+}
+
+.yearsNum {
+  font-size: 14rem;
+  font-weight: 950;
+  color: #e30613;
+  line-height: 0.75;
+}
+
+/* 2. GLOBAL HUB */
+.mapSection {
+  text-align: center;
+  padding: 150px 0;
+}
+
+.mapWrapper {
+  margin: 80px auto;
+  padding: 0 5%;
+}
+
+/* 3. PRINCIPLES */
+.principlesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background-color: #f0f0f0;
+}
+
+.principleItem {
+  background-color: #fff;
+  padding: 80px 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.pHeader {
+  color: #e30613;
+  font-weight: 900;
+  font-size: 0.9rem;
+  margin-bottom: 40px;
+}
+
+.pTitle {
+  font-size: 3rem;
+  font-weight: 950;
+  line-height: 0.95;
+  margin-bottom: 40px;
+}
+
+.pList {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 50px;
+  flex-grow: 1;
+}
+
+.pList li {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.pCommitment {
+  padding-top: 30px;
+  border-top: 1px solid #eee;
+  font-size: 0.75rem;
+  font-weight: 900;
+  color: #e30613;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+}
+
+/* 4. PHILOSOPHY */
+.starSection {
+  text-align: center;
+  padding: 200px 5%;
+}
+
+.starDisplay {
+  margin: 100px auto;
+}
+
+/* 5. SERVICES */
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  background-color: #eee;
+}
+
+.serviceItem {
+  background-color: #fff;
+  padding: 80px 60px;
+}
+
+.sTitle {
+  font-size: 2.5rem;
+  font-weight: 950;
+  margin-bottom: 30px;
+  line-height: 0.9;
+}
+
+.sValue {
+  margin-top: 50px;
+  padding-left: 20px;
+  border-left: 3px solid #e30613;
+  color: #e30613;
+  font-weight: 900;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1200px) {
+  .metricGrid, .principlesGrid, .servicesGrid {
+    grid-template-columns: 1fr;
+  }
+  .yearsNum {
+    font-size: 8rem;
+  }
+}
+@media (max-width: 600px) {
+  .section { padding: 80px 20px; }
+  .metricNum { font-size: 4rem; }
+  .pTitle { font-size: 2rem; }
+}

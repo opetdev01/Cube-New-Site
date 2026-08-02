@@ -675,31 +675,3 @@
     max-height: 100% !important;
     object-fit: contain !important;
 }
-
-/* AI DNA: Science & Technology Card Cybernetic Overlay */
-.aiDnaCard {
-  position: relative !important;
-  overflow: hidden !important;
-}
-
-.aboutCardCircuit {
-  position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  bottom: 0 !important;
-  pointer-events: none !important;
-  opacity: 0.3 !important;
-  transition: opacity 0.4s ease !important;
-  z-index: 1 !important;
-}
-
-.aiDnaCard:hover .aboutCardCircuit {
-  opacity: 0.8 !important;
-}
-
-.aboutCircuitSvg {
-  width: 100% !important;
-  height: 100% !important;
-}
-

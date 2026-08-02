@@ -3,7 +3,6 @@ import { Inter } from "next/font/google"; // Strictly Sans-Serif for RMJM bold s
 import "./globals.css";
 import Navigation from "@/components/Navigation/Navigation";
 import Footer from "@/components/Footer/Footer";
-import AIBot from "@/components/AIBot/AIBot";
 import { LanguageProvider } from "@/components/LanguageContext";
 
 const inter = Inter({
@@ -28,7 +27,6 @@ export default function RootLayout({
           <Navigation />
           {children}
           <Footer />
-          <AIBot />
         </LanguageProvider>
       </body>
     </html>

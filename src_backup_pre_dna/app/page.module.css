@@ -358,39 +358,22 @@
 
 /* ABOUT US SECTION */
 .ceoFounderSection {
-  padding: 6rem var(--gutter);
+  padding: 5rem var(--gutter);
   background: transparent;
   border-top: 1px solid rgba(0, 0, 0, 0.04);
   border-bottom: 1px solid rgba(0, 0, 0, 0.04);
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 4rem;
-  align-items: center;
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
-@media (max-width: 1024px) {
-  .ceoFounderSection {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
+  display: flex;
+  justify-content: center;
 }
 
 .ceoFounderContent {
+  max-width: 900px;
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  text-align: start;
+  align-items: center;
+  text-align: center;
   gap: 0.8rem;
-}
-
-@media (max-width: 1024px) {
-  .ceoFounderContent {
-    align-items: center;
-    text-align: center;
-  }
 }
 
 .ceoFounderTag {
@@ -1712,207 +1695,4 @@
   opacity: 0 !important;
   visibility: hidden !important;
   pointer-events: none !important;
-}
-
-/* AI DNA: Holographic HUD Overlay & Blueprint Styles */
-.heroHudOverlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  max-width: 600px;
-  aspect-ratio: 1/1;
-  pointer-events: none;
-  z-index: 2;
-  opacity: 0.14;
-}
-
-.hudSvg {
-  width: 100%;
-  height: 100%;
-}
-
-.hudRingOuter,
-.hudRingMiddle,
-.hudRingInner {
-  fill: none;
-  stroke: var(--c-red);
-  stroke-width: 1.5px;
-  transform-origin: center;
-}
-
-.hudRingOuter {
-  stroke-dasharray: 10, 15;
-  animation: hudRotateCW 35s infinite linear;
-}
-
-.hudRingMiddle {
-  stroke-dasharray: 40, 8, 4, 8;
-  animation: hudRotateCCW 25s infinite linear;
-}
-
-.hudRingInner {
-  stroke-dasharray: 18, 12;
-  animation: hudRotateCW 15s infinite linear;
-}
-
-.hudAxis {
-  stroke: rgba(227, 6, 19, 0.25);
-  stroke-width: 0.8px;
-  stroke-dasharray: 5, 5;
-}
-
-.hudCoordinateText {
-  fill: var(--c-red);
-  font-family: monospace;
-  font-size: 8px;
-  font-weight: 800;
-  letter-spacing: 0.05em;
-}
-
-/* CEO Blueprint Styles */
-.blueprintVisualContainer {
-  width: 100%;
-  max-width: 420px;
-  margin: 0 auto;
-  pointer-events: none;
-  aspect-ratio: 1/1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.blueprintSvg {
-  width: 100%;
-  height: 100%;
-}
-
-.blueprintText {
-  fill: rgba(0, 0, 0, 0.4);
-  font-family: monospace;
-  font-size: 8px;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-}
-
-:global([dir="rtl"]) .blueprintText {
-  font-family: monospace;
-}
-
-.draftingLaser {
-  stroke: var(--c-red);
-  stroke-width: 1.5px;
-  animation: laserSlide 4s infinite ease-in-out;
-  filter: drop-shadow(0 0 2px rgba(227, 6, 19, 0.6));
-}
-
-.generativeBuildingConstruct polygon {
-  stroke-dasharray: 600;
-  stroke-dashoffset: 600;
-  animation: buildDraft 8s infinite cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-/* Animations */
-@keyframes hudRotateCW {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-@keyframes hudRotateCCW {
-  from { transform: rotate(360deg); }
-  to { transform: rotate(0deg); }
-}
-
-@keyframes laserSlide {
-  0%, 100% {
-    x1: 40;
-    x2: 40;
-    opacity: 0.3;
-  }
-  50% {
-    x1: 260;
-    x2: 260;
-    opacity: 1;
-  }
-}
-
-@keyframes buildDraft {
-  0%, 10% {
-    stroke-dashoffset: 600;
-  }
-  45%, 85% {
-    stroke-dashoffset: 0;
-  }
-  95%, 100% {
-    stroke-dashoffset: 600;
-  }
-}
-
-/* Card Circuit Overlay Styles (Service Cards) */
-.cardCircuitOverlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: 50%;
-  overflow: hidden;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity var(--transition-normal);
-  z-index: 1;
-}
-
-.serviceCardItem:hover .cardCircuitOverlay {
-  opacity: 1;
-}
-
-.circuitSvg {
-  width: 100%;
-  height: 100%;
-}
-
-.circuitLine {
-  stroke-dasharray: 80;
-  stroke-dashoffset: 80;
-  animation: circuitFlow 3.5s infinite linear;
-}
-
-.serviceCardItem:hover .circuitLine {
-  animation-play-state: running;
-}
-
-@keyframes circuitFlow {
-  0% { stroke-dashoffset: 80; }
-  50% { stroke-dashoffset: 0; }
-  100% { stroke-dashoffset: -80; }
-}
-
-/* Project Focal Overlay Styles (Project Cards) */
-.projectFocalOverlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity var(--transition-normal);
-  z-index: 3;
-}
-
-.projectCardItem:hover .projectFocalOverlay {
-  opacity: 1;
-}
-
-.focalSvg {
-  width: 100%;
-  height: 100%;
-}
-
-/* Rotate focal ring on hover */
-.projectCardItem:hover .focalSvg circle {
-  transform-origin: center;
-  animation: hudRotateCW 12s infinite linear;
 }

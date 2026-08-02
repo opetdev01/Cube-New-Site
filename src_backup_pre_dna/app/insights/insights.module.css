@@ -1,0 +1,217 @@
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 120px 4% 80px;
+  background: transparent;
+  color: #000000;
+  min-height: 100vh;
+}
+
+.header {
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  margin-bottom: 12px;
+  color: #000000;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: #777777;
+  letter-spacing: 0.05em;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Elegant Segmented Slashed Tab Selector */
+.tabContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 70px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+}
+
+.tabBtn {
+  background: none;
+  border: none;
+  color: #888888;
+  cursor: pointer;
+  padding: 6px 16px;
+  transition: all 0.3s ease;
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  position: relative;
+}
+
+.tabBtn:hover {
+  color: #e30613;
+}
+
+.activeTab {
+  color: #e30613;
+  font-weight: 700;
+}
+
+.divider {
+  color: #dddddd;
+  user-select: none;
+  font-weight: 300;
+}
+
+/* Grid Layout */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px 40px;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 100px 24px 60px;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .title {
+    font-size: 2.2rem;
+  }
+}
+
+/* Card Design & Hover Animations */
+.card {
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  margin-bottom: 24px;
+  background-color: #f7f7f7;
+}
+
+.image {
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.card:hover .image {
+  transform: scale(1.06);
+}
+
+/* Red & White Badging */
+.badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding: 6px 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  background-color: #ffffff;
+  border: 1px solid #e30613;
+  z-index: 10;
+}
+
+.badgeNews {
+  color: #000000;
+  border-color: #dddddd;
+}
+
+.badgeAward {
+  color: #e30613;
+  border-color: #e30613;
+}
+
+.badgeArticle {
+  color: #ffffff;
+  background-color: #e30613;
+  border-color: #e30613;
+}
+
+/* Card Content Details */
+.content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.date {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #888888;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.cardTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.45;
+  margin-bottom: 14px;
+}
+
+.cardLink {
+  color: #000000;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.cardLink:hover {
+  color: #e30613;
+}
+
+.excerpt {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #555555;
+  margin-bottom: 24px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.readMore {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #e30613;
+  text-decoration: none;
+  letter-spacing: 0.15em;
+  display: inline-flex;
+  align-items: center;
+  margin-top: auto;
+  transition: color 0.3s ease;
+}
+
+.arrow {
+  margin-left: 8px;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .arrow {
+  transform: translateX(6px);
+}
