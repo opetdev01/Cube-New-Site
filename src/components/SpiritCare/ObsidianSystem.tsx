@@ -294,15 +294,7 @@ export default function ObsidianSystem() {
               : "Click a 2nd Spirit Care element (SOUL, SUN, AIR, WATER, EARTH) to fire the red laser beam and reveal their relationship."}
           </p>
         </div>
-      ) : (
-        <div className={styles.terminalBox} style={{ borderColor: "rgba(255,255,255,0.1)" }}>
-          <p className={styles.relationshipText} style={{ textAlign: "center", color: "rgba(255,255,255,0.6)" }}>
-            {language === "ar"
-              ? "انقر على أي عنصرين من القائمة أو المخطط لإطلاق شعاع الليزر وتوليد التحليل بينهما."
-              : "Click any 2 elements from the list or graph above to fire the red laser beam and reveal their relationship."}
-          </p>
-        </div>
-      )}
+      ) : null}
     </section>
   );
 }
