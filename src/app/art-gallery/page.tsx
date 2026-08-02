@@ -35,6 +35,12 @@ export default function ArtGalleryPage() {
   const [showUploadSuccess, setShowUploadSuccess] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  // Full-screen Intro Splash State
+  const [isIntroActive, setIsIntroActive] = useState(true);
+  const [introEnded, setIntroEnded] = useState(false);
+  const [isMuted, setIsMuted] = useState(false);
+  const introVideoRef = useRef<HTMLVideoElement>(null);
+
   // Pre-populated downloaded art gallery master files
   const defaultArtworks: Artwork[] = [
     {
@@ -178,8 +184,25 @@ export default function ArtGalleryPage() {
       setArtworks([...defaultArtworks, ...parsedArt]);
       setPendingArtworks(parsedPending);
       calculateMonthlyUploads(storedLogs ? JSON.parse(storedLogs) : []);
+
+      // Check session storage for intro splash
+      const hasShown = sessionStorage.getItem("cube_art_intro_shown");
+      if (hasShown === "true") {
+        setIsIntroActive(false);
+        setIntroEnded(true);
+      }
     }
   }, [language]);
+
+  const handleFinishIntro = () => {
+    setIntroEnded(true);
+    setTimeout(() => {
+      setIsIntroActive(false);
+      if (typeof window !== "undefined") {
+        sessionStorage.setItem("cube_art_intro_shown", "true");
+      }
+    }, 600);
+  };
 
 
 
@@ -305,33 +328,51 @@ export default function ArtGalleryPage() {
 
   return (
     <div className={styles.galleryContainer}>
+      {/* Full-Screen Art Gallery Intro Splash Video Overlay */}
+      {isIntroActive && (
+        <div className={`${styles.artIntroOverlay} ${introEnded ? styles.artIntroFadeOut : ""}`}>
+          <video
+            ref={introVideoRef}
+            src="/assets/magnific_i-want-this-robot-to-draw_SywuP7iUb8.mp4"
+            autoPlay
+            muted={isMuted}
+            playsInline
+            onEnded={handleFinishIntro}
+            className={styles.artIntroVideoFullscreen}
+          />
+
+          {/* Top Right Controls: Mute Toggle + SKIP INTRO Button */}
+          <div className={styles.artIntroControls}>
+            <button
+              className={styles.artIntroMuteBtn}
+              onClick={() => setIsMuted(!isMuted)}
+              title={isMuted ? "Unmute Sound" : "Mute Sound"}
+            >
+              {isMuted ? "🔇" : "🔊"}
+            </button>
+
+            <button
+              className={styles.artIntroSkipBtn}
+              onClick={handleFinishIntro}
+            >
+              <span>{language === "ar" ? "تخطي المقدمة ➔" : "SKIP INTRO ➔"}</span>
+            </button>
+          </div>
+        </div>
+      )}
+
       <div className={styles.wrapper}>
         <header className={styles.header}>
-          <div className={styles.headerContentGrid}>
-            <div className={styles.headerTextCol}>
-              <span className={styles.sectionSubtitle}>{t("Curated Masterpieces")}</span>
-              <h1 className={styles.sectionTitle}>{language === "ar" ? "معرض الفنون الرقمي" : "ART GALLERY"}</h1>
-              <div className={styles.titleDivider} />
-              <p className={styles.headerText}>
-                {language === "ar"
-                  ? "مساحة عرض تفاعلية مخصصة للوحات الفنية والرسومات التخطيطية الهندسية والمعمارية لمشاريع كيو ب."
-                  : "An interactive architectural exhibition dedicated to curated conceptual paintings, sketches, and drafts."}
-              </p>
-              <div style={{ fontSize: "0.82rem", fontWeight: 800, letterSpacing: "0.12em", color: "var(--c-red)", textTransform: "uppercase", marginTop: "1rem" }}>
-                {t("Shaping, Peaceful, Living")}
-              </div>
-            </div>
-
-            <div className={styles.introVideoContainer}>
-              <video
-                src="/assets/magnific_i-want-this-robot-to-draw_SywuP7iUb8.mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
-                className={styles.introVideo}
-              />
-            </div>
+          <span className={styles.sectionSubtitle}>{t("Curated Masterpieces")}</span>
+          <h1 className={styles.sectionTitle}>{language === "ar" ? "معرض الفنون الرقمي" : "ART GALLERY"}</h1>
+          <div className={styles.titleDivider} />
+          <p className={styles.headerText}>
+            {language === "ar"
+              ? "مساحة عرض تفاعلية مخصصة للوحات الفنية والرسومات التخطيطية الهندسية والمعمارية لمشاريع كيو ب."
+              : "An interactive architectural exhibition dedicated to curated conceptual paintings, sketches, and drafts."}
+          </p>
+          <div style={{ fontSize: "0.82rem", fontWeight: 800, letterSpacing: "0.12em", color: "var(--c-red)", textTransform: "uppercase", marginTop: "1rem" }}>
+            {t("Shaping, Peaceful, Living")}
           </div>
         </header>
 
