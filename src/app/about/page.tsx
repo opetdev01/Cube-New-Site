@@ -208,28 +208,17 @@ export default function AboutPage() {
           </svg>
         </div>
 
-        {/* 3. ANIMATED IMAGE AND PERFECTED EQ TEXT SECTION */}
+        {/* 3. THE CUBE EQUATION PHILOSOPHY SECTION */}
         <div className={styles.cgSection}>
           <span className={styles.cgLabel}>{t("Our Philosophy")}</span>
-          <h2 className={styles.cgTitle} style={{ marginBottom: "50px" }}>
+          <h2 className={styles.cgTitle} style={{ marginBottom: "30px" }}>
             {t("The Cube Equation")}
           </h2>
+
+          {/* Interactive Spirit Care Section */}
+          <ObsidianSystem />
           
           <div className={styles.cgEqLayout}>
-            {/* Card 1 */}
-            <div className={styles.cgEqItem}>
-              <div>
-                <span className={styles.cgEqNum}>01</span>
-                <h3>{t("1. SPIRIT CARE")}</h3>
-                <p className={styles.cgEqDesc}>
-                  {t("Design that nurtures the human soul by prioritizing emotional experience, peace, balance, and meaning.")}
-                </p>
-              </div>
-              <div className={styles.cgEqOutcome}>
-                <span>{t("Outcome:")}</span> {t("Spaces that heal, inspire, and connect")}
-              </div>
-            </div>
-
             {/* Card 2 */}
             <div className={styles.cgEqItem}>
               <div>
@@ -259,7 +248,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Centered Animated Equation Image below the 3 clean cards */}
+          {/* Centered Animated Equation Image below cards */}
           <div className={styles.formulaSection}>
             <img 
               src="/assets/3_rings.webp" 
@@ -268,9 +257,6 @@ export default function AboutPage() {
               style={{ width: "100%", maxWidth: "650px", height: "auto", display: "inline-block" }} 
             />
           </div>
-
-          {/* SPIRIT CARE (Obsidian Interactive Section) */}
-          <ObsidianSystem />
         </div>
 
         {/* 4. SERVICES */}
