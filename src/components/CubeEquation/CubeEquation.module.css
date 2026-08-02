@@ -1,0 +1,262 @@
+.eqContainer {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  color: #111111;
+  padding: 3.5rem 2.5rem;
+  border-radius: 24px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.06);
+  margin: 3rem 0;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Inter', var(--font-main), sans-serif;
+}
+
+.eqContainer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(227, 6, 19, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.eqHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 5;
+}
+
+.cgLabel {
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  color: var(--c-red);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  font-size: 2.3rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  color: #111111;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* 3 Cards Layout */
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.8rem;
+  margin-bottom: 3.5rem;
+  position: relative;
+  z-index: 5;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  padding: 2rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.card:hover,
+.cardActive {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(227, 6, 19, 0.12);
+  border-color: rgba(227, 6, 19, 0.4);
+}
+
+.cardActive {
+  background: rgba(255, 255, 255, 0.98);
+  border-left: 4px solid var(--c-red);
+}
+
+.cardNum {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: var(--c-red);
+  opacity: 0.85;
+  margin-bottom: 0.8rem;
+  display: block;
+}
+
+.cardTitle {
+  font-size: 1.15rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  color: #111111;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+}
+
+.cardDesc {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: #555555;
+  margin-bottom: 1.5rem;
+}
+
+.outcomeBox {
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding-top: 1rem;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: #111111;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.outcomeLabel {
+  color: #888888;
+  font-weight: 700;
+}
+
+.outcomeText {
+  color: var(--c-red);
+}
+
+/* Interactive SVG Diagram Area */
+.diagramArea {
+  width: 100%;
+  max-width: 750px;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 5;
+}
+
+.diagramSvg {
+  width: 100%;
+  height: auto;
+  max-height: 480px;
+  overflow: visible;
+  user-select: none;
+}
+
+/* Node Elements */
+.nodeGroup {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nodeGroup:hover {
+  filter: drop-shadow(0 0 15px rgba(227, 6, 19, 0.3));
+}
+
+.pulseRing {
+  animation: pulseGlow 1.5s infinite alternate ease-in-out;
+}
+
+@keyframes pulseGlow {
+  from {
+    r: 105px;
+    opacity: 0.4;
+  }
+  to {
+    r: 125px;
+    opacity: 0.8;
+  }
+}
+
+.laserLine {
+  stroke: var(--c-red);
+  stroke-width: 4;
+  stroke-dasharray: 8 4;
+  animation: dashFlow 1s linear infinite;
+  filter: drop-shadow(0 0 8px rgba(227, 6, 19, 0.6));
+}
+
+@keyframes dashFlow {
+  from { stroke-dashoffset: 24; }
+  to { stroke-dashoffset: 0; }
+}
+
+/* Outcome Synthesizer Terminal */
+.synthesizerTerminal {
+  margin-top: 2.5rem;
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid rgba(227, 6, 19, 0.3);
+  border-radius: 16px;
+  padding: 1.6rem 2.2rem;
+  box-shadow: 0 10px 30px rgba(227, 6, 19, 0.08);
+  animation: slideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.terminalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.6rem;
+}
+
+.synthTag {
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--c-red);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.synthDot {
+  width: 8px;
+  height: 8px;
+  background: var(--c-red);
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(227, 6, 19, 0.8);
+}
+
+.synthTitle {
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: #111111;
+  letter-spacing: 0.04em;
+}
+
+.synthDesc {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #333333;
+  margin: 0;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 992px) {
+  .cardsGrid {
+    grid-template-columns: 1fr;
+  }
+  .eqContainer {
+    padding: 2.5rem 1.5rem;
+  }
+}

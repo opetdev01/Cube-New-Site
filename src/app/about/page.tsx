@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useLanguage } from "@/components/LanguageContext";
 import ObsidianSystem from "@/components/SpiritCare/ObsidianSystem";
+import CubeEquation from "@/components/CubeEquation/CubeEquation";
 import styles from "./about.module.css";
 
 const PARTNER_LOGOS_GENERAL = Array.from({ length: 66 }, (_, i) => `/assets/partners_v5/general_${i}.png`);
@@ -208,67 +209,8 @@ export default function AboutPage() {
           </svg>
         </div>
 
-        {/* 3. ANIMATED IMAGE AND PERFECTED EQ TEXT SECTION */}
-        <div className={styles.cgSection}>
-          <span className={styles.cgLabel}>{t("Our Philosophy")}</span>
-          <h2 className={styles.cgTitle} style={{ marginBottom: "50px" }}>
-            {t("The Cube Equation")}
-          </h2>
-          
-          <div className={styles.cgEqLayout}>
-            {/* Card 1 */}
-            <div className={styles.cgEqItem}>
-              <div>
-                <span className={styles.cgEqNum}>01</span>
-                <h3>{t("1. SPIRIT CARE")}</h3>
-                <p className={styles.cgEqDesc}>
-                  {t("Design that nurtures the human soul by prioritizing emotional experience, peace, balance, and meaning.")}
-                </p>
-              </div>
-              <div className={styles.cgEqOutcome}>
-                <span>{t("Outcome:")}</span> {t("Spaces that heal, inspire, and connect")}
-              </div>
-            </div>
-
-            {/* Card 2 */}
-            <div className={styles.cgEqItem}>
-              <div>
-                <span className={styles.cgEqNum}>02</span>
-                <h3>{t("2. EARTH CARE")}</h3>
-                <p className={styles.cgEqDesc}>
-                  {t("Environmental responsibility as a core principle. True sustainability that coexists with nature rather than consuming it.")}
-                </p>
-              </div>
-              <div className={styles.cgEqOutcome}>
-                <span>{t("Outcome:")}</span> {t("Projects that coexist with nature rather than consume it")}
-              </div>
-            </div>
-
-            {/* Card 3 */}
-            <div className={styles.cgEqItem}>
-              <div>
-                <span className={styles.cgEqNum}>03</span>
-                <h3>{t("3. SCIENCE & TECHNOLOGY")}</h3>
-                <p className={styles.cgEqDesc}>
-                  {t("Integrating AI and smart systems to enhance performance, efficiency, and user experience to drive continuous innovation.")}
-                </p>
-              </div>
-              <div className={styles.cgEqOutcome}>
-                <span>{t("Outcome:")}</span> {t("Intelligent, future-ready environments")}
-              </div>
-            </div>
-          </div>
-
-          {/* Centered Animated Equation Image below the 3 clean cards */}
-          <div className={styles.formulaSection}>
-            <img 
-              src="/assets/3_rings.webp" 
-              alt="Cube Integration Methodology" 
-              className={styles.formulaAnim} 
-              style={{ width: "100%", maxWidth: "650px", height: "auto", display: "inline-block" }} 
-            />
-          </div>
-        </div>
+        {/* 3. THE CUBE EQUATION INTERACTIVE SIMULATOR */}
+        <CubeEquation />
 
         {/* 4. SERVICES */}
         <div className={styles.cgSection}>
