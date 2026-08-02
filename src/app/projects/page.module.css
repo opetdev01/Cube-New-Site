@@ -163,7 +163,7 @@
 
 .headerImage {
   object-fit: cover;
-  object-position: center 15%;
+  object-position: center top;
 }
 
 /* Multi-row Sector Tabs Bar (In between main tabs & filter controls) */
