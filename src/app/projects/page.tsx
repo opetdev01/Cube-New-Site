@@ -184,6 +184,25 @@ function getSearchScore(project: any, query: string, t?: (key: string) => string
   const [isListening, setIsListening] = useState(false);
   const recognitionRef = useRef<any>(null);
 
+  // Full-screen Projects Intro Splash State
+  const [isIntroActive, setIsIntroActive] = useState(true);
+  const [introEnded, setIntroEnded] = useState(false);
+  const [isMuted, setIsMuted] = useState(false);
+  const introVideoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    // Always play intro video on every visit to Projects page
+    setIsIntroActive(true);
+    setIntroEnded(false);
+  }, []);
+
+  const handleFinishIntro = () => {
+    setIntroEnded(true);
+    setTimeout(() => {
+      setIsIntroActive(false);
+    }, 600);
+  };
+
   const [recommendation, setRecommendation] = useState<{
     movie: any;
     timestamp: number;
@@ -580,6 +599,39 @@ function getSearchScore(project: any, query: string, t?: (key: string) => string
 
   return (
     <ReactLenis root options={{ autoRaf: true, lerp: 0.08 }}>
+      {/* Full-Screen Projects Intro Splash Video Overlay */}
+      {isIntroActive && (
+        <div className={`${styles.projectsIntroOverlay} ${introEnded ? styles.projectsIntroFadeOut : ""}`}>
+          <video
+            ref={introVideoRef}
+            src="/assets/magnific_move-the-robot-as-he-is-b_nVWwyJmYQD.mp4"
+            autoPlay
+            muted={isMuted}
+            playsInline
+            onEnded={handleFinishIntro}
+            className={styles.projectsIntroVideoFullscreen}
+          />
+
+          {/* Top Right Controls: Mute Toggle + SKIP INTRO Button */}
+          <div className={styles.projectsIntroControls}>
+            <button
+              className={styles.projectsIntroMuteBtn}
+              onClick={() => setIsMuted(!isMuted)}
+              title={isMuted ? "Unmute Sound" : "Mute Sound"}
+            >
+              {isMuted ? "🔇" : "🔊"}
+            </button>
+
+            <button
+              className={styles.projectsIntroSkipBtn}
+              onClick={handleFinishIntro}
+            >
+              <span>{language === "ar" ? "تخطي المقدمة ➔" : "SKIP INTRO ➔"}</span>
+            </button>
+          </div>
+        </div>
+      )}
+
       <main className={styles.projectsPage}>
         {/* Header Title Section */}
         <section className={styles.headerSection}>
@@ -589,13 +641,13 @@ function getSearchScore(project: any, query: string, t?: (key: string) => string
           </div>
           <div className={styles.headerImageWrapper}>
             <video
-              src="/assets/magnific_move-the-robot-as-he-is-b_nVWwyJmYQD.mp4"
+              src="/assets/magnific_make-this-robot-while-he-_xSLh3eNjfW.mp4"
               autoPlay
               loop
               muted
               playsInline
               className={styles.headerImage}
-              style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 15%", display: "block" }}
+              style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }}
             />
           </div>
         </section>
