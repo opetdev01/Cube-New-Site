@@ -6,37 +6,82 @@ import styles from "./CubeEquation.module.css";
 
 export default function CubeEquation() {
   const { language, t } = useLanguage();
-  const [activeStreams, setActiveStreams] = useState<string[]>(["spirit", "earth", "science"]);
+  // Default is empty so user must click all 3 pillars from the beginning
+  const [activeStreams, setActiveStreams] = useState<string[]>([]);
+  const [isMasterSynthesized, setIsMasterSynthesized] = useState<boolean>(false);
 
   const toggleStream = (streamId: string) => {
     if (activeStreams.includes(streamId)) {
-      if (activeStreams.length > 1) {
-        setActiveStreams(activeStreams.filter((id) => id !== streamId));
-      }
+      setActiveStreams(activeStreams.filter((id) => id !== streamId));
+      setIsMasterSynthesized(false);
     } else {
-      setActiveStreams([...activeStreams, streamId]);
+      const nextStreams = [...activeStreams, streamId];
+      setActiveStreams(nextStreams);
+      if (nextStreams.length === 3) {
+        setIsMasterSynthesized(true);
+      }
     }
   };
 
   const isSpirit = activeStreams.includes("spirit");
   const isEarth = activeStreams.includes("earth");
   const isScience = activeStreams.includes("science");
+  const isFullyCharged = activeStreams.length === 3;
 
-  // Live Energy Synthesis Titles & Descriptions
+  const handleCoreClick = () => {
+    if (!isFullyCharged) {
+      // Charge all 3 pillars automatically if core is clicked before charging
+      setActiveStreams(["spirit", "earth", "science"]);
+      setIsMasterSynthesized(true);
+    } else {
+      setIsMasterSynthesized(!isMasterSynthesized);
+    }
+  };
+
+  const resetStreams = () => {
+    setActiveStreams([]);
+    setIsMasterSynthesized(false);
+  };
+
+  // Instruction Badge Text
+  const getBadgeText = () => {
+    if (isFullyCharged && isMasterSynthesized)
+      return language === "ar"
+        ? "تم انصهار معادلة كيو ب بالكامل! انقر على مكعب كيو ب المتوهج"
+        : "REACTOR FULLY CHARGED! CLICK THE GLOWING RED CUBE CORE";
+    if (isFullyCharged)
+      return language === "ar"
+        ? "المفاعل مشحون بالكامل (3/3)! انقر على شعار كيو ب المتوهج"
+        : "CORE READY (3/3 CHARGED)! CLICK THE GLOWING RED CUBE LOGO";
+    if (activeStreams.length === 2)
+      return language === "ar"
+        ? "تم شحن ركنين (2/3)! انقر على الركن الأخير لشحن المكعب"
+        : "2 OF 3 PILLARS CHARGED! CLICK THE LAST PILLAR TO UNLOCK CUBE CORE";
+    if (activeStreams.length === 1)
+      return language === "ar"
+        ? "تم شحن ركن واحد (1/3)! انقر على باقي الأركان الثلاثة"
+        : "1 OF 3 PILLARS CHARGED! CLICK REMAINING PILLARS";
+    return language === "ar"
+      ? "انقر على الأركان الثلاثة (الروح، الأرض، العلوم) لشحن مفاعل المكعب!"
+      : "CLICK ALL 3 PILLARS (SPIRIT, EARTH, SCIENCE) TO CHARGE THE CUBE CORE!";
+  };
+
+  // Live Synthesis Output Text
   const getSynthesisTitle = () => {
-    if (isSpirit && isEarth && isScience)
-      return "HOLOGRAPHIC ARCHITECTURAL EQUILIBRIUM (COMPLETE REALTOR CORE)";
+    if (isFullyCharged && isMasterSynthesized)
+      return "THE CUBE EQUATION: MASTER ARCHITECTURAL REACTION";
     if (isSpirit && isScience) return "HEALING INTELLIGENCE CORE (SPIRIT + SCIENCE)";
     if (isEarth && isScience) return "PARAMETRIC SUSTAINABILITY REACTION (EARTH + SCIENCE)";
     if (isSpirit && isEarth) return "ECOLOGICAL SANCTUARY HARMONY (SPIRIT + EARTH)";
-    if (isSpirit) return "SPIRIT CARE ENERGY STREAM";
-    if (isEarth) return "EARTH CARE ECOLOGY STREAM";
-    return "SCIENCE & TECH PARAMETRIC STREAM";
+    if (isSpirit) return "SPIRIT CARE ENERGY STREAM (1/3)";
+    if (isEarth) return "EARTH CARE ECOLOGY STREAM (1/3)";
+    if (isScience) return "SCIENCE & TECH PARAMETRIC STREAM (1/3)";
+    return "STANDBY STATE: REACTION CORE UNCHARGED";
   };
 
   const getSynthesisDesc = () => {
-    if (isSpirit && isEarth && isScience)
-      return "All 3 energy streams active: Refracting human emotional wellbeing, zero-carbon environmental resilience, and AI computational intelligence into a unified, future-ready architectural environment.";
+    if (isFullyCharged && isMasterSynthesized)
+      return "Complete architectural synergy unlocked: The glowing CUBE Core refracts human emotional dignity, zero-carbon environmental resilience, and AI computational intelligence into a single, future-ready architectural environment.";
     if (isSpirit && isScience)
       return "Merging human emotional experience with AI generative spatial algorithms to construct light-filled, intuitive environments.";
     if (isEarth && isScience)
@@ -47,7 +92,9 @@ export default function CubeEquation() {
       return "Pioneering emotional dignity, peace, and proportion across all spatial layouts.";
     if (isEarth)
       return "Maximizing natural resource conservation, passive thermal cooling, and local material usage.";
-    return "Executing advanced AI spatial optimization, automated quantity takeoffs, and structural FEM checks.";
+    if (isScience)
+      return "Executing advanced AI spatial optimization, automated quantity takeoffs, and structural FEM checks.";
+    return "Click the 3 pillars (Spirit Care, Earth Care, Science & Tech) to ignite the laser streams and transform the core into the glowing red CUBE logo!";
   };
 
   return (
@@ -56,10 +103,12 @@ export default function CubeEquation() {
       <div className={styles.header}>
         <span className={styles.label}>{t("Our Philosophy")}</span>
         <h2 className={styles.title}>{t("THE CUBE EQUATION ENERGY REACTOR")}</h2>
-        <div className={styles.instructionBadge}>
-          {language === "ar"
-            ? "انقر على أي شعاع طاقة لشحن المفاعل وتوليد التحليل المعماري"
-            : "Click any energy stream card or node to charge reactor & project blueprints"}
+        <div
+          className={`${styles.instructionBadge} ${
+            isFullyCharged ? styles.instructionBadgeUnlocked : ""
+          }`}
+        >
+          {getBadgeText()}
         </div>
       </div>
 
@@ -144,14 +193,14 @@ export default function CubeEquation() {
               <radialGradient id="coreGlass" cx="50%" cy="50%" r="50%">
                 <stop offset="0%" stopColor="#ffffff" stopOpacity="0.95" />
                 <stop offset="60%" stopColor="#f4f5f8" stopOpacity="0.8" />
-                <stop offset="100%" stopColor="#e30613" stopOpacity="0.3" />
+                <stop offset="100%" stopColor="#e30613" stopOpacity="0.4" />
               </radialGradient>
             </defs>
 
-            {/* BASE STREAM CONNECTOR LINES */}
-            <line x1="180" y1="120" x2="300" y2="240" stroke="rgba(0,0,0,0.08)" strokeWidth="2" />
-            <line x1="420" y1="120" x2="300" y2="240" stroke="rgba(0,0,0,0.08)" strokeWidth="2" />
-            <line x1="300" y1="360" x2="300" y2="240" stroke="rgba(0,0,0,0.08)" strokeWidth="2" />
+            {/* BASE CONNECTOR LINES */}
+            <line x1="180" y1="120" x2="300" y2="240" stroke="rgba(0,0,0,0.12)" strokeWidth="2" strokeDasharray="4 4" />
+            <line x1="420" y1="120" x2="300" y2="240" stroke="rgba(0,0,0,0.12)" strokeWidth="2" strokeDasharray="4 4" />
+            <line x1="300" y1="360" x2="300" y2="240" stroke="rgba(0,0,0,0.12)" strokeWidth="2" strokeDasharray="4 4" />
 
             {/* LASER ENERGY BEAM 1: SPIRIT CARE (CRIMSON) */}
             {isSpirit && (
@@ -178,40 +227,77 @@ export default function CubeEquation() {
             )}
 
             {/* HOLOGRAPHIC BLUEPRINT OVERLAYS */}
-            {/* Spirit Daylight Arc Rays */}
             {isSpirit && (
               <g key="holo-spirit" opacity="0.6">
                 <circle cx="300" cy="240" r="75" fill="none" stroke="#e30613" strokeWidth="1" strokeDasharray="6 4" />
                 <path d="M 230 240 A 70 70 0 0 1 370 240" fill="none" stroke="#ff3b30" strokeWidth="2" />
               </g>
             )}
-
-            {/* Earth Thermal Mesh Lines */}
             {isEarth && (
               <g key="holo-earth" opacity="0.5">
                 <ellipse cx="300" cy="240" rx="90" ry="45" fill="none" stroke="#2eac66" strokeWidth="1.5" strokeDasharray="8 4" />
               </g>
             )}
-
-            {/* Science AI Louver Vectors */}
             {isScience && (
               <g key="holo-science" opacity="0.6">
                 <rect x="235" y="175" width="130" height="130" fill="none" stroke="#00c2ff" strokeWidth="1" strokeDasharray="10 5" rx="10" />
                 <line x1="245" y1="190" x2="355" y2="190" stroke="#00c2ff" strokeWidth="1.5" />
                 <line x1="245" y1="210" x2="355" y2="210" stroke="#00c2ff" strokeWidth="1.5" />
-                <line x1="245" y1="270" x2="355" y2="270" stroke="#00c2ff" strokeWidth="1.5" />
               </g>
             )}
 
-            {/* CENTRAL HOLOGRAPHIC GLASS PRISM CORE */}
-            <g className={styles.coreGroup} onClick={() => setActiveStreams(["spirit", "earth", "science"])}>
-              <circle cx="300" cy="240" r="52" fill="url(#coreGlass)" stroke="#ffffff" strokeWidth="3" className={styles.corePrism} />
-              <polygon points="300,202 335,222 335,258 300,278 265,258 265,222" fill="none" stroke="#e30613" strokeWidth="2" className={styles.corePulse} />
-              <circle cx="300" cy="240" r="10" fill="#ffffff" filter="drop-shadow(0 0 8px #e30613)" />
+            {/* EXPANDING UNLOCKED PULSE RINGS WHEN ALL 3 PILLARS ACTIVE */}
+            {isFullyCharged && (
+              <g key="unlocked-pulse-rings">
+                <circle cx="300" cy="240" r="65" fill="none" stroke="#e30613" strokeWidth="2" className={styles.unlockedPulse} />
+              </g>
+            )}
 
-              <text x="300" y="244" textAnchor="middle" fontWeight="900" fontSize="10" fill="#111111">
-                CUBE CORE
-              </text>
+            {/* CENTRAL CORE NODE / GLOWING CUBE LOGO */}
+            <g
+              className={`${styles.coreGroup} ${
+                isFullyCharged ? styles.glowingRedCubeBox : ""
+              }`}
+              onClick={handleCoreClick}
+            >
+              {/* Outer Hexagon / Circle Core Container */}
+              <circle
+                cx="300"
+                cy="240"
+                r={isFullyCharged ? "56" : "50"}
+                fill={isFullyCharged ? "#ffffff" : "url(#coreGlass)"}
+                stroke={isFullyCharged ? "#e30613" : "rgba(0,0,0,0.2)"}
+                strokeWidth={isFullyCharged ? "4" : "2"}
+              />
+
+              <polygon
+                points="300,198 338,220 338,260 300,282 262,260 262,220"
+                fill="none"
+                stroke={isFullyCharged ? "#e30613" : "rgba(0,0,0,0.15)"}
+                strokeWidth={isFullyCharged ? "2.5" : "1"}
+              />
+
+              {/* WHEN FULLY CHARGED: RENDER THE OFFICIAL CUBE LOGO */}
+              {isFullyCharged ? (
+                <g key="cube-logo-transformed">
+                  <image
+                    href="/logo-v4.png"
+                    x="268"
+                    y="208"
+                    width="64"
+                    height="64"
+                    preserveAspectRatio="xMidYMid meet"
+                  />
+                </g>
+              ) : (
+                /* STANDBY CORE TEXT */
+                <g key="standby-core-text">
+                  <circle cx="300" cy="240" r="8" fill="#e30613" />
+                  <text x="300" y="244" textAnchor="middle" fontWeight="900" fontSize="10" fill="#ffffff">
+                    CUBE CORE
+                  </text>
+                </g>
+              )}
             </g>
 
             {/* ENERGY STREAM NODE 1: SPIRIT CARE (CRIMSON) */}
@@ -249,8 +335,21 @@ export default function CubeEquation() {
         <div className={styles.terminalHeader}>
           <div className={styles.synthTag}>
             <span className={styles.synthDot} />
-            <span>{language === "ar" ? "شحن مفاعل الطاقة التفاعلي" : "ACTIVE REACTION CORE OUTPUT"}</span>
+            <span>
+              {isFullyCharged
+                ? language === "ar"
+                  ? "مفاعل كيو ب مشحون بالكامل"
+                  : "CUBE CORE FULLY CHARGED"
+                : language === "ar"
+                ? "حالة الانتظار: اشحن الأركان الثلاثة"
+                : `CHARGING PROGRESS (${activeStreams.length}/3 PILLARS)`}
+            </span>
           </div>
+          {activeStreams.length > 0 && (
+            <button className={styles.resetBtn} onClick={resetStreams}>
+              {language === "ar" ? "إعادة ضبط" : "Reset Core"}
+            </button>
+          )}
         </div>
         <div className={styles.synthTitle}>{getSynthesisTitle()}</div>
         <p className={styles.synthDesc}>{t(getSynthesisDesc())}</p>
