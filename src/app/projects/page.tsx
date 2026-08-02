@@ -588,13 +588,14 @@ function getSearchScore(project: any, query: string, t?: (key: string) => string
             <h1 className={styles.title}>{t("Projects")}</h1>
           </div>
           <div className={styles.headerImageWrapper}>
-            <Image
-              src="/assets/portfolio_hero.jpg"
-              alt="CUBE Brochure Cover"
-              fill
-              sizes="(max-width: 768px) 100vw, 420px"
-              priority
+            <video
+              src="/assets/magnific_move-the-robot-as-he-is-b_nVWwyJmYQD.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
               className={styles.headerImage}
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
             />
           </div>
         </section>
