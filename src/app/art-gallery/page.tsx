@@ -307,14 +307,32 @@ export default function ArtGalleryPage() {
     <div className={styles.galleryContainer}>
       <div className={styles.wrapper}>
         <header className={styles.header}>
-          <span className={styles.sectionSubtitle}>{t("Curated Masterpieces")}</span>
-          <h1 className={styles.sectionTitle}>{language === "ar" ? "معرض الفنون الرقمي" : "ART GALLERY"}</h1>
-          <div className={styles.titleDivider} />
-          <p className={styles.headerText}>
-            {language === "ar"
-              ? "مساحة عرض تفاعلية مخصصة للوحات الفنية والرسومات التخطيطية الهندسية والمعمارية لمشاريع كيو ب."
-              : "An interactive architectural exhibition dedicated to curated conceptual paintings, sketches, and drafts."}
-          </p>
+          <div className={styles.headerContentGrid}>
+            <div className={styles.headerTextCol}>
+              <span className={styles.sectionSubtitle}>{t("Curated Masterpieces")}</span>
+              <h1 className={styles.sectionTitle}>{language === "ar" ? "معرض الفنون الرقمي" : "ART GALLERY"}</h1>
+              <div className={styles.titleDivider} />
+              <p className={styles.headerText}>
+                {language === "ar"
+                  ? "مساحة عرض تفاعلية مخصصة للوحات الفنية والرسومات التخطيطية الهندسية والمعمارية لمشاريع كيو ب."
+                  : "An interactive architectural exhibition dedicated to curated conceptual paintings, sketches, and drafts."}
+              </p>
+              <div style={{ fontSize: "0.82rem", fontWeight: 800, letterSpacing: "0.12em", color: "var(--c-red)", textTransform: "uppercase", marginTop: "1rem" }}>
+                {t("Shaping, Peaceful, Living")}
+              </div>
+            </div>
+
+            <div className={styles.introVideoContainer}>
+              <video
+                src="/assets/magnific_i-want-this-robot-to-draw_SywuP7iUb8.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className={styles.introVideo}
+              />
+            </div>
+          </div>
         </header>
 
         {/* Upload Zone & Limits Monitor */}
