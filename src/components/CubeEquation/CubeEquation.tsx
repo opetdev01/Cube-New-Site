@@ -49,23 +49,23 @@ export default function CubeEquation() {
   const getBadgeText = () => {
     if (isFullyCharged && isMasterSynthesized)
       return language === "ar"
-        ? "تم شحن الأركان الـ 3 بالكامل! انقر لعرض صورة الأركان المعمارية الثلاثة 🖼️"
-        : "REACTOR FULLY CHARGED! CLICK GLOWING CUBE TO REVEAL THE 3 PILLARS ARCHITECTURE IMAGE 🖼️";
+        ? "تم شحن الأركان الـ 3 بالكامل! انقر لعرض فيديو الأركان المعمارية الثلاثة 🎬"
+        : "REACTOR FULLY CHARGED! CLICK GLOWING CUBE TO REVEAL THE 3 PILLARS ARCHITECTURE VIDEO 🎬";
     if (isFullyCharged)
       return language === "ar"
-        ? "المفاعل مشحون بالكامل (3/3)! انقر على شعار كيو ب لعرض صورة الأركان الثلاثة"
-        : "CORE READY (3/3 CHARGED)! CLICK THE GLOWING RED CUBE TO OPEN 3 PILLARS IMAGE";
+        ? "المفاعل مشحون بالكامل (3/3)! انقر على شعار كيو ب لعرض فيديو الأركان الثلاثة"
+        : "CORE READY (3/3 CHARGED)! CLICK THE GLOWING RED CUBE TO OPEN 3 PILLARS VIDEO";
     if (activeStreams.length === 2)
       return language === "ar"
-        ? "تم شحن ركنين (2/3)! انقر على الركن الأخير لفتح صورة الأركان"
-        : "2 OF 3 PILLARS CHARGED! CLICK THE LAST PILLAR TO UNLOCK 3 PILLARS IMAGE";
+        ? "تم شحن ركنين (2/3)! انقر على الركن الأخير لفتح فيديو الأركان"
+        : "2 OF 3 PILLARS CHARGED! SELECT THE FINAL PILLAR TO UNLOCK CUBE LOGO";
     if (activeStreams.length === 1)
       return language === "ar"
-        ? "تم شحن ركن واحد (1/3)! انقر على باقي الأركان الثلاثة"
-        : "1 OF 3 PILLARS CHARGED! CLICK REMAINING PILLARS";
+        ? "تم شحن ركن واحد (1/3)! انقر على الركنين المتبقيين"
+        : "1 OF 3 PILLARS CHARGED! SELECT REMAINING 2 PILLARS";
     return language === "ar"
-      ? "انقر على الأركان الثلاثة (الروح، الأرض، العلوم) لشحن المفاعل وتوليد صورة الأركان!"
-      : "CLICK ALL 3 PILLARS (SPIRIT, EARTH, SCIENCE) TO GENERATE THE 3 PILLARS IMAGE!";
+      ? "انقر على الأركان الثلاثة (الروح، الأرض، العلوم والتكنولوجيا) لشحن المفاعل وتفعيل الفيديو"
+      : "SELECT ALL 3 PILLARS (SPIRIT, EARTH, SCIENCE) TO CHARGE REACTOR & UNLOCK VIDEO";
   };
 
   // Live Synthesis Output Text
@@ -360,35 +360,40 @@ export default function CubeEquation() {
         <div className={styles.synthTitle}>{getSynthesisTitle()}</div>
         <p className={styles.synthDesc}>{t(getSynthesisDesc())}</p>
 
-        {/* REVEAL 3 PILLARS IMAGE BUTTON */}
+        {/* REVEAL 3 PILLARS VIDEO BUTTON */}
         {isFullyCharged && (
           <button className={styles.playImageBtn} onClick={() => setIsImageModalOpen(true)}>
-            <span>🖼️</span>
-            <span>{language === "ar" ? "عرض صورة الأركان الثلاثة" : "OPEN 3 PILLARS ARCHITECTURE IMAGE"}</span>
+            <span>🎬</span>
+            <span>{language === "ar" ? "عرض فيديو الأركان الثلاثة" : "OPEN 3 PILLARS ARCHITECTURE VIDEO"}</span>
           </button>
         )}
       </div>
 
-      {/* 3 PILLARS IMAGE SYNTHESIS MODAL */}
+      {/* 3 PILLARS VIDEO SYNTHESIS MODAL */}
       {isImageModalOpen && (
         <div className={styles.imageModalOverlay} onClick={() => setIsImageModalOpen(false)}>
           <div className={styles.imageModalContainer} onClick={(e) => e.stopPropagation()}>
             <div className={styles.modalHeader}>
               <h3 className={styles.modalTitle}>
-                <span>🖼️</span>
-                <span>{language === "ar" ? "صورة أركان معادلة كيو ب الثلاثة" : "THE CUBE EQUATION: 3 PILLARS ARCHITECTURE"}</span>
+                <span>🎬</span>
+                <span>{language === "ar" ? "فيديو أركان معادلة كيو ب الثلاثة" : "THE CUBE EQUATION: 3 PILLARS ARCHITECTURE VIDEO"}</span>
               </h3>
               <button className={styles.modalCloseBtn} onClick={() => setIsImageModalOpen(false)}>
                 ×
               </button>
             </div>
 
-            {/* DISPLAY THE USER UPLOADED 3 PILLARS IMAGE */}
+            {/* DISPLAY THE 3 PILLARS MP4 VIDEO */}
             <div className={styles.imageWrapper}>
-              <img
-                src="/assets/cube_3_pillars_image.jpg"
-                alt="The 3 Pillars: Earth Care, Spirit Care, Science & Technology"
+              <video
+                src="/assets/magnific_move-the-robot-in-all-sec_UP7ugXdwny.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                controls
                 className={styles.modalImage}
+                style={{ width: "100%", maxHeight: "65vh", objectFit: "contain", borderRadius: "12px", display: "block" }}
               />
             </div>
 

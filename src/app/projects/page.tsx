@@ -595,7 +595,7 @@ function getSearchScore(project: any, query: string, t?: (key: string) => string
               muted
               playsInline
               className={styles.headerImage}
-              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 15%", display: "block" }}
             />
           </div>
         </section>
