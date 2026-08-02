@@ -8,7 +8,7 @@ export default function CubeEquation() {
   const { language, t } = useLanguage();
   const [activeStreams, setActiveStreams] = useState<string[]>([]);
   const [isMasterSynthesized, setIsMasterSynthesized] = useState<boolean>(false);
-  const [isVideoModalOpen, setIsVideoModalOpen] = useState<boolean>(false);
+  const [isImageModalOpen, setIsImageModalOpen] = useState<boolean>(false);
 
   const toggleStream = (streamId: string) => {
     if (activeStreams.includes(streamId)) {
@@ -32,46 +32,46 @@ export default function CubeEquation() {
     if (!isFullyCharged) {
       setActiveStreams(["spirit", "earth", "science"]);
       setIsMasterSynthesized(true);
-      setIsVideoModalOpen(true);
+      setIsImageModalOpen(true);
     } else {
       setIsMasterSynthesized(true);
-      setIsVideoModalOpen(true);
+      setIsImageModalOpen(true);
     }
   };
 
   const resetStreams = () => {
     setActiveStreams([]);
     setIsMasterSynthesized(false);
-    setIsVideoModalOpen(false);
+    setIsImageModalOpen(false);
   };
 
   // Instruction Badge Text
   const getBadgeText = () => {
     if (isFullyCharged && isMasterSynthesized)
       return language === "ar"
-        ? "تم شحن الأركان الـ 3 بالكامل! انقر لتشغيل فيديو الذكاء الاصطناعي الجامع للأركان 🎬"
-        : "REACTOR FULLY CHARGED! CLICK GLOWING CUBE TO PLAY UNIFIED AI PILLAR SYNTHESIS VIDEO 🎬";
+        ? "تم شحن الأركان الـ 3 بالكامل! انقر لعرض صورة الأركان المعمارية الثلاثة 🖼️"
+        : "REACTOR FULLY CHARGED! CLICK GLOWING CUBE TO REVEAL THE 3 PILLARS ARCHITECTURE IMAGE 🖼️";
     if (isFullyCharged)
       return language === "ar"
-        ? "المفاعل مشحون بالكامل (3/3)! انقر على شعار كيو ب لتشغيل فيديو الذكاء الاصطناعي"
-        : "CORE READY (3/3 CHARGED)! CLICK THE GLOWING RED CUBE TO PLAY AI SYNTHESIS VIDEO";
+        ? "المفاعل مشحون بالكامل (3/3)! انقر على شعار كيو ب لعرض صورة الأركان الثلاثة"
+        : "CORE READY (3/3 CHARGED)! CLICK THE GLOWING RED CUBE TO OPEN 3 PILLARS IMAGE";
     if (activeStreams.length === 2)
       return language === "ar"
-        ? "تم شحن ركنين (2/3)! انقر على الركن الأخير لفتح فيديو الذكاء الاصطناعي"
-        : "2 OF 3 PILLARS CHARGED! CLICK THE LAST PILLAR TO UNLOCK AI SYNTHESIS VIDEO";
+        ? "تم شحن ركنين (2/3)! انقر على الركن الأخير لفتح صورة الأركان"
+        : "2 OF 3 PILLARS CHARGED! CLICK THE LAST PILLAR TO UNLOCK 3 PILLARS IMAGE";
     if (activeStreams.length === 1)
       return language === "ar"
         ? "تم شحن ركن واحد (1/3)! انقر على باقي الأركان الثلاثة"
         : "1 OF 3 PILLARS CHARGED! CLICK REMAINING PILLARS";
     return language === "ar"
-      ? "انقر على الأركان الثلاثة (الروح، الأرض، العلوم) لشحن المفاعل وتوليد فيديو الذكاء الاصطناعي!"
-      : "CLICK ALL 3 PILLARS (SPIRIT, EARTH, SCIENCE) TO GENERATE UNIFIED AI VIDEO!";
+      ? "انقر على الأركان الثلاثة (الروح، الأرض، العلوم) لشحن المفاعل وتوليد صورة الأركان!"
+      : "CLICK ALL 3 PILLARS (SPIRIT, EARTH, SCIENCE) TO GENERATE THE 3 PILLARS IMAGE!";
   };
 
   // Live Synthesis Output Text
   const getSynthesisTitle = () => {
     if (isFullyCharged)
-      return "THE CUBE EQUATION: UNIFIED AI PILLAR SYNTHESIS REEL";
+      return "THE CUBE EQUATION: UNIFIED 3 PILLARS ARCHITECTURAL SYNTHESIS";
     if (isSpirit && isScience) return "HEALING INTELLIGENCE CORE (SPIRIT + SCIENCE)";
     if (isEarth && isScience) return "PARAMETRIC SUSTAINABILITY REACTION (EARTH + SCIENCE)";
     if (isSpirit && isEarth) return "ECOLOGICAL SANCTUARY HARMONY (SPIRIT + EARTH)";
@@ -83,7 +83,7 @@ export default function CubeEquation() {
 
   const getSynthesisDesc = () => {
     if (isFullyCharged)
-      return "All 3 pillars connected: We have generated a single unified AI video experience collecting Spirit Care (human soul & light), Earth Care (biophilic zero-carbon nature), and Science & Technology (AI computational parametric engineering). Click the glowing red CUBE core to watch!";
+      return "All 3 pillars connected: We have collected Earth Care (protecting our planet, preserving life), Spirit Care (nurturing our inner world, peace & connection), and Science & Technology (innovating today, building a smarter tomorrow). Click the glowing red CUBE core to view the 3 Pillars visual synthesis!";
     if (isSpirit && isScience)
       return "Merging human emotional experience with AI generative spatial algorithms to construct light-filled, intuitive environments.";
     if (isEarth && isScience)
@@ -96,7 +96,7 @@ export default function CubeEquation() {
       return "Maximizing natural resource conservation, passive thermal cooling, and local material usage.";
     if (isScience)
       return "Executing advanced AI spatial optimization, automated quantity takeoffs, and structural FEM checks.";
-    return "Click all 3 pillars (Spirit Care, Earth Care, Science & Tech) to ignite the laser streams, transform the core into the glowing red CUBE logo, and play the single unified AI video!";
+    return "Click all 3 pillars (Spirit Care, Earth Care, Science & Tech) to ignite the laser streams, transform the core into the glowing red CUBE logo, and view the 3 Pillars visual synthesis!";
   };
 
   return (
@@ -357,61 +357,57 @@ export default function CubeEquation() {
         <div className={styles.synthTitle}>{getSynthesisTitle()}</div>
         <p className={styles.synthDesc}>{t(getSynthesisDesc())}</p>
 
-        {/* PLAY SINGLE UNIFIED AI GENERATED PILLAR SYNTHESIS VIDEO BUTTON */}
+        {/* REVEAL 3 PILLARS IMAGE BUTTON */}
         {isFullyCharged && (
-          <button className={styles.playVideoBtn} onClick={() => setIsVideoModalOpen(true)}>
-            <span>▶</span>
-            <span>{language === "ar" ? "تشغيل فيديو الذكاء الاصطناعي الجامع للأركان" : "PLAY UNIFIED AI 3-PILLARS SYNTHESIS VIDEO"}</span>
+          <button className={styles.playImageBtn} onClick={() => setIsImageModalOpen(true)}>
+            <span>🖼️</span>
+            <span>{language === "ar" ? "عرض صورة الأركان الثلاثة" : "OPEN 3 PILLARS ARCHITECTURE IMAGE"}</span>
           </button>
         )}
       </div>
 
-      {/* SINGLE UNIFIED AI GENERATED VIDEO MODAL */}
-      {isVideoModalOpen && (
-        <div className={styles.videoModalOverlay} onClick={() => setIsVideoModalOpen(false)}>
-          <div className={styles.videoModalContainer} onClick={(e) => e.stopPropagation()}>
+      {/* 3 PILLARS IMAGE SYNTHESIS MODAL */}
+      {isImageModalOpen && (
+        <div className={styles.imageModalOverlay} onClick={() => setIsImageModalOpen(false)}>
+          <div className={styles.imageModalContainer} onClick={(e) => e.stopPropagation()}>
             <div className={styles.modalHeader}>
               <h3 className={styles.modalTitle}>
-                <span>🤖</span>
-                <span>{language === "ar" ? "فيديو الذكاء الاصطناعي الجامع لأركان معادلة كيو ب" : "THE CUBE EQUATION: UNIFIED AI PILLAR SYNTHESIS VIDEO"}</span>
+                <span>🖼️</span>
+                <span>{language === "ar" ? "صورة أركان معادلة كيو ب الثلاثة" : "THE CUBE EQUATION: 3 PILLARS ARCHITECTURE"}</span>
               </h3>
-              <button className={styles.modalCloseBtn} onClick={() => setIsVideoModalOpen(false)}>
+              <button className={styles.modalCloseBtn} onClick={() => setIsImageModalOpen(false)}>
                 ×
               </button>
             </div>
 
-            {/* UNIFIED AI MOTION VIDEO PLAYER */}
-            <div className={styles.videoWrapper}>
-              <video
-                src="/assets/Intro.mp4"
-                autoPlay
-                controls
-                loop
-                playsInline
-                className={styles.modalVideo}
-                poster="/assets/cube_pillars_ai_synthesis.jpg"
+            {/* DISPLAY THE USER UPLOADED 3 PILLARS IMAGE */}
+            <div className={styles.imageWrapper}>
+              <img
+                src="/assets/cube_3_pillars_image.jpg"
+                alt="The 3 Pillars: Earth Care, Spirit Care, Science & Technology"
+                className={styles.modalImage}
               />
             </div>
 
-            {/* UNIFIED 3 PILLARS SYNTHESIS CAPTIONS */}
-            <div className={styles.videoCaptionsBox}>
+            {/* 3 PILLARS CAPTIONS */}
+            <div className={styles.imageCaptionsBox}>
               <div className={styles.captionPillars}>
-                <div className={styles.capCard} style={{ borderColor: "#e30613" }}>
-                  <div className={styles.capTitle}>🔴 01. SPIRIT CARE</div>
+                <div className={styles.capCard} style={{ borderColor: "#2eac66" }}>
+                  <div className={styles.capTitle}>🟢 EARTH CARE</div>
                   <p className={styles.capDesc}>
-                    {t("Human soul dignity, ambient natural daylight, acoustic tranquility, and emotional space harmony.")}
+                    {t("Protecting our planet, preserving life for future generations.")}
                   </p>
                 </div>
-                <div className={styles.capCard} style={{ borderColor: "#2eac66" }}>
-                  <div className={styles.capTitle}>🟢 02. EARTH CARE</div>
+                <div className={styles.capCard} style={{ borderColor: "#e30613" }}>
+                  <div className={styles.capTitle}>🔴 SPIRIT CARE</div>
                   <p className={styles.capDesc}>
-                    {t("Zero-carbon biophilic facades, sustainable natural timber stone, and rainwater filtration loops.")}
+                    {t("Nurturing our inner world, cultivating peace, compassion and connection.")}
                   </p>
                 </div>
                 <div className={styles.capCard} style={{ borderColor: "#00c2ff" }}>
-                  <div className={styles.capTitle}>🔵 03. SCIENCE & TECH</div>
+                  <div className={styles.capTitle}>🔵 SCIENCE & TECHNOLOGY</div>
                   <p className={styles.capDesc}>
-                    {t("AI generative spatial algorithms, computational digital twins, and automated BIM optimization.")}
+                    {t("Innovating today, building a smarter tomorrow.")}
                   </p>
                 </div>
               </div>

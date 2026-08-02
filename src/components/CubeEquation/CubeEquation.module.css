@@ -357,7 +357,7 @@
   margin: 0;
 }
 
-.playVideoBtn {
+.playImageBtn {
   margin-top: 1.2rem;
   background: var(--c-red);
   color: #ffffff;
@@ -376,7 +376,7 @@
   gap: 10px;
 }
 
-.playVideoBtn:hover {
+.playImageBtn:hover {
   transform: translateY(-2px);
   box-shadow: 0 12px 28px rgba(227, 6, 19, 0.5);
   background: #c00410;
@@ -400,14 +400,14 @@
   color: #ffffff;
 }
 
-/* HOLOGRAPHIC SYNTHESIS VIDEO MODAL */
-.videoModalOverlay {
+/* 3 PILLARS IMAGE SYNTHESIS MODAL */
+.imageModalOverlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.85);
+  background: rgba(0, 0, 0, 0.88);
   backdrop-filter: blur(15px);
   z-index: 99999;
   display: flex;
@@ -417,10 +417,10 @@
   animation: fadeIn 0.3s ease forwards;
 }
 
-.videoModalContainer {
+.imageModalContainer {
   background: #ffffff;
   width: 100%;
-  max-width: 950px;
+  max-width: 1050px;
   border-radius: 24px;
   overflow: hidden;
   box-shadow: 0 30px 80px rgba(227, 6, 19, 0.3);
@@ -470,48 +470,26 @@
   background: var(--c-red);
 }
 
-.videoWrapper {
+.imageWrapper {
   position: relative;
   width: 100%;
-  height: 480px;
-  background: #000000;
-}
-
-.modalVideo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.videoTabsNav {
+  max-height: 650px;
+  background: #f8f9fa;
+  overflow: hidden;
   display: flex;
-  background: #f4f5f8;
-  padding: 0.8rem 1.5rem;
-  gap: 0.8rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  align-items: center;
+  justify-content: center;
 }
 
-.videoTabBtn {
-  background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: 800;
-  color: #444444;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  text-transform: uppercase;
+.modalImage {
+  width: 100%;
+  height: auto;
+  max-height: 650px;
+  object-fit: contain;
+  display: block;
 }
 
-.videoTabBtnActive {
-  background: var(--c-red);
-  color: #ffffff;
-  border-color: var(--c-red);
-  box-shadow: 0 4px 12px rgba(227, 6, 19, 0.3);
-}
-
-.videoCaptionsBox {
+.imageCaptionsBox {
   padding: 1.4rem 2rem;
   background: #ffffff;
   border-top: 1px solid rgba(0, 0, 0, 0.08);
@@ -529,7 +507,7 @@
 }
 
 .capTitle {
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   font-weight: 900;
   color: #111111;
   text-transform: uppercase;
@@ -537,9 +515,9 @@
 }
 
 .capDesc {
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   line-height: 1.45;
-  color: #666666;
+  color: #555555;
   margin: 0;
 }
 
@@ -562,9 +540,6 @@
   }
   .reactorContainer {
     padding: 2.5rem 1.5rem;
-  }
-  .videoWrapper {
-    height: 300px;
   }
   .captionPillars {
     grid-template-columns: 1fr;
