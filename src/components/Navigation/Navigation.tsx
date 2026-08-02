@@ -24,14 +24,7 @@ const Navigation = () => {
       }
       const handleDismiss = () => setShowNav(true);
       window.addEventListener("cube_intro_dismissed", handleDismiss);
-      
-      const handleOpenSearch = () => setIsSearchOpen(true);
-      window.addEventListener("open-cube-search", handleOpenSearch);
-      
-      return () => {
-        window.removeEventListener("cube_intro_dismissed", handleDismiss);
-        window.removeEventListener("open-cube-search", handleOpenSearch);
-      };
+      return () => window.removeEventListener("cube_intro_dismissed", handleDismiss);
     }
   }, []);
 

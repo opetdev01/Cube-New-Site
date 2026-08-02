@@ -39,7 +39,7 @@ const Footer = () => {
             />
           </div>
           <span className={styles.footerBrandingSubText}>
-            {t("ARCHITECTURE. URBANISM. DIGITAL INNOVATION")}
+            {t("Designs and Engineers")}
           </span>
           <div className={styles.footerSocialsRow}>
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">

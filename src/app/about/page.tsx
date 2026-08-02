@@ -244,17 +244,7 @@ export default function AboutPage() {
             </div>
 
             {/* Card 3 */}
-            <div className={`${styles.cgEqItem} ${styles.aiDnaCard}`}>
-              {/* Circuit network overlay (AI DNA) */}
-              <div className={styles.aboutCardCircuit}>
-                <svg viewBox="0 0 100 100" className={styles.aboutCircuitSvg}>
-                  <path d="M 10 90 L 40 90 L 50 80 L 80 80" fill="none" stroke="rgba(227, 6, 19, 0.08)" strokeWidth="1" strokeDasharray="3,3" />
-                  <path d="M 20 20 Q 50 20 60 40 T 80 50" fill="none" stroke="rgba(227, 6, 19, 0.15)" strokeWidth="1.2" />
-                  <circle cx="20" cy="20" r="2.5" fill="#e30613" />
-                  <circle cx="80" cy="50" r="2.5" fill="var(--c-black)" />
-                </svg>
-              </div>
-
+            <div className={styles.cgEqItem}>
               <div>
                 <span className={styles.cgEqNum}>03</span>
                 <h3>{t("3. SCIENCE & TECHNOLOGY")}</h3>
