@@ -18,7 +18,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at 50% 50%, rgba(227, 6, 19, 0.08) 0%, rgba(0, 0, 0, 0.8) 100%);
+  background: radial-gradient(circle at 75% 50%, rgba(227, 6, 19, 0.08) 0%, rgba(0, 0, 0, 0.8) 100%);
   pointer-events: none;
 }
 
@@ -66,14 +66,80 @@
   text-transform: uppercase;
 }
 
-/* Graph Container */
+/* Grid Layout: Left List + Right Graph */
+.spiritGrid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 2.5rem;
+  align-items: center;
+  position: relative;
+  z-index: 5;
+}
+
+.spiritList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.spiritRow {
+  display: grid;
+  grid-template-columns: 45px 95px 1fr;
+  align-items: center;
+  padding: 1.2rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+}
+
+.spiritRow:hover,
+.rowActive {
+  background: rgba(255, 255, 255, 0.06);
+  border-bottom-color: rgba(227, 6, 19, 0.5);
+  transform: translateX(4px);
+}
+
+.rowActive {
+  background: rgba(227, 6, 19, 0.1) !important;
+}
+
+.itemNum {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--c-red);
+}
+
+.itemTitle {
+  font-size: 1.05rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.itemDesc {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.rowActive .itemDesc,
+.spiritRow:hover .itemDesc {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* Graph Canvas Area */
 .graphCanvasArea {
   width: 100%;
-  height: 520px;
+  height: 460px;
   position: relative;
-  background: rgba(8, 9, 12, 0.7);
+  background: rgba(8, 9, 12, 0.75);
   border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -88,25 +154,25 @@
   user-select: none;
 }
 
-/* Base Lines */
+/* Base Connection Lines */
 .baseLine {
-  stroke: rgba(255, 255, 255, 0.08);
-  stroke-width: 1;
+  stroke: rgba(255, 255, 255, 0.12);
+  stroke-width: 1.2;
   transition: all 0.3s ease;
 }
 
 .baseLineActive {
-  stroke: rgba(227, 6, 19, 0.3);
-  stroke-width: 1.5;
+  stroke: rgba(227, 6, 19, 0.35);
+  stroke-width: 1.8;
 }
 
-/* Laser Beam Line */
+/* Strong Red Laser Beam Line */
 .laserLineGlow {
   stroke: #ff1a30;
-  stroke-width: 6;
+  stroke-width: 7;
   stroke-linecap: round;
-  filter: drop-shadow(0 0 12px #ff0022) drop-shadow(0 0 25px #e30613);
-  opacity: 0.85;
+  filter: drop-shadow(0 0 14px #ff0022) drop-shadow(0 0 30px #e30613);
+  opacity: 0.9;
 }
 
 .laserLineCore {
@@ -140,13 +206,13 @@
 .nodeSelected {
   stroke: #ffffff !important;
   stroke-width: 3.5px !important;
-  filter: drop-shadow(0 0 15px #e30613);
+  filter: drop-shadow(0 0 16px #e30613);
 }
 
 .nodeLabel {
   font-size: 13px;
   font-weight: 800;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   fill: rgba(255, 255, 255, 0.85);
   transition: all 0.3s ease;
   pointer-events: none;
@@ -176,7 +242,7 @@
 
 /* Relationship Terminal Box */
 .terminalBox {
-  margin-top: 1.5rem;
+  margin-top: 2rem;
   background: rgba(18, 19, 24, 0.95);
   border: 1px solid rgba(227, 6, 19, 0.4);
   border-radius: 14px;
@@ -261,16 +327,27 @@
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 992px) {
   .obsidianHeader {
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
   }
+  .spiritGrid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
   .graphCanvasArea {
-    height: 420px;
+    height: 380px;
   }
   .obsidianContainer {
     padding: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .spiritRow {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
   }
 }
