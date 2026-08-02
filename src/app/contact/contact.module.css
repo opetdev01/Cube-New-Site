@@ -328,6 +328,25 @@
   }
 }
 
+.maquetteContainer {
+  width: 100%;
+  height: 340px;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(227, 6, 19, 0.2);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.06);
+  position: relative;
+}
+
+.maquetteVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
 @media (max-width: 768px) {
   .contentWrapper {
     padding: 4rem var(--gutter) 6rem;
@@ -343,8 +362,8 @@
   }
 
   .maquetteContainer {
-    justify-content: center !important;
-    margin-bottom: 1.5rem !important;
+    height: 240px;
+    margin-bottom: 1.5rem;
   }
 
   .mapCard {

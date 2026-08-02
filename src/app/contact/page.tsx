@@ -96,13 +96,13 @@ export default function ContactPage() {
           {/* Right Column: Contact form */}
           <div className={styles.formColumn}>
             <div className={styles.maquetteContainer}>
-              <Image
-                src="/assets/building_maquette-removebg-preview.png"
-                alt="Building Maquette"
-                width={520}
-                height={310}
-                className={styles.maquetteImage}
-                priority
+              <video
+                src="/assets/magnific_make-the-robot-make-bye-b_lJSCNOSgv9.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className={styles.maquetteVideo}
               />
             </div>
             <h3>{t("Send Us a Message")}</h3>
