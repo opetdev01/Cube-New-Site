@@ -30,7 +30,7 @@ export default function Home() {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const hasShown = sessionStorage.getItem("cube_intro_shown");
+      const hasShown = localStorage.getItem("cube_intro_shown");
       if (hasShown === "true") {
         setIsIntroActive(false);
         setVideoEnded(true);
@@ -65,7 +65,7 @@ export default function Home() {
   const handleDismissIntro = () => {
     setIsIntroActive(false);
     if (typeof window !== "undefined") {
-      sessionStorage.setItem("cube_intro_shown", "true");
+      localStorage.setItem("cube_intro_shown", "true");
       window.dispatchEvent(new Event("cube_intro_dismissed"));
     }
   };

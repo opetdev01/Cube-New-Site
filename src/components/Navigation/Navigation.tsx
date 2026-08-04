@@ -19,7 +19,7 @@ const Navigation = () => {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      if (sessionStorage.getItem("cube_intro_shown") === "true") {
+      if (localStorage.getItem("cube_intro_shown") === "true") {
         setShowNav(true);
       }
       const handleDismiss = () => setShowNav(true);
