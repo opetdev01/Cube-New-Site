@@ -490,7 +490,7 @@ export default function ProjectDetail({ params }: PageProps) {
                   setReviewStep(0);
                 }}
               >
-                <span className={styles.aiPulseIcon}>🤖</span>
+                <img src="/assets/q-robot-face.png" alt="Q Robot" className={styles.qRobotIcon} />
                 <span>{language === "ar" ? "بدء مراجعة كيو روبوت" : "START Q ROBOT REVIEW"}</span>
               </button>
               <h3 className={styles.sidebarTitle}>{t("Project Details")}</h3>
@@ -660,7 +660,7 @@ export default function ProjectDetail({ params }: PageProps) {
             </button>
 
             <div className={styles.hologramSubtitleTitle}>
-              <span>🤖</span>
+              <img src="/assets/q-robot-face.png" alt="Q Robot" className={styles.qRobotIcon} />
               <span>{language === "ar" ? "مراجعة كيو روبوت للمشروع" : "Q ROBOT PROJECT REVIEW"}</span>
               <span>·</span>
               <span>{language === "ar" ? `${reviewStep + 1} / ${reviewSteps.length}` : `${reviewStep + 1} / ${reviewSteps.length}`}</span>

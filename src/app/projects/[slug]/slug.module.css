@@ -954,3 +954,13 @@
   box-shadow: 0 0 6px rgba(227, 6, 19, 0.5);
 }
 
+.qRobotIcon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  display: inline-block;
+  vertical-align: middle;
+  filter: drop-shadow(0 0 4px rgba(227, 6, 19, 0.4));
+  margin-right: 6px;
+}
+
