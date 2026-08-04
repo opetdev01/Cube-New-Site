@@ -31,6 +31,19 @@ export default function ProjectDetail({ params }: PageProps) {
     notFound();
   }
 
+  // Translate project fields if Arabic
+  const translatedTitle = t(project.title);
+  const translatedSector = t(project.sector);
+  const translatedLocation = t(project.location);
+  const translatedClient = language === "ar" ? (project.client.includes("Ministry") ? "وزارة الإسكان" : project.client) : project.client;
+  const translatedStatus = t(project.status);
+  
+  const translatedDescription = project.technicalDescription 
+    ? t(project.technicalDescription)
+    : (language === "ar" ? 
+       `تأسس هذا المشروع الإنشائي المتميز لتقديم تجربة معمارية فريدة. يهدف التصميم إلى توفير أقصى درجات الراحة والمرونة، مع تحقيق معايير الاستدامة المتقدمة. تم التنسيق الكامل بين الهندسة والبيئة المحلية لضمان الجودة والجمالية للموقع.` 
+       : project.description);
+
   const nextSlide = () => {
     if (project.gallery && project.gallery.length > 0) {
       setCurrentSlide((prev) => (prev + 1) % project.gallery.length);
@@ -218,16 +231,16 @@ export default function ProjectDetail({ params }: PageProps) {
   const reviewSteps = [
     {
       video: "/assets/92f7fa6d91fd44619dd71dc790ea4165.webm",
-      subEn: "Welcome to Zomra East Compound, New Cairo. Let's analyze the architectural blueprint and master planning.",
-      subAr: "مرحباً بكم في كمبوند زمرة إيست بالقاهرة الجديدة. دعونا نحلل المخطط العام والكتل المعمارية للمشروع.",
+      subEn: `Welcome to the ${translatedTitle} presentation. Let's analyze the architectural blueprint and master planning.`,
+      subAr: `مرحباً بكم في عرض مشروع ${translatedTitle}. دعونا نحلل المخطط العام والكتل المعمارية للمشروع.`,
       action: () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
       }
     },
     {
       video: "/assets/92f7fa6d91fd44619dd71dc790ea4165.webm",
-      subEn: "Scanning specifications. Zomra East spans 378 acres, prioritizing nature, tranquil green spaces, and private villa frontages.",
-      subAr: "مرحباً بك في فحص المواصفات. يمتد مشروع زمرة إيست على مساحة ٣٧٨ فداناً، مع إعطاء الأولوية للبيئة الطبيعية والمساحات الخضراء الهادئة.",
+      subEn: `Scanning specifications. Developed for ${translatedClient} in ${translatedLocation}, prioritizing modern functional layout design.`,
+      subAr: `مرحباً بك في فحص المواصفات. تم تطوير المشروع لصالح ${translatedClient} في ${translatedLocation}، مع إعطاء الأورويه للتصميم المعماري المتكامل.`,
       action: () => {
         const section = document.querySelector(`.${styles.pageBody}`);
         if (section) section.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -235,8 +248,8 @@ export default function ProjectDetail({ params }: PageProps) {
     },
     {
       video: "/assets/92f7fa6d91fd44619dd71dc790ea4165.webm",
-      subEn: "Examining architectural typologies. Standalone villas, townhouses, and twin houses are designed with contemporary European aesthetics.",
-      subAr: "فحص الأنماط المعمارية. تم تصميم الفيلات المستقلة والتاون هاوس والتوين هاوس بجماليات أوروبية معاصرة.",
+      subEn: "Examining architectural typologies and layout execution. Notice the design compliance and structural layout.",
+      subAr: "فحص الأنماط المعمارية وتفاصيل التنفيذ. يرجى ملاحظة مطابقة التصميم والتوزيع الإنشائي للموقع.",
       action: () => {
         const gallery = document.querySelector(`.${styles.gallerySection}`);
         if (gallery) {
@@ -246,8 +259,8 @@ export default function ProjectDetail({ params }: PageProps) {
     },
     {
       video: "/assets/92f7fa6d91fd44619dd71dc790ea4165.webm",
-      subEn: "Review complete. CUBE Consultants ensured structural compliance, quality concrete supervision, and landscape coordination.",
-      subAr: "تمت المراجعة بنجاح. أدارت كيو ب للاستشارات الإشراف الفني لضمان مطابقة الهياكل الخرسانية والموقع العام.",
+      subEn: `Review complete. This project was finalized in ${project.year} with status: ${translatedStatus}.`,
+      subAr: `تمت المراجعة بنجاح. تم الانتهاء من هذا المشروع في عام ${project.year} بحالة: ${translatedStatus}.`,
       action: () => {
         const sidebar = document.querySelector(`.${styles.sidebar}`);
         if (sidebar) sidebar.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -318,19 +331,6 @@ export default function ProjectDetail({ params }: PageProps) {
     setIsReviewOpen(false);
     setReviewStep(0);
   };
-
-  // Translate project fields if Arabic
-  const translatedTitle = t(project.title);
-  const translatedSector = t(project.sector);
-  const translatedLocation = t(project.location);
-  const translatedClient = language === "ar" ? (project.client.includes("Ministry") ? "وزارة الإسكان" : project.client) : project.client;
-  const translatedStatus = t(project.status);
-  
-  const translatedDescription = project.technicalDescription 
-    ? t(project.technicalDescription)
-    : (language === "ar" ? 
-       `تأسس هذا المشروع الإنشائي المتميز لتقديم تجربة معمارية فريدة. يهدف التصميم إلى توفير أقصى درجات الراحة والمرونة، مع تحقيق معايير الاستدامة المتقدمة. تم التنسيق الكامل بين الهندسة والبيئة المحلية لضمان الجودة والجمالية للموقع.` 
-       : project.description);
 
   return (
     <ReactLenis root options={{ autoRaf: true, lerp: 0.08 }}>
@@ -453,18 +453,16 @@ export default function ProjectDetail({ params }: PageProps) {
           {/* Sticky Meta details sidebar */}
           <div className={styles.sidebar}>
             <div className={styles.stickyBox}>
-              {slug === "zomra-east" && (
-                <button
-                  className={styles.aiReviewTriggerBtn}
-                  onClick={() => {
-                    setIsReviewOpen(true);
-                    setReviewStep(0);
-                  }}
-                >
-                  <span className={styles.aiPulseIcon}>🤖</span>
-                  <span>{language === "ar" ? "بدء مراجعة كيو روبوت" : "START Q ROBOT REVIEW"}</span>
-                </button>
-              )}
+              <button
+                className={styles.aiReviewTriggerBtn}
+                onClick={() => {
+                  setIsReviewOpen(true);
+                  setReviewStep(0);
+                }}
+              >
+                <span className={styles.aiPulseIcon}>🤖</span>
+                <span>{language === "ar" ? "بدء مراجعة كيو روبوت" : "START Q ROBOT REVIEW"}</span>
+              </button>
               <h3 className={styles.sidebarTitle}>{t("Project Details")}</h3>
               <div className={styles.metaList}>
                 <div className={styles.metaItem}>
