@@ -49,7 +49,7 @@ const InsightsPage = () => {
           </div>
           <div className={styles.headerImageWrapper}>
             <video
-              src="/assets/magnific_i-want-this-robot-to-read-_s7SZZqVl8e.mp4"
+              src="/assets/magnific_i-want-the-robot-to-read-_s7SZZqVl8e.mp4"
               autoPlay
               loop
               muted
