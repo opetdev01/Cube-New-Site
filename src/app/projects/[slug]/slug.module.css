@@ -751,3 +751,229 @@
   color: #555555;
   font-weight: 500;
 }
+
+/* AI Robot Interactive Reviewer UI */
+.aiReviewTriggerBtn {
+  width: 100%;
+  background: #000000;
+  color: #ffffff;
+  border: 1px solid #e30613;
+  padding: 16px 20px;
+  border-radius: 12px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 20px rgba(227, 6, 19, 0.25);
+  transition: all 0.3s ease;
+}
+
+.aiReviewTriggerBtn:hover {
+  background: #e30613;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(227, 6, 19, 0.55);
+}
+
+.aiPulseIcon {
+  font-size: 1.15rem;
+  animation: aiReviewPulse 1.8s infinite ease-in-out;
+  display: inline-block;
+}
+
+@keyframes aiReviewPulse {
+  0% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(227, 6, 19, 0.7)); }
+  50% { transform: scale(1.2); filter: drop-shadow(0 0 8px rgba(227, 6, 19, 0.9)); }
+  100% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(227, 6, 19, 0.7)); }
+}
+
+.aiReviewOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(14px);
+  z-index: 100000;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 3rem 6vw;
+  transition: opacity 0.5s ease;
+  pointer-events: all;
+}
+
+.aiReviewContainer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  background: rgba(18, 18, 18, 0.95);
+  border: 1px solid rgba(227, 6, 19, 0.35);
+  padding: 2.5rem;
+  border-radius: 24px;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.95), inset 0 0 40px rgba(227, 6, 19, 0.05);
+  position: relative;
+}
+
+@media (max-width: 992px) {
+  .aiReviewContainer {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+  }
+}
+
+.aiRobotFacetCard {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid #e30613;
+  box-shadow: 0 0 35px rgba(227, 6, 19, 0.45);
+  position: relative;
+  flex-shrink: 0;
+  background: #000;
+}
+
+.aiRobotFacetVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.aiRobotGlowCircle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  box-shadow: inset 0 0 20px rgba(227, 6, 19, 0.6);
+  pointer-events: none;
+  animation: glowCycle 2.5s infinite alternate;
+}
+
+@keyframes glowCycle {
+  0% { box-shadow: inset 0 0 10px rgba(227, 6, 19, 0.4); }
+  100% { box-shadow: inset 0 0 35px rgba(227, 6, 19, 0.85); }
+}
+
+.aiReviewContent {
+  flex: 1;
+  width: 100%;
+}
+
+.aiReviewTitle {
+  font-size: 0.8rem;
+  letter-spacing: 0.25em;
+  color: var(--c-red);
+  text-transform: uppercase;
+  font-weight: 800;
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.aiReviewSubtitleText {
+  font-size: clamp(1.05rem, 2vw, 1.45rem);
+  font-weight: 700;
+  line-height: 1.6;
+  color: #ffffff;
+  min-height: 70px;
+  margin-bottom: 1.5rem;
+}
+
+.aiReviewActions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.aiActionBtn {
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 11px 26px;
+  border-radius: 30px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.aiActionBtn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #ffffff;
+}
+
+.aiPrimaryActionBtn {
+  background: #e30613;
+  color: #ffffff;
+  border: 1px solid #e30613;
+  padding: 11px 28px;
+  border-radius: 30px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(227, 6, 19, 0.4);
+  transition: all 0.3s ease;
+}
+
+.aiPrimaryActionBtn:hover {
+  background: #ff1c2a;
+  border-color: #ff1c2a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(227, 6, 19, 0.6);
+}
+
+.aiCloseActionBtn {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.8rem;
+  background: none;
+  border: none;
+  color: #888888;
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.aiCloseActionBtn:hover {
+  color: #ffffff;
+}
+
+.aiReviewProgressDots {
+  display: flex;
+  gap: 8px;
+  margin-top: 1.5rem;
+}
+
+.aiProgressDot {
+  width: 32px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.aiProgressDotActive {
+  background: #e30613;
+  box-shadow: 0 0 10px #e30613;
+}
+

@@ -162,6 +162,88 @@ export default function ProjectDetail({ params }: PageProps) {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [lightboxIndex]);
 
+  // AI Reviewer Presentation State Machine
+  const [isReviewOpen, setIsReviewOpen] = useState(false);
+  const [reviewStep, setReviewStep] = useState(0);
+  const [reviewMuted, setReviewMuted] = useState(true);
+
+  const reviewSteps = [
+    {
+      video: "/assets/magnific_make-the-robot-make-bye-b_lJSCNOSgv9.mp4",
+      subEn: "Welcome to Zomra East Compound, New Cairo. Let's analyze the architectural blueprint and master planning.",
+      subAr: "مرحباً بكم في كمبوند زمرة إيست بالقاهرة الجديدة. دعونا نحلل المخطط العام والكتل المعمارية للمشروع.",
+      action: () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    },
+    {
+      video: "/assets/magnific_i-want-the-robot-to-read-_s7SZZqVl8e.mp4",
+      subEn: "Scanning specifications. Zomra East spans 378 acres, prioritizing nature, tranquil green spaces, and private villa frontages.",
+      subAr: "جارٍ فحص المواصفات. يمتد مشروع زمرة إيست على مساحة ٣٧٨ فداناً، مع إعطاء الأولوية للبيئة الطبيعية والمساحات الخضراء الهادئة.",
+      action: () => {
+        const section = document.querySelector(`.${styles.pageBody}`);
+        if (section) section.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    },
+    {
+      video: "/assets/magnific_i-want-this-robot-to-draw_SywuP7iUb8.mp4",
+      subEn: "Examining architectural typologies. Standalone villas, townhouses, and twin houses are designed with contemporary European aesthetics.",
+      subAr: "فحص الأنماط المعمارية. تم تصميم الفيلات المستقلة والتاون هاوس والتوين هاوس بجماليات أوروبية معاصرة.",
+      action: () => {
+        const gallery = document.querySelector(`.${styles.gallerySection}`);
+        if (gallery) {
+          gallery.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      }
+    },
+    {
+      video: "/assets/magnific_make-the-robot-make-bye-b_lJSCNOSgv9.mp4",
+      subEn: "Review complete. CUBE Consultants ensured structural compliance, quality concrete supervision, and landscape coordination.",
+      subAr: "تمت المراجعة بنجاح. أدارت كيو ب للاستشارات الإشراف الفني لضمان مطابقة الهياكل الخرسانية والموقع العام.",
+      action: () => {
+        const sidebar = document.querySelector(`.${styles.sidebar}`);
+        if (sidebar) sidebar.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    }
+  ];
+
+  useEffect(() => {
+    if (isReviewOpen && reviewSteps[reviewStep]) {
+      reviewSteps[reviewStep].action();
+
+      // Automatically advance image slides when looking at architectural gallery typology (step index 2)
+      if (reviewStep === 2 && project.gallery && project.gallery.length > 0) {
+        let count = 0;
+        const interval = setInterval(() => {
+          setCurrentSlide((prev) => (prev + 1) % project.gallery.length);
+          count++;
+          if (count >= 4) clearInterval(interval);
+        }, 1500);
+        return () => clearInterval(interval);
+      }
+    }
+  }, [reviewStep, isReviewOpen]);
+
+  const handleNextReviewStep = () => {
+    if (reviewStep < reviewSteps.length - 1) {
+      setReviewStep((prev) => prev + 1);
+    } else {
+      setIsReviewOpen(false);
+      setReviewStep(0);
+    }
+  };
+
+  const handlePrevReviewStep = () => {
+    if (reviewStep > 0) {
+      setReviewStep((prev) => prev - 1);
+    }
+  };
+
+  const handleCloseReview = () => {
+    setIsReviewOpen(false);
+    setReviewStep(0);
+  };
+
   // Translate project fields if Arabic
   const translatedTitle = t(project.title);
   const translatedSector = t(project.sector);
@@ -296,6 +378,18 @@ export default function ProjectDetail({ params }: PageProps) {
           {/* Sticky Meta details sidebar */}
           <div className={styles.sidebar}>
             <div className={styles.stickyBox}>
+              {slug === "zomra-east" && (
+                <button
+                  className={styles.aiReviewTriggerBtn}
+                  onClick={() => {
+                    setIsReviewOpen(true);
+                    setReviewStep(0);
+                  }}
+                >
+                  <span className={styles.aiPulseIcon}>🤖</span>
+                  <span>{language === "ar" ? "بدء المراجعة الذكية للروبوت" : "START AI ROBOT REVIEW"}</span>
+                </button>
+              )}
               <h3 className={styles.sidebarTitle}>{t("Project Details")}</h3>
               <div className={styles.metaList}>
                 <div className={styles.metaItem}>
@@ -449,6 +543,71 @@ export default function ProjectDetail({ params }: PageProps) {
             >
               ›
             </button>
+          </div>
+        </div>
+      )}
+
+      {/* Full-Screen AI Robot Review Overlay */}
+      {isReviewOpen && (
+        <div className={styles.aiReviewOverlay}>
+          <div className={styles.aiReviewContainer}>
+            <button className={styles.aiCloseActionBtn} onClick={handleCloseReview} aria-label="Exit review">
+              &times;
+            </button>
+
+            {/* Robot Facetime Bubble */}
+            <div className={styles.aiRobotFacetCard}>
+              <video
+                key={reviewSteps[reviewStep].video}
+                src={reviewSteps[reviewStep].video}
+                autoPlay
+                loop
+                muted={reviewMuted}
+                playsInline
+                className={styles.aiRobotFacetVideo}
+              />
+              <div className={styles.aiRobotGlowCircle} />
+            </div>
+
+            {/* Translation Subtitle & Navigation */}
+            <div className={styles.aiReviewContent}>
+              <div className={styles.aiReviewTitle}>
+                <span>🤖</span>
+                <span>{language === "ar" ? "مراجعة كيو ب الذكية للمشروع" : "CUBE AI PROJECT REVIEW"}</span>
+                <span>·</span>
+                <span>{language === "ar" ? `الخطوة ${reviewStep + 1} من ${reviewSteps.length}` : `Step ${reviewStep + 1} of ${reviewSteps.length}`}</span>
+              </div>
+
+              <div className={styles.aiReviewSubtitleText}>
+                {language === "ar" ? reviewSteps[reviewStep].subAr : reviewSteps[reviewStep].subEn}
+              </div>
+
+              <div className={styles.aiReviewActions}>
+                <button className={styles.aiActionBtn} onClick={() => setReviewMuted(!reviewMuted)}>
+                  {reviewMuted ? (language === "ar" ? "🔊 تشغيل الصوت" : "🔊 UNMUTE") : (language === "ar" ? "🔇 كتم الصوت" : "🔇 MUTE")}
+                </button>
+
+                {reviewStep > 0 && (
+                  <button className={styles.aiActionBtn} onClick={handlePrevReviewStep}>
+                    {language === "ar" ? "السابق" : "PREVIOUS"}
+                  </button>
+                )}
+
+                <button className={styles.aiPrimaryActionBtn} onClick={handleNextReviewStep}>
+                  {reviewStep === reviewSteps.length - 1 ? (language === "ar" ? "إنهاء المراجعة" : "FINISH REVIEW") : (language === "ar" ? "الخطوة التالية ➔" : "NEXT STEP ➔")}
+                </button>
+              </div>
+
+              {/* Progress Indicator Dots */}
+              <div className={styles.aiReviewProgressDots}>
+                {reviewSteps.map((_, idx) => (
+                  <div
+                    key={idx}
+                    className={`${styles.aiProgressDot} ${idx === reviewStep ? styles.aiProgressDotActive : ""}`}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       )}
