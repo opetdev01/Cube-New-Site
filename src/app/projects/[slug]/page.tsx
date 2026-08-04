@@ -165,7 +165,25 @@ export default function ProjectDetail({ params }: PageProps) {
   // AI Reviewer Presentation State Machine
   const [isReviewOpen, setIsReviewOpen] = useState(false);
   const [reviewStep, setReviewStep] = useState(0);
-  const [reviewMuted, setReviewMuted] = useState(true);
+  const [reviewMuted, setReviewMuted] = useState(false); // Unmuted by default for live speaking presentation
+
+  const speakText = (text: string, langCode: string) => {
+    if (typeof window !== "undefined" && window.speechSynthesis) {
+      window.speechSynthesis.cancel(); // Stop current speech
+      if (reviewMuted) return;
+
+      const utterance = new SpeechSynthesisUtterance(text);
+      
+      // Select Arabic or English voice
+      utterance.lang = langCode === "ar" ? "ar-EG" : "en-US";
+      
+      // Futuristic robot-like voice profile settings
+      utterance.pitch = 0.96;
+      utterance.rate = 0.94;
+
+      window.speechSynthesis.speak(utterance);
+    }
+  };
 
   const reviewSteps = [
     {
@@ -211,6 +229,10 @@ export default function ProjectDetail({ params }: PageProps) {
     if (isReviewOpen && reviewSteps[reviewStep]) {
       reviewSteps[reviewStep].action();
 
+      // Trigger Web Speech synthesis voice readout
+      const txt = language === "ar" ? reviewSteps[reviewStep].subAr : reviewSteps[reviewStep].subEn;
+      speakText(txt, language);
+
       // Automatically advance image slides when looking at architectural gallery typology (step index 2)
       if (reviewStep === 2 && project.gallery && project.gallery.length > 0) {
         let count = 0;
@@ -221,8 +243,13 @@ export default function ProjectDetail({ params }: PageProps) {
         }, 1500);
         return () => clearInterval(interval);
       }
+    } else {
+      // Cancel speech when closed
+      if (typeof window !== "undefined" && window.speechSynthesis) {
+        window.speechSynthesis.cancel();
+      }
     }
-  }, [reviewStep, isReviewOpen]);
+  }, [reviewStep, isReviewOpen, reviewMuted, language]);
 
   const handleNextReviewStep = () => {
     if (reviewStep < reviewSteps.length - 1) {
