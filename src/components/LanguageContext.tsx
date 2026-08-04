@@ -418,6 +418,7 @@ const translations: Record<Language, Record<string, string>> = {
     "All Years": "جميع السنوات",
 
     // Insights Page
+    "Insights": "الرؤى والأخبار",
     "INSIGHTS_TITLE": "الرؤى والأخبار",
     "Latest press releases, corporate updates, and architectural accolades": "أحدث البيانات الصحفية، التحديثات المؤسسية، والجوائز المعمارية",
     "ALL": "الكل",

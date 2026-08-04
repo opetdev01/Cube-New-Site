@@ -30,10 +30,6 @@ export default function SearchEngineModal({ isOpen, onClose }: SearchEngineModal
   const recognitionRef = useRef<any>(null);
   const chatEndRef = useRef<HTMLDivElement>(null);
 
-  // Robot Intro Video Splash State
-  const [introStep, setIntroStep] = useState<"intro" | "search">("intro");
-  const videoRef = useRef<HTMLVideoElement>(null);
-
   const handleCardClick = (e: React.MouseEvent, slug: string) => {
     e.preventDefault();
     onClose();
@@ -43,7 +39,11 @@ export default function SearchEngineModal({ isOpen, onClose }: SearchEngineModal
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
-      setIntroStep("intro");
+      // Focus on input
+      setTimeout(() => {
+        const input = document.getElementById("globalSearchInput");
+        input?.focus();
+      }, 100);
     } else {
       document.body.style.overflow = "unset";
     }
@@ -51,16 +51,6 @@ export default function SearchEngineModal({ isOpen, onClose }: SearchEngineModal
       document.body.style.overflow = "unset";
     };
   }, [isOpen]);
-
-  useEffect(() => {
-    if (isOpen && introStep === "search") {
-      // Focus on input
-      setTimeout(() => {
-        const input = document.getElementById("globalSearchInput");
-        input?.focus();
-      }, 100);
-    }
-  }, [isOpen, introStep]);
 
   useEffect(() => {
     // Initial welcome message
@@ -232,177 +222,149 @@ export default function SearchEngineModal({ isOpen, onClose }: SearchEngineModal
       <div className={styles.modalContainer} onClick={(e) => e.stopPropagation()}>
         <div className={styles.hologramGrid} />
 
-        {introStep === "intro" ? (
-          <div className={styles.introContent}>
-            <video
-              ref={videoRef}
-              src="/assets/magnific_make-this-robot-as-he-is-_lJUZe6zgv9.mp4"
-              autoPlay
-              playsInline
-              muted
-              onEnded={() => setIntroStep("search")}
-              className={styles.introVideo}
-            />
+        {/* Header section with monitor stats */}
+        <div className={styles.modalHeader}>
+          <div className={styles.headerTitleBox}>
+            <h2>
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ color: "var(--c-red)" }}>
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
+              {language === "ar" ? "محرك البحث الذكي" : "CUBE SEARCH ENGINE"}
+            </h2>
+            <p>{language === "ar" ? "منصة البحث والتحليل الفوري لمحتوى كيو ب" : "AI Search console scanning local components & registry"}</p>
+          </div>
 
-            <div className={styles.introOverlayControls}>
-              <span className={styles.robotStatusText}>
-                {language === "ar" ? "جاري تهيئة المساعد الذكي..." : "INITIALIZING AI SEARCH ASSISTANT..."}
-              </span>
-              <button
-                className={styles.introSkipButton}
-                onClick={() => setIntroStep("search")}
-              >
-                {language === "ar" ? "تخطي ➔" : "SKIP ➔"}
-              </button>
+          <div className={styles.systemStatusRow}>
+            <div className={styles.statusIndicator}>
+              <span className={styles.pulseDot} />
+              <span>ONLINE</span>
+            </div>
+            <div className={styles.statItem}>
+              {language === "ar" ? "ملفات مفحوصة: " : "Scanned Files: "}
+              <strong>{stats.filesCount}</strong>
+            </div>
+            <div className={styles.statItem}>
+              {language === "ar" ? "مطابقات: " : "Matches: "}
+              <strong>{stats.matches}</strong>
             </div>
           </div>
-        ) : (
-          <>
-            {/* Header section with monitor stats */}
-            <div className={styles.modalHeader}>
-              <div className={styles.headerTitleBox}>
-                <h2>
-                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ color: "var(--c-red)" }}>
-                    <circle cx="11" cy="11" r="8" />
-                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                  </svg>
-                  {language === "ar" ? "محرك البحث الذكي" : "CUBE SEARCH ENGINE"}
-                </h2>
-                <p>{language === "ar" ? "منصة البحث والتحليل الفوري لمحتوى كيو ب" : "AI Search console scanning local components & registry"}</p>
+
+          <button className={styles.closeButton} onClick={onClose} aria-label="Close search">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
+        </div>
+
+        {/* Message board */}
+        <div className={styles.chatMessages}>
+          {messages.map((msg, idx) => (
+            <div key={idx} className={`${styles.messageWrapper} ${msg.sender === "user" ? styles.msgUser : styles.msgBot}`}>
+              <div className={styles.messageContent}>
+                {msg.sender === "bot" ? (
+                  <div className={styles.botMarkdown}>
+                    {msg.text.split("\n").map((line, lIdx) => {
+                      if (line.startsWith("###")) {
+                        return <h4 key={lIdx}>{line.replace("###", "")}</h4>;
+                      }
+                      if (line.startsWith("```")) {
+                        return null;
+                      }
+                      if (line.includes("`")) {
+                        const parts = line.split("`");
+                        return (
+                          <p key={lIdx}>
+                            {parts.map((p, pIdx) => pIdx % 2 === 1 ? <code key={pIdx}>{p}</code> : p)}
+                          </p>
+                        );
+                      }
+                      return <p key={lIdx}>{line}</p>;
+                    })}
+                  </div>
+                ) : (
+                  <p style={{ margin: 0 }}>{msg.text}</p>
+                )}
               </div>
 
-              <div className={styles.systemStatusRow}>
-                <div className={styles.statusIndicator}>
-                  <span className={styles.pulseDot} />
-                  <span>ONLINE</span>
-                </div>
-                <div className={styles.statItem}>
-                  {language === "ar" ? "ملفات مفحوصة: " : "Scanned Files: "}
-                  <strong>{stats.filesCount}</strong>
-                </div>
-                <div className={styles.statItem}>
-                  {language === "ar" ? "مطابقات: " : "Matches: "}
-                  <strong>{stats.matches}</strong>
-                </div>
-              </div>
-
-              <button className={styles.closeButton} onClick={onClose} aria-label="Close search">
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="18" y1="6" x2="6" y2="18" />
-                  <line x1="6" y1="6" x2="18" y2="18" />
-                </svg>
-              </button>
-            </div>
-
-            {/* Message board */}
-            <div className={styles.chatMessages}>
-              {messages.map((msg, idx) => (
-                <div key={idx} className={`${styles.messageWrapper} ${msg.sender === "user" ? styles.msgUser : styles.msgBot}`}>
-                  <div className={styles.messageContent}>
-                    {msg.sender === "bot" ? (
-                      <div className={styles.botMarkdown}>
-                        {msg.text.split("\n").map((line, lIdx) => {
-                          if (line.startsWith("###")) {
-                            return <h4 key={lIdx}>{line.replace("###", "")}</h4>;
-                          }
-                          if (line.startsWith("```")) {
-                            return null;
-                          }
-                          if (line.includes("`")) {
-                            const parts = line.split("`");
-                            return (
-                              <p key={lIdx}>
-                                {parts.map((p, pIdx) => pIdx % 2 === 1 ? <code key={pIdx}>{p}</code> : p)}
-                              </p>
-                            );
-                          }
-                          return <p key={lIdx}>{line}</p>;
-                        })}
+              {msg.matchedProjects && msg.matchedProjects.length > 0 && (
+                <div className={styles.chatProjectsGrid}>
+                  {msg.matchedProjects.map((project) => (
+                    <Link
+                      key={project.slug}
+                      href={`/projects/${project.slug}`}
+                      className={styles.portalProjectCard}
+                      onClick={(e) => handleCardClick(e, project.slug)}
+                    >
+                      <div className={styles.portalCardImageWrapper}>
+                        <Image
+                          src={project.featuredImage}
+                          alt={project.title}
+                          fill
+                          sizes="90px"
+                          className={styles.portalCardImage}
+                        />
                       </div>
-                    ) : (
-                      <p style={{ margin: 0 }}>{msg.text}</p>
-                    )}
-                  </div>
-
-                  {msg.matchedProjects && msg.matchedProjects.length > 0 && (
-                    <div className={styles.chatProjectsGrid}>
-                      {msg.matchedProjects.map((project) => (
-                        <Link
-                          key={project.slug}
-                          href={`/projects/${project.slug}`}
-                          className={styles.portalProjectCard}
-                          onClick={(e) => handleCardClick(e, project.slug)}
-                        >
-                          <div className={styles.portalCardImageWrapper}>
-                            <Image
-                              src={project.featuredImage}
-                              alt={project.title}
-                              fill
-                              sizes="90px"
-                              className={styles.portalCardImage}
-                            />
-                          </div>
-                          <div className={styles.portalCardDetails}>
-                            <span className={styles.portalCardSector}>{t(project.sector)}</span>
-                            <h4 className={styles.portalCardTitle}>{t(project.title)}</h4>
-                            <p className={styles.portalCardLocation}>{t(project.location)}</p>
-                          </div>
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ))}
-
-              {loading && (
-                <div className={`${styles.messageWrapper} ${styles.msgBot}`}>
-                  <div className={styles.loadingPulse}>
-                    <span />
-                    <span />
-                    <span />
-                  </div>
+                      <div className={styles.portalCardDetails}>
+                        <span className={styles.portalCardSector}>{t(project.sector)}</span>
+                        <h4 className={styles.portalCardTitle}>{t(project.title)}</h4>
+                        <p className={styles.portalCardLocation}>{t(project.location)}</p>
+                      </div>
+                    </Link>
+                  ))}
                 </div>
               )}
-              <div ref={chatEndRef} />
             </div>
+          ))}
 
-            {/* Input box */}
-            <div className={styles.chatInputWrapper}>
-              <div className={styles.inputContainer}>
-                <input
-                  id="globalSearchInput"
-                  type="text"
-                  placeholder={language === "ar" ? "اسأل محرك البحث عن أي تفاصيل أو مشاريع..." : "Ask search engine about any projects, team members, or design rules..."}
-                  value={query}
-                  onChange={(e) => setQuery(e.target.value)}
-                  onKeyDown={(e) => e.key === "Enter" && handleSearch(query)}
-                  className={styles.chatInput}
-                  disabled={loading}
-                />
-                <button
-                  type="button"
-                  onClick={toggleListening}
-                  className={`${styles.micButton} ${isListening ? styles.listening : ""}`}
-                  title={language === "ar" ? "تحدث بالصوت" : "Speak to search"}
-                  aria-label="Speak to search"
-                >
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className={styles.micIcon}>
-                    <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" />
-                    <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
-                    <line x1="12" x2="12" y1="19" y2="22" />
-                  </svg>
-                </button>
+          {loading && (
+            <div className={`${styles.messageWrapper} ${styles.msgBot}`}>
+              <div className={styles.loadingPulse}>
+                <span />
+                <span />
+                <span />
               </div>
-              <button
-                onClick={() => handleSearch(query)}
-                className={styles.sendButton}
-                disabled={loading}
-              >
-                {language === "ar" ? "إرسال" : "SEND"}
-              </button>
             </div>
-          </>
-        )}
+          )}
+          <div ref={chatEndRef} />
+        </div>
+
+        {/* Input box */}
+        <div className={styles.chatInputWrapper}>
+          <div className={styles.inputContainer}>
+            <input
+              id="globalSearchInput"
+              type="text"
+              placeholder={language === "ar" ? "اسأل محرك البحث عن أي تفاصيل أو مشاريع..." : "Ask search engine about any projects, team members, or design rules..."}
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && handleSearch(query)}
+              className={styles.chatInput}
+              disabled={loading}
+            />
+            <button
+              type="button"
+              onClick={toggleListening}
+              className={`${styles.micButton} ${isListening ? styles.listening : ""}`}
+              title={language === "ar" ? "تحدث بالصوت" : "Speak to search"}
+              aria-label="Speak to search"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className={styles.micIcon}>
+                <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" />
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                <line x1="12" x2="12" y1="19" y2="22" />
+              </svg>
+            </button>
+          </div>
+          <button
+            onClick={() => handleSearch(query)}
+            className={styles.sendButton}
+            disabled={loading}
+          >
+            {language === "ar" ? "إرسال" : "SEND"}
+          </button>
+        </div>
       </div>
     </div>
   );

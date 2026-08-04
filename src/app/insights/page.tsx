@@ -42,7 +42,7 @@ const InsightsPage = () => {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <h1 className={styles.title}>{t("INSIGHTS_TITLE")}</h1>
+        <h1 className={styles.title}>{t("Insights")}</h1>
         <p className={styles.subtitle}>{t("Latest press releases, corporate updates, and architectural accolades")}</p>
       </header>
 
