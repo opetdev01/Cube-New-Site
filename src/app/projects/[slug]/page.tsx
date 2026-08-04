@@ -259,8 +259,8 @@ export default function ProjectDetail({ params }: PageProps) {
     },
     {
       video: "/assets/92f7fa6d91fd44619dd71dc790ea4165.webm",
-      subEn: `Review complete. This project was finalized in ${project.year} with status: ${translatedStatus}.`,
-      subAr: `تمت المراجعة بنجاح. تم الانتهاء من هذا المشروع في عام ${project.year} بحالة: ${translatedStatus}.`,
+      subEn: `This project was finalized in ${project.year} with status: ${translatedStatus}. Thank you for reviewing.`,
+      subAr: `تم الانتهاء من هذا المشروع في عام ${project.year} بحالة: ${translatedStatus}. شكراً لكم على المراجعة.`,
       action: () => {
         const sidebar = document.querySelector(`.${styles.sidebar}`);
         if (sidebar) sidebar.scrollIntoView({ behavior: "smooth", block: "center" });
