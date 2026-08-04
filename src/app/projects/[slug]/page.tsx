@@ -167,10 +167,19 @@ export default function ProjectDetail({ params }: PageProps) {
   const [reviewStep, setReviewStep] = useState(0);
   const [reviewMuted, setReviewMuted] = useState(false); // Unmuted by default for live speaking presentation
 
-  const speakText = (text: string, langCode: string) => {
+  const speakText = (text: string, langCode: string, onSpeechEnd?: () => void) => {
     if (typeof window !== "undefined" && window.speechSynthesis) {
       window.speechSynthesis.cancel(); // Stop current speech
-      if (reviewMuted) return;
+      
+      if (reviewMuted) {
+        // If review is muted, simulate automatic progression timing based on word count
+        const words = text.split(/\s+/).length;
+        const delay = Math.max(3000, words * 380);
+        const timer = setTimeout(() => {
+          if (onSpeechEnd) onSpeechEnd();
+        }, delay);
+        return () => clearTimeout(timer);
+      }
 
       const utterance = new SpeechSynthesisUtterance(text);
       
@@ -180,6 +189,12 @@ export default function ProjectDetail({ params }: PageProps) {
       // Futuristic robot-like voice profile settings
       utterance.pitch = 0.96;
       utterance.rate = 0.94;
+
+      if (onSpeechEnd) {
+        utterance.onend = () => {
+          setTimeout(onSpeechEnd, 1200); // 1.2s delay before moving to next step
+        };
+      }
 
       window.speechSynthesis.speak(utterance);
     }
@@ -197,7 +212,7 @@ export default function ProjectDetail({ params }: PageProps) {
     {
       video: "/assets/92f7fa6d91fd44619dd71dc790ea4165.webm",
       subEn: "Scanning specifications. Zomra East spans 378 acres, prioritizing nature, tranquil green spaces, and private villa frontages.",
-      subAr: "جارٍ فحص المواصفات. يمتد مشروع زمرة إيست على مساحة ٣٧٨ فداناً، مع إعطاء الأولوية للبيئة الطبيعية والمساحات الخضراء الهادئة.",
+      subAr: "مرحباً بك في فحص المواصفات. يمتد مشروع زمرة إيست على مساحة ٣٧٨ فداناً، مع إعطاء الأولوية للبيئة الطبيعية والمساحات الخضراء الهادئة.",
       action: () => {
         const section = document.querySelector(`.${styles.pageBody}`);
         if (section) section.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -226,12 +241,23 @@ export default function ProjectDetail({ params }: PageProps) {
   ];
 
   useEffect(() => {
+    let cleanupMutedTimer: (() => void) | undefined = undefined;
+
     if (isReviewOpen && reviewSteps[reviewStep]) {
       reviewSteps[reviewStep].action();
 
-      // Trigger Web Speech synthesis voice readout
+      // Trigger Web Speech synthesis voice readout with auto-advance callback
       const txt = language === "ar" ? reviewSteps[reviewStep].subAr : reviewSteps[reviewStep].subEn;
-      speakText(txt, language);
+      const res = speakText(txt, language, () => {
+        if (reviewStep < reviewSteps.length - 1) {
+          setReviewStep((prev) => prev + 1);
+        } else {
+          // Automatic close at the end of the presentation
+          setIsReviewOpen(false);
+          setReviewStep(0);
+        }
+      });
+      if (res) cleanupMutedTimer = res;
 
       // Automatically advance image slides when looking at architectural gallery typology (step index 2)
       if (reviewStep === 2 && project.gallery && project.gallery.length > 0) {
@@ -241,7 +267,10 @@ export default function ProjectDetail({ params }: PageProps) {
           count++;
           if (count >= 4) clearInterval(interval);
         }, 1500);
-        return () => clearInterval(interval);
+        return () => {
+          clearInterval(interval);
+          if (cleanupMutedTimer) cleanupMutedTimer();
+        };
       }
     } else {
       // Cancel speech when closed
@@ -249,6 +278,10 @@ export default function ProjectDetail({ params }: PageProps) {
         window.speechSynthesis.cancel();
       }
     }
+
+    return () => {
+      if (cleanupMutedTimer) cleanupMutedTimer();
+    };
   }, [reviewStep, isReviewOpen, reviewMuted, language]);
 
   const handleNextReviewStep = () => {
