@@ -297,7 +297,7 @@ export default function ProjectDetail({ params }: PageProps) {
           setIsReviewOpen(false);
           setReviewStep(0);
         }
-      }, reviewStep === 3);
+      });
       if (res) cleanupMutedTimer = res;
 
       // Automatically open lightbox and cycle slides when looking at architectural gallery typology (step index 2)
