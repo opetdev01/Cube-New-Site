@@ -183,9 +183,24 @@ export default function ProjectDetail({ params }: PageProps) {
 
       const utterance = new SpeechSynthesisUtterance(text);
       
-      // Select Arabic or English voice
+      // Target the Egyptian Arabic locale for the speech synthesis engine
       utterance.lang = langCode === "ar" ? "ar-EG" : "en-US";
       
+      // Query system voice synthesizers to find native Egyptian voices (Hoda, Tarik, Shakir, etc.)
+      const voices = window.speechSynthesis.getVoices();
+      if (langCode === "ar") {
+        const egVoice = voices.find(v => 
+          v.lang.toLowerCase() === "ar-eg" || 
+          v.name.toLowerCase().includes("egypt") ||
+          v.name.toLowerCase().includes("hoda") ||
+          v.name.toLowerCase().includes("shakir") ||
+          v.name.toLowerCase().includes("tarik")
+        );
+        if (egVoice) {
+          utterance.voice = egVoice;
+        }
+      }
+
       // Futuristic robot-like voice profile settings
       utterance.pitch = 0.96;
       utterance.rate = 0.94;
