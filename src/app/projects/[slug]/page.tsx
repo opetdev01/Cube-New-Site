@@ -44,6 +44,11 @@ export default function ProjectDetail({ params }: PageProps) {
        `تأسس هذا المشروع الإنشائي المتميز لتقديم تجربة معمارية فريدة. يهدف التصميم إلى توفير أقصى درجات الراحة والمرونة، مع تحقيق معايير الاستدامة المتقدمة. تم التنسيق الكامل بين الهندسة والبيئة المحلية لضمان الجودة والجمالية للموقع.` 
        : project.description);
 
+  // A clean, summarized sneak brief (first 2 sentences or first 165 chars)
+  const summarizedBrief = translatedDescription.length > 165
+    ? translatedDescription.split(".").slice(0, 2).join(".") + "."
+    : translatedDescription;
+
   const nextSlide = () => {
     if (project.gallery && project.gallery.length > 0) {
       setCurrentSlide((prev) => (prev + 1) % project.gallery.length);
@@ -180,14 +185,14 @@ export default function ProjectDetail({ params }: PageProps) {
   const [reviewStep, setReviewStep] = useState(0);
   const [reviewMuted, setReviewMuted] = useState(false); // Unmuted by default for live speaking presentation
 
-  const speakText = (text: string, langCode: string, onSpeechEnd?: () => void) => {
+  const speakText = (text: string, langCode: string, onSpeechEnd?: () => void, forceSilent?: boolean) => {
     if (typeof window !== "undefined" && window.speechSynthesis) {
       window.speechSynthesis.cancel(); // Stop current speech
       
-      if (reviewMuted) {
-        // If review is muted, simulate automatic progression timing based on word count
+      if (reviewMuted || forceSilent) {
+        // If review is muted or forced silent, simulate automatic progression timing based on word count
         const words = text.split(/\s+/).length;
-        const delay = Math.max(3000, words * 380);
+        const delay = Math.max(5000, words * 380); // generous timing to read final text
         const timer = setTimeout(() => {
           if (onSpeechEnd) onSpeechEnd();
         }, delay);
@@ -259,8 +264,8 @@ export default function ProjectDetail({ params }: PageProps) {
     },
     {
       video: "/assets/92f7fa6d91fd44619dd71dc790ea4165.webm",
-      subEn: `This project was finalized in ${project.year} with status: ${translatedStatus}. Thank you for reviewing.`,
-      subAr: `تم الانتهاء من هذا المشروع في عام ${project.year} بحالة: ${translatedStatus}. شكراً لكم على المراجعة.`,
+      subEn: `${summarizedBrief} Thank you for reviewing.`,
+      subAr: `${summarizedBrief} شكراً لكم على المراجعة.`,
       action: () => {
         const sidebar = document.querySelector(`.${styles.sidebar}`);
         if (sidebar) sidebar.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -292,7 +297,7 @@ export default function ProjectDetail({ params }: PageProps) {
           setIsReviewOpen(false);
           setReviewStep(0);
         }
-      });
+      }, reviewStep === 3);
       if (res) cleanupMutedTimer = res;
 
       // Automatically open lightbox and cycle slides when looking at architectural gallery typology (step index 2)
