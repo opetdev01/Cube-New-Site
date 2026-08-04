@@ -42,8 +42,23 @@ const InsightsPage = () => {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <h1 className={styles.title}>{t("Insights")}</h1>
-        <p className={styles.subtitle}>{t("Latest press releases, corporate updates, and architectural accolades")}</p>
+        <section className={styles.headerSection}>
+          <div className={styles.headerText}>
+            <h1 className={styles.title}>{t("Insights")}</h1>
+            <p className={styles.subtitle}>{t("Latest press releases, corporate updates, and architectural accolades")}</p>
+          </div>
+          <div className={styles.headerImageWrapper}>
+            <video
+              src="/assets/magnific_i-want-this-robot-to-read-_s7SZZqVl8e.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className={styles.headerImage}
+              style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }}
+            />
+          </div>
+        </section>
       </header>
 
       {/* Elegant tab toggles */}
