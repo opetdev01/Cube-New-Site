@@ -955,12 +955,12 @@
 }
 
 .qRobotIcon {
-  width: 26px;
-  height: 26px;
+  width: 44px;
+  height: 44px;
   object-fit: contain;
   display: inline-block;
   vertical-align: middle;
-  filter: drop-shadow(0 0 4px rgba(227, 6, 19, 0.4));
-  margin-right: 8px;
+  filter: drop-shadow(0 0 6px rgba(227, 6, 19, 0.45));
+  margin-right: 12px;
 }
 
