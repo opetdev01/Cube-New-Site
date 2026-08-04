@@ -462,7 +462,7 @@ export default function ProjectDetail({ params }: PageProps) {
                   }}
                 >
                   <span className={styles.aiPulseIcon}>🤖</span>
-                  <span>{language === "ar" ? "بدء المراجعة الذكية للروبوت" : "START AI ROBOT REVIEW"}</span>
+                  <span>{language === "ar" ? "بدء مراجعة كيو روبوت" : "START Q ROBOT REVIEW"}</span>
                 </button>
               )}
               <h3 className={styles.sidebarTitle}>{t("Project Details")}</h3>
@@ -633,7 +633,7 @@ export default function ProjectDetail({ params }: PageProps) {
 
             <div className={styles.hologramSubtitleTitle}>
               <span>🤖</span>
-              <span>{language === "ar" ? "مراجعة كيو ب الذكية للمشروع" : "CUBE AI PROJECT REVIEW"}</span>
+              <span>{language === "ar" ? "مراجعة كيو روبوت للمشروع" : "Q ROBOT PROJECT REVIEW"}</span>
               <span>·</span>
               <span>{language === "ar" ? `${reviewStep + 1} / ${reviewSteps.length}` : `${reviewStep + 1} / ${reviewSteps.length}`}</span>
             </div>
