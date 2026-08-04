@@ -752,7 +752,7 @@
   font-weight: 500;
 }
 
-/* AI Robot Interactive Reviewer UI */
+/* AI Robot Interactive Reviewer UI (Transparent Hologram Mode) */
 .aiReviewTriggerBtn {
   width: 100%;
   background: #000000;
@@ -792,188 +792,165 @@
   100% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(227, 6, 19, 0.7)); }
 }
 
-.aiReviewOverlay {
+/* Hologram Robot Layout */
+.hologramRobotContainer {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.88);
-  backdrop-filter: blur(14px);
-  z-index: 100000;
+  bottom: 0;
+  right: 4vw;
+  z-index: 99999;
+  pointer-events: none;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  padding: 3rem 6vw;
-  transition: opacity 0.5s ease;
-  pointer-events: all;
-}
-
-.aiReviewContainer {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
   align-items: center;
-  gap: 3rem;
-  background: rgba(18, 18, 18, 0.95);
-  border: 1px solid rgba(227, 6, 19, 0.35);
-  padding: 2.5rem;
-  border-radius: 24px;
-  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.95), inset 0 0 40px rgba(227, 6, 19, 0.05);
-  position: relative;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
 }
 
-@media (max-width: 992px) {
-  .aiReviewContainer {
-    flex-direction: column;
-    gap: 2rem;
-    padding: 2rem;
+.hologramRobotVideo {
+  width: 280px;
+  height: auto;
+  pointer-events: auto;
+  filter: drop-shadow(0 0 15px rgba(227, 6, 19, 0.25));
+  display: block;
+}
+
+/* Glassmorphic Subtitle Card */
+.hologramSubtitleCard {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(227, 6, 19, 0.3);
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.18);
+  padding: 1.4rem 1.6rem;
+  border-radius: 20px;
+  width: 380px;
+  margin-bottom: 1.5rem;
+  pointer-events: auto;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .hologramSubtitleCard {
+    width: 290px;
+    padding: 1.1rem 1.3rem;
+  }
+  .hologramRobotVideo {
+    width: 200px;
+  }
+  .hologramRobotContainer {
+    right: 2vw;
   }
 }
 
-.aiRobotFacetCard {
-  width: 170px;
-  height: 170px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 2px solid #e30613;
-  box-shadow: 0 0 35px rgba(227, 6, 19, 0.45);
-  position: relative;
-  flex-shrink: 0;
-  background: #000;
-}
-
-.aiRobotFacetVideo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
-.aiRobotGlowCircle {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  box-shadow: inset 0 0 20px rgba(227, 6, 19, 0.6);
-  pointer-events: none;
-  animation: glowCycle 2.5s infinite alternate;
-}
-
-@keyframes glowCycle {
-  0% { box-shadow: inset 0 0 10px rgba(227, 6, 19, 0.4); }
-  100% { box-shadow: inset 0 0 35px rgba(227, 6, 19, 0.85); }
-}
-
-.aiReviewContent {
-  flex: 1;
-  width: 100%;
-}
-
-.aiReviewTitle {
-  font-size: 0.8rem;
-  letter-spacing: 0.25em;
+.hologramSubtitleTitle {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
   color: var(--c-red);
   text-transform: uppercase;
   font-weight: 800;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.6rem;
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-.aiReviewSubtitleText {
-  font-size: clamp(1.05rem, 2vw, 1.45rem);
+.hologramSubtitleText {
+  font-size: 0.9rem;
   font-weight: 700;
-  line-height: 1.6;
-  color: #ffffff;
-  min-height: 70px;
-  margin-bottom: 1.5rem;
+  line-height: 1.5;
+  color: #000000;
+  margin-bottom: 1.1rem;
+  min-height: 48px;
 }
 
-.aiReviewActions {
+.hologramActions {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
 }
 
-.aiActionBtn {
-  background: rgba(255, 255, 255, 0.05);
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 11px 26px;
-  border-radius: 30px;
-  font-size: 0.8rem;
+.hologramActionsLeft {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hologramBtn {
+  background: rgba(0, 0, 0, 0.05);
+  color: #000000;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  padding: 7px 14px;
+  border-radius: 20px;
+  font-size: 0.7rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
-.aiActionBtn:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: #ffffff;
+.hologramBtn:hover {
+  background: rgba(0, 0, 0, 0.1);
 }
 
-.aiPrimaryActionBtn {
+.hologramPrimaryBtn {
   background: #e30613;
   color: #ffffff;
   border: 1px solid #e30613;
-  padding: 11px 28px;
-  border-radius: 30px;
-  font-size: 0.8rem;
+  padding: 7px 18px;
+  border-radius: 20px;
+  font-size: 0.7rem;
   font-weight: 800;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba(227, 6, 19, 0.4);
+  box-shadow: 0 4px 10px rgba(227, 6, 19, 0.3);
   transition: all 0.3s ease;
 }
 
-.aiPrimaryActionBtn:hover {
+.hologramPrimaryBtn:hover {
   background: #ff1c2a;
   border-color: #ff1c2a;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(227, 6, 19, 0.6);
+  transform: translateY(-1px);
 }
 
-.aiCloseActionBtn {
-  position: absolute;
-  top: 1.5rem;
-  right: 1.8rem;
-  background: none;
+.hologramCloseBtn {
+  background: rgba(0, 0, 0, 0.05);
+  color: #000000;
   border: none;
-  color: #888888;
-  font-size: 1.8rem;
-  cursor: pointer;
-  transition: color 0.3s ease;
-}
-
-.aiCloseActionBtn:hover {
-  color: #ffffff;
-}
-
-.aiReviewProgressDots {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
   display: flex;
-  gap: 8px;
-  margin-top: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.aiProgressDot {
-  width: 32px;
-  height: 4px;
-  background: rgba(255, 255, 255, 0.15);
+.hologramCloseBtn:hover {
+  background: rgba(227, 6, 19, 0.15);
+  color: #e30613;
+}
+
+.hologramProgressDots {
+  display: flex;
+  gap: 6px;
+  margin-top: 1rem;
+  justify-content: center;
+}
+
+.hologramDot {
+  width: 20px;
+  height: 3px;
+  background: rgba(0, 0, 0, 0.1);
   border-radius: 2px;
   transition: all 0.3s ease;
 }
 
-.aiProgressDotActive {
+.hologramDotActive {
   background: #e30613;
-  box-shadow: 0 0 10px #e30613;
+  box-shadow: 0 0 6px rgba(227, 6, 19, 0.5);
 }
 

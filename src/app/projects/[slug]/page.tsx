@@ -187,7 +187,7 @@ export default function ProjectDetail({ params }: PageProps) {
 
   const reviewSteps = [
     {
-      video: "/assets/magnific_make-the-robot-make-bye-b_lJSCNOSgv9.mp4",
+      video: "/assets/92f7fa6d91fd44619dd71dc790ea4165.webm",
       subEn: "Welcome to Zomra East Compound, New Cairo. Let's analyze the architectural blueprint and master planning.",
       subAr: "مرحباً بكم في كمبوند زمرة إيست بالقاهرة الجديدة. دعونا نحلل المخطط العام والكتل المعمارية للمشروع.",
       action: () => {
@@ -195,7 +195,7 @@ export default function ProjectDetail({ params }: PageProps) {
       }
     },
     {
-      video: "/assets/magnific_i-want-the-robot-to-read-_s7SZZqVl8e.mp4",
+      video: "/assets/92f7fa6d91fd44619dd71dc790ea4165.webm",
       subEn: "Scanning specifications. Zomra East spans 378 acres, prioritizing nature, tranquil green spaces, and private villa frontages.",
       subAr: "جارٍ فحص المواصفات. يمتد مشروع زمرة إيست على مساحة ٣٧٨ فداناً، مع إعطاء الأولوية للبيئة الطبيعية والمساحات الخضراء الهادئة.",
       action: () => {
@@ -204,7 +204,7 @@ export default function ProjectDetail({ params }: PageProps) {
       }
     },
     {
-      video: "/assets/magnific_i-want-this-robot-to-draw_SywuP7iUb8.mp4",
+      video: "/assets/92f7fa6d91fd44619dd71dc790ea4165.webm",
       subEn: "Examining architectural typologies. Standalone villas, townhouses, and twin houses are designed with contemporary European aesthetics.",
       subAr: "فحص الأنماط المعمارية. تم تصميم الفيلات المستقلة والتاون هاوس والتوين هاوس بجماليات أوروبية معاصرة.",
       action: () => {
@@ -215,7 +215,7 @@ export default function ProjectDetail({ params }: PageProps) {
       }
     },
     {
-      video: "/assets/magnific_make-the-robot-make-bye-b_lJSCNOSgv9.mp4",
+      video: "/assets/92f7fa6d91fd44619dd71dc790ea4165.webm",
       subEn: "Review complete. CUBE Consultants ensured structural compliance, quality concrete supervision, and landscape coordination.",
       subAr: "تمت المراجعة بنجاح. أدارت كيو ب للاستشارات الإشراف الفني لضمان مطابقة الهياكل الخرسانية والموقع العام.",
       action: () => {
@@ -574,68 +574,65 @@ export default function ProjectDetail({ params }: PageProps) {
         </div>
       )}
 
-      {/* Full-Screen AI Robot Review Overlay */}
+      {/* Transparent Hologram AI Robot Reviewer (No backdrop, stands directly on the page content) */}
       {isReviewOpen && (
-        <div className={styles.aiReviewOverlay}>
-          <div className={styles.aiReviewContainer}>
-            <button className={styles.aiCloseActionBtn} onClick={handleCloseReview} aria-label="Exit review">
+        <div className={styles.hologramRobotContainer}>
+          {/* Subtitle Card situated above the robot */}
+          <div className={styles.hologramSubtitleCard}>
+            <button className={styles.hologramCloseBtn} style={{ position: "absolute", top: "12px", right: "12px" }} onClick={handleCloseReview} aria-label="Close review">
               &times;
             </button>
 
-            {/* Robot Facetime Bubble */}
-            <div className={styles.aiRobotFacetCard}>
-              <video
-                key={reviewSteps[reviewStep].video}
-                src={reviewSteps[reviewStep].video}
-                autoPlay
-                loop
-                muted={reviewMuted}
-                playsInline
-                className={styles.aiRobotFacetVideo}
-              />
-              <div className={styles.aiRobotGlowCircle} />
+            <div className={styles.hologramSubtitleTitle}>
+              <span>🤖</span>
+              <span>{language === "ar" ? "مراجعة كيو ب الذكية للمشروع" : "CUBE AI PROJECT REVIEW"}</span>
+              <span>·</span>
+              <span>{language === "ar" ? `${reviewStep + 1} / ${reviewSteps.length}` : `${reviewStep + 1} / ${reviewSteps.length}`}</span>
             </div>
 
-            {/* Translation Subtitle & Navigation */}
-            <div className={styles.aiReviewContent}>
-              <div className={styles.aiReviewTitle}>
-                <span>🤖</span>
-                <span>{language === "ar" ? "مراجعة كيو ب الذكية للمشروع" : "CUBE AI PROJECT REVIEW"}</span>
-                <span>·</span>
-                <span>{language === "ar" ? `الخطوة ${reviewStep + 1} من ${reviewSteps.length}` : `Step ${reviewStep + 1} of ${reviewSteps.length}`}</span>
-              </div>
+            <div className={styles.hologramSubtitleText}>
+              {language === "ar" ? reviewSteps[reviewStep].subAr : reviewSteps[reviewStep].subEn}
+            </div>
 
-              <div className={styles.aiReviewSubtitleText}>
-                {language === "ar" ? reviewSteps[reviewStep].subAr : reviewSteps[reviewStep].subEn}
-              </div>
-
-              <div className={styles.aiReviewActions}>
-                <button className={styles.aiActionBtn} onClick={() => setReviewMuted(!reviewMuted)}>
-                  {reviewMuted ? (language === "ar" ? "🔊 تشغيل الصوت" : "🔊 UNMUTE") : (language === "ar" ? "🔇 كتم الصوت" : "🔇 MUTE")}
+            <div className={styles.hologramActions}>
+              <div className={styles.hologramActionsLeft}>
+                <button className={styles.hologramBtn} onClick={() => setReviewMuted(!reviewMuted)}>
+                  {reviewMuted ? (language === "ar" ? "🔊 تشغيل" : "🔊 UNMUTE") : (language === "ar" ? "🔇 كتم" : "🔇 MUTE")}
                 </button>
 
                 {reviewStep > 0 && (
-                  <button className={styles.aiActionBtn} onClick={handlePrevReviewStep}>
-                    {language === "ar" ? "السابق" : "PREVIOUS"}
+                  <button className={styles.hologramBtn} onClick={handlePrevReviewStep}>
+                    {language === "ar" ? "السابق" : "PREV"}
                   </button>
                 )}
-
-                <button className={styles.aiPrimaryActionBtn} onClick={handleNextReviewStep}>
-                  {reviewStep === reviewSteps.length - 1 ? (language === "ar" ? "إنهاء المراجعة" : "FINISH REVIEW") : (language === "ar" ? "الخطوة التالية ➔" : "NEXT STEP ➔")}
-                </button>
               </div>
 
-              {/* Progress Indicator Dots */}
-              <div className={styles.aiReviewProgressDots}>
-                {reviewSteps.map((_, idx) => (
-                  <div
-                    key={idx}
-                    className={`${styles.aiProgressDot} ${idx === reviewStep ? styles.aiProgressDotActive : ""}`}
-                  />
-                ))}
-              </div>
+              <button className={styles.hologramPrimaryBtn} onClick={handleNextReviewStep}>
+                {reviewStep === reviewSteps.length - 1 ? (language === "ar" ? "إنهاء" : "FINISH") : (language === "ar" ? "التالي ➔" : "NEXT ➔")}
+              </button>
+            </div>
+
+            {/* Progress Dots */}
+            <div className={styles.hologramProgressDots}>
+              {reviewSteps.map((_, idx) => (
+                <div
+                  key={idx}
+                  className={`${styles.hologramDot} ${idx === reviewStep ? styles.hologramDotActive : ""}`}
+                />
+              ))}
             </div>
           </div>
+
+          {/* Transparent Standing Robot Video playing dynamically */}
+          <video
+            key={reviewSteps[reviewStep].video}
+            src={reviewSteps[reviewStep].video}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className={styles.hologramRobotVideo}
+          />
         </div>
       )}
       </main>
