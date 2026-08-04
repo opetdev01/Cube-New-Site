@@ -168,17 +168,6 @@ export default function ProjectDetail({ params }: PageProps) {
     };
   }, [lenis, hasAssembled, slug]);
 
-  // Keyboard navigation inside Lightbox
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (lightboxIndex === null) return;
-      if (e.key === "ArrowLeft") lightboxPrev();
-      if (e.key === "ArrowRight") lightboxNext();
-      if (e.key === "Escape") setLightboxIndex(null);
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [lightboxIndex]);
 
   // AI Reviewer Presentation State Machine
   const [isReviewOpen, setIsReviewOpen] = useState(false);
@@ -353,6 +342,25 @@ export default function ProjectDetail({ params }: PageProps) {
     setReviewStep(0);
     setLightboxIndex(null); // Ensure full-screen visual modal is closed
   };
+
+  const handleManualCloseLightbox = () => {
+    setLightboxIndex(null);
+    if (isReviewOpen && reviewStep === 2) {
+      handleCloseReview();
+    }
+  };
+
+  // Keyboard navigation inside Lightbox
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (lightboxIndex === null) return;
+      if (e.key === "ArrowLeft") lightboxPrev();
+      if (e.key === "ArrowRight") lightboxNext();
+      if (e.key === "Escape") handleManualCloseLightbox();
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [lightboxIndex, isReviewOpen, reviewStep]);
 
   return (
     <ReactLenis root options={{ autoRaf: true, lerp: 0.08 }}>
@@ -602,11 +610,11 @@ export default function ProjectDetail({ params }: PageProps) {
           </section>
         )}
       {lightboxIndex !== null && project.gallery && project.gallery.length > 0 && (
-        <div className={styles.lightboxOverlay} onClick={() => setLightboxIndex(null)}>
+        <div className={styles.lightboxOverlay} onClick={handleManualCloseLightbox}>
           <div className={styles.lightboxContent} onClick={(e) => e.stopPropagation()}>
             <button 
               className={styles.lightboxClose} 
-              onClick={() => setLightboxIndex(null)}
+              onClick={handleManualCloseLightbox}
               aria-label="Close image"
             >
               &times;
