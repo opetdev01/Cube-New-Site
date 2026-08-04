@@ -274,9 +274,17 @@ export default function ProjectDetail({ params }: PageProps) {
     if (isReviewOpen && reviewSteps[reviewStep]) {
       reviewSteps[reviewStep].action();
 
+      // Ensure lightbox closes if we move away from Step 2 (gallery tour)
+      if (reviewStep !== 2) {
+        setLightboxIndex(null);
+      }
+
       // Trigger Web Speech synthesis voice readout with auto-advance callback
       const txt = language === "ar" ? reviewSteps[reviewStep].subAr : reviewSteps[reviewStep].subEn;
       const res = speakText(txt, language, () => {
+        // Ensure lightbox closes when moving to the next step
+        setLightboxIndex(null);
+
         if (reviewStep < reviewSteps.length - 1) {
           setReviewStep((prev) => prev + 1);
         } else {
@@ -287,24 +295,31 @@ export default function ProjectDetail({ params }: PageProps) {
       });
       if (res) cleanupMutedTimer = res;
 
-      // Automatically advance image slides when looking at architectural gallery typology (step index 2)
+      // Automatically open lightbox and cycle slides when looking at architectural gallery typology (step index 2)
       if (reviewStep === 2 && project.gallery && project.gallery.length > 0) {
+        setLightboxIndex(0); // Launch full-screen visual modal immediately
+
         let count = 0;
         const interval = setInterval(() => {
-          setCurrentSlide((prev) => (prev + 1) % project.gallery.length);
+          setLightboxIndex((prev) => {
+            if (prev === null) return 0;
+            return (prev + 1) % project.gallery.length;
+          });
           count++;
           if (count >= 4) clearInterval(interval);
         }, 1500);
+
         return () => {
           clearInterval(interval);
           if (cleanupMutedTimer) cleanupMutedTimer();
         };
       }
     } else {
-      // Cancel speech when closed
+      // Cancel speech and close full-screen visuals when reviewer is closed
       if (typeof window !== "undefined" && window.speechSynthesis) {
         window.speechSynthesis.cancel();
       }
+      setLightboxIndex(null);
     }
 
     return () => {
@@ -318,6 +333,7 @@ export default function ProjectDetail({ params }: PageProps) {
     } else {
       setIsReviewOpen(false);
       setReviewStep(0);
+      setLightboxIndex(null);
     }
   };
 
@@ -330,6 +346,7 @@ export default function ProjectDetail({ params }: PageProps) {
   const handleCloseReview = () => {
     setIsReviewOpen(false);
     setReviewStep(0);
+    setLightboxIndex(null); // Ensure full-screen visual modal is closed
   };
 
   return (
