@@ -94,12 +94,6 @@ const Navigation = () => {
       ) {
         router.push("/about");
       } else if (
-        transcript.includes("services") || 
-        transcript.includes("الخدمات") || 
-        transcript.includes("خدمات")
-      ) {
-        router.push("/services");
-      } else if (
         transcript.includes("insights") || 
         transcript.includes("اخبار") || 
         transcript.includes("الأخبار") || 
@@ -142,7 +136,6 @@ const Navigation = () => {
     { name: t("HOME"), path: "/" },
     { name: t("ABOUT"), path: "/about" },
     { name: t("PROJECTS"), path: "/projects" },
-    { name: t("SERVICES"), path: "/services" },
     { name: t("INSIGHTS"), path: "/insights" },
     { name: t("Ai Lab"), path: "/ai-lab" },
     { name: t("Art Gallery"), path: "/art-gallery" },

@@ -434,9 +434,6 @@ export default function Home() {
                 </div>
                 <h3 className={styles.serviceCardTitle}>{svc.title}</h3>
                 <p className={styles.serviceCardDesc}>{svc.desc}</p>
-                <Link href="/services" className={styles.serviceCardLink}>
-                  <span className={styles.arrowIcon}>→</span>
-                </Link>
               </div>
             ))}
           </div>

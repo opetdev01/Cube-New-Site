@@ -13,7 +13,6 @@ const Footer = () => {
     { name: t("HOME"), path: "/" },
     { name: t("ABOUT"), path: "/about" },
     { name: t("PROJECTS"), path: "/projects" },
-    { name: t("SERVICES"), path: "/services" },
     { name: t("INSIGHTS"), path: "/insights" },
     { name: t("Ai Lab"), path: "/ai-lab" },
     { name: t("Art Gallery"), path: "/art-gallery" },
