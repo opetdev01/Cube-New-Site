@@ -97,7 +97,7 @@ export default function ContactPage() {
           <div className={styles.formColumn}>
             <div className={styles.maquetteContainer}>
               <video
-                src="/assets/magnific_make-the-robot-make-bye-b_lJSCNOSgv9.mp4"
+                src="/assets/magnific_i-want-the-robot-to-make-_P3NLI7242C.mp4"
                 autoPlay
                 loop
                 muted

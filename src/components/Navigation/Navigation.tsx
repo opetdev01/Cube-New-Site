@@ -19,14 +19,14 @@ const Navigation = () => {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      if (pathname !== "/" || localStorage.getItem("cube_intro_shown") === "true") {
+      if (localStorage.getItem("cube_intro_shown") === "true") {
         setShowNav(true);
       }
       const handleDismiss = () => setShowNav(true);
       window.addEventListener("cube_intro_dismissed", handleDismiss);
       return () => window.removeEventListener("cube_intro_dismissed", handleDismiss);
     }
-  }, [pathname]);
+  }, []);
 
   const startSpeechRecognition = () => {
     const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
