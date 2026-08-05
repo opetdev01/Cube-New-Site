@@ -71,7 +71,7 @@ export default function CubeEquation() {
   // Live Synthesis Output Text
   const getSynthesisTitle = () => {
     if (isFullyCharged)
-      return "THE CUBE EQUATION: UNIFIED 3 PILLARS ARCHITECTURAL SYNTHESIS";
+      return "THE CUBE: UNIFIED 3 PILLARS ARCHITECTURAL SYNTHESIS";
     if (isSpirit && isScience) return "HEALING INTELLIGENCE CORE (SPIRIT + SCIENCE)";
     if (isEarth && isScience) return "PARAMETRIC SUSTAINABILITY REACTION (EARTH + SCIENCE)";
     if (isSpirit && isEarth) return "ECOLOGICAL SANCTUARY HARMONY (SPIRIT + EARTH)";
@@ -104,7 +104,7 @@ export default function CubeEquation() {
       {/* Header */}
       <div className={styles.header}>
         <span className={styles.label}>{t("Our Philosophy")}</span>
-        <h2 className={styles.title}>{t("THE CUBE EQUATION ENERGY REACTOR")}</h2>
+        <h2 className={styles.title}>{t("THE CUBE ENERGY REACTOR")}</h2>
         <div style={{ fontSize: "0.8rem", fontWeight: 800, letterSpacing: "0.14em", color: "var(--c-red)", textTransform: "uppercase", marginTop: "4px" }}>
           {t("Shaping, Peaceful, Living")}
         </div>
