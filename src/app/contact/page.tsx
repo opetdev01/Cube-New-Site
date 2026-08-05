@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useLanguage } from "@/components/LanguageContext";
 import Image from "next/image";
 import styles from "./contact.module.css";
@@ -37,9 +37,10 @@ export default function ContactPage() {
   };
 
   // Safe side-effect to load and play video on source changes
-  React.useEffect(() => {
+  useEffect(() => {
     const video = maquetteVideoRef.current;
     if (video) {
+      video.src = videoSrc;
       video.muted = true;
       video.load();
       video.play().catch(err => console.warn("Video autoplay failed:", err));
