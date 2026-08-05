@@ -236,7 +236,7 @@ export default function ContactPage() {
               className={styles.robotByeBtn}
             >
               <img src="/assets/q-robot-face.png" alt="Q Robot" className={styles.qRobotIcon} />
-              <span>{language === "ar" ? "كيو يريد توديعكم" : "Q wants to say bye"}</span>
+              <span>{language === "ar" ? "كيو يريد توديعكم" : "Q Wants To Say Bye"}</span>
             </button>
           </div>
 

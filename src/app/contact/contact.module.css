@@ -372,6 +372,7 @@
   box-shadow: 0 4px 15px rgba(227, 6, 19, 0.08);
   width: fit-content;
   align-self: center;
+  animation: pulse 2s infinite ease-in-out;
 }
 
 .robotByeBtn:hover {
@@ -449,4 +450,19 @@
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 4px 15px rgba(227, 6, 19, 0.08);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 6px 25px rgba(227, 6, 19, 0.35);
+    transform: scale(1.04);
+  }
+  100% {
+    box-shadow: 0 4px 15px rgba(227, 6, 19, 0.08);
+    transform: scale(1);
+  }
 }
