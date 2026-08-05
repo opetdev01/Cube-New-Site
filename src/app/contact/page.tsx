@@ -15,6 +15,7 @@ export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
   const { language, t } = useLanguage();
+  const [videoSrc, setVideoSrc] = useState("/assets/magnific_i-want-the-robot-to-make-_P3NLI7242C.mp4");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -32,6 +33,41 @@ export default function ContactPage() {
       setSubmitStatus("success");
       setFormData({ name: "", email: "", subject: "", message: "" });
     }, 1500);
+  };
+
+  const handleRobotSayBye = () => {
+    setVideoSrc("/assets/magnific_make-the-robot-make-bye-b_lJSCNOSgv9.mp4");
+
+    if (typeof window !== "undefined" && window.speechSynthesis) {
+      window.speechSynthesis.cancel();
+      
+      const text = language === "ar" 
+        ? "شكراً لزيارتكم كيو ب للاستشارات. نتمنى لكم يوماً سعيداً والى اللقاء!" 
+        : "Thank you for visiting CUBE Consultants. Have a great day and goodbye!";
+      
+      const utterance = new SpeechSynthesisUtterance(text);
+      
+      if (language === "ar") {
+        utterance.lang = "ar-EG";
+        const voices = window.speechSynthesis.getVoices();
+        const egVoice = voices.find(v => 
+          v.lang.toLowerCase().includes("ar-eg") || 
+          v.name.toLowerCase().includes("egypt") ||
+          v.name.toLowerCase().includes("hoda") ||
+          v.name.toLowerCase().includes("shakir") ||
+          v.name.toLowerCase().includes("tarik")
+        );
+        if (egVoice) utterance.voice = egVoice;
+      } else {
+        utterance.lang = "en-US";
+      }
+      
+      window.speechSynthesis.speak(utterance);
+    }
+
+    setTimeout(() => {
+      setVideoSrc("/assets/magnific_i-want-the-robot-to-make-_P3NLI7242C.mp4");
+    }, 5500);
   };
 
   return (
@@ -97,12 +133,13 @@ export default function ContactPage() {
           <div className={styles.formColumn}>
             <div className={styles.maquetteContainer}>
               <video
-                src="/assets/magnific_i-want-the-robot-to-make-_P3NLI7242C.mp4"
+                src={videoSrc}
                 autoPlay
                 loop
                 muted
                 playsInline
                 className={styles.maquetteVideo}
+                key={videoSrc}
               />
             </div>
             <h3>{t("Send Us a Message")}</h3>
@@ -201,6 +238,16 @@ export default function ContactPage() {
                 </div>
               </form>
             )}
+
+            {/* Q Robot Bye Trigger Button */}
+            <button
+              type="button"
+              onClick={handleRobotSayBye}
+              className={styles.robotByeBtn}
+            >
+              <img src="/assets/q-robot-face.png" alt="Q Robot" className={styles.qRobotIcon} />
+              <span>{language === "ar" ? "كيو يريد توديعكم" : "Q wants to say bye"}</span>
+            </button>
           </div>
 
         </div>
