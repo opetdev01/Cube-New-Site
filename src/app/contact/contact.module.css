@@ -2,34 +2,8 @@
   position: relative;
   width: 100%;
   min-height: 100vh;
-  background: transparent;
+  background: var(--c-white);
   overflow: hidden;
-}
-
-/* Background blur aesthetics */
-.backgroundBlur {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('/assets/old_home_interior.webp');
-  background-size: cover;
-  background-position: center;
-  opacity: 0.22;
-  /* More prominent background architectural line visibility */
-  filter: blur(12px);
-  z-index: 1;
-  pointer-events: none;
-}
-
-.blurCircleRed {
-  position: absolute;
-  display: none !important;
-}
-
-.blurCircleWhite {
-  display: none !important;
 }
 
 .contentWrapper {

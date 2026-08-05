@@ -68,11 +68,6 @@ export default function ContactPage() {
 
   return (
     <div className={styles.pageContainer}>
-      {/* Blurred background elements */}
-      <div className={styles.backgroundBlur} />
-      <div className={styles.blurCircleRed} />
-      <div className={styles.blurCircleWhite} />
-
       <div className={styles.contentWrapper}>
         <div className={styles.contentGrid}>
 
