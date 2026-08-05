@@ -428,13 +428,16 @@ export default function Home() {
           
           <div className={styles.servicesCardGrid}>
             {servicesList.map((svc) => (
-              <div key={svc.num} className={styles.serviceCardItem}>
+              <Link href="/contact" key={svc.num} className={styles.serviceCardItem}>
                 <div className={styles.serviceIconContainer}>
                   {svc.icon}
                 </div>
                 <h3 className={styles.serviceCardTitle}>{svc.title}</h3>
                 <p className={styles.serviceCardDesc}>{svc.desc}</p>
-              </div>
+                <span className={styles.serviceCardLink}>
+                  <span className={styles.arrowIcon}>→</span>
+                </span>
+              </Link>
             ))}
           </div>
         </section>
