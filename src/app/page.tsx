@@ -27,6 +27,7 @@ export default function Home() {
   const [isIntroActive, setIsIntroActive] = useState(true);
   const [videoEnded, setVideoEnded] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
+  const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -35,6 +36,7 @@ export default function Home() {
         setIsIntroActive(false);
         setVideoEnded(true);
       }
+      setHasMounted(true);
     }
   }, []);
 
@@ -221,56 +223,58 @@ export default function Home() {
   return (
     <ReactLenis root options={{ autoRaf: true, lerp: 0.08 }}>
       {/* Intro Splash Overlay */}
-      <div suppressHydrationWarning className={`${styles.introOverlay} ${!isIntroActive ? styles.introOverlayFadeOut : ""} ${videoEnded ? styles.introOverlayTransparent : ""}`}>
-        {!videoEnded ? (
-          <>
-            <video
-              ref={introVideoRef}
-              src="/assets/Intro.mp4"
-              muted={isMuted}
-              playsInline
-              onEnded={() => setVideoEnded(true)}
-              className={styles.introVideoFullscreen}
-            />
-            <div className={styles.introControls}>
-              <button 
-                className={styles.soundToggleBtn} 
-                onClick={(e) => { 
-                  e.stopPropagation(); 
-                  setIsMuted(!isMuted); 
-                }}
-                title={isMuted ? "Unmute Sound" : "Mute Sound"}
-              >
-                {isMuted ? (
-                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                    <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM19 12c0 2.94-1.65 5.51-4 6.75v1.85c3.36-1.39 6-4.7 6-8.6s-2.64-7.21-6-8.6v1.85c2.35 1.24 4 3.81 4 6.75zM3 9v6h4l5 5V4L7 9H3z" />
-                  </svg>
-                ) : (
-                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                    <path d="M12 4L9.91 6.09 12 8.18V4zM16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.05-.21.05-.42.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-3.9-2.64-7.2-6-8.58v1.86c2.35 1.24 4 3.8 4 6.72zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v1.85c1.33-.31 2.53-.95 3.53-1.84L19.73 21 21 19.73 4.27 3zM12 11.82v6.27l-3.91-3.91H5v-4.09h3.91l3.09-3.09z" />
-                  </svg>
-                )}
-              </button>
-              <button className={styles.skipBtn} onClick={() => setVideoEnded(true)}>
-                {t("Skip")}
-              </button>
-            </div>
-          </>
-        ) : (
-          <button className={styles.introLogoBadge} onClick={handleDismissIntro} title={t("Enter Site")}>
-            <Image
-              src="/logo-v4.png"
-              alt="CUBE Logo"
-              width={130}
-              height={130}
-              className={styles.introLogoImage}
-              priority
-            />
-          </button>
-        )}
-      </div>
+      {(!hasMounted || isIntroActive) && (
+        <div suppressHydrationWarning className={`${styles.introOverlay} ${!isIntroActive ? styles.introOverlayFadeOut : ""} ${videoEnded ? styles.introOverlayTransparent : ""}`}>
+          {!videoEnded ? (
+            <>
+              <video
+                ref={introVideoRef}
+                src="/assets/Intro.mp4"
+                muted={isMuted}
+                playsInline
+                onEnded={() => setVideoEnded(true)}
+                className={styles.introVideoFullscreen}
+              />
+              <div className={styles.introControls}>
+                <button 
+                  className={styles.soundToggleBtn} 
+                  onClick={(e) => { 
+                    e.stopPropagation(); 
+                    setIsMuted(!isMuted); 
+                  }}
+                  title={isMuted ? "Unmute Sound" : "Mute Sound"}
+                >
+                  {isMuted ? (
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                      <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM19 12c0 2.94-1.65 5.51-4 6.75v1.85c3.36-1.39 6-4.7 6-8.6s-2.64-7.21-6-8.6v1.85c2.35 1.24 4 3.81 4 6.75zM3 9v6h4l5 5V4L7 9H3z" />
+                    </svg>
+                  ) : (
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                      <path d="M12 4L9.91 6.09 12 8.18V4zM16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.05-.21.05-.42.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-3.9-2.64-7.2-6-8.58v1.86c2.35 1.24 4 3.8 4 6.72zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v1.85c1.33-.31 2.53-.95 3.53-1.84L19.73 21 21 19.73 4.27 3zM12 11.82v6.27l-3.91-3.91H5v-4.09h3.91l3.09-3.09z" />
+                    </svg>
+                  )}
+                </button>
+                <button className={styles.skipBtn} onClick={() => setVideoEnded(true)}>
+                  {t("Skip")}
+                </button>
+              </div>
+            </>
+          ) : (
+            <button className={styles.introLogoBadge} onClick={handleDismissIntro} title={t("Enter Site")}>
+              <Image
+                src="/logo-v4.png"
+                alt="CUBE Logo"
+                width={130}
+                height={130}
+                className={styles.introLogoImage}
+                priority
+              />
+            </button>
+          )}
+        </div>
+      )}
 
-      <div className={`${styles.homeContainer} ${isIntroActive ? styles.homeContainerHidden : ""}`} ref={containerRef}>
+      <div className={`${styles.homeContainer} ${(!hasMounted || isIntroActive) ? styles.homeContainerHidden : ""}`} ref={containerRef}>
         
         {/* SECTION 1: FULLSCREEN HERO WITH SLIDING PROJECTS */}
         <section className={styles.heroSection}>
