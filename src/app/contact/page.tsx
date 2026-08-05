@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useLanguage } from "@/components/LanguageContext";
 import Image from "next/image";
 import styles from "./contact.module.css";
@@ -16,6 +16,7 @@ export default function ContactPage() {
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
   const { language, t } = useLanguage();
   const [videoSrc, setVideoSrc] = useState("/assets/magnific_i-want-the-robot-to-make-_P3NLI7242C.mp4");
+  const maquetteVideoRef = useRef<HTMLVideoElement>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -37,6 +38,12 @@ export default function ContactPage() {
 
   const handleRobotSayBye = () => {
     setVideoSrc("/assets/magnific_make-the-robot-make-bye-b_lJSCNOSgv9.mp4");
+    const video = maquetteVideoRef.current;
+    if (video) {
+      video.src = "/assets/magnific_make-the-robot-make-bye-b_lJSCNOSgv9.mp4";
+      video.load();
+      video.play().catch(err => console.warn("Video play failed:", err));
+    }
 
     if (typeof window !== "undefined" && window.speechSynthesis) {
       window.speechSynthesis.cancel();
@@ -67,6 +74,12 @@ export default function ContactPage() {
 
     setTimeout(() => {
       setVideoSrc("/assets/magnific_i-want-the-robot-to-make-_P3NLI7242C.mp4");
+      const video = maquetteVideoRef.current;
+      if (video) {
+        video.src = "/assets/magnific_i-want-the-robot-to-make-_P3NLI7242C.mp4";
+        video.load();
+        video.play().catch(err => console.warn("Video play failed:", err));
+      }
     }, 5500);
   };
 
@@ -133,6 +146,7 @@ export default function ContactPage() {
           <div className={styles.formColumn}>
             <div className={styles.maquetteContainer}>
               <video
+                ref={maquetteVideoRef}
                 src={videoSrc}
                 autoPlay
                 loop

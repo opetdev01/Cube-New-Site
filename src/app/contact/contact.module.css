@@ -392,9 +392,9 @@
 }
 
 .robotByeBtn:hover {
-  background: var(--c-red);
-  color: var(--c-white);
-  box-shadow: 0 6px 20px rgba(227, 6, 19, 0.35);
+  background: rgba(227, 6, 19, 0.08);
+  border-color: rgba(227, 6, 19, 0.45);
+  box-shadow: 0 6px 20px rgba(227, 6, 19, 0.15);
   transform: translateY(-2px);
 }
 
@@ -403,8 +403,4 @@
   height: 22px;
   object-fit: contain;
   transition: filter 0.3s ease;
-}
-
-.robotByeBtn:hover .qRobotIcon {
-  filter: brightness(0) invert(1);
 }
