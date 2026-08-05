@@ -36,15 +36,18 @@ export default function ContactPage() {
     }, 1500);
   };
 
-  const handleRobotSayBye = () => {
-    setVideoSrc("/assets/magnific_make-the-robot-make-bye-b_lJSCNOSgv9.mp4");
+  // Safe side-effect to load and play video on source changes
+  React.useEffect(() => {
     const video = maquetteVideoRef.current;
     if (video) {
       video.muted = true;
-      video.src = "/assets/magnific_make-the-robot-make-bye-b_lJSCNOSgv9.mp4";
       video.load();
-      video.play().catch(err => console.warn("Video play failed:", err));
+      video.play().catch(err => console.warn("Video autoplay failed:", err));
     }
+  }, [videoSrc]);
+
+  const handleRobotSayBye = () => {
+    setVideoSrc("/assets/magnific_make-the-robot-make-bye-b_lJSCNOSgv9.mp4");
 
     if (typeof window !== "undefined" && window.speechSynthesis) {
       window.speechSynthesis.cancel();
@@ -75,13 +78,6 @@ export default function ContactPage() {
 
     setTimeout(() => {
       setVideoSrc("/assets/magnific_i-want-the-robot-to-make-_P3NLI7242C.mp4");
-      const video = maquetteVideoRef.current;
-      if (video) {
-        video.muted = true;
-        video.src = "/assets/magnific_i-want-the-robot-to-make-_P3NLI7242C.mp4";
-        video.load();
-        video.play().catch(err => console.warn("Video play failed:", err));
-      }
     }, 5500);
   };
 
@@ -155,7 +151,6 @@ export default function ContactPage() {
                 muted
                 playsInline
                 className={styles.maquetteVideo}
-                key={videoSrc}
               />
             </div>
             <h3>{t("Send Us a Message")}</h3>
