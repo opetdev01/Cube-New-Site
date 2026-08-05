@@ -15,9 +15,7 @@ export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
   const { language, t } = useLanguage();
-  const [isSayingBye, setIsSayingBye] = useState(false);
-  const loopVideoRef = useRef<HTMLVideoElement>(null);
-  const byeVideoRef = useRef<HTMLVideoElement>(null);
+  const [showByePopup, setShowByePopup] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -38,14 +36,7 @@ export default function ContactPage() {
   };
 
   const handleRobotSayBye = () => {
-    setIsSayingBye(true);
-
-    // Reset and force playback of the bye video
-    const byeVideo = byeVideoRef.current;
-    if (byeVideo) {
-      byeVideo.currentTime = 0;
-      byeVideo.play().catch(err => console.warn("Bye video play failed:", err));
-    }
+    setShowByePopup(true);
 
     if (typeof window !== "undefined" && window.speechSynthesis) {
       window.speechSynthesis.cancel();
@@ -73,10 +64,6 @@ export default function ContactPage() {
       
       window.speechSynthesis.speak(utterance);
     }
-
-    setTimeout(() => {
-      setIsSayingBye(false);
-    }, 5500);
   };
 
   return (
@@ -141,25 +128,13 @@ export default function ContactPage() {
           {/* Right Column: Contact form */}
           <div className={styles.formColumn}>
             <div className={styles.maquetteContainer}>
-              {/* Explaining Loop Video */}
               <video
-                ref={loopVideoRef}
                 src="/assets/magnific_i-want-the-robot-to-make-_P3NLI7242C.mp4"
                 autoPlay
                 loop
                 muted
                 playsInline
-                className={`${styles.maquetteVideo} ${isSayingBye ? styles.videoHidden : ""}`}
-              />
-              {/* Waving Bye Video */}
-              <video
-                ref={byeVideoRef}
-                src="/assets/magnific_make-the-robot-make-bye-b_lJSCNOSgv9.mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
-                className={`${styles.maquetteVideo} ${!isSayingBye ? styles.videoHidden : ""}`}
+                className={styles.maquetteVideo}
               />
             </div>
             <h3>{t("Send Us a Message")}</h3>
@@ -272,6 +247,27 @@ export default function ContactPage() {
 
         </div>
       </div>
+
+      {showByePopup && (
+        <div className={styles.videoPopupOverlay} onClick={() => setShowByePopup(false)}>
+          <div className={styles.videoPopupContent} onClick={(e) => e.stopPropagation()}>
+            <button 
+              className={styles.videoPopupClose} 
+              onClick={() => setShowByePopup(false)}
+              aria-label="Close video"
+            >
+              &times;
+            </button>
+            <video
+              src="/assets/magnific_make-the-robot-make-bye-b_lJSCNOSgv9.mp4"
+              autoPlay
+              playsInline
+              onEnded={() => setShowByePopup(false)}
+              className={styles.videoPopupPlayer}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
