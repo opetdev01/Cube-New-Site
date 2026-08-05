@@ -15,8 +15,9 @@ export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
   const { language, t } = useLanguage();
-  const [videoSrc, setVideoSrc] = useState("/assets/magnific_i-want-the-robot-to-make-_P3NLI7242C.mp4");
-  const maquetteVideoRef = useRef<HTMLVideoElement>(null);
+  const [isSayingBye, setIsSayingBye] = useState(false);
+  const loopVideoRef = useRef<HTMLVideoElement>(null);
+  const byeVideoRef = useRef<HTMLVideoElement>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -36,19 +37,15 @@ export default function ContactPage() {
     }, 1500);
   };
 
-  // Safe side-effect to load and play video on source changes
-  useEffect(() => {
-    const video = maquetteVideoRef.current;
-    if (video) {
-      video.src = videoSrc;
-      video.muted = true;
-      video.load();
-      video.play().catch(err => console.warn("Video autoplay failed:", err));
-    }
-  }, [videoSrc]);
-
   const handleRobotSayBye = () => {
-    setVideoSrc("/assets/magnific_make-the-robot-make-bye-b_lJSCNOSgv9.mp4");
+    setIsSayingBye(true);
+
+    // Reset and force playback of the bye video
+    const byeVideo = byeVideoRef.current;
+    if (byeVideo) {
+      byeVideo.currentTime = 0;
+      byeVideo.play().catch(err => console.warn("Bye video play failed:", err));
+    }
 
     if (typeof window !== "undefined" && window.speechSynthesis) {
       window.speechSynthesis.cancel();
@@ -78,7 +75,7 @@ export default function ContactPage() {
     }
 
     setTimeout(() => {
-      setVideoSrc("/assets/magnific_i-want-the-robot-to-make-_P3NLI7242C.mp4");
+      setIsSayingBye(false);
     }, 5500);
   };
 
@@ -144,14 +141,25 @@ export default function ContactPage() {
           {/* Right Column: Contact form */}
           <div className={styles.formColumn}>
             <div className={styles.maquetteContainer}>
+              {/* Explaining Loop Video */}
               <video
-                ref={maquetteVideoRef}
-                src={videoSrc}
+                ref={loopVideoRef}
+                src="/assets/magnific_i-want-the-robot-to-make-_P3NLI7242C.mp4"
                 autoPlay
                 loop
                 muted
                 playsInline
-                className={styles.maquetteVideo}
+                className={`${styles.maquetteVideo} ${isSayingBye ? styles.videoHidden : ""}`}
+              />
+              {/* Waving Bye Video */}
+              <video
+                ref={byeVideoRef}
+                src="/assets/magnific_make-the-robot-make-bye-b_lJSCNOSgv9.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className={`${styles.maquetteVideo} ${!isSayingBye ? styles.videoHidden : ""}`}
               />
             </div>
             <h3>{t("Send Us a Message")}</h3>

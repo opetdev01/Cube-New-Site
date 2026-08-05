@@ -344,7 +344,16 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
-  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.5s ease-in-out;
+  opacity: 1;
+}
+
+.videoHidden {
+  opacity: 0;
+  pointer-events: none;
 }
 
 @media (max-width: 768px) {
