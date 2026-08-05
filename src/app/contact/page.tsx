@@ -40,6 +40,7 @@ export default function ContactPage() {
     setVideoSrc("/assets/magnific_make-the-robot-make-bye-b_lJSCNOSgv9.mp4");
     const video = maquetteVideoRef.current;
     if (video) {
+      video.muted = true;
       video.src = "/assets/magnific_make-the-robot-make-bye-b_lJSCNOSgv9.mp4";
       video.load();
       video.play().catch(err => console.warn("Video play failed:", err));
@@ -76,6 +77,7 @@ export default function ContactPage() {
       setVideoSrc("/assets/magnific_i-want-the-robot-to-make-_P3NLI7242C.mp4");
       const video = maquetteVideoRef.current;
       if (video) {
+        video.muted = true;
         video.src = "/assets/magnific_i-want-the-robot-to-make-_P3NLI7242C.mp4";
         video.load();
         video.play().catch(err => console.warn("Video play failed:", err));
