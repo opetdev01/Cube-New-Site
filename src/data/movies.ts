@@ -104,6 +104,46 @@ export const MOVIES: MovieItem[] = [
     featuredImage: "https://img.youtube.com/vi/G2w8poYtCb4/hqdefault.jpg",
     sector: "Mixed-Use & Visions",
     location: "Sun Capital, Giza, Egypt"
+  },
+  {
+    slug: "tutera-city-space-science-city",
+    title: "TUTERA City: Towards an Innovative Astronomy and Space Science City in Egypt",
+    videoId: "sGT3GRMRNTg",
+    featuredImage: "https://img.youtube.com/vi/sGT3GRMRNTg/maxresdefault.jpg",
+    sector: "Mixed-Use & Visions",
+    location: "Tutera Digital Realm"
+  },
+  {
+    slug: "media-city-nut-tower-new-capital",
+    title: "Media City & Nut Tower - New Capital - Egypt",
+    videoId: "e4gJ6YqY888",
+    featuredImage: "https://img.youtube.com/vi/e4gJ6YqY888/maxresdefault.jpg",
+    sector: "Commercial & Retail",
+    location: "New Administrative Capital, Cairo, Egypt"
+  },
+  {
+    slug: "new-administrative-capital-cairo",
+    title: "The New Administrative Capital Cairo",
+    videoId: "AuC9XEyBgvg",
+    featuredImage: "https://img.youtube.com/vi/AuC9XEyBgvg/maxresdefault.jpg",
+    sector: "Mixed-Use & Visions",
+    location: "New Administrative Capital, Egypt"
+  },
+  {
+    slug: "khufu-plaza-giza-2030",
+    title: "Khufu Plaza .. Giza 2030",
+    videoId: "Ilk-6VsAJQY",
+    featuredImage: "https://img.youtube.com/vi/Ilk-6VsAJQY/maxresdefault.jpg",
+    sector: "Mixed-Use & Visions",
+    location: "Giza, Egypt"
+  },
+  {
+    slug: "north-sinai-development-plan-vision-2022",
+    title: "North Sinai Development Plan & Vision 2022 - Salam City",
+    videoId: "p0PUu0A5BIk",
+    featuredImage: "https://img.youtube.com/vi/p0PUu0A5BIk/maxresdefault.jpg",
+    sector: "Mixed-Use & Visions",
+    location: "North Sinai, Egypt"
   }
 ];
 
@@ -209,5 +249,10 @@ export const MOVIE_ALIASES: Record<string, string[]> = {
   "vortex-resorts": ["vortex", "resorts", "hurghada", "فورتكس", "منتجعات", "الغردقة", "الغردقه"],
   "suez-canal-entrance-waterfront": ["suez", "canal", "waterfront", "السويس", "قناة السويس", "واجهة بحرية"],
   "kemet-tower": ["kemet", "tower", "كيميت", "برج كيميت", "برج"],
-  "crystal-pyramid-vision-sun-capital": ["crystal", "pyramid", "sun capital", "كريستال", "هرم", "صن كابيتال", "الجيزة"]
+  "crystal-pyramid-vision-sun-capital": ["crystal", "pyramid", "sun capital", "كريستال", "هرم", "صن كابيتال", "الجيزة"],
+  "tutera-city-space-science-city": ["tutera", "tutera city", "space science", "توتيرا", "مدينة الفضاء"],
+  "media-city-nut-tower-new-capital": ["media city", "nut tower", "new capital", "مدينة الإعلام", "برج نوت"],
+  "new-administrative-capital-cairo": ["new administrative capital", "cairo new capital", "العاصمة الإدارية", "العاصمة الجديدة"],
+  "khufu-plaza-giza-2030": ["khufu", "khufu plaza", "giza 2030", "خوفو", "ساحة خوفو"],
+  "north-sinai-development-plan-vision-2022": ["north sinai", "sinai development", "salam city", "سيناء", "تنمية سيناء", "مدينة سلام"]
 };
