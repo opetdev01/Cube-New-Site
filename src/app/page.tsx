@@ -364,18 +364,15 @@ export default function Home() {
 
         {/* CEO & FOUNDER SECTION */}
         <section className={styles.ceoFounderSection}>
-          <div className={styles.ceoFounderContainer}>
+          <div className={styles.ceoFounderGrid}>
             <div className={styles.ceoFounderImageWrapper}>
-              <Image 
-                src="/assets/magnific_1lxtSqfr4r.png" 
+              <img 
+                src="/assets/magnific_i-want-this-robot-to-act-_9Z3G7PCNYZ.jpg" 
                 alt="Dr. Ashraf Abdel Mohsen" 
-                width={500} 
-                height={750}
-                className={styles.ceoFounderImg}
-                priority
+                className={styles.ceoFounderImage} 
               />
             </div>
-            <div className={styles.ceoFounderContent}>
+            <div className={`${styles.ceoFounderContent} ${language === "ar" ? styles.rtlContent : ""}`}>
               <span className={styles.ceoFounderTag}>{t("FOUNDER & CEO")}</span>
               <h2 className={styles.ceoFounderName}>{t("Dr. Ashraf Abdel Mohsen")}</h2>
               <h3 className={styles.ceoFounderTitle}>
