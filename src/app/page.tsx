@@ -364,22 +364,34 @@ export default function Home() {
 
         {/* CEO & FOUNDER SECTION */}
         <section className={styles.ceoFounderSection}>
-          <div className={styles.ceoFounderContent}>
-            <span className={styles.ceoFounderTag}>{t("FOUNDER & CEO")}</span>
-            <h2 className={styles.ceoFounderName}>{t("Dr. Ashraf Abdel Mohsen")}</h2>
-            <h3 className={styles.ceoFounderTitle}>
-              {language === "ar" 
-                ? "أستاذ العمارة ورائد التنمية العمرانية المستدامة" 
-                : "Professor of Architecture & Pioneer of Sustainable Urban Development"}
-            </h3>
-            <p className={styles.ceoFounderBio}>
-              {language === "ar"
-                ? "في عام 1990، أسس الأستاذ الدكتور أشرف عبد المحسن شركة مكعب (CUBE) برؤية تهدف إلى تعزيز التوسع الحضري المستدام والارتقاء بالتصميم المعماري. قاد المخطط الوطني الرؤيوي 'القاهرة 2050' لترسيخ الهوية الإقليمية لمصر في الساحة العالمية."
-                : "In 1990, Professor Dr. Ashraf Abdel Mohsen founded CUBE with a vision to champion sustainable urban expansion and architectural mastery. He pioneered the national 'Cairo 2050' visionary masterplan to elevate Egypt's regional identity on the global stage."}
-            </p>
-            <Link href="/about" className={styles.ceoFounderCta}>
-              {t("READ FULL BIOGRAPHY")} <span className={styles.arrowIcon}>→</span>
-            </Link>
+          <div className={styles.ceoFounderContainer}>
+            <div className={styles.ceoFounderImageWrapper}>
+              <Image 
+                src="/assets/magnific_1lxtSqfr4r.png" 
+                alt="Dr. Ashraf Abdel Mohsen" 
+                width={500} 
+                height={750}
+                className={styles.ceoFounderImg}
+                priority
+              />
+            </div>
+            <div className={styles.ceoFounderContent}>
+              <span className={styles.ceoFounderTag}>{t("FOUNDER & CEO")}</span>
+              <h2 className={styles.ceoFounderName}>{t("Dr. Ashraf Abdel Mohsen")}</h2>
+              <h3 className={styles.ceoFounderTitle}>
+                {language === "ar" 
+                  ? "أستاذ العمارة ورائد التنمية العمرانية المستدامة" 
+                  : "Professor of Architecture & Pioneer of Sustainable Urban Development"}
+              </h3>
+              <p className={styles.ceoFounderBio}>
+                {language === "ar"
+                  ? "في عام 1990، أسس الأستاذ الدكتور أشرف عبد المحسن شركة مكعب (CUBE) برؤية تهدف إلى تعزيز التوسع الحضري المستدام والارتقاء بالتصميم المعماري. قاد المخطط الوطني الرؤيوي 'القاهرة 2050' لترسيخ الهوية الإقليمية لمصر في الساحة العالمية."
+                  : "In 1990, Professor Dr. Ashraf Abdel Mohsen founded CUBE with a vision to champion sustainable urban expansion and architectural mastery. He pioneered the national 'Cairo 2050' visionary masterplan to elevate Egypt's regional identity on the global stage."}
+              </p>
+              <Link href="/about" className={styles.ceoFounderCta}>
+                {t("READ FULL BIOGRAPHY")} <span className={styles.arrowIcon}>→</span>
+              </Link>
+            </div>
           </div>
         </section>
 
