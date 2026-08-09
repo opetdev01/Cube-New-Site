@@ -1,4 +1,20 @@
 @font-face {
+  font-family: 'Avant Garde';
+  src: url('https://db.onlinewebfonts.com/t/71494505f6ee5be281d9e1697f186b6f.woff2') format('woff2');
+  font-weight: 100 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avant Garde';
+  src: url('https://db.onlinewebfonts.com/t/482d2240a4a806136792f20b5972e3d9.woff2') format('woff2');
+  font-weight: 500 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: 'Bahij Janna';
   src: url('/fonts/Bahij_Janna.woff2') format('woff2'),
        url('https://db.onlinewebfonts.com/t/47d44076ac05b2406a110483806e0248.woff2') format('woff2');
@@ -15,7 +31,7 @@
   --c-dark-grey: #111111;
   --c-red: #e30613; /* Cube Consultants Core Accent */
   
-  --font-main: var(--font-inter), sans-serif;
+  --font-main: 'Avant Garde', "ITC Avant Garde Gothic", var(--font-inter), sans-serif;
 
   /* Architectural Grid Margins */
   --nav-height: 80px;
@@ -32,12 +48,12 @@ html[lang="ar"] body,
 html[dir="rtl"],
 html[dir="rtl"] body,
 [dir="rtl"] * {
-  font-family: 'Bahij Janna', var(--font-inter), 'Segoe UI', Tahoma, sans-serif !important;
+  font-family: 'Bahij Janna', 'Avant Garde', "ITC Avant Garde Gothic", var(--font-inter), 'Segoe UI', Tahoma, sans-serif !important;
 }
 
 html[lang="ar"] h1, html[lang="ar"] h2, html[lang="ar"] h3, html[lang="ar"] h4, html[lang="ar"] h5, html[lang="ar"] h6,
 [dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] h4, [dir="rtl"] h5, [dir="rtl"] h6 {
-  font-family: 'Bahij Janna', var(--font-inter), 'Segoe UI', Tahoma, sans-serif !important;
+  font-family: 'Bahij Janna', 'Avant Garde', "ITC Avant Garde Gothic", var(--font-inter), 'Segoe UI', Tahoma, sans-serif !important;
 }
 
 * {
