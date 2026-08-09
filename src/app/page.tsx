@@ -347,9 +347,6 @@ export default function Home() {
                 <span className={styles.slideProjectLabel}>
                   {heroSlides[heroIndex]?.subtitle}
                 </span>
-                <h2 className={styles.slideProjectTitle}>
-                  {heroSlides[heroIndex]?.title}
-                </h2>
                 <p className={styles.slideProjectDesc}>
                   {heroSlides[heroIndex]?.description}
                 </p>
