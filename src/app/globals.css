@@ -2,7 +2,16 @@
   font-family: 'Avant Garde';
   src: url('/fonts/AvantGarde-Regular.woff2') format('woff2'),
        url('/fonts/AVGARDN_2.TTF') format('truetype');
-  font-weight: 100 400;
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avant Garde';
+  src: url('/fonts/AvantGarde-Regular.woff2') format('woff2'),
+       url('/fonts/AVGARDN_2.TTF') format('truetype');
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
@@ -11,7 +20,25 @@
   font-family: 'Avant Garde';
   src: url('/fonts/AvantGarde-Bold.woff2') format('woff2'),
        url('/fonts/AVGARDD_2.TTF') format('truetype');
-  font-weight: 500 900;
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avant Garde';
+  src: url('/fonts/AvantGarde-Bold.woff2') format('woff2'),
+       url('/fonts/AVGARDD_2.TTF') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avant Garde';
+  src: url('/fonts/AvantGarde-Bold.woff2') format('woff2'),
+       url('/fonts/AVGARDD_2.TTF') format('truetype');
+  font-weight: 900;
   font-style: normal;
   font-display: swap;
 }
@@ -19,7 +46,15 @@
 @font-face {
   font-family: 'Avant Garde';
   src: url('/fonts/AVGARDDO_2.TTF') format('truetype');
-  font-weight: 100 900;
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avant Garde';
+  src: url('/fonts/AVGARDDO_2.TTF') format('truetype');
+  font-weight: 700;
   font-style: italic;
   font-display: swap;
 }

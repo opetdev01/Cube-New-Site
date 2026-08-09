@@ -4,7 +4,7 @@
   padding: 2rem 0;
   margin: 3.5rem 0;
   position: relative;
-  font-family: 'Inter', var(--font-main), sans-serif;
+  font-family: var(--font-main);
   contain: content;
   transform: translateZ(0);
 }

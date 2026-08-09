@@ -28,7 +28,7 @@
   flex-direction: column;
   overflow: hidden;
   z-index: 10000;
-  font-family: 'Outfit', 'Inter', -apple-system, sans-serif;
+  font-family: 'Avant Garde', "ITC Avant Garde Gothic", 'Outfit', 'Inter', -apple-system, sans-serif;
   animation: modalAppear 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   pointer-events: auto;
 }
