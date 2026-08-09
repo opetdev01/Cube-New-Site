@@ -2,6 +2,24 @@
   font-family: 'Avant Garde';
   src: url('/fonts/AvantGarde-Regular.woff2') format('woff2'),
        url('/fonts/AVGARDN_2.TTF') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avant Garde';
+  src: url('/fonts/AvantGarde-Regular.woff2') format('woff2'),
+       url('/fonts/AVGARDN_2.TTF') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avant Garde';
+  src: url('/fonts/AvantGarde-Regular.woff2') format('woff2'),
+       url('/fonts/AVGARDN_2.TTF') format('truetype');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
