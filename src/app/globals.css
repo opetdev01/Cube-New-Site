@@ -1,6 +1,7 @@
 @font-face {
   font-family: 'Avant Garde';
-  src: url('https://db.onlinewebfonts.com/t/71494505f6ee5be281d9e1697f186b6f.woff2') format('woff2');
+  src: url('/fonts/AvantGarde-Regular.woff2') format('woff2'),
+       url('/fonts/AVGARDN_2.TTF') format('truetype');
   font-weight: 100 400;
   font-style: normal;
   font-display: swap;
@@ -8,9 +9,18 @@
 
 @font-face {
   font-family: 'Avant Garde';
-  src: url('https://db.onlinewebfonts.com/t/482d2240a4a806136792f20b5972e3d9.woff2') format('woff2');
+  src: url('/fonts/AvantGarde-Bold.woff2') format('woff2'),
+       url('/fonts/AVGARDD_2.TTF') format('truetype');
   font-weight: 500 900;
   font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avant Garde';
+  src: url('/fonts/AVGARDDO_2.TTF') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
   font-display: swap;
 }
 
