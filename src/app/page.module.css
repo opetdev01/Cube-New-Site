@@ -643,7 +643,7 @@
 }
 
 .serviceCardTitle {
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   font-weight: 800;
   text-transform: uppercase;
   color: var(--c-black);
@@ -652,7 +652,7 @@
 }
 
 .serviceCardDesc {
-  font-size: 0.76rem;
+  font-size: 0.85rem;
   line-height: 1.4;
   color: #666;
   margin-bottom: 1.2rem;
@@ -1145,7 +1145,7 @@
     aspect-ratio: 1 / 1 !important;
   }
   .serviceCardTitle {
-    font-size: 0.72rem !important;
+    font-size: 0.8rem !important;
   }
   .serviceCardDesc {
     display: none !important; /* Hide description on mobile to keep circular tags readable */
