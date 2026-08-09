@@ -342,19 +342,7 @@ export default function Home() {
 
             {/* Right Column: Slide Text Content & Page Indicator */}
             <div className={styles.heroRight}>
-              {/* Dynamic Project Details Overlay */}
-              <div className={styles.slideTextContainer}>
-                <span className={styles.slideProjectLabel}>
-                  {heroSlides[heroIndex]?.subtitle}
-                </span>
-                <p className={styles.slideProjectDesc}>
-                  {heroSlides[heroIndex]?.description}
-                </p>
-                <Link href={heroSlides[heroIndex]?.link || "/"} className={styles.slideCta}>
-                  {t("VIEW PROJECT")}
-                  <span className={styles.slideCtaLine} />
-                </Link>
-              </div>
+              {/* Dynamic Project Details Overlay Removed */}
             </div>
           </div>
         </section>
