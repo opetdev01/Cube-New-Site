@@ -134,9 +134,9 @@
 }
 
 .heroBrandingTitle span {
-  color: var(--c-white);
+  color: rgba(255, 255, 255, 0.65);
   font-weight: 100;
-  letter-spacing: 0.12em;
+  letter-spacing: normal;
   font-synthesis: none;
 }
 
