@@ -136,6 +136,8 @@
 .heroBrandingTitle span {
   color: var(--c-white);
   font-weight: 100;
+  letter-spacing: 0.12em;
+  font-synthesis: none;
 }
 
 .heroTitleAccent {
