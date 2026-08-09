@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Large raw asset uploads
+/public/assets/updating projects/
+/public/assets/projects/*/
+!/public/assets/projects/*/selected/

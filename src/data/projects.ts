@@ -970,39 +970,6 @@ export const projects: Project[] = [
     ]
   },
   {
-    "slug": "masirah-island",
-    "title": "Masirah-Island, OMAN",
-    "sector": "Residential & Resorts",
-    "location": "Muscat, Oman",
-    "client": "Private Client",
-    "year": "2025",
-    "status": "Concept Phase",
-    "featuredImage": "/assets/projects/masirah-island/2024-CUBE-selected-designs-23-for-website-17-3-24-3-scaled.jpg",
-    "summary": "Masirah-Island, OMAN is an architectural landmark designed by CUBE Consultants under the Residential & Resorts sector, focusing on modern forms, premium aesthetics, and user-centric planning.",
-    "description": "Masirah-Island, OMAN showcases CUBE Consultants' commitment to state-of-the-art architecture. The project combines local heritage elements with contemporary design principles to create a unified and high-performing space. Designed with sustainability and structural clarity in mind, this development stands as a symbol of architectural innovation.",
-    "gallery": [
-      "/assets/projects/masirah-island/2024-CUBE-selected-designs-23-for-website-17-3-24-3-scaled.jpg",
-      "/assets/projects/masirah-island/Slide1-5-scaled.jpg",
-      "/assets/projects/masirah-island/Slide11-2-scaled.jpg",
-      "/assets/projects/masirah-island/Slide12-1-scaled.jpg",
-      "/assets/projects/masirah-island/Slide13-1-scaled.jpg",
-      "/assets/projects/masirah-island/Slide14-1-scaled.jpg",
-      "/assets/projects/masirah-island/Slide15-1-scaled.jpg",
-      "/assets/projects/masirah-island/Slide17-1-scaled-e1712150939482.jpg",
-      "/assets/projects/masirah-island/Slide18-1-scaled.jpg",
-      "/assets/projects/masirah-island/Slide19-1-scaled.jpg",
-      "/assets/projects/masirah-island/Slide20-1-scaled.jpg",
-      "/assets/projects/masirah-island/Slide21-1-scaled.jpg",
-      "/assets/projects/masirah-island/Slide22-1-scaled.jpg",
-      "/assets/projects/masirah-island/Slide3-4-scaled-e1711484634100.jpg",
-      "/assets/projects/masirah-island/Slide5-3-scaled.jpg",
-      "/assets/projects/masirah-island/Slide6-5-scaled.jpg",
-      "/assets/projects/masirah-island/Slide7-3-scaled.jpg",
-      "/assets/projects/masirah-island/Slide8-3-scaled.jpg",
-      "/assets/projects/masirah-island/Slide9-3-scaled-e1711484694175.jpg"
-    ]
-  },
-  {
     "slug": "windrose-school-concept",
     "title": "WindRose International",
     "sector": "Culture & Education",
@@ -2235,6 +2202,133 @@ export const projects: Project[] = [
     ]
   },
   {
+    "slug": "madar",
+    "technicalSummary": "Project Management, design coordination, and commercial oversight of the mixed-use Madar development.",
+    "technicalDescription": "CUBE Consultants provided design management, planning, and schedule tracking for the Madar masterplan. Services included contract negotiations with stakeholders, planning engineering, budget oversight, and technical supervision of early conceptual layouts.",
+    "title": "Madar Project",
+    "sector": "Towers & Offices",
+    "location": "New Capital, Egypt",
+    "client": "Madar Developments",
+    "year": "2024",
+    "status": "Concept Phase",
+    "featuredImage": "/assets/majarra.png",
+    "summary": "A premium master-planned development by CUBE Consultants, integrating mixed-use commercial and residential districts.",
+    "description": "Designed as an urban intelligence hub, the Madar development integrates residential spaces, boutique offices, green recreational paths, and smart infrastructure components.",
+    "gallery": [
+      "/assets/majarra.png"
+    ]
+  },
+  {
+    "slug": "gamsha-islands",
+    "title": "Gamsha Islands",
+    "sector": "Residential & Resorts",
+    "location": "Red Sea, Egypt",
+    "client": "Red Sea Developments",
+    "year": "2026",
+    "status": "Design Phase",
+    "featuredImage": "/assets/projects/gamsha-islands/selected/render_026.jpg",
+    "summary": "A curated archipelago of distinct, low-density luxury islands in the Red Sea reserve, merging serene meditation forests with floating water villas and yacht harbors.",
+    "description": "The Gamsha Islands are envisioned as a curated archipelago of distinct identities, where each island becomes a world of its own. Rooted in calm, low-density planning and refined architectural expression, the islands redefine Red Sea luxury through privacy, design, and harmony with nature. Each island carries a unique theme—from forest wellness sanctuaries and marine exploration retreats to Riviera-inspired social escapes and ultra-private estates—creating a collection of experiences rather than a single development. Architecture dissolves into the sea and landscape, allowing coral reefs, turquoise waters, and natural topography to shape the spatial narrative. Sustainable transport, zero-waste strategies, and renewable energy integration ensure that this serene, exclusive ecosystem is highly protected, positioning Gamsha as the next evolution of island luxury in the Red Sea.",
+    "gallery": [
+      "/assets/projects/gamsha-islands/selected/render_014.jpg",
+      "/assets/projects/gamsha-islands/selected/render_026.jpg",
+      "/assets/projects/gamsha-islands/selected/render_057.jpg",
+      "/assets/projects/gamsha-islands/selected/render_100.jpg",
+      "/assets/projects/gamsha-islands/selected/render_109.jpg",
+      "/assets/projects/gamsha-islands/selected/render_156.jpg",
+      "/assets/projects/gamsha-islands/selected/render_162.jpg",
+      "/assets/projects/gamsha-islands/selected/render_173.jpg"
+    ]
+  },
+  {
+    "slug": "masirah-island",
+    "title": "Masirah Island Vision",
+    "sector": "Residential & Resorts",
+    "location": "Masirah Island, Oman",
+    "client": "Oman Tourism Development Company (OMRAN)",
+    "year": "2025",
+    "status": "Design Phase",
+    "featuredImage": "/assets/projects/masirah-island/selected/render_066.jpg",
+    "summary": "A visionary eco-tourism destination in Oman, blending sustainable Omani fort-inspired coastal architecture with low-density wildlife sanctuaries.",
+    "description": "Masirah Island is OMRAN's flagship eco-tourism vision, covering 650 square kilometers of pristine coastline, sand dunes, and marine reserves. The design centers around low-density master planning (a mere 2% footprint) to protect the island's famous bird sanctuaries and turtle nesting beaches. The architectural language fuses traditional Omani fort-inspired monumentality with contemporary cubic shapes, whitewashed plaster, and wooden mashrabiyas. The master plan introduces low-light pedestrian-first paths to prevent light pollution, recessed sunken pools that create natural microclimates, and sustainable primary loop roads connecting the major zones—including the majestic Ocean Gate arrival harbor.",
+    "gallery": [
+      "/assets/projects/masirah-island/selected/render_056.jpg",
+      "/assets/projects/masirah-island/selected/render_066.jpg",
+      "/assets/projects/masirah-island/selected/render_096.jpg",
+      "/assets/projects/masirah-island/selected/render_139.jpg",
+      "/assets/projects/masirah-island/selected/render_167.jpg",
+      "/assets/projects/masirah-island/selected/render_204.jpg",
+      "/assets/projects/masirah-island/selected/render_249.jpg",
+      "/assets/projects/masirah-island/selected/render_258.jpg"
+    ]
+  },
+  {
+    "slug": "oman-smart-village",
+    "title": "Oman Smart Village",
+    "sector": "Mixed-Use & Visions",
+    "location": "Muscat, Oman",
+    "client": "Ministry of Technology & OMRAN",
+    "year": "2025",
+    "status": "Design Phase",
+    "featuredImage": "/assets/projects/oman-smart-village/selected/render_010.jpg",
+    "summary": "A next-generation tech startup zone and innovation hub in Muscat, integrating smart workspaces, green parks, and high-tech infrastructure.",
+    "description": "Oman Smart Village is a visionary business and innovation district situated in Muscat, Oman, seamlessly merging technology, smart business, and sustainable growth. Designed as an \"all-in-one\" hub, it integrates flexible open-plan co-working zones, state-of-the-art R&D incubation labs, data storage facilities, and advanced conference centers. The spatial design is anchored by a central green spine that connects office buildings, retail zones, and outdoor recreational parks, promoting collaboration and community well-being. Built to foster entrepreneurial growth and attract international startup ecosystems, the village incorporates sustainable solar grids, IoT-enabled building management systems, and smart transport connections, positioning Muscat as a regional leader in the digital economy.",
+    "gallery": [
+      "/assets/projects/oman-smart-village/selected/render_009.jpg",
+      "/assets/projects/oman-smart-village/selected/render_010.jpg",
+      "/assets/projects/oman-smart-village/selected/render_011.jpg",
+      "/assets/projects/oman-smart-village/selected/render_012.jpg",
+      "/assets/projects/oman-smart-village/selected/render_015.jpg",
+      "/assets/projects/oman-smart-village/selected/render_016.jpg",
+      "/assets/projects/oman-smart-village/selected/render_017.jpg",
+      "/assets/projects/oman-smart-village/selected/render_032.jpg"
+    ]
+  },
+  {
+    "slug": "zumuruda",
+    "title": "Zumuruda Compound",
+    "sector": "Residential & Resorts",
+    "location": "Al Kadhimiyah, Baghdad, Iraq",
+    "client": "Zumuruda Real Estate",
+    "year": "2026",
+    "status": "Design Phase",
+    "featuredImage": "/assets/projects/zumuruda/selected/render_008.jpg",
+    "summary": "A premium residential compound along the Tigris River, combining contemporary minimal townhouse architecture with private parks.",
+    "description": "Zumuruda Compound is a conceptual residential development of 665,224 square meters situated along the Tigris River in the historical district of Al Kadhimiyah, Baghdad. The master plan balances high-end horizontal housing (1,251 contemporary townhouses and villas) with modern vertical apartment blocks, surrounded by extensive landscape gardens and community facilities. The architectural style embodies contemporary minimalism, featuring clean geometric lines, cubic volumes, warm wooden soffits, and vertical glass panels that contrast beautifully with bright white facades. Each villa layout focuses on light-filled rooms, private gardens, and seamless indoor-outdoor connectivity, creating a serene sanctuary for families.",
+    "gallery": [
+      "/assets/projects/zumuruda/selected/render_008.jpg",
+      "/assets/projects/zumuruda/selected/render_010.jpg",
+      "/assets/projects/zumuruda/selected/render_011.jpg",
+      "/assets/projects/zumuruda/selected/render_039.jpg",
+      "/assets/projects/zumuruda/selected/render_048.jpg",
+      "/assets/projects/zumuruda/selected/render_051.jpg",
+      "/assets/projects/zumuruda/selected/render_052.jpg",
+      "/assets/projects/zumuruda/selected/render_053.jpg"
+    ]
+  },
+  {
+    "slug": "smouha-gate",
+    "title": "Smouha Gate",
+    "sector": "Mixed-Use & Visions",
+    "location": "Smouha, Alexandria, Egypt",
+    "client": "Marsoum Developments",
+    "year": "2026",
+    "status": "Design Phase",
+    "featuredImage": "/assets/projects/smouha-gate/selected/render_05.jpg",
+    "summary": "A premium large-scale mixed-use development in Alexandria, integrating luxury residences, commercial malls, offices, medical clinics, and hotel spaces.",
+    "description": "Smouha Gate is a large-scale mixed-use development by Marsoum Developments, located in Smouha, Alexandria. Launched in 2026, the project represents Marsoum Developments' entry into the Egyptian real estate market and is envisioned as an integrated urban destination combining residential, commercial, administrative, medical, hospitality, and entertainment uses.\n\nThe development occupies more than 30,000 sqm and is positioned within one of Alexandria's established and highly accessible districts. Its mixed-use approach is intended to bring different aspects of everyday life, business, services, and leisure into one connected destination. The project is planned as an integrated mixed-use destination incorporating residential spaces, commercial spaces, administrative offices, medical facilities, hospitality components, and public landscaped areas. This combination allows Smouha Gate to function not simply as a residential development, but as a multi-purpose urban destination where living, working, business, healthcare, and leisure are brought together.",
+    "gallery": [
+      "/assets/projects/smouha-gate/selected/render_01.jpg",
+      "/assets/projects/smouha-gate/selected/render_02.jpg",
+      "/assets/projects/smouha-gate/selected/render_03.jpg",
+      "/assets/projects/smouha-gate/selected/render_04.jpg",
+      "/assets/projects/smouha-gate/selected/render_05.jpg",
+      "/assets/projects/smouha-gate/selected/render_06.jpg",
+      "/assets/projects/smouha-gate/selected/render_07.jpg",
+      "/assets/projects/smouha-gate/selected/render_08.jpg"
+    ]
+  },
+  {
     "slug": "al-azhar-library",
     "title": "AL AZHAR LIBRARY",
     "sector": "Culture & Education",
@@ -2513,21 +2607,4 @@ export const projects: Project[] = [
       "/assets/projects/maspiro-triangle-roud-el-farag/shot-9.jpg"
     ]
   },
-  {
-    "slug": "madar",
-    "technicalSummary": "Project Management, design coordination, and commercial oversight of the mixed-use Madar development.",
-    "technicalDescription": "CUBE Consultants provided design management, planning, and schedule tracking for the Madar masterplan. Services included contract negotiations with stakeholders, planning engineering, budget oversight, and technical supervision of early conceptual layouts.",
-    "title": "Madar Project",
-    "sector": "Towers & Offices",
-    "location": "New Capital, Egypt",
-    "client": "Madar Developments",
-    "year": "2024",
-    "status": "Concept Phase",
-    "featuredImage": "/assets/majarra.png",
-    "summary": "A premium master-planned development by CUBE Consultants, integrating mixed-use commercial and residential districts.",
-    "description": "Designed as an urban intelligence hub, the Madar development integrates residential spaces, boutique offices, green recreational paths, and smart infrastructure components.",
-    "gallery": [
-      "/assets/majarra.png"
-    ]
-  }
 ];
