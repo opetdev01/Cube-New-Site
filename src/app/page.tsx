@@ -94,28 +94,28 @@ export default function Home() {
       title: t("Kemet Tower"),
       subtitle: t("Towers & Offices"),
       description: t("An iconic modern commercial development integrating advanced building systems and structural mastery."),
-      video: "/assets/Hero sec/Kemet tower.mp4",
+      video: "/assets/hero section/hf_20260509_162408_b8c5ea0e-a124-4226-b176-4b7f37090f9c.mp4",
       link: "/projects/kemet-business-tower"
     },
     {
       title: t("The Green River"),
       subtitle: t("Commercial & Retail"),
       description: t("The Green River showcases CUBE Consultants' commitment to state-of-the-art architecture, combining local heritage with contemporary principles."),
-      video: "/assets/Hero sec/Green River.mp4",
+      video: "/assets/hero section/hf_20260509_164500_150b50c2-de4f-42f8-8489-296c8968b168.mp4",
       link: "/projects/the-green-river-the-capital-cairo-2"
     },
     {
       title: t("NEBU Commercial Mall"),
       subtitle: t("Commercial & Retail"),
       description: t("A premium gold-themed boutique commercial destination in the New Capital, inspired by the hieroglyphic symbol of eternity."),
-      video: "/assets/Hero sec/Nebu.mp4",
+      video: "/assets/hero section/hf_20260509_174129_07a2563a-35d8-4cfe-9c68-f8b7aa682327.mp4",
       link: "/projects/nebu-new-capital"
     },
     {
       title: t("The New Administrative Capital Cairo"),
       subtitle: t("Urban Planning"),
       description: t("A futuristic national scale administrative vision establishing Cairo’s new masterplan and global administrative core."),
-      video: "/assets/Hero sec/New Capital.mp4",
+      video: "/assets/hero section/timelapse.mp4",
       link: "/projects/thecapitalcairo"
     }
   ];
