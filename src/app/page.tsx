@@ -402,13 +402,13 @@ export default function Home() {
             
             <div className={styles.aboutRight}>
               <Image
-                src="/assets/about_sustainable_city.jpg"
+                src="/assets/about_sustainable_city.png"
                 alt="Sustainable eco-city masterplan by CUBE Consultants"
-                width={1024}
-                height={1024}
+                width={800}
+                height={480}
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className={styles.aboutImage}
-                style={{ width: "100%", height: "auto", borderRadius: "20px" }}
+                style={{ width: "100%", height: "auto", borderRadius: "18px" }}
               />
             </div>
           </div>
