@@ -404,9 +404,11 @@ export default function Home() {
               <Image
                 src="/assets/about_sustainable_city.jpg"
                 alt="Sustainable eco-city masterplan by CUBE Consultants"
-                fill
+                width={1024}
+                height={1024}
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className={styles.aboutImage}
+                style={{ width: "100%", height: "auto", borderRadius: "20px" }}
               />
             </div>
           </div>
