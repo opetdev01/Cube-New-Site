@@ -409,10 +409,10 @@ export default function Home() {
             
             <div className={styles.aboutRight}>
               <Image
-                src="/assets/about_city_highway.jpg"
-                alt="City skyline & urban infrastructure by CUBE Consultants"
+                src="/assets/about_sustainable_city.jpg"
+                alt="Sustainable eco-city masterplan by CUBE Consultants"
                 width={800}
-                height={480}
+                height={500}
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className={styles.aboutImage}
                 unoptimized
