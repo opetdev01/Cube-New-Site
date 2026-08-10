@@ -601,6 +601,29 @@
   transform: scale(1.02);
 }
 
+@media (max-width: 968px) {
+  .aboutSection {
+    padding: 3.5rem 0;
+  }
+
+  .aboutGrid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .aboutRight {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .aboutImage {
+    width: 100%;
+    height: auto;
+    max-height: 450px;
+    object-fit: cover;
+  }
+}
+
 /* OUR SERVICES SECTION */
 .servicesGridSection {
   padding: 3.5rem 0;
