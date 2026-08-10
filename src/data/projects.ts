@@ -2632,4 +2632,41 @@ export const projects: Project[] = [
       "/assets/projects/maspiro-triangle-roud-el-farag/shot-9.jpg"
     ]
   },
+  {
+    "slug": "elsherouk-bookstore",
+    "title": "El Sherouk Bookstore – CFC",
+    "sector": "Commercial & Retail",
+    "location": "Cairo Festival City, Cairo, Egypt",
+    "client": "Shorouk Bookstores",
+    "year": "2026",
+    "status": "Under Design",
+    "featuredImage": "/assets/projects/elsherouk-bookstore/selected/render_022.jpg",
+    "summary": "A flagship bookstore interior for Shorouk Bookstores at Cairo Festival City, blending Egyptian heritage motifs with contemporary retail design to create an immersive literary destination.",
+    "description": "El Sherouk Bookstore at Cairo Festival City (CFC) is a flagship interior design project by CUBE Consultants for Shorouk Bookstores, one of Egypt's most established bookstore chains. The project reimagines the traditional bookstore experience through a culturally rich, immersive spatial narrative that draws deeply from Egyptian heritage — from pharaonic hieroglyphic wall textures and ancient symbolism to modern interpretations of knowledge and wisdom across civilizations.\n\nThe design concept, titled 'Vision & Concept,' merges interior inspirations drawn from ancient Egyptian architecture — incorporating elements such as carved stone reliefs, hieroglyphic murals, and monumental structural forms — with a warm, contemporary material palette of natural wood shelving, brushed concrete, green landscaping, and ambient lighting. A central olive tree atrium serves as the heart of the store, providing a natural gathering point surrounded by reading nooks, seating areas, and curated book displays.\n\nSpanning approximately 108 sqm, the store is organized across distinct zones including a main lobby, book display corridors, children's section, stationery area, and a café lounge. The design prioritizes visitor flow, visual storytelling, and a sense of discovery — encouraging customers to explore themed sections that celebrate knowledge across languages and cultures, from Arabic calligraphy to Greek philosophy to Asian wisdom traditions.\n\nThe existing Shorouk Bookstore locations at City Centre Almaza and other branches were studied to inform the spatial planning and service corridor layouts. The CFC flagship elevates the brand's retail identity through premium materiality, dramatic lighting design, and a curated selection of interior elements that reinforce the 'knowledge is power' ethos central to the Shorouk brand.",
+    "gallery": [
+      "/assets/projects/elsherouk-bookstore/selected/render_007.jpg",
+      "/assets/projects/elsherouk-bookstore/selected/render_008.jpg",
+      "/assets/projects/elsherouk-bookstore/selected/render_009.jpg",
+      "/assets/projects/elsherouk-bookstore/selected/render_010.jpg",
+      "/assets/projects/elsherouk-bookstore/selected/render_011.jpg",
+      "/assets/projects/elsherouk-bookstore/selected/render_019.jpg",
+      "/assets/projects/elsherouk-bookstore/selected/render_022.jpg",
+      "/assets/projects/elsherouk-bookstore/selected/render_023.jpg",
+      "/assets/projects/elsherouk-bookstore/selected/render_024.jpg",
+      "/assets/projects/elsherouk-bookstore/selected/render_025.jpg",
+      "/assets/projects/elsherouk-bookstore/selected/render_026.jpg",
+      "/assets/projects/elsherouk-bookstore/selected/render_027.jpg",
+      "/assets/projects/elsherouk-bookstore/selected/render_028.jpg",
+      "/assets/projects/elsherouk-bookstore/selected/render_029.jpg",
+      "/assets/projects/elsherouk-bookstore/selected/render_030.jpg",
+      "/assets/projects/elsherouk-bookstore/selected/render_031.jpg",
+      "/assets/projects/elsherouk-bookstore/selected/render_032.jpg",
+      "/assets/projects/elsherouk-bookstore/selected/render_033.jpg",
+      "/assets/projects/elsherouk-bookstore/selected/render_034.jpg",
+      "/assets/projects/elsherouk-bookstore/selected/render_036.jpg",
+      "/assets/projects/elsherouk-bookstore/selected/render_037.jpg",
+      "/assets/projects/elsherouk-bookstore/selected/render_038.jpg",
+      "/assets/projects/elsherouk-bookstore/selected/render_039.jpg"
+    ]
+  },
 ];
