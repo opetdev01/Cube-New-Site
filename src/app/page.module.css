@@ -617,39 +617,34 @@
 .servicesCardGrid {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 4%;
+  padding: 0.5rem 4% 1.5rem;
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
-  gap: 1.2rem;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  padding-bottom: 0.5rem;
+  gap: 1.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--c-red) transparent;
+  -ms-overflow-style: auto;
 }
 
-.servicesCardGrid::-webkit-scrollbar {
-  display: none;
-}
-
-@media (min-width: 1100px) {
+@media (min-width: 1200px) {
   .servicesCardGrid {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 0.7rem;
-    padding: 0 4%;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
     overflow-x: visible;
   }
 }
 
 .serviceCardItem {
   background-color: var(--c-white);
-  padding: 1.4rem 0.9rem;
+  padding: 2rem 1.2rem;
   aspect-ratio: 1 / 1;
   width: 100%;
-  flex: 0 0 210px;
+  flex: 0 0 240px;
   border-radius: 50%;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.04);
   transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
   position: relative;
   display: flex;
@@ -659,7 +654,7 @@
   text-align: center;
 }
 
-@media (min-width: 1100px) {
+@media (min-width: 1200px) {
   .serviceCardItem {
     flex: unset;
     width: 100%;
@@ -667,16 +662,16 @@
 }
 
 .serviceCardItem:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
   border-color: var(--c-red);
-  box-shadow: 0 10px 30px rgba(227, 6, 19, 0.1);
+  box-shadow: 0 12px 35px rgba(227, 6, 19, 0.12);
 }
 
 .serviceIconContainer {
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   color: var(--c-black);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.6rem;
   transition: color var(--transition-fast);
   display: flex;
   align-items: center;
@@ -693,33 +688,30 @@
 }
 
 .serviceCardTitle {
-  font-size: 0.82rem;
-  font-weight: 800;
+  font-size: 0.95rem;
+  font-weight: 900;
   text-transform: uppercase;
-  color: var(--c-black);
-  margin-bottom: 0.35rem;
-  line-height: 1.2;
+  color: #0d0d0d;
+  margin-bottom: 0.45rem;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
 }
 
 .serviceCardDesc {
-  font-size: 0.74rem;
-  line-height: 1.35;
-  color: #111111;
-  font-weight: 600;
-  margin-bottom: 0.4rem;
-  max-width: 92%;
+  font-size: 0.84rem;
+  line-height: 1.4;
+  color: #1a1a1a;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  max-width: 88%;
 }
 
 .serviceCardLink {
-  margin-top: 0;
+  margin-top: 0.2rem;
   align-self: center;
-  font-size: 1.1rem;
-  color: var(--c-black);
-  transition: color var(--transition-fast);
-}
-
-.serviceCardItem:hover .serviceCardLink {
+  font-size: 1.2rem;
   color: var(--c-red);
+  transition: transform var(--transition-fast);
 }
 
 .serviceCardItem:hover .serviceCardLink .arrowIcon {
