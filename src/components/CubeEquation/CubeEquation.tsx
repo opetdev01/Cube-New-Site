@@ -9,6 +9,7 @@ export default function CubeEquation() {
   const [activeStreams, setActiveStreams] = useState<string[]>([]);
   const [isMasterSynthesized, setIsMasterSynthesized] = useState<boolean>(false);
   const [isImageModalOpen, setIsImageModalOpen] = useState<boolean>(false);
+  const [hoveredNode, setHoveredNode] = useState<string | null>(null);
 
   const toggleStream = (streamId: string) => {
     if (activeStreams.includes(streamId)) {
@@ -19,6 +20,8 @@ export default function CubeEquation() {
       setActiveStreams(nextStreams);
       if (nextStreams.length === 3) {
         setIsMasterSynthesized(true);
+        // Automatically start the video as requested when 3 nodes are clicked
+        setIsImageModalOpen(true);
       }
     }
   };
@@ -127,10 +130,17 @@ export default function CubeEquation() {
               isSpirit ? styles.cardActive : ""
             }`}
             onClick={() => toggleStream("spirit")}
+            onMouseEnter={() => setHoveredNode("spirit")}
+            onMouseLeave={() => setHoveredNode(null)}
           >
             <div className={styles.cardHeader}>
               <span className={styles.streamNum}>01.</span>
               <h3 className={styles.streamTitle}>{t("1. SPIRIT CARE")}</h3>
+              <span className={styles.clickHintBadge}>
+                {isSpirit
+                  ? (language === "ar" ? "✓ تم الشحن" : "✓ Charged")
+                  : (language === "ar" ? "⚡ انقر لشحن المفاعل" : "⚡ Click to charge")}
+              </span>
             </div>
             <p className={styles.streamDesc}>
               {t("Design that nurtures the human soul by prioritizing emotional experience, peace, balance, and meaning.")}
@@ -146,10 +156,17 @@ export default function CubeEquation() {
               isEarth ? styles.cardActive : ""
             }`}
             onClick={() => toggleStream("earth")}
+            onMouseEnter={() => setHoveredNode("earth")}
+            onMouseLeave={() => setHoveredNode(null)}
           >
             <div className={styles.cardHeader}>
               <span className={styles.streamNum}>02.</span>
               <h3 className={styles.streamTitle}>{t("2. EARTH CARE")}</h3>
+              <span className={styles.clickHintBadge}>
+                {isEarth
+                  ? (language === "ar" ? "✓ تم الشحن" : "✓ Charged")
+                  : (language === "ar" ? "⚡ انقر لشحن المفاعل" : "⚡ Click to charge")}
+              </span>
             </div>
             <p className={styles.streamDesc}>
               {t("Environmental responsibility as a core principle. True sustainability that coexists with nature rather than consuming it.")}
@@ -165,10 +182,17 @@ export default function CubeEquation() {
               isScience ? styles.cardActive : ""
             }`}
             onClick={() => toggleStream("science")}
+            onMouseEnter={() => setHoveredNode("science")}
+            onMouseLeave={() => setHoveredNode(null)}
           >
             <div className={styles.cardHeader}>
               <span className={styles.streamNum}>03.</span>
               <h3 className={styles.streamTitle}>{t("3. SCIENCE & TECHNOLOGY")}</h3>
+              <span className={styles.clickHintBadge}>
+                {isScience
+                  ? (language === "ar" ? "✓ تم الشحن" : "✓ Charged")
+                  : (language === "ar" ? "⚡ انقر لشحن المفاعل" : "⚡ Click to charge")}
+              </span>
             </div>
             <p className={styles.streamDesc}>
               {t("Integrating AI and smart systems to enhance performance, efficiency, and user experience to drive continuous innovation.")}
@@ -307,30 +331,84 @@ export default function CubeEquation() {
             </g>
 
             {/* ENERGY STREAM NODE 1: SPIRIT CARE (CRIMSON) */}
-            <g className={styles.nodeGroup} onClick={() => toggleStream("spirit")} transform="translate(180, 120)">
-              {isSpirit && <circle cx="0" cy="0" r="24" fill="rgba(227, 6, 19, 0.35)" className={styles.pulseRing} />}
+            <g
+              className={styles.nodeGroup}
+              onClick={() => toggleStream("spirit")}
+              onMouseEnter={() => setHoveredNode("spirit")}
+              onMouseLeave={() => setHoveredNode(null)}
+              transform="translate(180, 120)"
+            >
+              {/* Continuous Pulse Ring */}
+              <circle cx="0" cy="0" className={`${styles.nodePulseAlways} ${styles.pulseSpirit}`} />
+              {isSpirit && <circle cx="0" cy="0" r="28" fill="rgba(227, 6, 19, 0.35)" className={styles.pulseRing} />}
               <circle cx="0" cy="0" r="16" fill="url(#spiritGrad)" stroke="#ffffff" strokeWidth="2.5" />
               <text x="0" y="32" textAnchor="middle" fontWeight="900" fontSize="12" fill="#111111">
                 SPIRIT
               </text>
+
+              {/* HOVER POP-UP TOOLTIP */}
+              {hoveredNode === "spirit" && (
+                <g className={styles.tooltipGroup} transform="translate(0, -32)">
+                  <rect x="-70" y="-14" width="140" height="24" className={styles.tooltipBg} />
+                  <text x="0" y="2" className={styles.tooltipText}>
+                    {language === "ar" ? "⚡ انقر لشحن المفاعل" : "⚡ Click to charge reactor"}
+                  </text>
+                </g>
+              )}
             </g>
 
             {/* ENERGY STREAM NODE 2: SCIENCE & TECH (CYAN) */}
-            <g className={styles.nodeGroup} onClick={() => toggleStream("science")} transform="translate(420, 120)">
-              {isScience && <circle cx="0" cy="0" r="24" fill="rgba(0, 194, 255, 0.35)" className={styles.pulseRing} />}
+            <g
+              className={styles.nodeGroup}
+              onClick={() => toggleStream("science")}
+              onMouseEnter={() => setHoveredNode("science")}
+              onMouseLeave={() => setHoveredNode(null)}
+              transform="translate(420, 120)"
+            >
+              {/* Continuous Pulse Ring */}
+              <circle cx="0" cy="0" className={`${styles.nodePulseAlways} ${styles.pulseScience}`} />
+              {isScience && <circle cx="0" cy="0" r="28" fill="rgba(0, 194, 255, 0.35)" className={styles.pulseRing} />}
               <circle cx="0" cy="0" r="16" fill="url(#scienceGrad)" stroke="#ffffff" strokeWidth="2.5" />
               <text x="0" y="32" textAnchor="middle" fontWeight="900" fontSize="12" fill="#111111">
                 SCIENCE
               </text>
+
+              {/* HOVER POP-UP TOOLTIP */}
+              {hoveredNode === "science" && (
+                <g className={styles.tooltipGroup} transform="translate(0, -32)">
+                  <rect x="-70" y="-14" width="140" height="24" className={styles.tooltipBg} />
+                  <text x="0" y="2" className={styles.tooltipText}>
+                    {language === "ar" ? "⚡ انقر لشحن المفاعل" : "⚡ Click to charge reactor"}
+                  </text>
+                </g>
+              )}
             </g>
 
             {/* ENERGY STREAM NODE 3: EARTH CARE (EMERALD) */}
-            <g className={styles.nodeGroup} onClick={() => toggleStream("earth")} transform="translate(300, 360)">
-              {isEarth && <circle cx="0" cy="0" r="24" fill="rgba(46, 172, 102, 0.35)" className={styles.pulseRing} />}
+            <g
+              className={styles.nodeGroup}
+              onClick={() => toggleStream("earth")}
+              onMouseEnter={() => setHoveredNode("earth")}
+              onMouseLeave={() => setHoveredNode(null)}
+              transform="translate(300, 360)"
+            >
+              {/* Continuous Pulse Ring */}
+              <circle cx="0" cy="0" className={`${styles.nodePulseAlways} ${styles.pulseEarth}`} />
+              {isEarth && <circle cx="0" cy="0" r="28" fill="rgba(46, 172, 102, 0.35)" className={styles.pulseRing} />}
               <circle cx="0" cy="0" r="16" fill="url(#earthGrad)" stroke="#ffffff" strokeWidth="2.5" />
               <text x="0" y="-24" textAnchor="middle" fontWeight="900" fontSize="12" fill="#111111">
                 EARTH
               </text>
+
+              {/* HOVER POP-UP TOOLTIP */}
+              {hoveredNode === "earth" && (
+                <g className={styles.tooltipGroup} transform="translate(0, 24)">
+                  <rect x="-70" y="-14" width="140" height="24" className={styles.tooltipBg} />
+                  <text x="0" y="2" className={styles.tooltipText}>
+                    {language === "ar" ? "⚡ انقر لشحن المفاعل" : "⚡ Click to charge reactor"}
+                  </text>
+                </g>
+              )}
             </g>
           </svg>
         </div>

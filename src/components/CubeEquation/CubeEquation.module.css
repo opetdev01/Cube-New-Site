@@ -187,6 +187,35 @@
 .streamEarth .outcomeBadge { color: #2eac66; }
 .streamScience .outcomeBadge { color: #00c2ff; }
 
+.clickHintBadge {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  padding: 3px 10px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.05);
+  color: #555555;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.cardActive .clickHintBadge {
+  background: var(--c-red);
+  color: #ffffff;
+}
+
+.cardActive.streamEarth .clickHintBadge {
+  background: #2eac66;
+  color: #ffffff;
+}
+
+.cardActive.streamScience .clickHintBadge {
+  background: #00c2ff;
+  color: #ffffff;
+}
+
 /* SVG Reactor Canvas Area (Right) */
 .reactorCanvasArea {
   width: 100%;
@@ -284,13 +313,93 @@
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+.nodeGroup:hover {
+  transform: scale(1.15);
+}
+
+/* Continuous Pulse Animations for Nodes */
+.nodePulseAlways {
+  animation: pulseNodeContinuous 1.8s infinite ease-in-out;
+  pointer-events: none;
+}
+
+.pulseSpirit {
+  fill: rgba(227, 6, 19, 0.25);
+  stroke: rgba(227, 6, 19, 0.6);
+  stroke-width: 1.5;
+}
+
+.pulseScience {
+  fill: rgba(0, 194, 255, 0.25);
+  stroke: rgba(0, 194, 255, 0.6);
+  stroke-width: 1.5;
+}
+
+.pulseEarth {
+  fill: rgba(46, 172, 102, 0.25);
+  stroke: rgba(46, 172, 102, 0.6);
+  stroke-width: 1.5;
+}
+
+@keyframes pulseNodeContinuous {
+  0% {
+    r: 20px;
+    opacity: 0.5;
+    stroke-width: 1.5px;
+  }
+  50% {
+    r: 32px;
+    opacity: 0.9;
+    stroke-width: 2.5px;
+  }
+  100% {
+    r: 20px;
+    opacity: 0.5;
+    stroke-width: 1.5px;
+  }
+}
+
 .pulseRing {
   animation: pulseNode 1.5s infinite alternate ease-in-out;
 }
 
 @keyframes pulseNode {
-  from { r: 20px; opacity: 0.4; }
-  to { r: 30px; opacity: 0.8; }
+  from { r: 22px; opacity: 0.5; }
+  to { r: 36px; opacity: 0.95; }
+}
+
+/* Hover Pop-Up Tooltip Badge */
+.tooltipGroup {
+  pointer-events: none;
+  animation: tooltipPop 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.tooltipBg {
+  fill: #111111;
+  stroke: var(--c-red);
+  stroke-width: 1.5;
+  rx: 8px;
+  ry: 8px;
+  filter: drop-shadow(0 6px 15px rgba(0, 0, 0, 0.25));
+}
+
+.tooltipText {
+  fill: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-anchor: middle;
+}
+
+@keyframes tooltipPop {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 /* Terminal Box */
