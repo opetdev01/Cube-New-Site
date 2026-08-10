@@ -402,8 +402,8 @@ export default function Home() {
             
             <div className={styles.aboutRight}>
               <Image
-                src="/assets/about_tree.png"
-                alt="Minimalist skylight interior with tree"
+                src="/assets/about_sustainable_city.jpg"
+                alt="Sustainable eco-city masterplan by CUBE Consultants"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className={styles.aboutImage}
