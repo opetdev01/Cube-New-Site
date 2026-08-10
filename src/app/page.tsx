@@ -415,6 +415,7 @@ export default function Home() {
                 height={480}
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className={styles.aboutImage}
+                unoptimized
               />
             </div>
           </div>
