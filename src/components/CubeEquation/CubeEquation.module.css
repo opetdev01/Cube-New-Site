@@ -310,11 +310,10 @@
 
 .nodeGroup {
   cursor: pointer;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.nodeGroup:hover {
-  transform: scale(1.15);
+.nodeGroup:hover circle {
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.9));
 }
 
 /* Continuous Pulse Animations for Nodes */
