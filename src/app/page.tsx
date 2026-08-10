@@ -381,11 +381,19 @@ export default function Home() {
         <section className={styles.aboutSection}>
           <div className={styles.aboutGrid}>
             <div className={styles.aboutLeft}>
-              <div className={styles.sectionHeaderLine}>
-                <span className={styles.sectionTagLine}>{t("ABOUT US")}</span>
+              <div className={styles.aboutTagRow}>
+                <span className={styles.aboutRedDash}>—</span>
+                <span className={styles.aboutTagText}>{t("ABOUT US")}</span>
               </div>
               <h2 className={styles.aboutMainTitle}>
-                {language === "ar" ? "تصميم مساحات تلهم الحياة." : <>Designing spaces <br />that inspire life.</>}
+                {language === "ar" ? (
+                  "تصميم مساحات تلهم الحياة."
+                ) : (
+                  <>
+                    DESIGNING SPACES<br />
+                    THAT INSPIRE LIFE.
+                  </>
+                )}
               </h2>
               <div className={styles.aboutBodyText}>
                 <p>
@@ -408,7 +416,6 @@ export default function Home() {
                 height={480}
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className={styles.aboutImage}
-                style={{ width: "100%", height: "auto", borderRadius: "18px" }}
               />
             </div>
           </div>

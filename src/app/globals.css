@@ -95,6 +95,7 @@
   --c-red: #e30613; /* Cube Consultants Core Accent */
   
   --font-main: 'Avant Garde', "ITC Avant Garde Gothic", var(--font-inter), sans-serif;
+  --font-serif: var(--font-playfair), 'Georgia', 'Times New Roman', serif;
 
   /* Architectural Grid Margins */
   --nav-height: 80px;
