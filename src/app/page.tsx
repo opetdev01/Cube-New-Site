@@ -379,14 +379,28 @@ export default function Home() {
 
         {/* ABOUT US SECTION */}
         <section className={styles.aboutSection}>
-          <div className={styles.aboutGrid}>
-            <div className={styles.aboutLeft}>
+          <div className={styles.aboutContainer}>
+            <div className={styles.aboutHeader}>
               <div className={styles.sectionHeaderLine}>
                 <span className={styles.sectionTagLine}>{t("ABOUT US")}</span>
               </div>
               <h2 className={styles.aboutMainTitle}>
                 {language === "ar" ? "تصميم مساحات تلهم الحياة." : <>Designing spaces <br />that inspire life.</>}
               </h2>
+            </div>
+            
+            <div className={styles.aboutBannerWrapper}>
+              <Image
+                src="/assets/about_city_highway.jpg"
+                alt="City skyline & urban infrastructure by CUBE Consultants"
+                width={1200}
+                height={675}
+                sizes="(max-width: 1280px) 100vw, 1280px"
+                className={styles.aboutBannerImage}
+              />
+            </div>
+
+            <div className={styles.aboutBottomRow}>
               <div className={styles.aboutBodyText}>
                 <p>
                   {t("CUBE CONSULTANTS is a multidisciplinary architecture and design practice established in 1990.")}
@@ -398,18 +412,6 @@ export default function Home() {
               <Link href="/contact" className={styles.aboutLearnMore}>
                 {t("LEARN MORE")} <span className={styles.arrowIcon}>→</span>
               </Link>
-            </div>
-            
-            <div className={styles.aboutRight}>
-              <Image
-                src="/assets/about_sustainable_city.png"
-                alt="Sustainable eco-city masterplan by CUBE Consultants"
-                width={800}
-                height={480}
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className={styles.aboutImage}
-                style={{ width: "100%", height: "auto", borderRadius: "18px" }}
-              />
             </div>
           </div>
         </section>
