@@ -381,9 +381,8 @@ export default function Home() {
         <section className={styles.aboutSection}>
           <div className={styles.aboutGrid}>
             <div className={styles.aboutLeft}>
-              <div className={styles.aboutTagRow}>
-                <span className={styles.aboutRedDash}>—</span>
-                <span className={styles.aboutTagText}>{t("ABOUT US")}</span>
+              <div className={styles.sectionHeaderLine}>
+                <span className={styles.sectionTagLine}>{t("ABOUT US")}</span>
               </div>
               <h2 className={styles.aboutMainTitle}>
                 {language === "ar" ? (
