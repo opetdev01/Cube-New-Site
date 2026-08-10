@@ -609,13 +609,13 @@
 }
 
 .servicesHeaderRow {
-  max-width: 100%;
+  max-width: 1400px;
   margin: 0 auto 2rem;
   padding: 0 4%;
 }
 
 .servicesCardGrid {
-  max-width: 100%;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 4%;
   display: flex;
@@ -636,7 +636,7 @@
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 0.7rem;
-    padding: 0 2%;
+    padding: 0 4%;
     overflow-x: visible;
   }
 }
@@ -733,7 +733,7 @@
 }
 
 .projectsHeaderRow {
-  max-width: 100%;
+  max-width: 1400px;
   margin: 0 auto 2rem;
   padding: 0 4%;
   display: flex;
@@ -762,7 +762,7 @@
 }
 
 .projectsCardGrid {
-  max-width: 100%;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 4%;
   display: grid;
@@ -944,7 +944,7 @@
 }
 
 .opetGrid {
-  max-width: 100%;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 4%;
   display: grid;
