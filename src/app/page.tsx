@@ -86,7 +86,7 @@ export default function Home() {
   }, [isIntroActive]);
 
 
-  
+
   // Hero Carousel State
   const [heroIndex, setHeroIndex] = useState(0);
   const heroSlides = [
@@ -233,11 +233,11 @@ export default function Home() {
               className={styles.introVideoFullscreen}
             />
             <div className={styles.introControls}>
-              <button 
-                className={styles.soundToggleBtn} 
-                onClick={(e) => { 
-                  e.stopPropagation(); 
-                  setIsMuted(!isMuted); 
+              <button
+                className={styles.soundToggleBtn}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setIsMuted(!isMuted);
                 }}
                 title={isMuted ? "Unmute Sound" : "Mute Sound"}
               >
@@ -271,7 +271,7 @@ export default function Home() {
       </div>
 
       <div className={`${styles.homeContainer} ${isIntroActive ? styles.homeContainerHidden : ""}`} ref={containerRef}>
-        
+
         {/* SECTION 1: FULLSCREEN HERO WITH SLIDING PROJECTS */}
         <section className={styles.heroSection}>
           {/* Fullscreen Slider Background */}
@@ -304,13 +304,13 @@ export default function Home() {
                 <span className={styles.heroTagline}>
                   {t("Designs and Engineers")}
                 </span>
-                
+
                 <h1 className={styles.heroBrandingTitle}>
                   {language === "ar" ? <>كيو ب<br /><span>للاستشارات</span></> : <>CUBE<br /><span>CONSULTANTS</span></>}
                 </h1>
-                
+
                 <div className={styles.heroTitleAccent} />
-                
+
                 <div className={styles.heroSubtitleBlock}>
                   <p style={{ fontWeight: 800, letterSpacing: "0.08em", color: "var(--c-red)", textTransform: "uppercase" }}>
                     {t("Shaping, Peaceful, Living")}
@@ -351,18 +351,18 @@ export default function Home() {
         <section className={styles.ceoFounderSection}>
           <div className={styles.ceoFounderGrid}>
             <div className={styles.ceoFounderImageWrapper}>
-              <img 
-                src="/assets/magnific_i-want-this-robot-to-act-_9Z3G7PCNYZ.jpg" 
-                alt="Dr. Ashraf Abdel Mohsen" 
-                className={styles.ceoFounderImage} 
+              <img
+                src="/assets/magnific_i-want-this-robot-to-act-_9Z3G7PCNYZ.jpg"
+                alt="Dr. Ashraf Abdel Mohsen"
+                className={styles.ceoFounderImage}
               />
             </div>
             <div className={`${styles.ceoFounderContent} ${language === "ar" ? styles.rtlContent : ""}`}>
               <span className={styles.ceoFounderTag}>{t("FOUNDER & CEO")}</span>
               <h2 className={styles.ceoFounderName}>{t("Dr. Ashraf Abdel Mohsen")}</h2>
               <h3 className={styles.ceoFounderTitle}>
-                {language === "ar" 
-                  ? "أستاذ العمارة ورائد التنمية العمرانية المستدامة" 
+                {language === "ar"
+                  ? "أستاذ العمارة ورائد التنمية العمرانية المستدامة"
                   : "Professor of Architecture & Pioneer of Sustainable Urban Development"}
               </h3>
               <p className={styles.ceoFounderBio}>
@@ -406,11 +406,11 @@ export default function Home() {
                 {t("LEARN MORE")} <span className={styles.arrowIcon}>→</span>
               </Link>
             </div>
-            
+
             <div className={styles.aboutRight}>
               <Image
-                src="/assets/about_sustainable_city.jpg"
-                alt="Sustainable eco-city masterplan by CUBE Consultants"
+                src="/assets/koreaian_park_cube_consultants_2020 (9).jpg"
+                alt="Korean Park Masterplan by CUBE Consultants"
                 width={800}
                 height={500}
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -428,7 +428,7 @@ export default function Home() {
               <span className={styles.sectionTagLine}>{t("OUR SERVICES")}</span>
             </div>
           </div>
-          
+
           <div className={styles.servicesCardGrid}>
             {servicesList.map((svc) => (
               <Link href="/contact" key={svc.num} className={styles.serviceCardItem}>
@@ -504,7 +504,7 @@ export default function Home() {
                 {t("VISIT OPET WEBSITE")} <span className={styles.arrowIcon}>→</span>
               </a>
             </div>
-            
+
             <div className={styles.opetRight}>
               <a href="https://www.opetstudios.com" target="_blank" rel="noopener noreferrer" className={styles.opetLogoLink}>
                 <div className={styles.opetLogoWrapper}>
