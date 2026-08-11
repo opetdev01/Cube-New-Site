@@ -409,8 +409,8 @@ export default function Home() {
             
             <div className={styles.aboutRight}>
               <Image
-                src="/assets/about_valley_mountain.jpg"
-                alt="Mountain valley architectural masterplan by CUBE Consultants"
+                src="/assets/about_sustainable_city.jpg"
+                alt="Sustainable eco-city masterplan by CUBE Consultants"
                 width={800}
                 height={500}
                 sizes="(max-width: 1024px) 100vw, 50vw"
