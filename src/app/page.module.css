@@ -593,8 +593,9 @@
   align-self: center;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.09);
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
 .aboutImage {
@@ -604,6 +605,7 @@
   display: block;
   border-radius: 20px;
   object-fit: cover;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
   transition: transform var(--transition-smooth);
 }
 
@@ -626,6 +628,9 @@
     margin: 0 auto;
     height: auto;
     align-self: auto;
+    background: transparent;
+    border: none;
+    box-shadow: none;
   }
 
   .aboutImage {
@@ -633,7 +638,9 @@
     height: auto;
     max-height: none;
     display: block;
+    border-radius: 20px;
     object-fit: cover;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
   }
 }
 
