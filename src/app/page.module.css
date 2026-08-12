@@ -88,8 +88,8 @@
 .heroContentGrid {
   position: relative;
   width: 100%;
-  max-width: 100%;
-  margin: 0;
+  max-width: 1400px;
+  margin: 0 auto;
   height: 100%;
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
@@ -270,8 +270,8 @@
 }
 
 .sectionGrid {
-  max-width: 100%;
-  margin: 0;
+  max-width: 1400px;
+  margin: 0 auto;
   padding: 0 var(--gutter);
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
@@ -366,12 +366,12 @@
   border-top: 1px solid rgba(0, 0, 0, 0.04);
   border-bottom: 1px solid rgba(0, 0, 0, 0.04);
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
 }
 
 .ceoFounderGrid {
-  max-width: 100%;
-  margin: 0;
+  max-width: 1400px;
+  margin: 0 auto;
   padding: 0 var(--gutter);
   width: 100%;
   display: grid;
@@ -420,7 +420,7 @@
     grid-template-columns: 1fr;
     gap: 3rem;
     max-width: 100%;
-    margin: 0;
+    margin: 0 auto;
   }
 
   .ceoFounderContent,
@@ -491,8 +491,8 @@
 }
 
 .aboutGrid {
-  max-width: 100%;
-  margin: 0;
+  max-width: 1400px;
+  margin: 0 auto;
   padding: 0 var(--gutter);
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
@@ -617,7 +617,7 @@
 
   .aboutRight {
     max-width: 100%;
-    margin: 0;
+    margin: 0 auto;
   }
 
   .aboutImage {
@@ -636,14 +636,14 @@
 }
 
 .servicesHeaderRow {
-  max-width: 100%;
-  margin: 0 0 2rem 0;
+  max-width: 1400px;
+  margin: 0 auto 2rem;
   padding: 0 var(--gutter);
 }
 
 .servicesCardGrid {
-  max-width: 100%;
-  margin: 0;
+  max-width: 1400px;
+  margin: 0 auto;
   padding: 0.5rem var(--gutter) 1.5rem;
   display: flex;
   flex-wrap: nowrap;
@@ -752,8 +752,8 @@
 }
 
 .projectsHeaderRow {
-  max-width: 100%;
-  margin: 0 0 2rem 0;
+  max-width: 1400px;
+  margin: 0 auto 2rem;
   padding: 0 var(--gutter);
   display: flex;
   justify-content: space-between;
@@ -781,8 +781,8 @@
 }
 
 .projectsCardGrid {
-  max-width: 100%;
-  margin: 0;
+  max-width: 1400px;
+  margin: 0 auto;
   padding: 0 var(--gutter);
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -864,8 +864,8 @@
 }
 
 .insightsHeaderRow {
-  max-width: 100%;
-  margin: 0 0 2rem 0;
+  max-width: 1400px;
+  margin: 0 auto 2rem;
   padding: 0 var(--gutter);
   display: flex;
   justify-content: space-between;
@@ -873,8 +873,8 @@
 }
 
 .insightsCardGrid {
-  max-width: 100%;
-  margin: 0;
+  max-width: 1400px;
+  margin: 0 auto;
   padding: 0 var(--gutter);
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -963,8 +963,8 @@
 }
 
 .opetGrid {
-  max-width: 100%;
-  margin: 0;
+  max-width: 1400px;
+  margin: 0 auto;
   padding: 0 var(--gutter);
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
@@ -1071,8 +1071,8 @@
 }
 
 .footerMainGrid {
-  max-width: 100%;
-  margin: 0;
+  max-width: 1400px;
+  margin: 0 auto;
   padding: 0 var(--gutter) 4rem;
   display: grid;
   grid-template-columns: 1.3fr 0.8fr 0.8fr 1.1fr;
@@ -1159,8 +1159,8 @@
 }
 
 .footerBottomBar {
-  max-width: 100%;
-  margin: 0;
+  max-width: 1400px;
+  margin: 0 auto;
   padding: 2.5rem var(--gutter) 0;
   border-top: 1px solid rgba(0, 0, 0, 0.08);
   display: flex;
@@ -1350,8 +1350,8 @@
 }
 
 .partnersHeader {
-  max-width: 100%;
-  margin: 0 0 0.75rem 0;
+  max-width: 1400px;
+  margin: 0 auto 0.75rem auto;
   padding: 0 var(--gutter);
   text-align: start;
 }
