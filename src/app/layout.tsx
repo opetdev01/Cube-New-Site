@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import Navigation from "@/components/Navigation/Navigation";
 import Footer from "@/components/Footer/Footer";
@@ -34,6 +35,13 @@ export default function RootLayout({
           {children}
           <Footer />
         </LanguageProvider>
+        <Script
+          id="metricool-tracking"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"3934eb5fe64bea44252f980f8cd9d56b"})});`,
+          }}
+        />
       </body>
     </html>
   );
