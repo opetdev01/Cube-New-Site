@@ -109,6 +109,13 @@ const InsightDetailPage = ({ params }: PageProps) => {
               <span className={styles.infoLabel}>{t("Date")}:</span>
               <span className={styles.infoValue}>{item.date}</span>
             </div>
+            {item.docxUrl && (
+              <div className={styles.ctaWrapper}>
+                <a href={item.docxUrl} download className={styles.projectLinkBtn} style={{ width: "100%", justifyContent: "center" }}>
+                  📄 {t("DOWNLOAD DOCX")} <span className={styles.ctaArrow}>↓</span>
+                </a>
+              </div>
+            )}
             {isAward && item.projectSlug && (
               <div className={styles.ctaWrapper}>
                 <Link href={`/projects/${item.projectSlug}`} className={styles.projectLinkBtn}>
