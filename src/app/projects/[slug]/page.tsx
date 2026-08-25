@@ -410,7 +410,30 @@ export default function ProjectDetail({ params }: PageProps) {
               ))}
             </div>
 
-            {project.gallery && project.gallery.length > 0 && (
+            {project.interactiveMapUrl ? (
+              <div className={styles.gallerySection}>
+                <div className={styles.galleryHeader}>
+                  <h2 className={styles.galleryTitle}>{t("Visual Presentation")}</h2>
+                  <a
+                    href={project.interactiveMapUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.mapExternalLink}
+                  >
+                    <span>{t("Open Map Fullscreen")} ↗</span>
+                  </a>
+                </div>
+                <div className={styles.interactiveMapContainer}>
+                  <iframe
+                    src={project.interactiveMapUrl}
+                    title={`${translatedTitle} Interactive Map`}
+                    className={styles.interactiveMapIframe}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+              </div>
+            ) : project.gallery && project.gallery.length > 0 && (
               <div className={styles.gallerySection}>
                 <div className={styles.galleryHeader}>
                   <h2 className={styles.galleryTitle}>{t("Visual Presentation")}</h2>

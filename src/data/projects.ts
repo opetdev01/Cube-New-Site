@@ -12,6 +12,7 @@ export interface Project {
   status: string;
   featuredImage: string;
   gallery: string[];
+  interactiveMapUrl?: string;
 }
 
 export const projects: Project[] = [
@@ -99,11 +100,12 @@ export const projects: Project[] = [
     "client": "Abu Dhabi Tourism Authority",
     "year": "2025",
     "status": "Concept Phase",
-    "featuredImage": "/assets/majarra.png",
+    "featuredImage": "/assets/projects/majarra/selected/majarra-cover.jpg",
+    "interactiveMapUrl": "https://majarra.voom.cc/",
     "summary": "A high-concept architectural gateway in Abu Dhabi, blending fluid futuristic structures with traditional Arabesque geometry.",
     "description": "Majarra represents a futuristic mixed-use urban hub proposed for Abu Dhabi, UAE. Inspired by the movement of stars and galaxies, the architecture adopts fluid, parametric canopies and organic building volumes that curve over pedestrian avenues.\n\nThe programming integrates boutique commercial retail, luxury residential suites, high-tech research labs, and green community platforms. The parametric facade wraps around the structures to function as an active solar-shading envelope, reducing energy demands and reflecting the harsh desert climate while projecting a landmark silhouette onto the shoreline.",
     "gallery": [
-      "/assets/majarra.png"
+      "/assets/projects/majarra/selected/majarra-cover.jpg"
     ]
   },
   {
