@@ -199,11 +199,11 @@ export const projects: Project[] = [
     "client": "Ministry of Tourism, Oman",
     "year": "2025",
     "status": "Competition Entry",
-    "featuredImage": "/assets/projects/jusur-competition-ksa-2/Picture1-scaled.png",
+    "featuredImage": "/assets/projects/jusur-competition-ksa-2/selected/jusur-cover.jpg",
     "summary": "A contemporary coastal hub inspired by Omani bridges, connecting Muscat's maritime heritage with modern eco-tourism.",
     "description": "In the heart of North Al-Seeb, along the rhythm of the Omani Sea waves, this project emerges as a contemporary urban vision that redefines the relationship between people and place. Here, buildings are not merely constructed—they are shaped as bridges: bridges between visitors and the land, between Oman’s maritime heritage and its touristic future, between the soul of the city and the modernity of the experience.\n\nThis project draws inspiration from Omani bridges — not merely as structural elements, but as profound symbols of connection, transition, and transformation. Just as bridges in Oman link the edges of valleys, just as the aflaj channels carry water across the terrain, and just as maritime piers stretch toward the horizon, the architectural masses of this project emerge as new urban bridges — connecting people to place, tourism to living, and the sea to the city. The result is a civic platform where tourism is not a passing visit, but an immersive, holistic experience.",
     "gallery": [
-      "/assets/projects/jusur-competition-ksa-2/Picture1-scaled.png",
+      "/assets/projects/jusur-competition-ksa-2/selected/jusur-cover.jpg",
       "/assets/projects/jusur-competition-ksa-2/Slide0-scaled.webp",
       "/assets/projects/jusur-competition-ksa-2/Slide00-scaled.webp",
       "/assets/projects/jusur-competition-ksa-2/Slide000-scaled.webp",
