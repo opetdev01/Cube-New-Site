@@ -1,4 +1,132 @@
 export const INSIGHT_ARABIC_TRANSLATIONS: Record<string, { titleAr: string; excerptAr: string; contentAr: string }> = {
+  "egypt-712-a-national-vision-for-reclaiming-leadership-back-to-the-future": {
+    titleAr: "مصر 712: رؤية وطنية متكاملة لاستعادة الريادة — العودة إلى المستقبل",
+    excerptAr: "لم تفتقر مصر يوماً إلى الطموح، بل افتقرت إلى إطار عمل يجمع هذا الطموح. رؤية مصر 712 هي المخطط الوطني الشامل الصادر عن مبادرة 'إعمار مصر' بمؤسسة رمال للتنمية المستدامة.",
+    contentAr: `
+      <style>
+      .e712-ar-art { line-height: 1.9; font-size: 1.05rem; text-align: right; direction: rtl; }
+      .e712-ar-art h2 { color: #e30613 !important; font-size: 1.65rem !important; font-weight: 800 !important; margin: 2.4rem 0 1rem !important; letter-spacing: -0.01em; border-bottom: 2px solid rgba(227,6,19,0.12); padding-bottom: 8px; }
+      .e712-ar-art h3 { color: #000000 !important; font-size: 1.3rem !important; font-weight: 800 !important; margin: 1.8rem 0 0.8rem !important; }
+      .e712-ar-art p { color: #333333 !important; margin-bottom: 1.4rem !important; }
+      .e712-ar-art ul { margin: 1rem 1.6rem 1.6rem 0 !important; }
+      .e712-ar-art li { color: #333333 !important; margin-bottom: 0.6rem !important; }
+      .e712-ar-dna-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin: 1.8rem 0 2.2rem; }
+      .e712-ar-dna-card { background: #f8f9fa; border-top: 4px solid #e30613; padding: 20px; border-radius: 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
+      .e712-ar-dna-num { font-size: 2.4rem; font-weight: 900; color: #e30613; line-height: 1; margin-bottom: 8px; }
+      .e712-ar-dna-title { font-weight: 800; font-size: 1.05rem; color: #111111; margin-bottom: 6px; }
+      .e712-ar-dna-desc { font-size: 0.92rem; color: #555555; line-height: 1.5; margin: 0 !important; }
+      .e712-ar-table-wrapper { overflow-x: auto; margin: 2rem 0; border-radius: 6px; border: 1px solid #e5e7eb; box-shadow: 0 4px 15px rgba(0,0,0,0.04); }
+      .e712-ar-table { width: 100%; border-collapse: collapse; text-align: right; font-size: 0.95rem; }
+      .e712-ar-table th { background-color: #111111; color: #ffffff; padding: 14px 18px; font-weight: 700; font-size: 0.85rem; }
+      .e712-ar-table td { padding: 14px 18px; border-bottom: 1px solid #eeeeee; color: #333333; }
+      .e712-ar-table tr:nth-child(even) { background-color: #fcfcfc; }
+      .e712-ar-table tr:hover { background-color: #f5f5f5; }
+      .e712-ar-table td:first-child { font-weight: 700; color: #111111; }
+      .e712-ar-art blockquote { background-color: #f9f9f9; border-right: 4px solid #e30613; padding: 20px 26px; margin: 2rem 0; font-style: italic; color: #111111 !important; border-radius: 6px 0 0 6px; font-size: 1.1rem; line-height: 1.8; }
+      </style>
+
+      <div class="e712-ar-art">
+        <p>لم تفتقر مصر يوماً إلى الطموح والإمكانيات — بل افتقرت إلى إطار عمل استراتيجي شامل يجمع هذا الطموح ويحوله إلى واقع. <strong>رؤية مصر 712</strong> (المخطط المتكامل لمصر) هي ذلك الإطار الوطني الشامل الذي أعدته مبادرة "إعمار مصر" التابعة لمؤسسة رمال للتنمية المستدامة غير الهادفة للربح، لتوحيد جهود الخبراء والمتحمسين من كافة التخصصات مع تطلعات كافة أطياف الشعب المصري ضمن هيكل مؤسسي محدد المسئوليات وتحت رقابة المجتمع المدني.</p>
+
+        <h2>الرؤية: العودة إلى المستقبل</h2>
+        <p>تقوم الرؤية في جوهرها على فرضية بسيطة وحاسمة: مستقبل مصر يتجلى في استعادة ريادتها التاريخية الحضارية. تطمح الرؤية إلى بناء مصر إنسانية، علمية، صنعتیة، تكنولوجية، سياحية، ثقافية، وخضراء — تصنف ضمن <strong>أفضل 7 دول على مستوى العالم</strong>.</p>
+
+        <p>يحمل الرقم <strong>712</strong> الشفرة الوراثية (DNA) لهذه الرؤية:</p>
+
+        <div class="e712-ar-dna-grid">
+          <div class="e712-ar-dna-card">
+            <div class="e712-ar-dna-num">7</div>
+            <div class="e712-ar-dna-title">7 أبعاد للتنمية المستدامة</div>
+            <p class="e712-ar-dna-desc">الأبعاد الإنسانية، الروحية، الاجتماعية، الثقافية، الاقتصادية، السياسية، والبيئية للحياة الوطنية.</p>
+          </div>
+          <div class="e712-ar-dna-card">
+            <div class="e712-ar-dna-num">1</div>
+            <div class="e712-ar-dna-title">1 منهجية عمل موحدة</div>
+            <p class="e712-ar-dna-desc">منهجية <strong>العلم والإيمان والأرض</strong> — تُطبق عبر كافة مجالات التنمية: الإنسان، المكان، الزمان، والإقليم.</p>
+          </div>
+          <div class="e712-ar-dna-card">
+            <div class="e712-ar-dna-num">2</div>
+            <div class="e712-ar-dna-title">2 أفق زمني للخارطة</div>
+            <p class="e712-ar-dna-desc">أهداف مستهدفة ومحددة بالأرقام والقياس لعامين مرجعيَّين: <strong>2040 و 2060</strong>.</p>
+          </div>
+        </div>
+
+        <h2>المنهجية: العلم والإيمان والأرض</h2>
+        <p>بدلاً من التعامل مع التنمية كمجموعة من المشروعات المنفصلة، تنظم رؤية مصر 712 التحول الشامل عبر <strong>أكواد مصر 712 الوطنية</strong> — وهي أكواد متكاملة تغطي مجالات: الأخلاق والقيم، الاستثمار في العنصر البشري، العلم والتعليم، الصحة، العمران وجودة الحياة، النقل، الطاقة المتجددة، الثقافة والفنون، التوازن البيئي، الموارد المائية، الزراعة، الصناعة، التعدين، الاقتصاد والتجارة، الحفاظ على التراث، السياحة، تكنولوجيا المعلومات، والرقابة والحوكمة.</p>
+        <p>ويرتبط كل كود بآليات تنفيذية، ومشروعات محددة، وبرامج اقتصادية وبر جدول زمني للتنفيذ ضمن منظومة 712 وفقاً للأولويات الوطنية.</p>
+
+        <h2>من الرؤية إلى إعادة رسم الخارطة العمرانية</h2>
+        <p>ما يميز مصر 712 كرؤية عمرانية واستراتيجية هو إصرارها على ترجمة التطلعات إلى واقع مكاني ومجسم. تتخيل الرؤية مدناً عواصم متخصصة — <strong>عواصم مصر السبع</strong> — يرتبط كل منها بمهمة وطنية محددة:</p>
+        <ul>
+          <li><strong>القاهرة</strong> — عاصمة الثقافة والسياحة</li>
+          <li><strong>العاصمة الإدارية الجديدة</strong> — مقر الحكم والإدارة</li>
+          <li><strong>شرق بورسعيد</strong> — عاصمة التجارة والمال</li>
+          <li><strong>الإسكندرية</strong> — عاصمة العلوم والمعرفة</li>
+          <li><strong>الأقصر</strong> — عاصمة التراث العالمي</li>
+          <li><strong>أسوان</strong> — عاصمة النيل والروابط الأفريقية</li>
+          <li><strong>السلوم</strong> — عاصمة علوم الفضاء والتكنولوجيا</li>
+        </ul>
+        <p>وحول هذه العواصم، ترسم الرؤية خارطة لمدن استعادة الريادة: مدن صناعة السفن، عواصم الأثاث والغزل والنسيج، المدن الطبية، مدن علوم البحار وسياحة الغوص، السياحة العلاجية، الحرف التقليدية، ومدينة العمارة المصرية — إلى جانب مدن تعدين الذهب، مدن الطاقة الشمسية والرياح، ومدينة علوم الفضاء على مساحة 100 ألف فدان.</p>
+
+        <h2>طموح مقاس بالأرقام</h2>
+        <p>رؤية مصر 712 ليست مجرد شعارات؛ بل هي أرقام ومؤشرات محددة بدقة:</p>
+
+        <div class="e712-ar-table-wrapper">
+          <table class="e712-ar-table">
+            <thead>
+              <tr>
+                <th>المؤشر</th>
+                <th>اليوم (خط الأساس)</th>
+                <th>مستهدف 2040</th>
+                <th>مستهدف 2060</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>عدد السكان</td>
+                <td>83 مليون</td>
+                <td>120 مليون</td>
+                <td>200 مليون</td>
+              </tr>
+              <tr>
+                <td>الأرض المأهولة</td>
+                <td>7%</td>
+                <td>25%</td>
+                <td>40%</td>
+              </tr>
+              <tr>
+                <td>الناتج القومي الإجمالي</td>
+                <td>188.4 مليار دولار</td>
+                <td>1,200 مليار دولار</td>
+                <td>3,200 مليار دولار</td>
+              </tr>
+              <tr>
+                <td>نسبة التعليم من الناتج القومي</td>
+                <td>5%</td>
+                <td>—</td>
+                <td>25%</td>
+              </tr>
+              <tr>
+                <td>نسبة الصحة من الناتج القومي</td>
+                <td>10%</td>
+                <td>—</td>
+                <td>15%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>وتستند هذه الأرقام إلى قراءة واثقة وموضوعية لثروات مصر الحقيقية: موقع جغرافي عبقري في قلب العالم، مساحات غير مستغلة هائلة، نهر النيل، أكثر من ثلثي آثار العالم، 2000 كم من الشواطئ، 27 محمية طبيعية، قناة السويس، ثروات تعدينية وبترولية، وأكبر خزان مياه جوفية في العالم — كل ذلك في بلد من أقل بلدان العالم تعرضاً للكوارث الطبيعية.</p>
+
+        <h2>حلم ممتد في الهوية</h2>
+        <p>يلخص مؤسسو الرؤية هدفها في جملة واضحة: استعادة الهوية المصرية، والانتماء، والكرامة، والتحضر، والذكاء، والعلم، والفنون، والثقافة — وصناعة جيل قادر على الإبداع والابتكار، واستغلال الطاقات البناءة للشباب المصري، وإعادة مصر إلى مكانتها العالمية بقيادة العلوم الإنسانية.</p>
+
+        <blockquote>"إننا بحاجة إلى مراجعة خطانا وتقييم أدائنا؛ لنخطط لمستقبلنا بقلوب مؤمنة، وإرادة واعية، وعقول منيرة، فنصحح المسار ونحقق لمصر كل ما نطمح إليه."</blockquote>
+
+        <p>تقف رؤية مصر 712 كدليل حي على ما يمكن أن يقدمه التخطيط العمراني والوطني الواعي: ليس مجرد مشروعات، بل مساراً متكاملاً وإنسانياً ومقاساً للعودة إلى المستقبل.</p>
+      </div>
+    `
+  },
   "cube-consultants-signs-consultancy-and-design-contract-for-smouha-gate-project-in-alexandria": {
     titleAr: "كيو ب للاستشارات توقع عقد التصميم والاستشارات الهندسية لمشروع سموحة جيت بالإسكندرية",
     excerptAr: "بالتعاون مع مرسوم للتطوير العقاري لإقامة مقصد عمراني متكامل متعدد الاستخدامات في عروس البحر المتوسط - الإسكندرية.",
