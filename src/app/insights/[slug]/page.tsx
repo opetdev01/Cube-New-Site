@@ -1,6 +1,6 @@
 "use client";
 
-import React, { use } from "react";
+import React, { use, useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -19,6 +19,7 @@ const InsightDetailPage = ({ params }: PageProps) => {
   const resolvedParams = use(params);
   const slug = resolvedParams.slug;
   const { language, t } = useLanguage();
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   const item = allInsights.find((i) => i.slug === slug);
 
@@ -48,6 +49,33 @@ const InsightDetailPage = ({ params }: PageProps) => {
   const galleryImages = (item.gallery && item.gallery.length > 0)
     ? item.gallery
     : (item.image ? [item.image] : []);
+
+  const lightboxPrev = () => {
+    if (lightboxIndex !== null && galleryImages.length > 0) {
+      setLightboxIndex((lightboxIndex - 1 + galleryImages.length) % galleryImages.length);
+    }
+  };
+
+  const lightboxNext = () => {
+    if (lightboxIndex !== null && galleryImages.length > 0) {
+      setLightboxIndex((lightboxIndex + 1) % galleryImages.length);
+    }
+  };
+
+  const handleCloseLightbox = () => {
+    setLightboxIndex(null);
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (lightboxIndex === null) return;
+      if (e.key === "ArrowLeft") lightboxPrev();
+      if (e.key === "ArrowRight") lightboxNext();
+      if (e.key === "Escape") handleCloseLightbox();
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [lightboxIndex, galleryImages.length]);
 
   return (
     <div className={styles.container}>
@@ -133,7 +161,13 @@ const InsightDetailPage = ({ params }: PageProps) => {
           <h3 className={styles.galleryTitle}>{t("Media Gallery")}</h3>
           <div className={styles.galleryGrid}>
             {galleryImages.map((imgUrl, i) => (
-              <div key={i} className={styles.galleryImageWrapper}>
+              <div 
+                key={i} 
+                className={styles.galleryImageWrapper}
+                onClick={() => setLightboxIndex(i)}
+                style={{ cursor: "zoom-in" }}
+                title={t("Click to view full image")}
+              >
                 <Image 
                   src={imgUrl}
                   alt={`${translatedTitle} - Image ${i + 1}`}
@@ -141,8 +175,62 @@ const InsightDetailPage = ({ params }: PageProps) => {
                   className={styles.galleryImage}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
+                <div className={styles.galleryZoomOverlay}>
+                  <span className={styles.zoomIcon}>🔍</span>
+                </div>
               </div>
             ))}
+          </div>
+        </div>
+      )}
+
+      {/* Lightbox Modal */}
+      {lightboxIndex !== null && galleryImages.length > 0 && (
+        <div className={styles.lightboxOverlay} onClick={handleCloseLightbox}>
+          <div className={styles.lightboxContent} onClick={(e) => e.stopPropagation()}>
+            <button 
+              className={styles.lightboxClose} 
+              onClick={handleCloseLightbox}
+              aria-label="Close image"
+            >
+              &times;
+            </button>
+
+            {galleryImages.length > 1 && (
+              <button 
+                className={`${styles.lightboxArrow} ${styles.lightboxPrevArrow}`} 
+                onClick={lightboxPrev}
+                aria-label="Previous image"
+              >
+                ‹
+              </button>
+            )}
+
+            <div className={styles.lightboxImageWrapper}>
+              <Image
+                src={galleryImages[lightboxIndex]}
+                alt={`${translatedTitle} - Image ${lightboxIndex + 1}`}
+                fill
+                className={styles.lightboxImage}
+                unoptimized
+              />
+            </div>
+
+            {galleryImages.length > 1 && (
+              <button 
+                className={`${styles.lightboxArrow} ${styles.lightboxNextArrow}`} 
+                onClick={lightboxNext}
+                aria-label="Next image"
+              >
+                ›
+              </button>
+            )}
+
+            <div className={styles.lightboxFooter}>
+              <span className={styles.lightboxCounter}>
+                {lightboxIndex + 1} / {galleryImages.length}
+              </span>
+            </div>
           </div>
         </div>
       )}
@@ -151,3 +239,4 @@ const InsightDetailPage = ({ params }: PageProps) => {
 };
 
 export default InsightDetailPage;
+
