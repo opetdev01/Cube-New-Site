@@ -246,6 +246,7 @@ function getSearchScore(project: any, query: string, t?: (key: string) => string
   }, [searchQuery, activeView, lastRecommended]);
 
   const PROJECT_ALIASES: Record<string, string[]> = {
+    "smouha-gate": ["smouha gate", "smouha", "سموحة جيت", "سموحة", "بوابة سموحة", "مشروع سموحة"],
     "zomra-east": ["zomra", "zomra east", "زمرة", "مشروع زمرة", "zumra", "zoumra", "zoomra"],
     "skiv": ["skiv", "saudi korean", "اسكيف", "القرية الصناعية", "اس كيه اي في"],
     "red-hills": ["red hills", "red hill", "ريد هيلز", "ريد هيل"],
