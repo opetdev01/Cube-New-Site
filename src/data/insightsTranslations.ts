@@ -1,4 +1,78 @@
 export const INSIGHT_ARABIC_TRANSLATIONS: Record<string, { titleAr: string; excerptAr: string; contentAr: string }> = {
+  "al-ahram-street-urban-redevelopment-competition": {
+    titleAr: "كيو ب للاستشارات تشارك في مسابقة التطوير العمراني لشارع الأهرام بالكوربة — مصر الجديدة",
+    excerptAr: "كيو ب للاستشارات تقدم مقترحها المعماري والتخطيطي لمسابقة التطوير العمراني لشارع الأهرام الكوربة بمصر الجديدة. إعادة صياغة الشريان التراثي بطول 985 متراً إلى محور مشاة بيئي مستدام — وفي انتظار تقييم لجنة التحكيم.",
+    contentAr: `
+      <style>
+      .ahram-ar-art { line-height: 1.9; font-size: 1.05rem; text-align: right; direction: rtl; }
+      .ahram-ar-art h2 { color: #e30613 !important; font-size: 1.65rem !important; font-weight: 800 !important; margin: 2.4rem 0 1rem !important; letter-spacing: -0.01em; border-bottom: 2px solid rgba(227,6,19,0.12); padding-bottom: 8px; }
+      .ahram-ar-art h3 { color: #000000 !important; font-size: 1.3rem !important; font-weight: 800 !important; margin: 1.8rem 0 0.8rem !important; }
+      .ahram-ar-art p { color: #333333 !important; margin-bottom: 1.4rem !important; }
+      .ahram-ar-art ul { margin: 1rem 1.6rem 1.6rem 0 !important; }
+      .ahram-ar-art li { color: #333333 !important; margin-bottom: 0.6rem !important; }
+      .ahram-ar-status-card { background: #fff8f8; border-right: 4px solid #e30613; padding: 18px 22px; margin-bottom: 2.2rem; border-radius: 6px 0 0 6px; }
+      .ahram-ar-status-card h4 { margin: 0 0 4px 0 !important; color: #e30613 !important; font-size: 1.15rem; font-weight: 800; }
+      .ahram-ar-status-card p { margin: 0 !important; color: #444444 !important; font-size: 0.95rem; font-weight: 600; }
+      .ahram-ar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin: 1.8rem 0 2.2rem; }
+      .ahram-ar-card { background: #f8f9fa; border-top: 4px solid #e30613; padding: 20px; border-radius: 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
+      .ahram-ar-num { font-size: 2.2rem; font-weight: 900; color: #e30613; line-height: 1; margin-bottom: 8px; }
+      .ahram-ar-card-title { font-weight: 800; font-size: 1.05rem; color: #111111; margin-bottom: 6px; }
+      .ahram-ar-card-desc { font-size: 0.92rem; color: #555555; line-height: 1.5; margin: 0 !important; }
+      .ahram-ar-art blockquote { background-color: #f9f9f9; border-right: 4px solid #e30613; padding: 20px 26px; margin: 2rem 0; font-style: italic; color: #111111 !important; border-radius: 6px 0 0 6px; font-size: 1.1rem; line-height: 1.8; }
+      </style>
+
+      <div class="ahram-ar-art">
+        <div class="ahram-ar-status-card">
+          <h4>تم تقديم المشروع للمسابقة — وفي انتظار نتائج لجنة التحكيم</h4>
+          <p>قدمت شركة كيو ب للاستشارات رسمياً رؤيتها المعمارية والتخطيطية لمسابقة إعادة التطوير العمراني لشارع الأهرام، وينتظر فريق العمل حالياً رصد الدرجات وتقييم لجنة التحكيم.</p>
+        </div>
+
+        <p>يعد <strong>شارع الأهرام</strong> بمنطقة الكوربة التراثية في حي مصر الجديدة بالقاهرة أحد أهم المحاور المعمارية التاريخية التي تعود لبدايات القرن العشرين، ويمتاز ببوائكه المعمارية الفريدة ومقاهيه الحيوية، وموقعه المباشر المحاط بأبرز المعالم المعمارية والتراثية مثل قصر البارون إمبان، وقصر الغرناطة، وقصر الاتحادية، وكنيسة سانت ريتا، وكاتدرائية البازليك (بازيليك العذراء مريم).</p>
+
+        <h2>الفلسفة التصميمية: هليوبوليس — مدينة الشمس</h2>
+        <blockquote>"هليوبوليس (الكلمة اليونانية لـ 'مدينة الشمس'): دع أشعة الشمس تشكل اللغة التصميمية للميدان والشارع، ليس كمجرد عنصر جمالي أو زخرفي، بل كعنصر تنظيمي وهيكلي حقيقي يعيد إحياء هوية مدينة الشمس التاريخية."</blockquote>
+
+        <p>يعيد المقترح المقدم من كيو ب للاستشارات صياغة <strong>المحور البالغ طوله 985 متراً</strong> (بعرض يتراوح بين 35 إلى 77 متراً) ليتحول إلى محور مشاة متصل يعطي الأولوية للإنسان، ويحد من هيمنة السيارات، ويربط المعالم التاريخية والتراثية بالنسيج العمراني للحفاظ على طابع حي الكوربة العريق.</p>
+
+        <h2>خمس قطاعات وتخصصات عمرانية</h2>
+        <div class="ahram-ar-grid">
+          <div class="ahram-ar-card">
+            <div class="ahram-ar-num">01</div>
+            <div class="ahram-ar-card-title">منطقة التراث والثقافة</div>
+            <p class="ahram-ar-card-desc">مساحة خاصة للفنون والحرف اليدوية، المعارض المفتوحة، وورش العمل الفنية والثقافية.</p>
+          </div>
+          <div class="ahram-ar-card">
+            <div class="ahram-ar-num">02</div>
+            <div class="ahram-ar-card-title">منطقة المعرفة والتعلم</div>
+            <p class="ahram-ar-card-desc">فراغات هادئة للقراءة والدراسة المفتوحة وتبادل الكتب في أجواء مظللة ومريحة.</p>
+          </div>
+          <div class="ahram-ar-card">
+            <div class="ahram-ar-num">03</div>
+            <div class="ahram-ar-card-title">منطقة الترفيه والسينما</div>
+            <p class="ahram-ar-card-desc">عروض سينمائية خارجية، عروض موسيقية حية، وجلسات مفتوحة ومنافذ للمأكولات والمشروبات.</p>
+          </div>
+          <div class="ahram-ar-card">
+            <div class="ahram-ar-num">04</div>
+            <div class="ahram-ar-card-title">المنطقة التجارية والاحتفال</div>
+            <p class="ahram-ar-card-desc">سوق الانتيكات والمقتنيات والكتب القديمة، إلى جانب حديقة العروض الكبرى للفعاليات الثقافية.</p>
+          </div>
+        </div>
+
+        <h2>الأداء البيئي والراحة الحرارية للمشاة</h2>
+        <p>تترجم المحاكاة والتحليلات البيئية للمشروع حلولاً مناخية عملية لراحة المستخدمين:</p>
+        <ul>
+          <li><strong>خفض درجة الحرارة المحسوسة:</strong> تخفيض الحرارة من 33.9°م إلى 30.9°م لتوفير بيئة حرارية مناسبة للمشاة.</li>
+          <li><strong>زيادة نسبة التظليل:</strong> رفع نسبة التظليل من 9.6% إلى 79.8% عبر مظلات وأشجار كثيفة متصلة.</li>
+          <li><strong>تحقيق الراحة الحرارية:</strong> تحسين 91% من مساحة الشارع لتصبح ضمن النطاق المريح حرارياً.</li>
+          <li><strong>التحكم في الإشعاع الشمسي:</strong> خفض الحمل الشمسي على الأسطح بنسبة 65% (من 90.0 إلى 31.8 كيلوواط ساعة/م²).</li>
+        </ul>
+
+        <h2>الحلول الذكية والنقل وحركة المرور</h2>
+        <p>للقضاء على تكدس السيارات وتسيير حركة المشاة بشكل سلس، يقدم المشروع دراسة متكاملة لإقامة <strong>مواقف سيارات تحت الأرض</strong> تتسع لـ 1,005 سيارات عبر 3 مداخل و3 مخارج و10 نويات حركة راسية، إلى جانب مراكز المواقف الذكية المجهزة لتصل الطاقة الاستيعابية الإجمالية المخططة إلى <strong>4,600 موقف سيارات</strong>.</p>
+        <p>كما يعزز الشارع بسلات القمامة الذكية، وشاشات التصفح والتوجيه التفاعلية، ومحطات التنقل المشترك، والمقاعد المظلمة الذكية — لتقديم نموذج عمراني تراثي مستدام وفقاً لأعلى المعايير العالمية.</p>
+      </div>
+    `
+  },
   "egypt-712-a-national-vision-for-reclaiming-leadership-back-to-the-future": {
     titleAr: "مصر 712: رؤية وطنية متكاملة لاستعادة الريادة — العودة إلى المستقبل",
     excerptAr: "لم تفتقر مصر يوماً إلى الطموح، بل افتقرت إلى إطار عمل يجمع هذا الطموح. رؤية مصر 712 هي المخطط الوطني الشامل الصادر عن مبادرة 'إعمار مصر' بمؤسسة رمال للتنمية المستدامة.",
