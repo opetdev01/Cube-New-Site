@@ -53,7 +53,7 @@ export const projects: Project[] = [
     "client": "Zomra Developments",
     "year": "2026",
     "status": "Under Construction",
-    "featuredImage": "/assets/projects/zomra-east/Townhouse-6-e1750868748108.webp",
+    "featuredImage": "/assets/projects/zomra-east/Standalone-Villa-2.1-1.webp",
     "summary": "Zomra Compound redefines luxury residential living in New Cairo with contemporary European-inspired architectural forms, private villa typologies, and extensive landscape networks.",
     "description": "Zomra Compound in Fifth Settlement, New Cairo redefines luxury living with modern architecture, elegant finishes, and a wide range of unit types designed to meet the needs of both residents and investors. The project features a refined European style that appears in every corner—from its master planning to interior designs—and includes a full array of premium facilities and services that ensure a comfortable and upscale lifestyle.\n\nZomra is located in a prime spot in New Cairo, specifically in the Fifth Settlement, one of the city’s most active and sought-after areas. The compound is close to key roads and main access points, making it easy to reach nearby service areas within just minutes.\n\nThe project stretches across 378 acres, where nature and tranquility take center stage. A large portion of the land is dedicated to green spaces, landscapes, and open areas. The residential program features a diverse selection of standalone villas, townhouses, twin houses, and luxury low-rise apartments, all organized to optimize solar path exposure, natural ventilation, and private garden frontages.",
     "gallery": [
