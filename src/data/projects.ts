@@ -40,9 +40,7 @@ export const projects: Project[] = [
       "/assets/projects/smouha-gate/SMOHA-LIFE (10).png",
       "/assets/projects/smouha-gate/SMOHA-LIFE (11).png",
       "/assets/projects/smouha-gate/SMOHA-LIFE (12).png",
-      "/assets/projects/smouha-gate/SMOHA-LIFE (13).png",
-      "/assets/projects/smouha-gate/SMOHA-LIFE (14).png",
-      "/assets/projects/smouha-gate/SMOHA-LIFE (15).png"
+      "/assets/projects/smouha-gate/SMOHA-LIFE (13).png"
     ]
   },
   {
