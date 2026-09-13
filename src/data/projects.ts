@@ -505,7 +505,7 @@ export const projects: Project[] = [
   {
     "slug": "cairo2050",
     "title": "Cairo 2050",
-    "sector": "Urban Planning",
+    "sector": "Mixed-Use & Visions",
     "location": "Cairo, Egypt",
     "client": "Cube Consultants",
     "year": "2008",
@@ -523,7 +523,7 @@ export const projects: Project[] = [
   {
     "slug": "giza-2030",
     "title": "Giza 2030",
-    "sector": "Urban Planning",
+    "sector": "Mixed-Use & Visions",
     "location": "Giza, Egypt",
     "client": "Cube Consultants",
     "year": "2012",
@@ -632,7 +632,7 @@ export const projects: Project[] = [
   {
     "slug": "egypt-712-2",
     "title": "EGYPT 712",
-    "sector": "Urban Planning",
+    "sector": "Mixed-Use & Visions",
     "location": "Egypt",
     "client": "Cube Consultants",
     "year": "2020",

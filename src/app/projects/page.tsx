@@ -259,7 +259,10 @@ function getSearchScore(project: any, query: string, t?: (key: string) => string
     "lujain-resort": ["lujain", "lujain resort", "لجين", "منتجع لجين"],
     "the-crystal-spark-tower": ["crystal spark", "crystal spark tower", "كريستال سبارك", "برج كريستال"],
     "the-spirit-tower": ["spirit tower", "spirit", "سبيريت", "برج سبيريت", "سبريت"],
-    "the-new-gateway-for-the-future": ["ring tower", "ring", "رينج", "برج رينج", "رينق"]
+    "the-new-gateway-for-the-future": ["ring tower", "ring", "رينج", "برج رينج", "رينق"],
+    "cairo2050": ["cairo 2050", "cairo 2025", "cairo vision", "القاهرة 2050", "القاهرة 2025", "رؤية القاهرة"],
+    "giza-2030": ["giza 2030", "giza vision", "الجيزة 2030", "رؤية الجيزة"],
+    "egypt-712-2": ["egypt 712", "egypt 712 vision", "مصر 712", "712"]
   };
 
   const getQuerySimilarity = (q: string, target: string): number => {
