@@ -11,9 +11,10 @@ export interface InsightItem {
   type: 'news' | 'award' | 'article';
   projectSlug?: string | null;
   docxUrl?: string;
+  hidden?: boolean;
 }
 
-export const news: InsightItem[] = [
+const allNews: InsightItem[] = [
   {
     "id": 31400,
     "title": "Al-Ahram Street Urban Redevelopment Competition: Reimagining Heliopolis, City of the Sun",
@@ -44,7 +45,8 @@ export const news: InsightItem[] = [
     "gallery": [
       "/assets/insights/egypt-712-a-national-vision-for-reclaiming-leadership-back-to-the-future/cover.jpg"
     ],
-    "type": "article"
+    "type": "article",
+    "hidden": true
   },
   {
     "id": 31300,
@@ -689,6 +691,8 @@ export const news: InsightItem[] = [
     "type": "article"
   }
 ];
+
+export const news: InsightItem[] = allNews.filter((item) => !item.hidden);
 
 export const awards: InsightItem[] = [
   {
