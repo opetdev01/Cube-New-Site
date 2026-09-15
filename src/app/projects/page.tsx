@@ -19,12 +19,13 @@ if (typeof window !== "undefined") {
 
 const sectors = [
   "All",
+  "Visions",
   "Residential & Resorts",
   "Industrial & Infrastructure",
   "Towers & Offices",
   "Commercial & Retail",
   "Tourism & Mixed-Use",
-  "Mixed-Use & Visions",
+  "Mixed-Use",
   "Culture & Education",
   "Public Buildings & Retail",
   "Urban Planning",
@@ -517,12 +518,23 @@ function getSearchScore(project: any, query: string, t?: (key: string) => string
     .filter((item) => {
       const p = item.project;
       
+      const checkSectorMatch = (pSector: string, targetSector: string) => {
+        if (targetSector === "All") return true;
+        if (targetSector === "Visions") {
+          return pSector === "Visions" || pSector.includes("Visions");
+        }
+        if (targetSector === "Mixed-Use") {
+          return pSector === "Mixed-Use" || pSector.includes("Mixed-Use");
+        }
+        return pSector === targetSector;
+      };
+
       if (activeView === "supervision") {
         // Only include specified technical/supervision portfolio projects
         if (!TECHNICAL_SLUGS.includes(p.slug)) return false;
         
         const techSector = TECHNICAL_SECTOR_MAP[p.slug];
-        const matchesSector = selectedSector === "All" || techSector === selectedSector;
+        const matchesSector = checkSectorMatch(techSector, selectedSector);
         const matchesRegion =
           selectedRegion === "All" ||
           p.location.toLowerCase().includes(selectedRegion.toLowerCase());
@@ -534,7 +546,7 @@ function getSearchScore(project: any, query: string, t?: (key: string) => string
         // Only include design projects
         if (TECHNICAL_SLUGS.includes(p.slug)) return false;
 
-        const matchesSector = selectedSector === "All" || p.sector === selectedSector;
+        const matchesSector = checkSectorMatch(p.sector, selectedSector);
         const matchesRegion =
           selectedRegion === "All" ||
           p.location.toLowerCase().includes(selectedRegion.toLowerCase());
@@ -544,7 +556,7 @@ function getSearchScore(project: any, query: string, t?: (key: string) => string
         return matchesSector && matchesRegion && matchesYear && matchesSearch;
       } else {
         // "all" view - include all projects
-        const matchesSector = selectedSector === "All" || p.sector === selectedSector;
+        const matchesSector = checkSectorMatch(p.sector, selectedSector);
         const matchesRegion =
           selectedRegion === "All" ||
           p.location.toLowerCase().includes(selectedRegion.toLowerCase());

@@ -38,7 +38,7 @@ export const MOVIES: MovieItem[] = [
     title: "Gaza calls غزة تنادى",
     videoId: "TQho13xoSyk",
     featuredImage: "https://img.youtube.com/vi/TQho13xoSyk/maxresdefault.jpg",
-    sector: "Mixed-Use & Visions",
+    sector: "Visions",
     location: "Gaza, Palestine"
   },
   {
@@ -86,7 +86,7 @@ export const MOVIES: MovieItem[] = [
     title: "The Suez Canal Entrance Waterfront",
     videoId: "0ras66hmSxg",
     featuredImage: "https://img.youtube.com/vi/0ras66hmSxg/hqdefault.jpg",
-    sector: "Mixed-Use & Visions",
+    sector: "Visions",
     location: "Suez Canal, Egypt"
   },
   {
@@ -102,7 +102,7 @@ export const MOVIES: MovieItem[] = [
     title: "Crystal Pyramid Vision - Sun Capital, Giza",
     videoId: "G2w8poYtCb4",
     featuredImage: "https://img.youtube.com/vi/G2w8poYtCb4/hqdefault.jpg",
-    sector: "Mixed-Use & Visions",
+    sector: "Visions",
     location: "Sun Capital, Giza, Egypt"
   },
   {
@@ -110,7 +110,7 @@ export const MOVIES: MovieItem[] = [
     title: "TUTERA City: Towards an Innovative Astronomy and Space Science City in Egypt",
     videoId: "sGT3GRMRNTg",
     featuredImage: "https://img.youtube.com/vi/sGT3GRMRNTg/hqdefault.jpg",
-    sector: "Mixed-Use & Visions",
+    sector: "Visions",
     location: "Tutera Digital Realm"
   },
   {
@@ -126,7 +126,7 @@ export const MOVIES: MovieItem[] = [
     title: "The New Administrative Capital Cairo",
     videoId: "AuC9XEyBgvg",
     featuredImage: "https://img.youtube.com/vi/AuC9XEyBgvg/hqdefault.jpg",
-    sector: "Mixed-Use & Visions",
+    sector: "Visions",
     location: "New Administrative Capital, Egypt"
   },
   {
@@ -134,7 +134,7 @@ export const MOVIES: MovieItem[] = [
     title: "Khufu Plaza .. Giza 2030",
     videoId: "Ilk-6VsAJQY",
     featuredImage: "https://img.youtube.com/vi/Ilk-6VsAJQY/hqdefault.jpg",
-    sector: "Mixed-Use & Visions",
+    sector: "Visions",
     location: "Giza, Egypt"
   },
   {
@@ -142,7 +142,7 @@ export const MOVIES: MovieItem[] = [
     title: "North Sinai Development Plan & Vision 2022 - Salam City",
     videoId: "p0PUu0A5BIk",
     featuredImage: "https://img.youtube.com/vi/p0PUu0A5BIk/hqdefault.jpg",
-    sector: "Mixed-Use & Visions",
+    sector: "Visions",
     location: "North Sinai, Egypt"
   }
 ];

@@ -392,11 +392,13 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Sectors
     "All": "الكل",
+    "Visions": "مشاريع الرؤى",
     "Residential & Resorts": "السكني والمنتجعات",
     "Industrial & Infrastructure": "الصناعي والبنية التحتية",
     "Towers & Offices": "الأبراج والمكاتب",
     "Commercial & Retail": "التجاري والتجزئة",
     "Tourism & Mixed-Use": "السياحي والمتعدد الاستخدامات",
+    "Mixed-Use": "استخدامات متعددة",
     "Mixed-Use & Visions": "متعدد الاستخدامات والرؤى",
     "Culture & Education": "الثقافة والتعليم",
     "Public Buildings & Retail": "المباني العامة والتجزئة",

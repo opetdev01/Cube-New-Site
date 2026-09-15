@@ -19,7 +19,7 @@ export const projects: Project[] = [
   {
     "slug": "smouha-gate",
     "title": "Smouha Gate",
-    "sector": "Mixed-Use & Visions",
+    "sector": "Visions",
     "location": "Golden Square, Smouha, Alexandria, Egypt",
     "client": "Marsoum Developments",
     "year": "2026",
@@ -122,7 +122,7 @@ export const projects: Project[] = [
   {
     "slug": "majarra",
     "title": "Majarra Vision",
-    "sector": "Mixed-Use & Visions",
+    "sector": "Visions",
     "location": "Abu Dhabi, UAE",
     "client": "Abu Dhabi Tourism Authority",
     "year": "2025",
@@ -422,7 +422,7 @@ export const projects: Project[] = [
   {
     "slug": "metatut-metaverse-city",
     "title": "METATUT METAVERSE CITY",
-    "sector": "Mixed-Use & Visions",
+    "sector": "Visions",
     "location": "Metaverse / Digital Space",
     "client": "Cube Consultants",
     "year": "2022",
@@ -490,7 +490,7 @@ export const projects: Project[] = [
   {
     "slug": "times-square-now-in-egypt",
     "title": "TIMES SQUARE PROJECT",
-    "sector": "Mixed-Use & Visions",
+    "sector": "Visions",
     "location": "New Cairo, Egypt",
     "client": "Cube Consultants",
     "year": "2021",
@@ -505,7 +505,7 @@ export const projects: Project[] = [
   {
     "slug": "cairo2050",
     "title": "Cairo 2050",
-    "sector": "Mixed-Use & Visions",
+    "sector": "Visions",
     "location": "Cairo, Egypt",
     "client": "Cube Consultants",
     "year": "2008",
@@ -523,7 +523,7 @@ export const projects: Project[] = [
   {
     "slug": "giza-2030",
     "title": "Giza 2030",
-    "sector": "Mixed-Use & Visions",
+    "sector": "Visions",
     "location": "Giza, Egypt",
     "client": "Cube Consultants",
     "year": "2012",
@@ -632,7 +632,7 @@ export const projects: Project[] = [
   {
     "slug": "egypt-712-2",
     "title": "EGYPT 712",
-    "sector": "Mixed-Use & Visions",
+    "sector": "Visions",
     "location": "Egypt",
     "client": "Cube Consultants",
     "year": "2020",
@@ -684,13 +684,13 @@ export const projects: Project[] = [
   {
     "slug": "vingroup-cam-lam",
     "title": "Vinhub data center, Camlam, Vietnam",
-    "sector": "Mixed-Use & Visions",
+    "sector": "Visions",
     "location": "Cam Lam, Vietnam",
     "client": "Private Client",
     "year": "2025",
     "status": "Concept Phase",
     "featuredImage": "/assets/projects/vingroup-cam-lam/Slide54-scaled.webp",
-    "summary": "Vinhub data center, Camlam, Vietnam is an architectural landmark designed by CUBE Consultants under the Mixed-Use & Visions sector, focusing on modern forms, premium aesthetics, and user-centric planning.",
+    "summary": "Vinhub data center, Camlam, Vietnam is an architectural landmark designed by CUBE Consultants under the Visions sector, focusing on modern forms, premium aesthetics, and user-centric planning.",
     "description": "Vinhub data center, Camlam, Vietnam showcases CUBE Consultants' commitment to state-of-the-art architecture. The project combines local heritage elements with contemporary design principles to create a unified and high-performing space. Designed with sustainability and structural clarity in mind, this development stands as a symbol of architectural innovation.",
     "gallery": [
       "/assets/projects/vingroup-cam-lam/Slide54-scaled.webp"
@@ -754,13 +754,13 @@ export const projects: Project[] = [
   {
     "slug": "gaza-vision",
     "title": "Gaza vision",
-    "sector": "Mixed-Use & Visions",
+    "sector": "Visions",
     "location": "Cairo, Egypt",
     "client": "Private Client",
     "year": "2025",
     "status": "Concept Phase",
     "featuredImage": "/assets/projects/gaza-vision/Slide1-1-scaled.jpg",
-    "summary": "Gaza vision is an architectural landmark designed by CUBE Consultants under the Mixed-Use & Visions sector, focusing on modern forms, premium aesthetics, and user-centric planning.",
+    "summary": "Gaza vision is an architectural landmark designed by CUBE Consultants under the Visions sector, focusing on modern forms, premium aesthetics, and user-centric planning.",
     "description": "Gaza vision showcases CUBE Consultants' commitment to state-of-the-art architecture. The project combines local heritage elements with contemporary design principles to create a unified and high-performing space. Designed with sustainability and structural clarity in mind, this development stands as a symbol of architectural innovation.",
     "gallery": [
       "/assets/projects/gaza-vision/Slide1-1-scaled.jpg",
@@ -853,13 +853,13 @@ export const projects: Project[] = [
   {
     "slug": "the-clould-abu-dhabi",
     "title": "The Cloud, Abu Dhabi",
-    "sector": "Mixed-Use & Visions",
+    "sector": "Visions",
     "location": "Abu Dhabi, UAE",
     "client": "Private Client",
     "year": "2025",
     "status": "Concept Phase",
     "featuredImage": "/assets/projects/the-clould-abu-dhabi/ABUDHABI-CLOUD-1-e1729423380873.png",
-    "summary": "The Cloud, Abu Dhabi is an architectural landmark designed by CUBE Consultants under the Mixed-Use & Visions sector, focusing on modern forms, premium aesthetics, and user-centric planning.",
+    "summary": "The Cloud, Abu Dhabi is an architectural landmark designed by CUBE Consultants under the Visions sector, focusing on modern forms, premium aesthetics, and user-centric planning.",
     "description": "The Cloud, Abu Dhabi showcases CUBE Consultants' commitment to state-of-the-art architecture. The project combines local heritage elements with contemporary design principles to create a unified and high-performing space. Designed with sustainability and structural clarity in mind, this development stands as a symbol of architectural innovation.",
     "gallery": [
       "/assets/projects/the-clould-abu-dhabi/ABUDHABI-CLOUD-1-e1729423380873.png",
@@ -942,13 +942,13 @@ export const projects: Project[] = [
   {
     "slug": "grozny-competition",
     "title": "Grozny Competition, Russia",
-    "sector": "Mixed-Use & Visions",
+    "sector": "Visions",
     "location": "Grozny, Russia",
     "client": "Ministry of Urban Development",
     "year": "2025",
     "status": "Competition Entry",
     "featuredImage": "/assets/projects/grozny-competition/10-1.jpg",
-    "summary": "Grozny Competition, Russia is an architectural landmark designed by CUBE Consultants under the Mixed-Use & Visions sector, focusing on modern forms, premium aesthetics, and user-centric planning.",
+    "summary": "Grozny Competition, Russia is an architectural landmark designed by CUBE Consultants under the Visions sector, focusing on modern forms, premium aesthetics, and user-centric planning.",
     "description": "Grozny Competition, Russia showcases CUBE Consultants' commitment to state-of-the-art architecture. The project combines local heritage elements with contemporary design principles to create a unified and high-performing space. Designed with sustainability and structural clarity in mind, this development stands as a symbol of architectural innovation.",
     "gallery": [
       "/assets/projects/grozny-competition/1-2%20Main%20-scaled.jpg",
@@ -1210,13 +1210,13 @@ export const projects: Project[] = [
   {
     "slug": "aaru-1-0",
     "title": "A'ARU 1.0 Space Colony",
-    "sector": "Mixed-Use & Visions",
+    "sector": "Visions",
     "location": "Cairo, Egypt",
     "client": "Private Client",
     "year": "2025",
     "status": "Concept Phase",
     "featuredImage": "/assets/projects/aaru-1-0/Exterior_-00.jpg",
-    "summary": "A'ARU 1.0 Space Colony is an architectural landmark designed by CUBE Consultants under the Mixed-Use & Visions sector, focusing on modern forms, premium aesthetics, and user-centric planning.",
+    "summary": "A'ARU 1.0 Space Colony is an architectural landmark designed by CUBE Consultants under the Visions sector, focusing on modern forms, premium aesthetics, and user-centric planning.",
     "description": "A'ARU 1.0 Space Colony showcases CUBE Consultants' commitment to state-of-the-art architecture. The project combines local heritage elements with contemporary design principles to create a unified and high-performing space. Designed with sustainability and structural clarity in mind, this development stands as a symbol of architectural innovation.",
     "gallery": [
       "/assets/projects/aaru-1-0/cover.jpg",
@@ -1226,13 +1226,13 @@ export const projects: Project[] = [
   {
     "slug": "ufo",
     "title": "UFO Space Tourism City",
-    "sector": "Mixed-Use & Visions",
+    "sector": "Visions",
     "location": "Cairo, Egypt",
     "client": "Private Client",
     "year": "2025",
     "status": "Concept Phase",
     "featuredImage": "/assets/projects/ufo/2023-CUBE-SOCIAL-MEDIA-2020-22-SQUARE-07-04-231.jpg",
-    "summary": "UFO Space Tourism City is an architectural landmark designed by CUBE Consultants under the Mixed-Use & Visions sector, focusing on modern forms, premium aesthetics, and user-centric planning.",
+    "summary": "UFO Space Tourism City is an architectural landmark designed by CUBE Consultants under the Visions sector, focusing on modern forms, premium aesthetics, and user-centric planning.",
     "description": "UFO Space Tourism City showcases CUBE Consultants' commitment to state-of-the-art architecture. The project combines local heritage elements with contemporary design principles to create a unified and high-performing space. Designed with sustainability and structural clarity in mind, this development stands as a symbol of architectural innovation.",
     "gallery": [
       "/assets/projects/ufo/2023-CUBE-SOCIAL-MEDIA-2020-22-SQUARE-07-04-231.jpg"
@@ -1295,13 +1295,13 @@ export const projects: Project[] = [
   {
     "slug": "the-african-building",
     "title": "The African Organization",
-    "sector": "Mixed-Use & Visions",
+    "sector": "Visions",
     "location": "Cairo, Egypt",
     "client": "Private Client",
     "year": "2025",
     "status": "Concept Phase",
     "featuredImage": "/assets/projects/the-african-building/african-building.jpg",
-    "summary": "The African Organization is an architectural landmark designed by CUBE Consultants under the Mixed-Use & Visions sector, focusing on modern forms, premium aesthetics, and user-centric planning.",
+    "summary": "The African Organization is an architectural landmark designed by CUBE Consultants under the Visions sector, focusing on modern forms, premium aesthetics, and user-centric planning.",
     "description": "The African Organization showcases CUBE Consultants' commitment to state-of-the-art architecture. The project combines local heritage elements with contemporary design principles to create a unified and high-performing space. Designed with sustainability and structural clarity in mind, this development stands as a symbol of architectural innovation.",
     "gallery": [
       "/assets/projects/the-african-building/1-1.jpg",
@@ -1405,13 +1405,13 @@ export const projects: Project[] = [
   {
     "slug": "cairo-capital-new-terminal",
     "title": "CAIRO CAPITAL NEW TERMINAL",
-    "sector": "Mixed-Use & Visions",
+    "sector": "Visions",
     "location": "Cairo, Egypt",
     "client": "Private Client",
     "year": "2025",
     "status": "Concept Phase",
     "featuredImage": "/assets/projects/cairo-capital-new-terminal/Terminal-Area-e1710853581429.jpg",
-    "summary": "CAIRO CAPITAL NEW TERMINAL is an architectural landmark designed by CUBE Consultants under the Mixed-Use & Visions sector, focusing on modern forms, premium aesthetics, and user-centric planning.",
+    "summary": "CAIRO CAPITAL NEW TERMINAL is an architectural landmark designed by CUBE Consultants under the Visions sector, focusing on modern forms, premium aesthetics, and user-centric planning.",
     "description": "CAIRO CAPITAL NEW TERMINAL showcases CUBE Consultants' commitment to state-of-the-art architecture. The project combines local heritage elements with contemporary design principles to create a unified and high-performing space. Designed with sustainability and structural clarity in mind, this development stands as a symbol of architectural innovation.",
     "gallery": [
       "/assets/projects/cairo-capital-new-terminal/a-1.jpg",
@@ -1480,13 +1480,13 @@ export const projects: Project[] = [
   {
     "slug": "al-andalus-mosque",
     "title": "BELKAID MOSQUE",
-    "sector": "Mixed-Use & Visions",
+    "sector": "Visions",
     "location": "Cairo, Egypt",
     "client": "Private Client",
     "year": "2025",
     "status": "Concept Phase",
     "featuredImage": "/assets/projects/al-andalus-mosque/Slide9.jpg",
-    "summary": "BELKAID MOSQUE is an architectural landmark designed by CUBE Consultants under the Mixed-Use & Visions sector, focusing on modern forms, premium aesthetics, and user-centric planning.",
+    "summary": "BELKAID MOSQUE is an architectural landmark designed by CUBE Consultants under the Visions sector, focusing on modern forms, premium aesthetics, and user-centric planning.",
     "description": "BELKAID MOSQUE showcases CUBE Consultants' commitment to state-of-the-art architecture. The project combines local heritage elements with contemporary design principles to create a unified and high-performing space. Designed with sustainability and structural clarity in mind, this development stands as a symbol of architectural innovation.",
     "gallery": [
       "/assets/projects/al-andalus-mosque/1.jpg",
@@ -1780,13 +1780,13 @@ export const projects: Project[] = [
   {
     "slug": "bella-mart-2-2",
     "title": "BELLA MART MALL",
-    "sector": "Mixed-Use & Visions",
+    "sector": "Visions",
     "location": "Cairo, Egypt",
     "client": "Real Estate Developer",
     "year": "2025",
     "status": "Design Phase",
     "featuredImage": "/assets/projects/bella-mart-2-2/b5.jpg",
-    "summary": "BELLA MART MALL is an architectural landmark designed by CUBE Consultants under the Mixed-Use & Visions sector, focusing on modern forms, premium aesthetics, and user-centric planning.",
+    "summary": "BELLA MART MALL is an architectural landmark designed by CUBE Consultants under the Visions sector, focusing on modern forms, premium aesthetics, and user-centric planning.",
     "description": "BELLA MART MALL showcases CUBE Consultants' commitment to state-of-the-art architecture. The project combines local heritage elements with contemporary design principles to create a unified and high-performing space. Designed with sustainability and structural clarity in mind, this development stands as a symbol of architectural innovation.",
     "gallery": [
       "/assets/projects/bella-mart-2-2/02.effectsResult.jpg",
@@ -2112,13 +2112,13 @@ export const projects: Project[] = [
   {
     "slug": "vortex-dubai-gateway",
     "title": "Vortex Dubai Gateway",
-    "sector": "Mixed-Use & Visions",
+    "sector": "Visions",
     "location": "Abu Dhabi, UAE",
     "client": "Private Client",
     "year": "2025",
     "status": "Concept Phase",
     "featuredImage": "/assets/projects/vortex-dubai-gateway/vortex-tower.jpg",
-    "summary": "Vortex Dubai Gateway is an architectural landmark designed by CUBE Consultants under the Mixed-Use & Visions sector, focusing on modern forms, premium aesthetics, and user-centric planning.",
+    "summary": "Vortex Dubai Gateway is an architectural landmark designed by CUBE Consultants under the Visions sector, focusing on modern forms, premium aesthetics, and user-centric planning.",
     "description": "Vortex Dubai Gateway showcases CUBE Consultants' commitment to state-of-the-art architecture. The project combines local heritage elements with contemporary design principles to create a unified and high-performing space. Designed with sustainability and structural clarity in mind, this development stands as a symbol of architectural innovation.",
     "gallery": [
       "/assets/projects/vortex-dubai-gateway/vortex-tower.jpg"
@@ -2180,13 +2180,13 @@ export const projects: Project[] = [
   {
     "slug": "pedesterian-bridges-king-fahd-road-2",
     "title": "Pedesterian bridges, KSA",
-    "sector": "Mixed-Use & Visions",
+    "sector": "Visions",
     "location": "Kingdom of Saudi Arabia (KSA)",
     "client": "Private Client",
     "year": "2025",
     "status": "Concept Phase",
     "featuredImage": "/assets/projects/pedesterian-bridges-king-fahd-road-2/FAHD-BRIDGE-2.jpg",
-    "summary": "Pedesterian bridges, KSA is an architectural landmark designed by CUBE Consultants under the Mixed-Use & Visions sector, focusing on modern forms, premium aesthetics, and user-centric planning.",
+    "summary": "Pedesterian bridges, KSA is an architectural landmark designed by CUBE Consultants under the Visions sector, focusing on modern forms, premium aesthetics, and user-centric planning.",
     "description": "Pedesterian bridges, KSA showcases CUBE Consultants' commitment to state-of-the-art architecture. The project combines local heritage elements with contemporary design principles to create a unified and high-performing space. Designed with sustainability and structural clarity in mind, this development stands as a symbol of architectural innovation.",
     "gallery": [
       "/assets/projects/pedesterian-bridges-king-fahd-road-2/1-20.jpg",
@@ -2198,13 +2198,13 @@ export const projects: Project[] = [
   {
     "slug": "palestinian-embassy-2",
     "title": "Palestinian Embassy",
-    "sector": "Mixed-Use & Visions",
+    "sector": "Visions",
     "location": "Cairo, Egypt",
     "client": "Private Client",
     "year": "2025",
     "status": "Concept Phase",
     "featuredImage": "/assets/projects/palestinian-embassy-2/PLASTEINE-EMBBASY.jpg",
-    "summary": "Palestinian Embassy is an architectural landmark designed by CUBE Consultants under the Mixed-Use & Visions sector, focusing on modern forms, premium aesthetics, and user-centric planning.",
+    "summary": "Palestinian Embassy is an architectural landmark designed by CUBE Consultants under the Visions sector, focusing on modern forms, premium aesthetics, and user-centric planning.",
     "description": "Palestinian Embassy showcases CUBE Consultants' commitment to state-of-the-art architecture. The project combines local heritage elements with contemporary design principles to create a unified and high-performing space. Designed with sustainability and structural clarity in mind, this development stands as a symbol of architectural innovation.",
     "gallery": [
       "/assets/projects/palestinian-embassy-2/1-18.jpg",
@@ -2216,13 +2216,13 @@ export const projects: Project[] = [
   {
     "slug": "mena-rainbow-square-2",
     "title": "Mena Rainbow Square",
-    "sector": "Mixed-Use & Visions",
+    "sector": "Visions",
     "location": "Cairo, Egypt",
     "client": "Private Client",
     "year": "2025",
     "status": "Concept Phase",
     "featuredImage": "/assets/projects/mena-rainbow-square-2/Rainbow.jpg",
-    "summary": "Mena Rainbow Square is an architectural landmark designed by CUBE Consultants under the Mixed-Use & Visions sector, focusing on modern forms, premium aesthetics, and user-centric planning.",
+    "summary": "Mena Rainbow Square is an architectural landmark designed by CUBE Consultants under the Visions sector, focusing on modern forms, premium aesthetics, and user-centric planning.",
     "description": "Mena Rainbow Square showcases CUBE Consultants' commitment to state-of-the-art architecture. The project combines local heritage elements with contemporary design principles to create a unified and high-performing space. Designed with sustainability and structural clarity in mind, this development stands as a symbol of architectural innovation.",
     "gallery": [
       "/assets/projects/mena-rainbow-square-2/mena-rainbow-1.jpg",
@@ -2297,7 +2297,7 @@ export const projects: Project[] = [
   {
     "slug": "oman-smart-village",
     "title": "Oman Smart Village",
-    "sector": "Mixed-Use & Visions",
+    "sector": "Visions",
     "location": "Muscat, Oman",
     "client": "Ministry of Technology & OMRAN",
     "year": "2025",
@@ -2458,13 +2458,13 @@ export const projects: Project[] = [
   {
     "slug": "al-fustat-open-museum-2",
     "title": "Al Fustat Open Museum",
-    "sector": "Mixed-Use & Visions",
+    "sector": "Visions",
     "location": "Cairo, Egypt",
     "client": "Private Client",
     "year": "2025",
     "status": "Concept Phase",
     "featuredImage": "/assets/projects/al-fustat-open-museum-2/5.jpg",
-    "summary": "Al Fustat Open Museum is an architectural landmark designed by CUBE Consultants under the Mixed-Use & Visions sector, focusing on modern forms, premium aesthetics, and user-centric planning.",
+    "summary": "Al Fustat Open Museum is an architectural landmark designed by CUBE Consultants under the Visions sector, focusing on modern forms, premium aesthetics, and user-centric planning.",
     "description": "Al Fustat Open Museum showcases CUBE Consultants' commitment to state-of-the-art architecture. The project combines local heritage elements with contemporary design principles to create a unified and high-performing space. Designed with sustainability and structural clarity in mind, this development stands as a symbol of architectural innovation.",
     "gallery": [
       "/assets/projects/al-fustat-open-museum-2/5.jpg",
@@ -2531,13 +2531,13 @@ export const projects: Project[] = [
   {
     "slug": "opera-gateway-competition",
     "title": "Opera Gateway Competition",
-    "sector": "Mixed-Use & Visions",
+    "sector": "Visions",
     "location": "Cairo, Egypt",
     "client": "Ministry of Urban Development",
     "year": "2025",
     "status": "Competition Entry",
     "featuredImage": "/assets/projects/opera-gateway-competition/opera-gateway.jpg",
-    "summary": "Opera Gateway Competition is an architectural landmark designed by CUBE Consultants under the Mixed-Use & Visions sector, focusing on modern forms, premium aesthetics, and user-centric planning.",
+    "summary": "Opera Gateway Competition is an architectural landmark designed by CUBE Consultants under the Visions sector, focusing on modern forms, premium aesthetics, and user-centric planning.",
     "description": "Opera Gateway Competition showcases CUBE Consultants' commitment to state-of-the-art architecture. The project combines local heritage elements with contemporary design principles to create a unified and high-performing space. Designed with sustainability and structural clarity in mind, this development stands as a symbol of architectural innovation.",
     "gallery": [
       "/assets/projects/opera-gateway-competition/1-2.jpg",
@@ -2597,13 +2597,13 @@ export const projects: Project[] = [
   {
     "slug": "maspiro-triangle-roud-el-farag",
     "title": "Maspiro Triangle",
-    "sector": "Mixed-Use & Visions",
+    "sector": "Visions",
     "location": "Cairo, Egypt",
     "client": "Private Client",
     "year": "2025",
     "status": "Concept Phase",
     "featuredImage": "/assets/projects/maspiro-triangle-roud-el-farag/maspiro-triangle.jpg",
-    "summary": "Maspiro Triangle is an architectural landmark designed by CUBE Consultants under the Mixed-Use & Visions sector, focusing on modern forms, premium aesthetics, and user-centric planning.",
+    "summary": "Maspiro Triangle is an architectural landmark designed by CUBE Consultants under the Visions sector, focusing on modern forms, premium aesthetics, and user-centric planning.",
     "description": "Maspiro Triangle showcases CUBE Consultants' commitment to state-of-the-art architecture. The project combines local heritage elements with contemporary design principles to create a unified and high-performing space. Designed with sustainability and structural clarity in mind, this development stands as a symbol of architectural innovation.",
     "gallery": [
       "/assets/projects/maspiro-triangle-roud-el-farag/14-copy.jpg",
