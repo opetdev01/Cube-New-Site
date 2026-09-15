@@ -25,7 +25,6 @@ const sectors = [
   "Towers & Offices",
   "Commercial & Retail",
   "Tourism & Mixed-Use",
-  "Mixed-Use",
   "Culture & Education",
   "Public Buildings & Retail",
   "Urban Planning",
@@ -523,8 +522,8 @@ function getSearchScore(project: any, query: string, t?: (key: string) => string
         if (targetSector === "Visions") {
           return pSector === "Visions" || pSector.includes("Visions");
         }
-        if (targetSector === "Mixed-Use") {
-          return pSector === "Mixed-Use" || pSector.includes("Mixed-Use");
+        if (targetSector === "Tourism & Mixed-Use") {
+          return pSector === "Tourism & Mixed-Use" || pSector === "Mixed-Use" || pSector.includes("Mixed-Use");
         }
         return pSector === targetSector;
       };
