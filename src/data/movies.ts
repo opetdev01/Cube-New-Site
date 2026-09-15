@@ -160,6 +160,14 @@ export const MOVIES: MovieItem[] = [
     featuredImage: "https://img.youtube.com/vi/1HdKpDTBNt8/hqdefault.jpg",
     sector: "Visions",
     location: "Egypt"
+  },
+  {
+    slug: "al-ahram-street-urban-redevelopment-competition",
+    title: "Al-Ahram Street Urban Redevelopment Competition: Reimagining Heliopolis, City of the Sun",
+    videoId: "JRMfnI5A1R4",
+    featuredImage: "https://img.youtube.com/vi/JRMfnI5A1R4/hqdefault.jpg",
+    sector: "Visions",
+    location: "Korba, Heliopolis, Cairo, Egypt"
   }
 ];
 
@@ -267,6 +275,14 @@ export const MOVIE_TIMESTAMPS: MovieTimestampItem[] = [
     timestampLabel: "00:00",
     topic: "EGYPT 712 National Vision Video Presentation",
     topicAr: "العرض المرئي لرؤية مصر 712 الوطنية"
+  },
+  {
+    videoId: "JRMfnI5A1R4",
+    keywords: ["al-ahram", "ahram", "heliopolis", "korba", "competition", "redevelopment", "الأهرام", "شارع الأهرام", "الكوربة", "مصر الجديدة"],
+    timestamp: 0,
+    timestampLabel: "00:00",
+    topic: "Al-Ahram Street Urban Redevelopment Competition Video",
+    topicAr: "فيديو مسابقة تطوير شارع الأهرام بالكوربة ومصر الجديدة"
   }
 ];
 
@@ -288,5 +304,6 @@ export const MOVIE_ALIASES: Record<string, string[]> = {
   "khufu-plaza-giza-2030": ["khufu", "khufu plaza", "giza 2030", "خوفو", "ساحة خوفو"],
   "north-sinai-development-plan-vision-2022": ["north sinai", "sinai development", "salam city", "سيناء", "تنمية سيناء", "مدينة سلام"],
   "luxor-between-time-and-place": ["luxor", "luxor 2005", "luxor 2005-09", "luxor video", "الأقصر", "اقصر"],
-  "egypt-712-back-to-the-future": ["egypt 712", "712", "back to the future", "العودة للمستقبل", "مصر 712"]
+  "egypt-712-back-to-the-future": ["egypt 712", "712", "back to the future", "العودة للمستقبل", "مصر 712"],
+  "al-ahram-street-urban-redevelopment-competition": ["al-ahram", "ahram street", "heliopolis", "korba", "competition", "الأهرام", "شارع الأهرام", "الكوربة", "مصر الجديدة"]
 };
