@@ -144,6 +144,22 @@ export const MOVIES: MovieItem[] = [
     featuredImage: "https://img.youtube.com/vi/p0PUu0A5BIk/hqdefault.jpg",
     sector: "Visions",
     location: "North Sinai, Egypt"
+  },
+  {
+    slug: "luxor-between-time-and-place",
+    title: "Luxor between Time and Place - الأقصر",
+    videoId: "QDmem-9td2U",
+    featuredImage: "https://img.youtube.com/vi/QDmem-9td2U/hqdefault.jpg",
+    sector: "Visions",
+    location: "Luxor, Egypt"
+  },
+  {
+    slug: "egypt-712-back-to-the-future",
+    title: "العودة للمستقبل \" Egypt 712 مصر \"",
+    videoId: "1HdKpDTBNt8",
+    featuredImage: "https://img.youtube.com/vi/1HdKpDTBNt8/hqdefault.jpg",
+    sector: "Visions",
+    location: "Egypt"
   }
 ];
 
@@ -235,6 +251,22 @@ export const MOVIE_TIMESTAMPS: MovieTimestampItem[] = [
     timestampLabel: "00:50",
     topic: "Crystal Pyramid Vision & Sun Capital Masterplan",
     topicAr: "رؤية الهرم الكريستالي ومخطط صن كابيتال"
+  },
+  {
+    videoId: "QDmem-9td2U",
+    keywords: ["luxor", "luxor 2005", "time and place", "الأقصر", "اقصر", "الأقصر 2005-09"],
+    timestamp: 0,
+    timestampLabel: "00:00",
+    topic: "Luxor between Time and Place Masterplan",
+    topicAr: "مخطط الأقصر بين الزمان والمكان"
+  },
+  {
+    videoId: "1HdKpDTBNt8",
+    keywords: ["egypt 712", "712", "back to the future", "العودة للمستقبل", "مصر 712"],
+    timestamp: 0,
+    timestampLabel: "00:00",
+    topic: "EGYPT 712 National Vision Video Presentation",
+    topicAr: "العرض المرئي لرؤية مصر 712 الوطنية"
   }
 ];
 
@@ -254,5 +286,7 @@ export const MOVIE_ALIASES: Record<string, string[]> = {
   "media-city-nut-tower-new-capital": ["media city", "nut tower", "new capital", "مدينة الإعلام", "برج نوت"],
   "new-administrative-capital-cairo": ["new administrative capital", "cairo new capital", "العاصمة الإدارية", "العاصمة الجديدة"],
   "khufu-plaza-giza-2030": ["khufu", "khufu plaza", "giza 2030", "خوفو", "ساحة خوفو"],
-  "north-sinai-development-plan-vision-2022": ["north sinai", "sinai development", "salam city", "سيناء", "تنمية سيناء", "مدينة سلام"]
+  "north-sinai-development-plan-vision-2022": ["north sinai", "sinai development", "salam city", "سيناء", "تنمية سيناء", "مدينة سلام"],
+  "luxor-between-time-and-place": ["luxor", "luxor 2005", "luxor 2005-09", "luxor video", "الأقصر", "اقصر"],
+  "egypt-712-back-to-the-future": ["egypt 712", "712", "back to the future", "العودة للمستقبل", "مصر 712"]
 };
