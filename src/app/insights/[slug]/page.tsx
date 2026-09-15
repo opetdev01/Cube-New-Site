@@ -1,13 +1,6 @@
-"use client";
-
-import React, { use, useState, useEffect } from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { notFound } from "next/navigation";
+import { Metadata } from "next";
 import { news, awards, InsightItem } from "@/data/insights";
-import { getInsightArabicContent } from "@/data/insightsTranslations";
-import { useLanguage } from "@/components/LanguageContext";
-import styles from "./slug.module.css";
+import InsightDetailClient from "./InsightDetailClient";
 
 const allInsights: InsightItem[] = [...news, ...awards];
 
@@ -15,228 +8,49 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
-const InsightDetailPage = ({ params }: PageProps) => {
-  const resolvedParams = use(params);
-  const slug = resolvedParams.slug;
-  const { language, t } = useLanguage();
-  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
-
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
   const item = allInsights.find((i) => i.slug === slug);
 
   if (!item) {
-    return (
-      <div className={styles.container} style={{ padding: "160px 6vw", textAlign: "center" }}>
-        <h1>{t("Insight Not Found")}</h1>
-        <p>{t("The requested insight or award does not exist.")}</p>
-        <Link href="/insights" className={styles.backLink} style={{ marginTop: "20px" }}>
-          ← {t("Back to Portfolio")}
-        </Link>
-      </div>
-    );
+    return {
+      title: "Insight Not Found | Cube Consultants",
+    };
   }
 
-  const isAward = item.type === "award";
-  const isArticle = item.type === "article";
+  const imageUrl = item.image || "/logo.png";
+  const cleanExcerpt = item.excerpt
+    ? item.excerpt.replace(/<[^>]*>?/gm, "").trim()
+    : item.title;
 
-  // Pre-translated structural & content fallbacks
-  const arData = getInsightArabicContent(item);
-  const translatedTitle = language === "ar" ? arData.titleAr : t(item.title);
-  const translatedBadge = isAward ? t("AWARDS") : (isArticle ? t("ARTICLES") : t("NEWS"));
-  const translatedBack = t("Back to Portfolio");
-  const translatedExcerpt = language === "ar" ? arData.excerptAr : item.excerpt;
-  const translatedContent = language === "ar" ? arData.contentAr : (item.content || `<p>${item.excerpt}</p>`);
-
-  const galleryImages = (item.gallery && item.gallery.length > 0)
-    ? item.gallery
-    : (item.image ? [item.image] : []);
-
-  const lightboxPrev = () => {
-    if (lightboxIndex !== null && galleryImages.length > 0) {
-      setLightboxIndex((lightboxIndex - 1 + galleryImages.length) % galleryImages.length);
-    }
+  return {
+    title: `${item.title} | Cube Consultants`,
+    description: cleanExcerpt,
+    openGraph: {
+      title: item.title,
+      description: cleanExcerpt,
+      url: `https://cubeconsultants.org/insights/${item.slug}`,
+      siteName: "Cube Consultants",
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: item.title,
+        },
+      ],
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: item.title,
+      description: cleanExcerpt,
+      images: [imageUrl],
+    },
   };
+}
 
-  const lightboxNext = () => {
-    if (lightboxIndex !== null && galleryImages.length > 0) {
-      setLightboxIndex((lightboxIndex + 1) % galleryImages.length);
-    }
-  };
-
-  const handleCloseLightbox = () => {
-    setLightboxIndex(null);
-  };
-
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (lightboxIndex === null) return;
-      if (e.key === "ArrowLeft") lightboxPrev();
-      if (e.key === "ArrowRight") lightboxNext();
-      if (e.key === "Escape") handleCloseLightbox();
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [lightboxIndex, galleryImages.length]);
-
-  return (
-    <div className={styles.container}>
-      {/* Back button & Header - Aligned to wide grid layout */}
-      <div className={styles.headerWrapper}>
-        <div className={styles.backContainer}>
-          <Link href="/insights" className={styles.backLink}>
-            <span className={styles.backArrow}>←</span> {translatedBack}
-          </Link>
-        </div>
-
-        <header className={styles.header}>
-          <span className={`${styles.badge} ${isAward ? styles.badgeAward : (isArticle ? styles.badgeArticle : styles.badgeNews)}`}>
-            {translatedBadge}
-          </span>
-          <span className={styles.date}>{item.date}</span>
-          <h1 className={styles.title}>{translatedTitle}</h1>
-        </header>
-      </div>
-
-      {/* Featured Hero Banner - Edge-to-Edge with 100% viewport width */}
-      {item.image && (
-        <div className={styles.imageWrapper}>
-          <Image 
-            src={item.image}
-            alt={translatedTitle}
-            fill
-            className={styles.image}
-            priority
-          />
-        </div>
-      )}
-
-      {/* Article Grid Container - Wide two-column split layout */}
-      <div className={styles.gridContainer}>
-        {/* Left Column: Article Body Description */}
-        <div className={styles.leftCol}>
-          {isAward && (
-            <div className={styles.awardShowcase}>
-              <p className={styles.awardDescription}>{translatedExcerpt}</p>
-            </div>
-          )}
-
-          <div 
-            className={styles.articleBody}
-            dangerouslySetInnerHTML={{ __html: translatedContent }}
-          />
-        </div>
-
-        {/* Right Column: Meta Information */}
-        <div className={styles.rightCol}>
-          <div className={styles.infoBox}>
-            <h3 className={styles.infoBoxTitle}>{t("Information")}</h3>
-            <div className={styles.infoRow}>
-              <span className={styles.infoLabel}>{t("Category")}:</span>
-              <span className={styles.infoValue}>{translatedBadge}</span>
-            </div>
-            <div className={styles.infoRow}>
-              <span className={styles.infoLabel}>{t("Date")}:</span>
-              <span className={styles.infoValue}>{item.date}</span>
-            </div>
-            {item.docxUrl && (
-              <div className={styles.ctaWrapper}>
-                <a href={item.docxUrl} download className={styles.projectLinkBtn} style={{ width: "100%", justifyContent: "center" }}>
-                  📄 {t("DOWNLOAD DOCX")} <span className={styles.ctaArrow}>↓</span>
-                </a>
-              </div>
-            )}
-            {isAward && item.projectSlug && (
-              <div className={styles.ctaWrapper}>
-                <Link href={`/projects/${item.projectSlug}`} className={styles.projectLinkBtn}>
-                  {t("VIEW PROJECT")} <span className={styles.ctaArrow}>→</span>
-                </Link>
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-
-      {/* Full-width Media Gallery placed under text */}
-      {galleryImages.length > 0 && (
-        <div className={styles.fullWidthGallerySection}>
-          <h3 className={styles.galleryTitle}>{t("Media Gallery")}</h3>
-          <div className={styles.galleryGrid}>
-            {galleryImages.map((imgUrl, i) => (
-              <div 
-                key={i} 
-                className={styles.galleryImageWrapper}
-                onClick={() => setLightboxIndex(i)}
-                style={{ cursor: "zoom-in" }}
-                title={t("Click to view full image")}
-              >
-                <Image 
-                  src={imgUrl}
-                  alt={`${translatedTitle} - Image ${i + 1}`}
-                  fill
-                  className={styles.galleryImage}
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
-                <div className={styles.galleryZoomOverlay}>
-                  <span className={styles.zoomIcon}>🔍</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-
-      {/* Lightbox Modal */}
-      {lightboxIndex !== null && galleryImages.length > 0 && (
-        <div className={styles.lightboxOverlay} onClick={handleCloseLightbox}>
-          <div className={styles.lightboxContent} onClick={(e) => e.stopPropagation()}>
-            <button 
-              className={styles.lightboxClose} 
-              onClick={handleCloseLightbox}
-              aria-label="Close image"
-            >
-              &times;
-            </button>
-
-            {galleryImages.length > 1 && (
-              <button 
-                className={`${styles.lightboxArrow} ${styles.lightboxPrevArrow}`} 
-                onClick={lightboxPrev}
-                aria-label="Previous image"
-              >
-                ‹
-              </button>
-            )}
-
-            <div className={styles.lightboxImageWrapper}>
-              <Image
-                src={galleryImages[lightboxIndex]}
-                alt={`${translatedTitle} - Image ${lightboxIndex + 1}`}
-                fill
-                className={styles.lightboxImage}
-                unoptimized
-              />
-            </div>
-
-            {galleryImages.length > 1 && (
-              <button 
-                className={`${styles.lightboxArrow} ${styles.lightboxNextArrow}`} 
-                onClick={lightboxNext}
-                aria-label="Next image"
-              >
-                ›
-              </button>
-            )}
-
-            <div className={styles.lightboxFooter}>
-              <span className={styles.lightboxCounter}>
-                {lightboxIndex + 1} / {galleryImages.length}
-              </span>
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
-  );
-};
-
-export default InsightDetailPage;
-
+export default async function InsightDetailPage({ params }: PageProps) {
+  const { slug } = await params;
+  return <InsightDetailClient slug={slug} />;
+}

@@ -18,8 +18,34 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Cube Consultants | Architecture & Urban Planning",
+  metadataBase: new URL("https://cubeconsultants.org"),
+  title: {
+    default: "Cube Consultants | Architecture & Urban Planning",
+    template: "%s | Cube Consultants",
+  },
   description: "Constructing ecosystems that embody Spirit Care, Earth Care, and the seamless melding of Science, Technology, & Architecture.",
+  openGraph: {
+    title: "Cube Consultants | Architecture & Urban Planning",
+    description: "Constructing ecosystems that embody Spirit Care, Earth Care, and the seamless melding of Science, Technology, & Architecture.",
+    url: "https://cubeconsultants.org",
+    siteName: "Cube Consultants",
+    images: [
+      {
+        url: "/logo.png",
+        width: 1200,
+        height: 630,
+        alt: "Cube Consultants Logo",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Cube Consultants | Architecture & Urban Planning",
+    description: "Constructing ecosystems that embody Spirit Care, Earth Care, and the seamless melding of Science, Technology, & Architecture.",
+    images: ["/logo.png"],
+  },
   icons: {
     icon: [
       { url: "/logo.png", type: "image/png" },
