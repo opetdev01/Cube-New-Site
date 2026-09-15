@@ -57,20 +57,30 @@
 
 .footerSocialsRow {
   display: flex;
-  gap: 1rem;
-  margin-top: 0.2rem;
+  align-items: center;
+  gap: 0.85rem;
+  margin-top: 0.6rem;
 }
 
-.footerSocialsRow a {
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: rgba(0, 0, 0, 0.5);
-  text-transform: lowercase;
-  transition: color 0.3s ease;
+.socialIconBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #f2f2f4;
+  color: #333333;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
-.footerSocialsRow a:hover {
-  color: var(--c-red);
+.socialIconBtn:hover {
+  background-color: var(--c-red);
+  color: #ffffff;
+  transform: translateY(-3px) scale(1.08);
+  box-shadow: 0 6px 16px rgba(227, 6, 19, 0.35);
 }
 
 .footerAboutCol {
