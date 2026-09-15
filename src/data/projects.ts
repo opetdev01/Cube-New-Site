@@ -653,15 +653,16 @@ export const projects: Project[] = [
   {
     "slug": "thecapitalcairo",
     "title": "The New Administrative Capital Cairo",
-    "sector": "Urban Planning",
+    "sector": "Visions",
     "location": "New Administrative Capital, Egypt",
     "client": "Ministry of Housing, Utilities & Urban Communities, Egypt",
     "year": "2015",
     "status": "Masterplan / Vision",
-    "featuredImage": "/assets/projects/thecapitalcairo/Capital-Cairo.jpg",
+    "featuredImage": "/assets/projects/thecapitalcairo/capital-cairo-cover.jpg",
     "summary": "A futuristic 170,000-acre masterplan designed as a smart, sustainable extension of Cairo, incorporating 12 themed valleys, administrative cores, and the Green River.",
     "description": "Cairo Capital is a meaningful venture to build national spirit, foster harmony, and provide long-term sustainable prosperity. The master plan is to create a global city with smart infrastructure for Egypt's future, which will provide a myriad of economic opportunities and offer a noticeable quality of life. The planning concept consists of creating natural oases that link together green axes to emphasize the concept of a green city while taking into account the site's topography. The capital is green, consisting of 12 New Valleys according to the land nature, where every valley is based on an essential principle of activity reflecting a center of excellence. It also features integrated modern infrastructure, administrative towers, and the iconic Green River.",
     "gallery": [
+      "/assets/projects/thecapitalcairo/capital-cairo-cover.jpg",
       "/assets/projects/thecapitalcairo/000.jpg",
       "/assets/projects/thecapitalcairo/01.gif",
       "/assets/projects/thecapitalcairo/02.gif",

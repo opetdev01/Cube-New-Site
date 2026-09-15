@@ -264,7 +264,8 @@ function getSearchScore(project: any, query: string, t?: (key: string) => string
     "giza-2030": ["giza 2030", "giza vision", "الجيزة 2030", "رؤية الجيزة"],
     "egypt-712-2": ["egypt 712", "egypt 712 vision", "مصر 712", "712"],
     "sinai": ["sinai 2022", "sinai 2018", "sinai", "سيناء 2022", "سيناء"],
-    "luxor-2005-09": ["luxor 2005-09", "luxor 2005 2009", "luxor vision", "الأقصر 2005-09", "الأقصر"]
+    "luxor-2005-09": ["luxor 2005-09", "luxor 2005 2009", "luxor vision", "الأقصر 2005-09", "الأقصر"],
+    "thecapitalcairo": ["the new administrative capital cairo", "capital cairo", "capital cairo 2015", "العاصمة الإدارية الجديدة", "العاصمة الادارية"]
   };
 
   const getQuerySimilarity = (q: string, target: string): number => {
