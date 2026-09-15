@@ -19,7 +19,7 @@ export const projects: Project[] = [
   {
     "slug": "smouha-gate",
     "title": "Smouha Gate",
-    "sector": "Visions",
+    "sector": "Tourism & Mixed-Use",
     "location": "Golden Square, Smouha, Alexandria, Egypt",
     "client": "Marsoum Developments",
     "year": "2026",
@@ -122,7 +122,7 @@ export const projects: Project[] = [
   {
     "slug": "majarra",
     "title": "Majarra Vision",
-    "sector": "Visions",
+    "sector": "Tourism & Mixed-Use",
     "location": "Abu Dhabi, UAE",
     "client": "Abu Dhabi Tourism Authority",
     "year": "2025",
@@ -422,7 +422,7 @@ export const projects: Project[] = [
   {
     "slug": "metatut-metaverse-city",
     "title": "METATUT METAVERSE CITY",
-    "sector": "Visions",
+    "sector": "Egyptian Identity",
     "location": "Metaverse / Digital Space",
     "client": "Cube Consultants",
     "year": "2022",
@@ -490,7 +490,7 @@ export const projects: Project[] = [
   {
     "slug": "times-square-now-in-egypt",
     "title": "TIMES SQUARE PROJECT",
-    "sector": "Visions",
+    "sector": "Commercial & Retail",
     "location": "New Cairo, Egypt",
     "client": "Cube Consultants",
     "year": "2021",
@@ -567,16 +567,17 @@ export const projects: Project[] = [
   },
   {
     "slug": "sinai",
-    "title": "Sinai",
-    "sector": "Urban Planning",
+    "title": "Sinai 2022",
+    "sector": "Visions",
     "location": "Sinai Peninsula, Egypt",
     "client": "Cube Consultants",
     "year": "2019",
     "status": "Concept Vision",
-    "featuredImage": "/assets/projects/sinai/2.jpg",
+    "featuredImage": "/assets/projects/sinai/sinai-cover.jpg",
     "summary": "Sinai ETQAN",
     "description": "Sinai ETQAN\n\nThe Symbol Of Change For A Better Future In Egypt\nThis Project Works To Build Sustainable And Integrated Urban Communities Based On Agricultural And Industrial Activity, Contributes To Achieving Food Security For Egypt, Achieves Quality Of Life For Egyptians, Ensures Security And Safety, Builds Bridges Of Trust, Stability And Equal Opportunities. The Project Is:\n\nThe Goals Of The Itqan Initiative\nDevelop Residential Environments With A Full Range Of Services And Facilities\nOpening New Horizons For Agricultural Development And Food Security Building New Communities Based On Sound Agricultural Economic And Complementary Industries Commitment To Protecting The Environment And Preserving Water Resources Open New Horizons To Export Goods Of Competitive Value\n\n            Settlements\n\nThe Development Unit Consists Of A Group Of Stabilizers That Contain Areas Based On Specialized Industrial Economic Bases. It Consists Of Industrial, Agricultural, Industry-Based Or Agriculture-Based Industries. Each Stable Consists Of A Radius Of About 500 Meters, Allowing It To Communicate Easily With The Central City The Development Unit Is An Integrated Model That Is Self-Sustaining Economically, Socially And Security Ally  Economically: Each Development Unit Has A Specialized Economic Activity That Helps It To Excel And The Ability Of Creative Production, Which Allows For Export And Facilitates Its Connection With Integrated Road Networks In Nearby Ports And Airports Social: Each Development Unit Contains All The Services That Allow It To Self-Sufficient Schools, Universities, Sports And Social Clubs, Commercial Centers, Civil Defense Units, Administrative Buildings And Integrated Government Services Security: The Proposed Design Helps Ease The Security Control Of The Development Unit To The Proximity Of Traffic Distances In Any Direction From The Center Of The City Or The Center Of The Stable \n\nTotal Area : 1,200 FD.\n\nPopulation: 30,000\n\n                    SALAM  Economic And Trading Capital\n\nThe Idea Of ​​The City Depends On Preserving The Bardawil Lake Area Through Sustainable Development To Be Of A Distinctive Style In The Middle East.\n\nCreating An Environmentally Compatible City \"In North Sinai (East Miami - Floating City) Competes With Sharm El-Sheikh In The South By Distinguishing It With Tourist, Industrial And Agricultural Resources.  Taking Into Consideration The Strategic Dimension Of The State For The Development Of North Sinai  There Is No Doubt That This Label And What Suggest Natural And Industrial Lakes Proposed For The Establishment And Greenness And Tranquility And Beauty Of The City Meets The Needs Of Life And Integrated With Modern Amenities While Preserving The Environment. \n\nTo Develop The Migration Of The Valley By Creating A Full-Fledged City With Jobs And Attracting Many Jobs A City With A Distinct Quality Of Life, With Its Elements And Green Areas, Lakes, Modern Transport Network, Distinctive Housing Systems, All Classes, Universities And Schools, Citizens And Tourism Services Centers",
     "gallery": [
+      "/assets/projects/sinai/sinai-cover.jpg",
       "/assets/projects/sinai/1-1.jpg",
       "/assets/projects/sinai/1-2.jpg",
       "/assets/projects/sinai/1.jpg",
@@ -600,7 +601,7 @@ export const projects: Project[] = [
   {
     "slug": "luxor-2005-09",
     "title": "Luxor 2005-09",
-    "sector": "Urban Planning",
+    "sector": "Visions",
     "location": "Luxor, Egypt",
     "client": "Cube Consultants",
     "year": "2009",
@@ -685,7 +686,7 @@ export const projects: Project[] = [
   {
     "slug": "vingroup-cam-lam",
     "title": "Vinhub data center, Camlam, Vietnam",
-    "sector": "Visions",
+    "sector": "Tourism & Mixed-Use",
     "location": "Cam Lam, Vietnam",
     "client": "Private Client",
     "year": "2025",
@@ -755,7 +756,7 @@ export const projects: Project[] = [
   {
     "slug": "gaza-vision",
     "title": "Gaza vision",
-    "sector": "Visions",
+    "sector": "Tourism & Mixed-Use",
     "location": "Cairo, Egypt",
     "client": "Private Client",
     "year": "2025",
@@ -854,7 +855,7 @@ export const projects: Project[] = [
   {
     "slug": "the-clould-abu-dhabi",
     "title": "The Cloud, Abu Dhabi",
-    "sector": "Visions",
+    "sector": "Tourism & Mixed-Use",
     "location": "Abu Dhabi, UAE",
     "client": "Private Client",
     "year": "2025",
@@ -943,7 +944,7 @@ export const projects: Project[] = [
   {
     "slug": "grozny-competition",
     "title": "Grozny Competition, Russia",
-    "sector": "Visions",
+    "sector": "Tourism & Mixed-Use",
     "location": "Grozny, Russia",
     "client": "Ministry of Urban Development",
     "year": "2025",
@@ -1211,7 +1212,7 @@ export const projects: Project[] = [
   {
     "slug": "aaru-1-0",
     "title": "A'ARU 1.0 Space Colony",
-    "sector": "Visions",
+    "sector": "Tourism & Mixed-Use",
     "location": "Cairo, Egypt",
     "client": "Private Client",
     "year": "2025",
@@ -1227,7 +1228,7 @@ export const projects: Project[] = [
   {
     "slug": "ufo",
     "title": "UFO Space Tourism City",
-    "sector": "Visions",
+    "sector": "Tourism & Mixed-Use",
     "location": "Cairo, Egypt",
     "client": "Private Client",
     "year": "2025",
@@ -1296,7 +1297,7 @@ export const projects: Project[] = [
   {
     "slug": "the-african-building",
     "title": "The African Organization",
-    "sector": "Visions",
+    "sector": "Tourism & Mixed-Use",
     "location": "Cairo, Egypt",
     "client": "Private Client",
     "year": "2025",
@@ -1406,7 +1407,7 @@ export const projects: Project[] = [
   {
     "slug": "cairo-capital-new-terminal",
     "title": "CAIRO CAPITAL NEW TERMINAL",
-    "sector": "Visions",
+    "sector": "Industrial & Infrastructure",
     "location": "Cairo, Egypt",
     "client": "Private Client",
     "year": "2025",
@@ -1481,7 +1482,7 @@ export const projects: Project[] = [
   {
     "slug": "al-andalus-mosque",
     "title": "BELKAID MOSQUE",
-    "sector": "Visions",
+    "sector": "Culture & Education",
     "location": "Cairo, Egypt",
     "client": "Private Client",
     "year": "2025",
@@ -1781,7 +1782,7 @@ export const projects: Project[] = [
   {
     "slug": "bella-mart-2-2",
     "title": "BELLA MART MALL",
-    "sector": "Visions",
+    "sector": "Commercial & Retail",
     "location": "Cairo, Egypt",
     "client": "Real Estate Developer",
     "year": "2025",
@@ -2113,7 +2114,7 @@ export const projects: Project[] = [
   {
     "slug": "vortex-dubai-gateway",
     "title": "Vortex Dubai Gateway",
-    "sector": "Visions",
+    "sector": "Tourism & Mixed-Use",
     "location": "Abu Dhabi, UAE",
     "client": "Private Client",
     "year": "2025",
@@ -2181,7 +2182,7 @@ export const projects: Project[] = [
   {
     "slug": "pedesterian-bridges-king-fahd-road-2",
     "title": "Pedesterian bridges, KSA",
-    "sector": "Visions",
+    "sector": "Industrial & Infrastructure",
     "location": "Kingdom of Saudi Arabia (KSA)",
     "client": "Private Client",
     "year": "2025",
@@ -2199,7 +2200,7 @@ export const projects: Project[] = [
   {
     "slug": "palestinian-embassy-2",
     "title": "Palestinian Embassy",
-    "sector": "Visions",
+    "sector": "Public Buildings & Retail",
     "location": "Cairo, Egypt",
     "client": "Private Client",
     "year": "2025",
@@ -2217,7 +2218,7 @@ export const projects: Project[] = [
   {
     "slug": "mena-rainbow-square-2",
     "title": "Mena Rainbow Square",
-    "sector": "Visions",
+    "sector": "Tourism & Mixed-Use",
     "location": "Cairo, Egypt",
     "client": "Private Client",
     "year": "2025",
@@ -2298,7 +2299,7 @@ export const projects: Project[] = [
   {
     "slug": "oman-smart-village",
     "title": "Oman Smart Village",
-    "sector": "Visions",
+    "sector": "Tourism & Mixed-Use",
     "location": "Muscat, Oman",
     "client": "Ministry of Technology & OMRAN",
     "year": "2025",
@@ -2338,7 +2339,6 @@ export const projects: Project[] = [
       "/assets/projects/zumuruda/selected/render_052.jpg",
       "/assets/projects/zumuruda/selected/render_053.jpg"
     ]
-
   },
   {
     "slug": "al-azhar-library",
@@ -2459,7 +2459,7 @@ export const projects: Project[] = [
   {
     "slug": "al-fustat-open-museum-2",
     "title": "Al Fustat Open Museum",
-    "sector": "Visions",
+    "sector": "Culture & Education",
     "location": "Cairo, Egypt",
     "client": "Private Client",
     "year": "2025",
@@ -2532,7 +2532,7 @@ export const projects: Project[] = [
   {
     "slug": "opera-gateway-competition",
     "title": "Opera Gateway Competition",
-    "sector": "Visions",
+    "sector": "Culture & Education",
     "location": "Cairo, Egypt",
     "client": "Ministry of Urban Development",
     "year": "2025",
@@ -2598,7 +2598,7 @@ export const projects: Project[] = [
   {
     "slug": "maspiro-triangle-roud-el-farag",
     "title": "Maspiro Triangle",
-    "sector": "Visions",
+    "sector": "Tourism & Mixed-Use",
     "location": "Cairo, Egypt",
     "client": "Private Client",
     "year": "2025",
@@ -2655,5 +2655,5 @@ export const projects: Project[] = [
       "/assets/projects/elsherouk-bookstore/selected/render_038.jpg",
       "/assets/projects/elsherouk-bookstore/selected/render_039.jpg"
     ]
-  },
+  }
 ];
