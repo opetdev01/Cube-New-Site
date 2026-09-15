@@ -45,7 +45,7 @@ const Footer = () => {
           </span>
           <div className={styles.footerSocialsRow}>
             <a 
-              href="https://www.instagram.com/cubeconsultants/" 
+              href="https://www.instagram.com/cube.consultants" 
               target="_blank" 
               rel="noopener noreferrer" 
               aria-label="Instagram"
