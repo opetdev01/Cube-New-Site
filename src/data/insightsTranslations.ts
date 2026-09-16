@@ -1,4 +1,38 @@
 export const INSIGHT_ARABIC_TRANSLATIONS: Record<string, { titleAr: string; excerptAr: string; contentAr: string }> = {
+  "cube-consultants-begins-its-first-collaboration-in-sudan": {
+    titleAr: "كيو ب للاستشارات تبدأ أولى خطوات التعاون في السودان الشقيق",
+    excerptAr: "كيو ب للاستشارات تضع أولى قدميها في السودان، لإعادة بناء الجسور للعمارة والتطوير والتنمية الإقليمية المشتركة.",
+    contentAr: `
+      <style>
+      .sudan-ar-art { line-height: 1.9; font-size: 1.05rem; text-align: right; direction: rtl; }
+      .sudan-ar-art h2 { color: #e30613 !important; font-size: 1.65rem !important; font-weight: 800 !important; margin: 2.4rem 0 1rem !important; letter-spacing: -0.01em; border-bottom: 2px solid rgba(227,6,19,0.12); padding-bottom: 8px; }
+      .sudan-ar-art p { color: #333333 !important; margin-bottom: 1.4rem !important; }
+      .sudan-ar-status-card { background: #fdf2f2; border-right: 4px solid #e30613; padding: 20px 24px; margin-bottom: 2.2rem; border-radius: 6px 0 0 6px; }
+      .sudan-ar-status-card h4 { margin: 0 0 6px 0 !important; color: #e30613 !important; font-size: 1.2rem; font-weight: 800; }
+      .sudan-ar-status-card p { margin: 0 !important; color: #444444 !important; font-size: 1rem; font-weight: 600; line-height: 1.6; }
+      .sudan-ar-quote { background-color: #f9f9f9; border-right: 4px solid #e30613; padding: 20px 26px; margin: 2rem 0; font-style: italic; color: #111111 !important; border-radius: 6px 0 0 6px; font-size: 1.1rem; line-height: 1.8; }
+      .sudan-ar-footer-tag { text-align: center; margin-top: 2.5rem; font-weight: 800; letter-spacing: 0.1em; color: #e30613; text-transform: uppercase; font-size: 0.95rem; }
+      </style>
+
+      <div class="sudan-ar-art">
+        <div class="sudan-ar-status-card">
+          <h4>آفاق جديدة للتنمية الإقليمية</h4>
+          <p>كيو ب للاستشارات تضع أولى قدميها في السودان، لإعادة بناء الجسور للعمارة والتطوير والتنمية الإقليمية المشتركة.</p>
+        </div>
+
+        <p>يسعد شركة <strong>كيو ب للاستشارات (CUBE Consultants)</strong> أن تعلن عن بدء أولى خطوات التعاون في جمهورية السودان الشقيقة، مما يشكل محطة بارزة في مسيرة الشركة الإقليمية والتزامها بتوسيع نطاق الشراكات الفاعلة وذات الأثر في المنطقة.</p>
+
+        <p>يجمع هذا التعاون بين خبرة كيو ب العريقة في مجالات العمارة المتكاملة والتخطيط العمراني والتطوير الاستراتيجي، وبين إيمانها الراسخ بإمكانيات وطاقات الشعب السوداني الشقيق وأرضه ومستقبله. ويمثل بداية لحوار تنموي يقوم على الاحترام المتبادل، والهوية المحلية، والسعي نحو عمران مستدام ومستقبلي.</p>
+
+        <h2>فهم روح المكان</h2>
+        <p>في كيو ب للاستشارات، نؤمن بأن كل رؤية ناجحة تبدأ من الفهم العميق لروح المكان — ثقافته، وتضاريسه، وتاريخه، وتطلعات أبنائه. وستكون أعمالنا في السودان محكومة بهذا المبدأ الأصيل: تقديم أفكار معمارية معاصرة وذكية، تظل متجذرة في طابع الأرض ومجتمعاتها.</p>
+
+        <blockquote class="sudan-ar-quote">"تفتح هذه الخطوة الأولى الباب أمام علاقة طويلة الأمد قائمة على التعاون وتبادل المعرفة والهدف المشترك لتشكيل بيئات عمرانية أكثر إنسانية واستدامة وإلهاماً."</blockquote>
+
+        <div class="sudan-ar-footer-tag">كيو ب في السودان — صياغة مجتمعات هادئة ومستدامة</div>
+      </div>
+    `
+  },
   "al-ahram-street-urban-redevelopment-competition": {
     titleAr: "كيو ب للاستشارات تشارك في مسابقة التطوير العمراني لشارع الأهرام بالكوربة — مصر الجديدة",
     excerptAr: "كيو ب للاستشارات تقدم مقترحها المعماري والتخطيطي لمسابقة التطوير العمراني لشارع الأهرام الكوربة بمصر الجديدة. إعادة صياغة الشريان التراثي بطول 985 متراً إلى محور مشاة بيئي مستدام — وفي انتظار تقييم لجنة التحكيم.",

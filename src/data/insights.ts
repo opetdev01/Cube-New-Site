@@ -16,6 +16,20 @@ export interface InsightItem {
 
 const allNews: InsightItem[] = [
   {
+    "id": 31500,
+    "title": "CUBE Consultants Begins Its First Collaboration in Sudan",
+    "slug": "cube-consultants-begins-its-first-collaboration-in-sudan",
+    "date": "September 16, 2026",
+    "rawDate": "2026-09-16T10:00:00",
+    "excerpt": "CUBE takes its first step into Sudan, building new bridges for design, development and shared regional ambition.",
+    "image": "/assets/insights/cube-consultants-begins-its-first-collaboration-in-sudan/cover.jpg",
+    "content": "<style>.sudan-art{color:#222222!important;line-height:1.85;font-size:1.05rem;}.sudan-art h2{color:#e30613!important;font-size:1.65rem!important;font-weight:800!important;margin:2.4rem 0 1rem!important;letter-spacing:-0.01em;border-bottom:2px solid rgba(227,6,19,0.12);padding-bottom:8px;}.sudan-art p{color:#333333!important;margin-bottom:1.4rem!important;}.sudan-highlight-card{background:#fdf2f2;border-left:4px solid #e30613;padding:20px 24px;margin-bottom:2.2rem;border-radius:0 6px 6px 0;}.sudan-highlight-card h4{margin:0 0 6px 0!important;color:#e30613!important;font-size:1.2rem;font-weight:800;}.sudan-highlight-card p{margin:0!important;color:#444444!important;font-size:1rem;font-weight:600;line-height:1.6;}.sudan-quote{background-color:#f9f9f9;border-left:4px solid #e30613;padding:20px 26px;margin:2rem 0;font-style:italic;color:#111111!important;border-radius:0 6px 6px 0;font-size:1.1rem;line-height:1.7;}.sudan-footer-tag{text-align:center;margin-top:2.5rem;font-weight:800;letter-spacing:0.12em;color:#e30613;text-transform:uppercase;font-size:0.95rem;}</style><div class=\"sudan-art\"><div class=\"sudan-highlight-card\"><h4>Expanding Regional Horizons</h4><p>CUBE takes its first step into Sudan, building new bridges for design, development and shared regional ambition.</p></div><p>CUBE Consultants is pleased to announce its first collaboration in Sudan, marking an important milestone in the company’s regional journey and its commitment to expanding meaningful partnerships across the region.</p><p>The collaboration brings together CUBE’s experience in integrated architecture, urban design and strategic planning with a shared belief in the potential of Sudan’s people, places and future. It represents the beginning of a dialogue rooted in mutual respect, local identity and the pursuit of thoughtful, future-focused development.</p><h2>Understanding the Spirit of Place</h2><p>At CUBE, we believe that every successful vision begins with understanding the spirit of a place—its culture, landscape, history and aspirations. Our work in Sudan will be guided by this principle: creating ideas that are contemporary and intelligent, while remaining deeply connected to the character of the land and its communities.</p><blockquote class=\"sudan-quote\">\"This first step opens the door to a long-term relationship founded on collaboration, knowledge exchange and a common ambition to shape more human, sustainable and inspiring environments.\"</blockquote><div class=\"sudan-footer-tag\">CUBE in Sudan — Shaping Peaceful Living</div></div>",
+    "gallery": [
+      "/assets/insights/cube-consultants-begins-its-first-collaboration-in-sudan/cover.jpg"
+    ],
+    "type": "news"
+  },
+  {
     "id": 31400,
     "title": "Al-Ahram Street Urban Redevelopment Competition: Reimagining Heliopolis, City of the Sun",
     "slug": "al-ahram-street-urban-redevelopment-competition",
