@@ -419,15 +419,20 @@ export default function ProjectDetailClient({ slug }: ProjectDetailClientProps) 
                     rel="noopener noreferrer"
                     className={styles.mapExternalLink}
                   >
-                    <span>{t("Open Map Fullscreen")} ↗</span>
+                    <span>
+                      {project.interactiveMapUrl.includes("vercel.app") || project.interactiveMapUrl.includes("interactive")
+                        ? t("Open Interactive Experience")
+                        : t("Open Map Fullscreen")}{" "}
+                      ↗
+                    </span>
                   </a>
                 </div>
                 <div className={styles.interactiveMapContainer}>
                   <iframe
                     src={project.interactiveMapUrl}
-                    title={`${translatedTitle} Interactive Map`}
+                    title={`${translatedTitle} Interactive Experience`}
                     className={styles.interactiveMapIframe}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowFullScreen
                   />
                 </div>

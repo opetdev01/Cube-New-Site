@@ -17,6 +17,22 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    "slug": "media-city-interactive-experience",
+    "title": "Media City Interactive Experience",
+    "sector": "Visions",
+    "location": "Giza, Egypt",
+    "client": "OPET Studios",
+    "year": "2026",
+    "status": "Interactive Experience",
+    "featuredImage": "/assets/projects/media-city-interactive-experience/cover.png",
+    "interactiveMapUrl": "https://q-interactive-generative-experience.vercel.app/",
+    "summary": "An interactive destination story in Giza, Egypt powered by OPET Studios, featuring an interactive generative presentation ecosystem.",
+    "description": "Media City Interactive Experience is a cutting-edge generative interactive destination story and digital sales ecosystem created for Media City in Giza, Egypt. Powered by OPET Studios, the project merges real-time 3D spatial visualization, interactive master planning, and generative presentation tools to showcase the full vision of Media City.",
+    "gallery": [
+      "/assets/projects/media-city-interactive-experience/cover.png"
+    ]
+  },
+  {
     "slug": "smouha-gate",
     "title": "Smouha Gate",
     "sector": "Tourism & Mixed-Use",

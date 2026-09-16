@@ -442,11 +442,17 @@ const translations: Record<Language, Record<string, string>> = {
     "Tender": "طرح عطاء",
     "Design Stage": "مرحلة التصميم",
     "Concept Stage": "مرحلة الفكرة",
+    "Interactive Experience": "تجربة تفاعلية",
+    "Open Map Fullscreen": "فتح الخريطة ملء الشاشة",
+    "Open Experience in New Tab": "فتح التجربة في نافذة جديدة",
+    "Open Interactive Experience": "فتح التجربة التفاعلية",
 
     // Locations / dynamic names
     "Muscat, Oman": "مسقط، عمان",
     "Riyadh, KSA": "الرياض، السعودية",
     "Cairo, Egypt": "القاهرة، مصر",
+    "OPET Studios": "أوبيت ستوديوز",
+    "Media City Interactive Experience": "تجربة مدينة الإعلام التفاعلية",
     "Saudi Arabia": "المملكة العربية السعودية",
     "Aswan, Egypt": "أسوان، مصر",
     "Hurghada, Red Sea, Egypt": "الغردقة، البحر الأحمر، مصر",
